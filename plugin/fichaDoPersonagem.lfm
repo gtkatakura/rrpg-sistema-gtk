@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form
+  formType="sheetTemplate"
+  dataType="gtk.fichaDoPersonagem"
+  title="Sistema GTK - Ficha do Personagem (v0.1)"
+  name="frmFichaDoPersonagem"
+>
+
+  <tabControl align="client">
+    <tab title="Atributos">
+      <!-- Atributos Espirituais/Mentais -->
+
+      <layout left="20" top="20" height="25" width="250">
+        <label align="left" text="Inteligência: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.inteligencia"/>
+      </layout>
+
+      <layout left="20" top="50" height="25" width="250">
+        <label align="left" text="Sabedoria: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.sabedoria"/>
+      </layout>
+
+      <layout left="20" top="80" height="25" width="250">
+        <label align="left" text="Vontade: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.vontade"/>
+      </layout>
+
+      <layout left="20" top="110" height="25" width="250">
+        <label align="left" text="Carisma: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.carisma"/>
+      </layout>
+
+      <layout left="20" top="140" height="25" width="250">
+        <label align="left" text="Energia: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.energia"/>
+      </layout>
+
+      <layout left="20" top="170" height="25" width="250">
+        <label align="left" text="Corpo: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.corpo"/>
+      </layout>
+
+      <!-- Atributos Físicos -->
+
+      <layout left="280" top="20" height="25" width="250">
+        <label align="left" text="Resistência: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.resistencia"/>
+      </layout>
+
+      <layout left="280" top="50" height="25" width="250">
+        <label align="left" text="Velocidade: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.velocidade"/>
+      </layout>
+
+      <layout left="280" top="80" height="25" width="250">
+        <label align="left" text="Agilidade: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.agilidade"/>
+      </layout>
+
+      <layout left="280" top="110" height="25" width="250">
+        <label align="left" text="Destreza: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.destreza"/>
+      </layout>
+
+      <layout left="280" top="140" height="25" width="250">
+        <label align="left" text="Força: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.forca"/>
+      </layout>
+
+      <layout left="280" top="170" height="25" width="250">
+        <label align="left" text="Vigor: " autoSize="true"/>
+        <edit align="client" horzTextAlign="center" field="atributos.vigor"/>
+      </layout>
+    </tab>
+
+    <tab title="Perícias">
+      <scrollBox align="client">
+        <button left="20" top="20" height="25" text="Nova Perícia" width="100" onClick="self.pericias:append()"/>
+        <recordList name="pericias" field="pericias" templateForm="frmPericias" left="20" top="60" width="530" autoHeight="true"/>
+      </scrollBox>
+    </tab>
+  </tabControl>
+</form>

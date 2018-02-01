@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmPericias" height="30" margins="{top=2,bottom=2}">
+  <edit width="180" horzTextAlign="center" field="nome"/>
+  <edit left="185" width="80" horzTextAlign="center" field="nivel"/>
+
+  <comboBox align="right" width="80" margins="{right=2}"
+    field="atributoBase"
+    items="{'INT', 'SAB', 'VON', 'CAR', 'ENE', 'COR', 'RES', 'VEL', 'AGI', 'DES', 'FOR', 'VIG'}"
+  />
+
+  <button align="right" text="Rolar" width="80" margins="{right=2}">
+    <event name="onClick">
+      local mesa = rrpg.getMesaDe(sheet);
+      local ficha = ndb.getRoot(sheet);
+
+      local atributos = {
+        INT = "inteligencia",
+        SAB = "sabedoria",
+        VON = "vontade",
+        CAR = "carisma",
+        ENE = "energia",
+        COR = "corpo",
+        RES = "resistencia",
+        VEL = "velocidade",
+        AGI = "agilidade",
+        DES = "destreza",
+        FOR = "forca",
+        VIG = "vigor",
+      }
+
+      mesa.chat:rolarDados(
+        "01d20 + " .. sheet.nivel .. " + " .. ficha.atributos[atributos[sheet.atributoBase]],
+        sheet.nome .. " - " .. sheet.atributoBase
+      )
+    </event>
+  </button>
+
+  <button align="right" text="Apagar" width="80" onClick="ndb.deleteNode(sheet)"/>
+</form>

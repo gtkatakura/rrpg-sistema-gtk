@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module sdkVersion="3.4b">
+    <id>sistema_gtk</id>
+    <version>1.0</version>
+    <name>Sistema GTK (v1.0)</name>
+    <description></description>
+    <author>Gabriel Takashi Katakura</author>
+    <site>https://github.com/gtkatakura/rrpg-sistema-gtk</site>
+    <contact>gt.katakura@gmail.com</contact>
+</module>
