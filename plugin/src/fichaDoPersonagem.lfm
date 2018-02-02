@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form
+  formType="sheetTemplate"
+  dataType="gtk.fichaDoPersonagem"
+  title="Sistema GTK - Ficha do Personagem (v0.1)"
+  name="frmFichaDoPersonagem"
+>
+  <template name="NumberField">
+    <edit type="number" align="left" horzTextAlign="center" width="30" margins="{left=2, right=2}" field="$(field)"/>
+  </template>
+
+  <template name="AtributoParte">
+    <NumberField field="atributos.$(atributo).$(parte)"/>
+    <dataLink field="atributos.$(atributo).$(parte)">
+      <event name="onChange">
+        sheet.atributos.$(atributo).total = (
+          (sheet.atributos.$(atributo).base or 0) +
+          (sheet.atributos.$(atributo).racaClasse or 0) +
+          (sheet.atributos.$(atributo).treinamento or 0) +
+          (sheet.atributos.$(atributo).habilidade or 0)
+        )
+      </event>
+    </dataLink>
+  </template>
+
+  <template name="Atributo">
+    <layout top="$(top)" height="25" width="450" margins="{left=4,right=4}">
+      <label align="left" horzTextAlign="center" text="$(text)" width="100" autoSize="true"/>
+      <AtributoParte atributo="$(atributo)" parte="base" />
+      <AtributoParte atributo="$(atributo)" parte="racaClasse" />
+      <AtributoParte atributo="$(atributo)" parte="treinamento" />
+      <AtributoParte atributo="$(atributo)" parte="habilidade" />
+      <label align="left" text="=" width="10" margins="{left=4,right=4}" />
+      <label align="left" horzTextAlign="center" width="30" field="atributos.$(atributo).total" />
+    </layout>
+  </template>
+
+  <tabControl align="client">
+    <tab title="Atributos">
+      <Atributo top="40" atributo="inteligencia" text="Inteligência" />
+      <Atributo top="70" atributo="sabedoria" text="Sabedoria" />
+      <Atributo top="100" atributo="vontade" text="Vontade" />
+      <Atributo top="130" atributo="carisma" text="Carisma" />
+      <Atributo top="160" atributo="energia" text="Energia" />
+      <Atributo top="190" atributo="corpo" text="Corpo" />
+
+      <layout left="280" width="300" height="400">
+        <Atributo top="40" atributo="resistencia" text="Resistência" />
+        <Atributo top="70" atributo="velocidade" text="Velocidade" />
+        <Atributo top="100" atributo="agilidade" text="Agilidade" />
+        <Atributo top="130" atributo="destreza" text="Destreza" />
+        <Atributo top="160" atributo="forca" text="Forca" />
+        <Atributo top="190" atributo="vigor" text="Vigor" />
+      </layout>
+    </tab>
+
+    <tab title="Perícias">
+      <scrollBox align="client">
+        <button left="20" top="20" height="25" text="Nova Perícia" width="100" onClick="self.pericias:append()"/>
+        <recordList name="pericias" field="pericias" templateForm="frmPericias" left="20" top="60" width="530" autoHeight="true"/>
+      </scrollBox>
+    </tab>
+  </tabControl>
+</form>

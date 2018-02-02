@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmPericias" height="30" margins="{top=2,bottom=2}">
+  <button align="left" width="30" margins="{right=4}" hint="Rolagem de Teste da Perícia">
+    <image align="left" width="30" src="/src/assets/dice-six-faces.png" />
+    <event name="onClick">
+      local mesa = rrpg.getMesaDe(sheet);
+      local ficha = ndb.getRoot(sheet);
+
+      mesa.chat:rolarDados(
+        "01d20 + " .. sheet.nivel .. " + " .. ficha.atributos[atributos[sheet.atributoBase]].total,
+        sheet.nome .. " - " .. sheet.atributoBase
+      )
+    </event>
+  </button>
+
+  <edit align="left" horzTextAlign="center" width="100" margins="{left=2,right=2}" field="nome"/>
+
+  <edit type="number" align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" field="nivel"/>
+
+  <comboBox align="left" width="60" margins="{left=2,right=2}"
+    field="atributoBase"
+    items="{'INT', 'SAB', 'VON', 'CAR', 'ENE', 'COR', 'RES', 'VEL', 'AGI', 'DES', 'FOR', 'VIG'}"
+  />
+
+  <button align="left" width="30" margins="{left=2,right=2}" hint="Excluir" onClick="ndb.deleteNode(sheet)">
+    <image align="left" width="20" margins="{left=4}" src="/src/assets/cancel.png" />
+  </button>
+</form>
