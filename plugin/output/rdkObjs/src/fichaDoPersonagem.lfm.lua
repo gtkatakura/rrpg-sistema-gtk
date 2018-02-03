@@ -28,7 +28,7 @@ function newfrmFichaDoPersonagem()
     obj:beginUpdate();
     obj:setFormType("sheetTemplate");
     obj:setDataType("gtk.fichaDoPersonagem");
-    obj:setTitle("Sistema GTK - Ficha do Personagem (v0.1)");
+    obj:setTitle("Sistema GTK - Ficha do Personagem (v0.2)");
     obj:setName("frmFichaDoPersonagem");
 
     obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
@@ -60,12 +60,27 @@ function newfrmFichaDoPersonagem()
     obj.layout1:setMargins({left=4,right=4});
     obj.layout1:setName("layout1");
 
+    obj.button1 = gui.fromHandle(_obj_newObject("button"));
+    obj.button1:setParent(obj.layout1);
+    obj.button1:setAlign("left");
+    obj.button1:setWidth(30);
+    obj.button1:setMargins({right=4});
+    obj.button1:setHint("Rolagem de Teste de Atributo");
+    obj.button1:setName("button1");
+
+    obj.image1 = gui.fromHandle(_obj_newObject("image"));
+    obj.image1:setParent(obj.button1);
+    obj.image1:setAlign("left");
+    obj.image1:setWidth(30);
+    obj.image1:setSRC("/src/assets/dice-six-faces.png");
+    obj.image1:setName("image1");
+
     obj.label1 = gui.fromHandle(_obj_newObject("label"));
     obj.label1:setParent(obj.layout1);
     obj.label1:setAlign("left");
     obj.label1:setHorzTextAlign("center");
     obj.label1:setText("Inteligência");
-    obj.label1:setWidth(100);
+    obj.label1:setWidth(80);
     obj.label1:setAutoSize(true);
     obj.label1:setName("label1");
 
@@ -153,12 +168,27 @@ function newfrmFichaDoPersonagem()
     obj.layout2:setMargins({left=4,right=4});
     obj.layout2:setName("layout2");
 
+    obj.button2 = gui.fromHandle(_obj_newObject("button"));
+    obj.button2:setParent(obj.layout2);
+    obj.button2:setAlign("left");
+    obj.button2:setWidth(30);
+    obj.button2:setMargins({right=4});
+    obj.button2:setHint("Rolagem de Teste de Atributo");
+    obj.button2:setName("button2");
+
+    obj.image2 = gui.fromHandle(_obj_newObject("image"));
+    obj.image2:setParent(obj.button2);
+    obj.image2:setAlign("left");
+    obj.image2:setWidth(30);
+    obj.image2:setSRC("/src/assets/dice-six-faces.png");
+    obj.image2:setName("image2");
+
     obj.label4 = gui.fromHandle(_obj_newObject("label"));
     obj.label4:setParent(obj.layout2);
     obj.label4:setAlign("left");
     obj.label4:setHorzTextAlign("center");
     obj.label4:setText("Sabedoria");
-    obj.label4:setWidth(100);
+    obj.label4:setWidth(80);
     obj.label4:setAutoSize(true);
     obj.label4:setName("label4");
 
@@ -246,12 +276,27 @@ function newfrmFichaDoPersonagem()
     obj.layout3:setMargins({left=4,right=4});
     obj.layout3:setName("layout3");
 
+    obj.button3 = gui.fromHandle(_obj_newObject("button"));
+    obj.button3:setParent(obj.layout3);
+    obj.button3:setAlign("left");
+    obj.button3:setWidth(30);
+    obj.button3:setMargins({right=4});
+    obj.button3:setHint("Rolagem de Teste de Atributo");
+    obj.button3:setName("button3");
+
+    obj.image3 = gui.fromHandle(_obj_newObject("image"));
+    obj.image3:setParent(obj.button3);
+    obj.image3:setAlign("left");
+    obj.image3:setWidth(30);
+    obj.image3:setSRC("/src/assets/dice-six-faces.png");
+    obj.image3:setName("image3");
+
     obj.label7 = gui.fromHandle(_obj_newObject("label"));
     obj.label7:setParent(obj.layout3);
     obj.label7:setAlign("left");
     obj.label7:setHorzTextAlign("center");
     obj.label7:setText("Vontade");
-    obj.label7:setWidth(100);
+    obj.label7:setWidth(80);
     obj.label7:setAutoSize(true);
     obj.label7:setName("label7");
 
@@ -339,12 +384,27 @@ function newfrmFichaDoPersonagem()
     obj.layout4:setMargins({left=4,right=4});
     obj.layout4:setName("layout4");
 
+    obj.button4 = gui.fromHandle(_obj_newObject("button"));
+    obj.button4:setParent(obj.layout4);
+    obj.button4:setAlign("left");
+    obj.button4:setWidth(30);
+    obj.button4:setMargins({right=4});
+    obj.button4:setHint("Rolagem de Teste de Atributo");
+    obj.button4:setName("button4");
+
+    obj.image4 = gui.fromHandle(_obj_newObject("image"));
+    obj.image4:setParent(obj.button4);
+    obj.image4:setAlign("left");
+    obj.image4:setWidth(30);
+    obj.image4:setSRC("/src/assets/dice-six-faces.png");
+    obj.image4:setName("image4");
+
     obj.label10 = gui.fromHandle(_obj_newObject("label"));
     obj.label10:setParent(obj.layout4);
     obj.label10:setAlign("left");
     obj.label10:setHorzTextAlign("center");
     obj.label10:setText("Carisma");
-    obj.label10:setWidth(100);
+    obj.label10:setWidth(80);
     obj.label10:setAutoSize(true);
     obj.label10:setName("label10");
 
@@ -432,12 +492,27 @@ function newfrmFichaDoPersonagem()
     obj.layout5:setMargins({left=4,right=4});
     obj.layout5:setName("layout5");
 
+    obj.button5 = gui.fromHandle(_obj_newObject("button"));
+    obj.button5:setParent(obj.layout5);
+    obj.button5:setAlign("left");
+    obj.button5:setWidth(30);
+    obj.button5:setMargins({right=4});
+    obj.button5:setHint("Rolagem de Teste de Atributo");
+    obj.button5:setName("button5");
+
+    obj.image5 = gui.fromHandle(_obj_newObject("image"));
+    obj.image5:setParent(obj.button5);
+    obj.image5:setAlign("left");
+    obj.image5:setWidth(30);
+    obj.image5:setSRC("/src/assets/dice-six-faces.png");
+    obj.image5:setName("image5");
+
     obj.label13 = gui.fromHandle(_obj_newObject("label"));
     obj.label13:setParent(obj.layout5);
     obj.label13:setAlign("left");
     obj.label13:setHorzTextAlign("center");
     obj.label13:setText("Energia");
-    obj.label13:setWidth(100);
+    obj.label13:setWidth(80);
     obj.label13:setAutoSize(true);
     obj.label13:setName("label13");
 
@@ -525,12 +600,27 @@ function newfrmFichaDoPersonagem()
     obj.layout6:setMargins({left=4,right=4});
     obj.layout6:setName("layout6");
 
+    obj.button6 = gui.fromHandle(_obj_newObject("button"));
+    obj.button6:setParent(obj.layout6);
+    obj.button6:setAlign("left");
+    obj.button6:setWidth(30);
+    obj.button6:setMargins({right=4});
+    obj.button6:setHint("Rolagem de Teste de Atributo");
+    obj.button6:setName("button6");
+
+    obj.image6 = gui.fromHandle(_obj_newObject("image"));
+    obj.image6:setParent(obj.button6);
+    obj.image6:setAlign("left");
+    obj.image6:setWidth(30);
+    obj.image6:setSRC("/src/assets/dice-six-faces.png");
+    obj.image6:setName("image6");
+
     obj.label16 = gui.fromHandle(_obj_newObject("label"));
     obj.label16:setParent(obj.layout6);
     obj.label16:setAlign("left");
     obj.label16:setHorzTextAlign("center");
     obj.label16:setText("Corpo");
-    obj.label16:setWidth(100);
+    obj.label16:setWidth(80);
     obj.label16:setAutoSize(true);
     obj.label16:setName("label16");
 
@@ -612,7 +702,7 @@ function newfrmFichaDoPersonagem()
 
     obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout7:setParent(obj.tab2);
-    obj.layout7:setLeft(280);
+    obj.layout7:setLeft(320);
     obj.layout7:setWidth(300);
     obj.layout7:setHeight(400);
     obj.layout7:setName("layout7");
@@ -625,12 +715,27 @@ function newfrmFichaDoPersonagem()
     obj.layout8:setMargins({left=4,right=4});
     obj.layout8:setName("layout8");
 
+    obj.button7 = gui.fromHandle(_obj_newObject("button"));
+    obj.button7:setParent(obj.layout8);
+    obj.button7:setAlign("left");
+    obj.button7:setWidth(30);
+    obj.button7:setMargins({right=4});
+    obj.button7:setHint("Rolagem de Teste de Atributo");
+    obj.button7:setName("button7");
+
+    obj.image7 = gui.fromHandle(_obj_newObject("image"));
+    obj.image7:setParent(obj.button7);
+    obj.image7:setAlign("left");
+    obj.image7:setWidth(30);
+    obj.image7:setSRC("/src/assets/dice-six-faces.png");
+    obj.image7:setName("image7");
+
     obj.label19 = gui.fromHandle(_obj_newObject("label"));
     obj.label19:setParent(obj.layout8);
     obj.label19:setAlign("left");
     obj.label19:setHorzTextAlign("center");
     obj.label19:setText("Resistência");
-    obj.label19:setWidth(100);
+    obj.label19:setWidth(80);
     obj.label19:setAutoSize(true);
     obj.label19:setName("label19");
 
@@ -718,12 +823,27 @@ function newfrmFichaDoPersonagem()
     obj.layout9:setMargins({left=4,right=4});
     obj.layout9:setName("layout9");
 
+    obj.button8 = gui.fromHandle(_obj_newObject("button"));
+    obj.button8:setParent(obj.layout9);
+    obj.button8:setAlign("left");
+    obj.button8:setWidth(30);
+    obj.button8:setMargins({right=4});
+    obj.button8:setHint("Rolagem de Teste de Atributo");
+    obj.button8:setName("button8");
+
+    obj.image8 = gui.fromHandle(_obj_newObject("image"));
+    obj.image8:setParent(obj.button8);
+    obj.image8:setAlign("left");
+    obj.image8:setWidth(30);
+    obj.image8:setSRC("/src/assets/dice-six-faces.png");
+    obj.image8:setName("image8");
+
     obj.label22 = gui.fromHandle(_obj_newObject("label"));
     obj.label22:setParent(obj.layout9);
     obj.label22:setAlign("left");
     obj.label22:setHorzTextAlign("center");
     obj.label22:setText("Velocidade");
-    obj.label22:setWidth(100);
+    obj.label22:setWidth(80);
     obj.label22:setAutoSize(true);
     obj.label22:setName("label22");
 
@@ -811,12 +931,27 @@ function newfrmFichaDoPersonagem()
     obj.layout10:setMargins({left=4,right=4});
     obj.layout10:setName("layout10");
 
+    obj.button9 = gui.fromHandle(_obj_newObject("button"));
+    obj.button9:setParent(obj.layout10);
+    obj.button9:setAlign("left");
+    obj.button9:setWidth(30);
+    obj.button9:setMargins({right=4});
+    obj.button9:setHint("Rolagem de Teste de Atributo");
+    obj.button9:setName("button9");
+
+    obj.image9 = gui.fromHandle(_obj_newObject("image"));
+    obj.image9:setParent(obj.button9);
+    obj.image9:setAlign("left");
+    obj.image9:setWidth(30);
+    obj.image9:setSRC("/src/assets/dice-six-faces.png");
+    obj.image9:setName("image9");
+
     obj.label25 = gui.fromHandle(_obj_newObject("label"));
     obj.label25:setParent(obj.layout10);
     obj.label25:setAlign("left");
     obj.label25:setHorzTextAlign("center");
     obj.label25:setText("Agilidade");
-    obj.label25:setWidth(100);
+    obj.label25:setWidth(80);
     obj.label25:setAutoSize(true);
     obj.label25:setName("label25");
 
@@ -904,12 +1039,27 @@ function newfrmFichaDoPersonagem()
     obj.layout11:setMargins({left=4,right=4});
     obj.layout11:setName("layout11");
 
+    obj.button10 = gui.fromHandle(_obj_newObject("button"));
+    obj.button10:setParent(obj.layout11);
+    obj.button10:setAlign("left");
+    obj.button10:setWidth(30);
+    obj.button10:setMargins({right=4});
+    obj.button10:setHint("Rolagem de Teste de Atributo");
+    obj.button10:setName("button10");
+
+    obj.image10 = gui.fromHandle(_obj_newObject("image"));
+    obj.image10:setParent(obj.button10);
+    obj.image10:setAlign("left");
+    obj.image10:setWidth(30);
+    obj.image10:setSRC("/src/assets/dice-six-faces.png");
+    obj.image10:setName("image10");
+
     obj.label28 = gui.fromHandle(_obj_newObject("label"));
     obj.label28:setParent(obj.layout11);
     obj.label28:setAlign("left");
     obj.label28:setHorzTextAlign("center");
     obj.label28:setText("Destreza");
-    obj.label28:setWidth(100);
+    obj.label28:setWidth(80);
     obj.label28:setAutoSize(true);
     obj.label28:setName("label28");
 
@@ -997,12 +1147,27 @@ function newfrmFichaDoPersonagem()
     obj.layout12:setMargins({left=4,right=4});
     obj.layout12:setName("layout12");
 
+    obj.button11 = gui.fromHandle(_obj_newObject("button"));
+    obj.button11:setParent(obj.layout12);
+    obj.button11:setAlign("left");
+    obj.button11:setWidth(30);
+    obj.button11:setMargins({right=4});
+    obj.button11:setHint("Rolagem de Teste de Atributo");
+    obj.button11:setName("button11");
+
+    obj.image11 = gui.fromHandle(_obj_newObject("image"));
+    obj.image11:setParent(obj.button11);
+    obj.image11:setAlign("left");
+    obj.image11:setWidth(30);
+    obj.image11:setSRC("/src/assets/dice-six-faces.png");
+    obj.image11:setName("image11");
+
     obj.label31 = gui.fromHandle(_obj_newObject("label"));
     obj.label31:setParent(obj.layout12);
     obj.label31:setAlign("left");
     obj.label31:setHorzTextAlign("center");
-    obj.label31:setText("Forca");
-    obj.label31:setWidth(100);
+    obj.label31:setText("Força");
+    obj.label31:setWidth(80);
     obj.label31:setAutoSize(true);
     obj.label31:setName("label31");
 
@@ -1090,12 +1255,27 @@ function newfrmFichaDoPersonagem()
     obj.layout13:setMargins({left=4,right=4});
     obj.layout13:setName("layout13");
 
+    obj.button12 = gui.fromHandle(_obj_newObject("button"));
+    obj.button12:setParent(obj.layout13);
+    obj.button12:setAlign("left");
+    obj.button12:setWidth(30);
+    obj.button12:setMargins({right=4});
+    obj.button12:setHint("Rolagem de Teste de Atributo");
+    obj.button12:setName("button12");
+
+    obj.image12 = gui.fromHandle(_obj_newObject("image"));
+    obj.image12:setParent(obj.button12);
+    obj.image12:setAlign("left");
+    obj.image12:setWidth(30);
+    obj.image12:setSRC("/src/assets/dice-six-faces.png");
+    obj.image12:setName("image12");
+
     obj.label34 = gui.fromHandle(_obj_newObject("label"));
     obj.label34:setParent(obj.layout13);
     obj.label34:setAlign("left");
     obj.label34:setHorzTextAlign("center");
     obj.label34:setText("Vigor");
-    obj.label34:setWidth(100);
+    obj.label34:setWidth(80);
     obj.label34:setAutoSize(true);
     obj.label34:setName("label34");
 
@@ -1196,14 +1376,67 @@ function newfrmFichaDoPersonagem()
     obj.scrollBox1:setAlign("client");
     obj.scrollBox1:setName("scrollBox1");
 
-    obj.button1 = gui.fromHandle(_obj_newObject("button"));
-    obj.button1:setParent(obj.scrollBox1);
-    obj.button1:setLeft(20);
-    obj.button1:setTop(20);
-    obj.button1:setHeight(25);
-    obj.button1:setText("Nova Perícia");
-    obj.button1:setWidth(100);
-    obj.button1:setName("button1");
+    obj.button13 = gui.fromHandle(_obj_newObject("button"));
+    obj.button13:setParent(obj.scrollBox1);
+    obj.button13:setLeft(20);
+    obj.button13:setTop(20);
+    obj.button13:setHeight(25);
+    obj.button13:setText("Nova Perícia");
+    obj.button13:setWidth(100);
+    obj.button13:setName("button13");
+
+    obj.layout14 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout14:setParent(obj.scrollBox1);
+    obj.layout14:setLeft(55);
+    obj.layout14:setTop(45);
+    obj.layout14:setWidth(350);
+    obj.layout14:setMargins({top=5,bottom=15});
+    obj.layout14:setName("layout14");
+
+    obj.label37 = gui.fromHandle(_obj_newObject("label"));
+    obj.label37:setParent(obj.layout14);
+    obj.label37:setAlign("left");
+    obj.label37:setHorzTextAlign("center");
+    obj.label37:setWidth(100);
+    obj.label37:setMargins({left=2,right=2});
+    obj.label37:setText("GRUPO");
+    obj.label37:setName("label37");
+
+    obj.label38 = gui.fromHandle(_obj_newObject("label"));
+    obj.label38:setParent(obj.layout14);
+    obj.label38:setAlign("left");
+    obj.label38:setHorzTextAlign("center");
+    obj.label38:setWidth(100);
+    obj.label38:setMargins({left=2,right=2});
+    obj.label38:setText("NOME");
+    obj.label38:setName("label38");
+
+    obj.label39 = gui.fromHandle(_obj_newObject("label"));
+    obj.label39:setParent(obj.layout14);
+    obj.label39:setAlign("left");
+    obj.label39:setHorzTextAlign("center");
+    obj.label39:setWidth(30);
+    obj.label39:setMargins({left=2,right=2});
+    obj.label39:setText("B");
+    obj.label39:setName("label39");
+
+    obj.label40 = gui.fromHandle(_obj_newObject("label"));
+    obj.label40:setParent(obj.layout14);
+    obj.label40:setAlign("left");
+    obj.label40:setHorzTextAlign("center");
+    obj.label40:setWidth(30);
+    obj.label40:setMargins({left=2,right=2});
+    obj.label40:setText("R/C");
+    obj.label40:setName("label40");
+
+    obj.label41 = gui.fromHandle(_obj_newObject("label"));
+    obj.label41:setParent(obj.layout14);
+    obj.label41:setAlign("left");
+    obj.label41:setHorzTextAlign("center");
+    obj.label41:setWidth(30);
+    obj.label41:setMargins({left=2,right=2});
+    obj.label41:setText("H");
+    obj.label41:setName("label41");
 
     obj.pericias = gui.fromHandle(_obj_newObject("recordList"));
     obj.pericias:setParent(obj.scrollBox1);
@@ -1211,7 +1444,7 @@ function newfrmFichaDoPersonagem()
     obj.pericias:setField("pericias");
     obj.pericias:setTemplateForm("frmPericias");
     obj.pericias:setLeft(20);
-    obj.pericias:setTop(60);
+    obj.pericias:setTop(80);
     obj.pericias:setWidth(530);
     obj.pericias:setAutoHeight(true);
 
@@ -1259,7 +1492,18 @@ function newfrmFichaDoPersonagem()
     obj.richEdit6:setField("historia");
     obj.richEdit6:setName("richEdit6");
 
-    obj._e_event0 = obj.dataLink1:addEventListener("onChange",
+    obj._e_event0 = obj.button1:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.inteligencia.total,
+                        "Teste de Inteligência"
+                      )
+        end, obj);
+
+    obj._e_event1 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.inteligencia.total = (
                       (sheet.atributos.inteligencia.base or 0) +
@@ -1269,7 +1513,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event1 = obj.dataLink2:addEventListener("onChange",
+    obj._e_event2 = obj.dataLink2:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.inteligencia.total = (
                       (sheet.atributos.inteligencia.base or 0) +
@@ -1279,7 +1523,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event2 = obj.dataLink3:addEventListener("onChange",
+    obj._e_event3 = obj.dataLink3:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.inteligencia.total = (
                       (sheet.atributos.inteligencia.base or 0) +
@@ -1289,7 +1533,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event3 = obj.dataLink4:addEventListener("onChange",
+    obj._e_event4 = obj.dataLink4:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.inteligencia.total = (
                       (sheet.atributos.inteligencia.base or 0) +
@@ -1299,7 +1543,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event4 = obj.dataLink5:addEventListener("onChange",
+    obj._e_event5 = obj.button2:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.sabedoria.total,
+                        "Teste de Sabedoria"
+                      )
+        end, obj);
+
+    obj._e_event6 = obj.dataLink5:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.sabedoria.total = (
                       (sheet.atributos.sabedoria.base or 0) +
@@ -1309,7 +1564,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event5 = obj.dataLink6:addEventListener("onChange",
+    obj._e_event7 = obj.dataLink6:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.sabedoria.total = (
                       (sheet.atributos.sabedoria.base or 0) +
@@ -1319,7 +1574,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event6 = obj.dataLink7:addEventListener("onChange",
+    obj._e_event8 = obj.dataLink7:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.sabedoria.total = (
                       (sheet.atributos.sabedoria.base or 0) +
@@ -1329,7 +1584,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event7 = obj.dataLink8:addEventListener("onChange",
+    obj._e_event9 = obj.dataLink8:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.sabedoria.total = (
                       (sheet.atributos.sabedoria.base or 0) +
@@ -1339,7 +1594,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event8 = obj.dataLink9:addEventListener("onChange",
+    obj._e_event10 = obj.button3:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.vontade.total,
+                        "Teste de Vontade"
+                      )
+        end, obj);
+
+    obj._e_event11 = obj.dataLink9:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.vontade.total = (
                       (sheet.atributos.vontade.base or 0) +
@@ -1349,7 +1615,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event9 = obj.dataLink10:addEventListener("onChange",
+    obj._e_event12 = obj.dataLink10:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.vontade.total = (
                       (sheet.atributos.vontade.base or 0) +
@@ -1359,7 +1625,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event10 = obj.dataLink11:addEventListener("onChange",
+    obj._e_event13 = obj.dataLink11:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.vontade.total = (
                       (sheet.atributos.vontade.base or 0) +
@@ -1369,7 +1635,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event11 = obj.dataLink12:addEventListener("onChange",
+    obj._e_event14 = obj.dataLink12:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.vontade.total = (
                       (sheet.atributos.vontade.base or 0) +
@@ -1379,7 +1645,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event12 = obj.dataLink13:addEventListener("onChange",
+    obj._e_event15 = obj.button4:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.carisma.total,
+                        "Teste de Carisma"
+                      )
+        end, obj);
+
+    obj._e_event16 = obj.dataLink13:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.carisma.total = (
                       (sheet.atributos.carisma.base or 0) +
@@ -1389,7 +1666,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event13 = obj.dataLink14:addEventListener("onChange",
+    obj._e_event17 = obj.dataLink14:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.carisma.total = (
                       (sheet.atributos.carisma.base or 0) +
@@ -1399,7 +1676,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event14 = obj.dataLink15:addEventListener("onChange",
+    obj._e_event18 = obj.dataLink15:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.carisma.total = (
                       (sheet.atributos.carisma.base or 0) +
@@ -1409,7 +1686,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event15 = obj.dataLink16:addEventListener("onChange",
+    obj._e_event19 = obj.dataLink16:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.carisma.total = (
                       (sheet.atributos.carisma.base or 0) +
@@ -1419,7 +1696,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event16 = obj.dataLink17:addEventListener("onChange",
+    obj._e_event20 = obj.button5:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.energia.total,
+                        "Teste de Energia"
+                      )
+        end, obj);
+
+    obj._e_event21 = obj.dataLink17:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.energia.total = (
                       (sheet.atributos.energia.base or 0) +
@@ -1429,7 +1717,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event17 = obj.dataLink18:addEventListener("onChange",
+    obj._e_event22 = obj.dataLink18:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.energia.total = (
                       (sheet.atributos.energia.base or 0) +
@@ -1439,7 +1727,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event18 = obj.dataLink19:addEventListener("onChange",
+    obj._e_event23 = obj.dataLink19:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.energia.total = (
                       (sheet.atributos.energia.base or 0) +
@@ -1449,7 +1737,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event19 = obj.dataLink20:addEventListener("onChange",
+    obj._e_event24 = obj.dataLink20:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.energia.total = (
                       (sheet.atributos.energia.base or 0) +
@@ -1459,7 +1747,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event20 = obj.dataLink21:addEventListener("onChange",
+    obj._e_event25 = obj.button6:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.corpo.total,
+                        "Teste de Corpo"
+                      )
+        end, obj);
+
+    obj._e_event26 = obj.dataLink21:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.corpo.total = (
                       (sheet.atributos.corpo.base or 0) +
@@ -1469,7 +1768,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event21 = obj.dataLink22:addEventListener("onChange",
+    obj._e_event27 = obj.dataLink22:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.corpo.total = (
                       (sheet.atributos.corpo.base or 0) +
@@ -1479,7 +1778,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event22 = obj.dataLink23:addEventListener("onChange",
+    obj._e_event28 = obj.dataLink23:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.corpo.total = (
                       (sheet.atributos.corpo.base or 0) +
@@ -1489,7 +1788,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event23 = obj.dataLink24:addEventListener("onChange",
+    obj._e_event29 = obj.dataLink24:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.corpo.total = (
                       (sheet.atributos.corpo.base or 0) +
@@ -1499,7 +1798,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event24 = obj.dataLink25:addEventListener("onChange",
+    obj._e_event30 = obj.button7:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.resistencia.total,
+                        "Teste de Resistência"
+                      )
+        end, obj);
+
+    obj._e_event31 = obj.dataLink25:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.resistencia.total = (
                       (sheet.atributos.resistencia.base or 0) +
@@ -1509,7 +1819,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event25 = obj.dataLink26:addEventListener("onChange",
+    obj._e_event32 = obj.dataLink26:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.resistencia.total = (
                       (sheet.atributos.resistencia.base or 0) +
@@ -1519,7 +1829,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event26 = obj.dataLink27:addEventListener("onChange",
+    obj._e_event33 = obj.dataLink27:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.resistencia.total = (
                       (sheet.atributos.resistencia.base or 0) +
@@ -1529,7 +1839,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event27 = obj.dataLink28:addEventListener("onChange",
+    obj._e_event34 = obj.dataLink28:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.resistencia.total = (
                       (sheet.atributos.resistencia.base or 0) +
@@ -1539,7 +1849,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event28 = obj.dataLink29:addEventListener("onChange",
+    obj._e_event35 = obj.button8:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.velocidade.total,
+                        "Teste de Velocidade"
+                      )
+        end, obj);
+
+    obj._e_event36 = obj.dataLink29:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.velocidade.total = (
                       (sheet.atributos.velocidade.base or 0) +
@@ -1549,7 +1870,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event29 = obj.dataLink30:addEventListener("onChange",
+    obj._e_event37 = obj.dataLink30:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.velocidade.total = (
                       (sheet.atributos.velocidade.base or 0) +
@@ -1559,7 +1880,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event30 = obj.dataLink31:addEventListener("onChange",
+    obj._e_event38 = obj.dataLink31:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.velocidade.total = (
                       (sheet.atributos.velocidade.base or 0) +
@@ -1569,7 +1890,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event31 = obj.dataLink32:addEventListener("onChange",
+    obj._e_event39 = obj.dataLink32:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.velocidade.total = (
                       (sheet.atributos.velocidade.base or 0) +
@@ -1579,7 +1900,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event32 = obj.dataLink33:addEventListener("onChange",
+    obj._e_event40 = obj.button9:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.agilidade.total,
+                        "Teste de Agilidade"
+                      )
+        end, obj);
+
+    obj._e_event41 = obj.dataLink33:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.agilidade.total = (
                       (sheet.atributos.agilidade.base or 0) +
@@ -1589,7 +1921,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event33 = obj.dataLink34:addEventListener("onChange",
+    obj._e_event42 = obj.dataLink34:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.agilidade.total = (
                       (sheet.atributos.agilidade.base or 0) +
@@ -1599,7 +1931,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event34 = obj.dataLink35:addEventListener("onChange",
+    obj._e_event43 = obj.dataLink35:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.agilidade.total = (
                       (sheet.atributos.agilidade.base or 0) +
@@ -1609,7 +1941,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event35 = obj.dataLink36:addEventListener("onChange",
+    obj._e_event44 = obj.dataLink36:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.agilidade.total = (
                       (sheet.atributos.agilidade.base or 0) +
@@ -1619,7 +1951,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event36 = obj.dataLink37:addEventListener("onChange",
+    obj._e_event45 = obj.button10:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.destreza.total,
+                        "Teste de Destreza"
+                      )
+        end, obj);
+
+    obj._e_event46 = obj.dataLink37:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.destreza.total = (
                       (sheet.atributos.destreza.base or 0) +
@@ -1629,7 +1972,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event37 = obj.dataLink38:addEventListener("onChange",
+    obj._e_event47 = obj.dataLink38:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.destreza.total = (
                       (sheet.atributos.destreza.base or 0) +
@@ -1639,7 +1982,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event38 = obj.dataLink39:addEventListener("onChange",
+    obj._e_event48 = obj.dataLink39:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.destreza.total = (
                       (sheet.atributos.destreza.base or 0) +
@@ -1649,7 +1992,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event39 = obj.dataLink40:addEventListener("onChange",
+    obj._e_event49 = obj.dataLink40:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.destreza.total = (
                       (sheet.atributos.destreza.base or 0) +
@@ -1659,7 +2002,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event40 = obj.dataLink41:addEventListener("onChange",
+    obj._e_event50 = obj.button11:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.forca.total,
+                        "Teste de Força"
+                      )
+        end, obj);
+
+    obj._e_event51 = obj.dataLink41:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.forca.total = (
                       (sheet.atributos.forca.base or 0) +
@@ -1669,7 +2023,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event41 = obj.dataLink42:addEventListener("onChange",
+    obj._e_event52 = obj.dataLink42:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.forca.total = (
                       (sheet.atributos.forca.base or 0) +
@@ -1679,7 +2033,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event42 = obj.dataLink43:addEventListener("onChange",
+    obj._e_event53 = obj.dataLink43:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.forca.total = (
                       (sheet.atributos.forca.base or 0) +
@@ -1689,7 +2043,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event43 = obj.dataLink44:addEventListener("onChange",
+    obj._e_event54 = obj.dataLink44:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.forca.total = (
                       (sheet.atributos.forca.base or 0) +
@@ -1699,7 +2053,18 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event44 = obj.dataLink45:addEventListener("onChange",
+    obj._e_event55 = obj.button12:addEventListener("onClick",
+        function (self)
+            local mesa = rrpg.getMesaDe(sheet);
+                      local ficha = ndb.getRoot(sheet);
+            
+                      mesa.chat:rolarDados(
+                        "01d20 + " .. sheet.atributos.vigor.total,
+                        "Teste de Vigor"
+                      )
+        end, obj);
+
+    obj._e_event56 = obj.dataLink45:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.vigor.total = (
                       (sheet.atributos.vigor.base or 0) +
@@ -1709,7 +2074,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event45 = obj.dataLink46:addEventListener("onChange",
+    obj._e_event57 = obj.dataLink46:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.vigor.total = (
                       (sheet.atributos.vigor.base or 0) +
@@ -1719,7 +2084,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event46 = obj.dataLink47:addEventListener("onChange",
+    obj._e_event58 = obj.dataLink47:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.vigor.total = (
                       (sheet.atributos.vigor.base or 0) +
@@ -1729,7 +2094,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event47 = obj.dataLink48:addEventListener("onChange",
+    obj._e_event59 = obj.dataLink48:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos.vigor.total = (
                       (sheet.atributos.vigor.base or 0) +
@@ -1739,12 +2104,24 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event48 = obj.button1:addEventListener("onClick",
+    obj._e_event60 = obj.button13:addEventListener("onClick",
         function (self)
             self.pericias:append()
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event60);
+        __o_rrpgObjs.removeEventListenerById(self._e_event59);
+        __o_rrpgObjs.removeEventListenerById(self._e_event58);
+        __o_rrpgObjs.removeEventListenerById(self._e_event57);
+        __o_rrpgObjs.removeEventListenerById(self._e_event56);
+        __o_rrpgObjs.removeEventListenerById(self._e_event55);
+        __o_rrpgObjs.removeEventListenerById(self._e_event54);
+        __o_rrpgObjs.removeEventListenerById(self._e_event53);
+        __o_rrpgObjs.removeEventListenerById(self._e_event52);
+        __o_rrpgObjs.removeEventListenerById(self._e_event51);
+        __o_rrpgObjs.removeEventListenerById(self._e_event50);
+        __o_rrpgObjs.removeEventListenerById(self._e_event49);
         __o_rrpgObjs.removeEventListenerById(self._e_event48);
         __o_rrpgObjs.removeEventListenerById(self._e_event47);
         __o_rrpgObjs.removeEventListenerById(self._e_event46);
@@ -1805,169 +2182,199 @@ function newfrmFichaDoPersonagem()
           self:setNodeDatabase(nil);
         end;
 
-        if self.dataLink12 ~= nil then self.dataLink12:destroy(); self.dataLink12 = nil; end;
-        if self.label33 ~= nil then self.label33:destroy(); self.label33 = nil; end;
-        if self.tab6 ~= nil then self.tab6:destroy(); self.tab6 = nil; end;
+        if self.edit20 ~= nil then self.edit20:destroy(); self.edit20 = nil; end;
         if self.label14 ~= nil then self.label14:destroy(); self.label14 = nil; end;
-        if self.dataLink31 ~= nil then self.dataLink31:destroy(); self.dataLink31 = nil; end;
-        if self.tab3 ~= nil then self.tab3:destroy(); self.tab3 = nil; end;
-        if self.edit46 ~= nil then self.edit46:destroy(); self.edit46 = nil; end;
-        if self.dataLink40 ~= nil then self.dataLink40:destroy(); self.dataLink40 = nil; end;
         if self.edit41 ~= nil then self.edit41:destroy(); self.edit41 = nil; end;
         if self.layout10 ~= nil then self.layout10:destroy(); self.layout10 = nil; end;
         if self.dataLink28 ~= nil then self.dataLink28:destroy(); self.dataLink28 = nil; end;
         if self.dataLink33 ~= nil then self.dataLink33:destroy(); self.dataLink33 = nil; end;
         if self.edit36 ~= nil then self.edit36:destroy(); self.edit36 = nil; end;
         if self.edit9 ~= nil then self.edit9:destroy(); self.edit9 = nil; end;
-        if self.dataLink39 ~= nil then self.dataLink39:destroy(); self.dataLink39 = nil; end;
+        if self.dataLink42 ~= nil then self.dataLink42:destroy(); self.dataLink42 = nil; end;
         if self.edit33 ~= nil then self.edit33:destroy(); self.edit33 = nil; end;
         if self.dataLink4 ~= nil then self.dataLink4:destroy(); self.dataLink4 = nil; end;
-        if self.dataLink42 ~= nil then self.dataLink42:destroy(); self.dataLink42 = nil; end;
+        if self.label40 ~= nil then self.label40:destroy(); self.label40 = nil; end;
+        if self.image5 ~= nil then self.image5:destroy(); self.image5 = nil; end;
         if self.edit29 ~= nil then self.edit29:destroy(); self.edit29 = nil; end;
-        if self.dataLink47 ~= nil then self.dataLink47:destroy(); self.dataLink47 = nil; end;
+        if self.image7 ~= nil then self.image7:destroy(); self.image7 = nil; end;
         if self.edit28 ~= nil then self.edit28:destroy(); self.edit28 = nil; end;
-        if self.edit7 ~= nil then self.edit7:destroy(); self.edit7 = nil; end;
-        if self.edit12 ~= nil then self.edit12:destroy(); self.edit12 = nil; end;
-        if self.edit35 ~= nil then self.edit35:destroy(); self.edit35 = nil; end;
-        if self.label26 ~= nil then self.label26:destroy(); self.label26 = nil; end;
-        if self.dataLink13 ~= nil then self.dataLink13:destroy(); self.dataLink13 = nil; end;
-        if self.dataLink10 ~= nil then self.dataLink10:destroy(); self.dataLink10 = nil; end;
+        if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
         if self.dataLink18 ~= nil then self.dataLink18:destroy(); self.dataLink18 = nil; end;
-        if self.label22 ~= nil then self.label22:destroy(); self.label22 = nil; end;
         if self.dataLink21 ~= nil then self.dataLink21:destroy(); self.dataLink21 = nil; end;
-        if self.label23 ~= nil then self.label23:destroy(); self.label23 = nil; end;
-        if self.label24 ~= nil then self.label24:destroy(); self.label24 = nil; end;
-        if self.layout3 ~= nil then self.layout3:destroy(); self.layout3 = nil; end;
-        if self.dataLink5 ~= nil then self.dataLink5:destroy(); self.dataLink5 = nil; end;
+        if self.label22 ~= nil then self.label22:destroy(); self.label22 = nil; end;
+        if self.layout13 ~= nil then self.layout13:destroy(); self.layout13 = nil; end;
+        if self.label35 ~= nil then self.label35:destroy(); self.label35 = nil; end;
         if self.label13 ~= nil then self.label13:destroy(); self.label13 = nil; end;
         if self.layout8 ~= nil then self.layout8:destroy(); self.layout8 = nil; end;
-        if self.label32 ~= nil then self.label32:destroy(); self.label32 = nil; end;
-        if self.tab2 ~= nil then self.tab2:destroy(); self.tab2 = nil; end;
-        if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
         if self.label27 ~= nil then self.label27:destroy(); self.label27 = nil; end;
-        if self.layout13 ~= nil then self.layout13:destroy(); self.layout13 = nil; end;
         if self.edit47 ~= nil then self.edit47:destroy(); self.edit47 = nil; end;
         if self.dataLink23 ~= nil then self.dataLink23:destroy(); self.dataLink23 = nil; end;
-        if self.label35 ~= nil then self.label35:destroy(); self.label35 = nil; end;
-        if self.edit24 ~= nil then self.edit24:destroy(); self.edit24 = nil; end;
-        if self.richEdit4 ~= nil then self.richEdit4:destroy(); self.richEdit4 = nil; end;
-        if self.layout12 ~= nil then self.layout12:destroy(); self.layout12 = nil; end;
-        if self.edit14 ~= nil then self.edit14:destroy(); self.edit14 = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
-        if self.dataLink8 ~= nil then self.dataLink8:destroy(); self.dataLink8 = nil; end;
-        if self.edit4 ~= nil then self.edit4:destroy(); self.edit4 = nil; end;
-        if self.edit44 ~= nil then self.edit44:destroy(); self.edit44 = nil; end;
         if self.label8 ~= nil then self.label8:destroy(); self.label8 = nil; end;
         if self.edit26 ~= nil then self.edit26:destroy(); self.edit26 = nil; end;
-        if self.dataLink14 ~= nil then self.dataLink14:destroy(); self.dataLink14 = nil; end;
-        if self.label4 ~= nil then self.label4:destroy(); self.label4 = nil; end;
-        if self.label6 ~= nil then self.label6:destroy(); self.label6 = nil; end;
+        if self.edit34 ~= nil then self.edit34:destroy(); self.edit34 = nil; end;
         if self.edit11 ~= nil then self.edit11:destroy(); self.edit11 = nil; end;
         if self.edit19 ~= nil then self.edit19:destroy(); self.edit19 = nil; end;
+        if self.image1 ~= nil then self.image1:destroy(); self.image1 = nil; end;
         if self.layout9 ~= nil then self.layout9:destroy(); self.layout9 = nil; end;
-        if self.edit34 ~= nil then self.edit34:destroy(); self.edit34 = nil; end;
         if self.label31 ~= nil then self.label31:destroy(); self.label31 = nil; end;
-        if self.edit5 ~= nil then self.edit5:destroy(); self.edit5 = nil; end;
         if self.dataLink44 ~= nil then self.dataLink44:destroy(); self.dataLink44 = nil; end;
         if self.label34 ~= nil then self.label34:destroy(); self.label34 = nil; end;
-        if self.pericias ~= nil then self.pericias:destroy(); self.pericias = nil; end;
+        if self.edit5 ~= nil then self.edit5:destroy(); self.edit5 = nil; end;
+        if self.tab8 ~= nil then self.tab8:destroy(); self.tab8 = nil; end;
         if self.dataLink9 ~= nil then self.dataLink9:destroy(); self.dataLink9 = nil; end;
         if self.label15 ~= nil then self.label15:destroy(); self.label15 = nil; end;
-        if self.dataLink45 ~= nil then self.dataLink45:destroy(); self.dataLink45 = nil; end;
-        if self.tab8 ~= nil then self.tab8:destroy(); self.tab8 = nil; end;
-        if self.dataLink41 ~= nil then self.dataLink41:destroy(); self.dataLink41 = nil; end;
-        if self.dataLink19 ~= nil then self.dataLink19:destroy(); self.dataLink19 = nil; end;
-        if self.dataLink43 ~= nil then self.dataLink43:destroy(); self.dataLink43 = nil; end;
+        if self.label41 ~= nil then self.label41:destroy(); self.label41 = nil; end;
         if self.tab5 ~= nil then self.tab5:destroy(); self.tab5 = nil; end;
         if self.label12 ~= nil then self.label12:destroy(); self.label12 = nil; end;
-        if self.edit45 ~= nil then self.edit45:destroy(); self.edit45 = nil; end;
-        if self.edit8 ~= nil then self.edit8:destroy(); self.edit8 = nil; end;
-        if self.dataLink36 ~= nil then self.dataLink36:destroy(); self.dataLink36 = nil; end;
+        if self.image11 ~= nil then self.image11:destroy(); self.image11 = nil; end;
         if self.label16 ~= nil then self.label16:destroy(); self.label16 = nil; end;
-        if self.dataLink17 ~= nil then self.dataLink17:destroy(); self.dataLink17 = nil; end;
-        if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
         if self.edit10 ~= nil then self.edit10:destroy(); self.edit10 = nil; end;
-        if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
         if self.edit16 ~= nil then self.edit16:destroy(); self.edit16 = nil; end;
         if self.edit31 ~= nil then self.edit31:destroy(); self.edit31 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
-        if self.label28 ~= nil then self.label28:destroy(); self.label28 = nil; end;
-        if self.edit30 ~= nil then self.edit30:destroy(); self.edit30 = nil; end;
+        if self.button4 ~= nil then self.button4:destroy(); self.button4 = nil; end;
         if self.dataLink16 ~= nil then self.dataLink16:destroy(); self.dataLink16 = nil; end;
-        if self.edit21 ~= nil then self.edit21:destroy(); self.edit21 = nil; end;
-        if self.tab4 ~= nil then self.tab4:destroy(); self.tab4 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.layout4 ~= nil then self.layout4:destroy(); self.layout4 = nil; end;
-        if self.edit43 ~= nil then self.edit43:destroy(); self.edit43 = nil; end;
-        if self.label17 ~= nil then self.label17:destroy(); self.label17 = nil; end;
+        if self.image9 ~= nil then self.image9:destroy(); self.image9 = nil; end;
+        if self.image3 ~= nil then self.image3:destroy(); self.image3 = nil; end;
+        if self.button7 ~= nil then self.button7:destroy(); self.button7 = nil; end;
+        if self.image8 ~= nil then self.image8:destroy(); self.image8 = nil; end;
         if self.dataLink20 ~= nil then self.dataLink20:destroy(); self.dataLink20 = nil; end;
-        if self.edit13 ~= nil then self.edit13:destroy(); self.edit13 = nil; end;
-        if self.dataLink24 ~= nil then self.dataLink24:destroy(); self.dataLink24 = nil; end;
         if self.layout5 ~= nil then self.layout5:destroy(); self.layout5 = nil; end;
-        if self.dataLink35 ~= nil then self.dataLink35:destroy(); self.dataLink35 = nil; end;
         if self.edit23 ~= nil then self.edit23:destroy(); self.edit23 = nil; end;
-        if self.edit39 ~= nil then self.edit39:destroy(); self.edit39 = nil; end;
-        if self.dataLink1 ~= nil then self.dataLink1:destroy(); self.dataLink1 = nil; end;
         if self.tab7 ~= nil then self.tab7:destroy(); self.tab7 = nil; end;
         if self.dataLink3 ~= nil then self.dataLink3:destroy(); self.dataLink3 = nil; end;
-        if self.dataLink22 ~= nil then self.dataLink22:destroy(); self.dataLink22 = nil; end;
         if self.label29 ~= nil then self.label29:destroy(); self.label29 = nil; end;
         if self.dataLink7 ~= nil then self.dataLink7:destroy(); self.dataLink7 = nil; end;
-        if self.label36 ~= nil then self.label36:destroy(); self.label36 = nil; end;
-        if self.dataLink26 ~= nil then self.dataLink26:destroy(); self.dataLink26 = nil; end;
         if self.label21 ~= nil then self.label21:destroy(); self.label21 = nil; end;
-        if self.edit37 ~= nil then self.edit37:destroy(); self.edit37 = nil; end;
         if self.edit40 ~= nil then self.edit40:destroy(); self.edit40 = nil; end;
         if self.dataLink6 ~= nil then self.dataLink6:destroy(); self.dataLink6 = nil; end;
         if self.tabControl1 ~= nil then self.tabControl1:destroy(); self.tabControl1 = nil; end;
-        if self.label30 ~= nil then self.label30:destroy(); self.label30 = nil; end;
+        if self.image10 ~= nil then self.image10:destroy(); self.image10 = nil; end;
         if self.dataLink2 ~= nil then self.dataLink2:destroy(); self.dataLink2 = nil; end;
-        if self.dataLink27 ~= nil then self.dataLink27:destroy(); self.dataLink27 = nil; end;
-        if self.label10 ~= nil then self.label10:destroy(); self.label10 = nil; end;
-        if self.edit17 ~= nil then self.edit17:destroy(); self.edit17 = nil; end;
+        if self.label30 ~= nil then self.label30:destroy(); self.label30 = nil; end;
         if self.label19 ~= nil then self.label19:destroy(); self.label19 = nil; end;
-        if self.layout2 ~= nil then self.layout2:destroy(); self.layout2 = nil; end;
-        if self.dataLink30 ~= nil then self.dataLink30:destroy(); self.dataLink30 = nil; end;
-        if self.dataLink15 ~= nil then self.dataLink15:destroy(); self.dataLink15 = nil; end;
         if self.edit38 ~= nil then self.edit38:destroy(); self.edit38 = nil; end;
-        if self.edit48 ~= nil then self.edit48:destroy(); self.edit48 = nil; end;
-        if self.dataLink48 ~= nil then self.dataLink48:destroy(); self.dataLink48 = nil; end;
+        if self.dataLink15 ~= nil then self.dataLink15:destroy(); self.dataLink15 = nil; end;
         if self.richEdit1 ~= nil then self.richEdit1:destroy(); self.richEdit1 = nil; end;
-        if self.edit15 ~= nil then self.edit15:destroy(); self.edit15 = nil; end;
-        if self.label11 ~= nil then self.label11:destroy(); self.label11 = nil; end;
-        if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
-        if self.label20 ~= nil then self.label20:destroy(); self.label20 = nil; end;
         if self.layout11 ~= nil then self.layout11:destroy(); self.layout11 = nil; end;
         if self.dataLink37 ~= nil then self.dataLink37:destroy(); self.dataLink37 = nil; end;
         if self.dataLink34 ~= nil then self.dataLink34:destroy(); self.dataLink34 = nil; end;
         if self.dataLink29 ~= nil then self.dataLink29:destroy(); self.dataLink29 = nil; end;
-        if self.richEdit6 ~= nil then self.richEdit6:destroy(); self.richEdit6 = nil; end;
         if self.dataLink32 ~= nil then self.dataLink32:destroy(); self.dataLink32 = nil; end;
+        if self.button9 ~= nil then self.button9:destroy(); self.button9 = nil; end;
         if self.edit6 ~= nil then self.edit6:destroy(); self.edit6 = nil; end;
         if self.richEdit3 ~= nil then self.richEdit3:destroy(); self.richEdit3 = nil; end;
-        if self.label25 ~= nil then self.label25:destroy(); self.label25 = nil; end;
-        if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;
-        if self.richEdit5 ~= nil then self.richEdit5:destroy(); self.richEdit5 = nil; end;
         if self.label18 ~= nil then self.label18:destroy(); self.label18 = nil; end;
         if self.label2 ~= nil then self.label2:destroy(); self.label2 = nil; end;
-        if self.edit22 ~= nil then self.edit22:destroy(); self.edit22 = nil; end;
         if self.edit3 ~= nil then self.edit3:destroy(); self.edit3 = nil; end;
-        if self.edit42 ~= nil then self.edit42:destroy(); self.edit42 = nil; end;
-        if self.label5 ~= nil then self.label5:destroy(); self.label5 = nil; end;
-        if self.layout6 ~= nil then self.layout6:destroy(); self.layout6 = nil; end;
-        if self.dataLink11 ~= nil then self.dataLink11:destroy(); self.dataLink11 = nil; end;
-        if self.dataLink46 ~= nil then self.dataLink46:destroy(); self.dataLink46 = nil; end;
+        if self.label38 ~= nil then self.label38:destroy(); self.label38 = nil; end;
         if self.edit27 ~= nil then self.edit27:destroy(); self.edit27 = nil; end;
-        if self.edit32 ~= nil then self.edit32:destroy(); self.edit32 = nil; end;
-        if self.tab1 ~= nil then self.tab1:destroy(); self.tab1 = nil; end;
-        if self.dataLink38 ~= nil then self.dataLink38:destroy(); self.dataLink38 = nil; end;
+        if self.layout14 ~= nil then self.layout14:destroy(); self.layout14 = nil; end;
         if self.richEdit2 ~= nil then self.richEdit2:destroy(); self.richEdit2 = nil; end;
         if self.edit18 ~= nil then self.edit18:destroy(); self.edit18 = nil; end;
         if self.edit25 ~= nil then self.edit25:destroy(); self.edit25 = nil; end;
         if self.dataLink25 ~= nil then self.dataLink25:destroy(); self.dataLink25 = nil; end;
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
         if self.layout7 ~= nil then self.layout7:destroy(); self.layout7 = nil; end;
-        if self.edit20 ~= nil then self.edit20:destroy(); self.edit20 = nil; end;
+        if self.label33 ~= nil then self.label33:destroy(); self.label33 = nil; end;
+        if self.tab6 ~= nil then self.tab6:destroy(); self.tab6 = nil; end;
+        if self.dataLink31 ~= nil then self.dataLink31:destroy(); self.dataLink31 = nil; end;
+        if self.tab3 ~= nil then self.tab3:destroy(); self.tab3 = nil; end;
+        if self.edit46 ~= nil then self.edit46:destroy(); self.edit46 = nil; end;
+        if self.dataLink40 ~= nil then self.dataLink40:destroy(); self.dataLink40 = nil; end;
+        if self.dataLink39 ~= nil then self.dataLink39:destroy(); self.dataLink39 = nil; end;
+        if self.dataLink47 ~= nil then self.dataLink47:destroy(); self.dataLink47 = nil; end;
+        if self.edit7 ~= nil then self.edit7:destroy(); self.edit7 = nil; end;
+        if self.edit12 ~= nil then self.edit12:destroy(); self.edit12 = nil; end;
+        if self.edit35 ~= nil then self.edit35:destroy(); self.edit35 = nil; end;
+        if self.label26 ~= nil then self.label26:destroy(); self.label26 = nil; end;
+        if self.dataLink13 ~= nil then self.dataLink13:destroy(); self.dataLink13 = nil; end;
+        if self.dataLink10 ~= nil then self.dataLink10:destroy(); self.dataLink10 = nil; end;
+        if self.label23 ~= nil then self.label23:destroy(); self.label23 = nil; end;
+        if self.label32 ~= nil then self.label32:destroy(); self.label32 = nil; end;
+        if self.image2 ~= nil then self.image2:destroy(); self.image2 = nil; end;
+        if self.label24 ~= nil then self.label24:destroy(); self.label24 = nil; end;
+        if self.layout3 ~= nil then self.layout3:destroy(); self.layout3 = nil; end;
+        if self.dataLink5 ~= nil then self.dataLink5:destroy(); self.dataLink5 = nil; end;
+        if self.tab2 ~= nil then self.tab2:destroy(); self.tab2 = nil; end;
+        if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
+        if self.image6 ~= nil then self.image6:destroy(); self.image6 = nil; end;
+        if self.richEdit4 ~= nil then self.richEdit4:destroy(); self.richEdit4 = nil; end;
+        if self.edit24 ~= nil then self.edit24:destroy(); self.edit24 = nil; end;
+        if self.layout12 ~= nil then self.layout12:destroy(); self.layout12 = nil; end;
+        if self.edit14 ~= nil then self.edit14:destroy(); self.edit14 = nil; end;
+        if self.dataLink8 ~= nil then self.dataLink8:destroy(); self.dataLink8 = nil; end;
+        if self.edit4 ~= nil then self.edit4:destroy(); self.edit4 = nil; end;
+        if self.edit44 ~= nil then self.edit44:destroy(); self.edit44 = nil; end;
+        if self.dataLink14 ~= nil then self.dataLink14:destroy(); self.dataLink14 = nil; end;
+        if self.label4 ~= nil then self.label4:destroy(); self.label4 = nil; end;
+        if self.label6 ~= nil then self.label6:destroy(); self.label6 = nil; end;
+        if self.pericias ~= nil then self.pericias:destroy(); self.pericias = nil; end;
+        if self.button13 ~= nil then self.button13:destroy(); self.button13 = nil; end;
+        if self.image12 ~= nil then self.image12:destroy(); self.image12 = nil; end;
+        if self.dataLink45 ~= nil then self.dataLink45:destroy(); self.dataLink45 = nil; end;
+        if self.dataLink41 ~= nil then self.dataLink41:destroy(); self.dataLink41 = nil; end;
+        if self.label37 ~= nil then self.label37:destroy(); self.label37 = nil; end;
+        if self.dataLink19 ~= nil then self.dataLink19:destroy(); self.dataLink19 = nil; end;
+        if self.dataLink43 ~= nil then self.dataLink43:destroy(); self.dataLink43 = nil; end;
+        if self.edit45 ~= nil then self.edit45:destroy(); self.edit45 = nil; end;
+        if self.edit8 ~= nil then self.edit8:destroy(); self.edit8 = nil; end;
+        if self.dataLink36 ~= nil then self.dataLink36:destroy(); self.dataLink36 = nil; end;
+        if self.dataLink17 ~= nil then self.dataLink17:destroy(); self.dataLink17 = nil; end;
+        if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
+        if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
+        if self.label28 ~= nil then self.label28:destroy(); self.label28 = nil; end;
+        if self.edit30 ~= nil then self.edit30:destroy(); self.edit30 = nil; end;
+        if self.edit21 ~= nil then self.edit21:destroy(); self.edit21 = nil; end;
+        if self.tab4 ~= nil then self.tab4:destroy(); self.tab4 = nil; end;
+        if self.button3 ~= nil then self.button3:destroy(); self.button3 = nil; end;
+        if self.edit43 ~= nil then self.edit43:destroy(); self.edit43 = nil; end;
+        if self.label17 ~= nil then self.label17:destroy(); self.label17 = nil; end;
+        if self.edit13 ~= nil then self.edit13:destroy(); self.edit13 = nil; end;
+        if self.dataLink24 ~= nil then self.dataLink24:destroy(); self.dataLink24 = nil; end;
+        if self.dataLink35 ~= nil then self.dataLink35:destroy(); self.dataLink35 = nil; end;
+        if self.edit39 ~= nil then self.edit39:destroy(); self.edit39 = nil; end;
+        if self.dataLink1 ~= nil then self.dataLink1:destroy(); self.dataLink1 = nil; end;
+        if self.button11 ~= nil then self.button11:destroy(); self.button11 = nil; end;
+        if self.dataLink22 ~= nil then self.dataLink22:destroy(); self.dataLink22 = nil; end;
+        if self.button12 ~= nil then self.button12:destroy(); self.button12 = nil; end;
+        if self.button6 ~= nil then self.button6:destroy(); self.button6 = nil; end;
+        if self.label36 ~= nil then self.label36:destroy(); self.label36 = nil; end;
+        if self.button5 ~= nil then self.button5:destroy(); self.button5 = nil; end;
+        if self.dataLink26 ~= nil then self.dataLink26:destroy(); self.dataLink26 = nil; end;
+        if self.edit37 ~= nil then self.edit37:destroy(); self.edit37 = nil; end;
+        if self.dataLink27 ~= nil then self.dataLink27:destroy(); self.dataLink27 = nil; end;
+        if self.label10 ~= nil then self.label10:destroy(); self.label10 = nil; end;
+        if self.edit17 ~= nil then self.edit17:destroy(); self.edit17 = nil; end;
+        if self.dataLink30 ~= nil then self.dataLink30:destroy(); self.dataLink30 = nil; end;
+        if self.layout2 ~= nil then self.layout2:destroy(); self.layout2 = nil; end;
+        if self.button10 ~= nil then self.button10:destroy(); self.button10 = nil; end;
+        if self.edit48 ~= nil then self.edit48:destroy(); self.edit48 = nil; end;
+        if self.dataLink48 ~= nil then self.dataLink48:destroy(); self.dataLink48 = nil; end;
+        if self.label39 ~= nil then self.label39:destroy(); self.label39 = nil; end;
+        if self.edit15 ~= nil then self.edit15:destroy(); self.edit15 = nil; end;
+        if self.label11 ~= nil then self.label11:destroy(); self.label11 = nil; end;
+        if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
+        if self.label20 ~= nil then self.label20:destroy(); self.label20 = nil; end;
+        if self.richEdit6 ~= nil then self.richEdit6:destroy(); self.richEdit6 = nil; end;
+        if self.label25 ~= nil then self.label25:destroy(); self.label25 = nil; end;
+        if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;
+        if self.button8 ~= nil then self.button8:destroy(); self.button8 = nil; end;
+        if self.richEdit5 ~= nil then self.richEdit5:destroy(); self.richEdit5 = nil; end;
+        if self.edit42 ~= nil then self.edit42:destroy(); self.edit42 = nil; end;
+        if self.edit22 ~= nil then self.edit22:destroy(); self.edit22 = nil; end;
+        if self.label5 ~= nil then self.label5:destroy(); self.label5 = nil; end;
+        if self.layout6 ~= nil then self.layout6:destroy(); self.layout6 = nil; end;
+        if self.dataLink11 ~= nil then self.dataLink11:destroy(); self.dataLink11 = nil; end;
+        if self.dataLink46 ~= nil then self.dataLink46:destroy(); self.dataLink46 = nil; end;
+        if self.image4 ~= nil then self.image4:destroy(); self.image4 = nil; end;
+        if self.edit32 ~= nil then self.edit32:destroy(); self.edit32 = nil; end;
+        if self.tab1 ~= nil then self.tab1:destroy(); self.tab1 = nil; end;
+        if self.dataLink38 ~= nil then self.dataLink38:destroy(); self.dataLink38 = nil; end;
+        if self.dataLink12 ~= nil then self.dataLink12:destroy(); self.dataLink12 = nil; end;
         self:_oldLFMDestroy();
     end;
 
@@ -1985,7 +2392,7 @@ local _frmFichaDoPersonagem = {
     dataType = "gtk.fichaDoPersonagem", 
     formType = "sheetTemplate", 
     formComponentName = "form", 
-    title = "Sistema GTK - Ficha do Personagem (v0.1)", 
+    title = "Sistema GTK - Ficha do Personagem (v0.2)", 
     description=""};
 
 frmFichaDoPersonagem = _frmFichaDoPersonagem;

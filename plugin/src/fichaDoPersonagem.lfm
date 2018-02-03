@@ -26,7 +26,19 @@
 
   <template name="Atributo">
     <layout top="$(top)" height="25" width="450" margins="{left=4,right=4}">
-      <label align="left" horzTextAlign="center" text="$(text)" width="100" autoSize="true"/>
+      <button align="left" width="30" margins="{right=4}" hint="Rolagem de Teste de Atributo">
+        <image align="left" width="30" src="/src/assets/dice-six-faces.png" />
+        <event name="onClick">
+          local mesa = rrpg.getMesaDe(sheet);
+          local ficha = ndb.getRoot(sheet);
+
+          mesa.chat:rolarDados(
+            "01d20 + " .. sheet.atributos.$(atributo).total,
+            "Teste de $(text)"
+          )
+        </event>
+      </button>
+      <label align="left" horzTextAlign="center" text="$(text)" width="80" autoSize="true"/>
       <AtributoParte atributo="$(atributo)" parte="base" />
       <AtributoParte atributo="$(atributo)" parte="racaClasse" />
       <AtributoParte atributo="$(atributo)" parte="treinamento" />
@@ -42,6 +54,7 @@
     </tab>
 
     <tab title="Atributos">
+
       <Atributo top="40" atributo="inteligencia" text="Inteligência" />
       <Atributo top="70" atributo="sabedoria" text="Sabedoria" />
       <Atributo top="100" atributo="vontade" text="Vontade" />
@@ -49,12 +62,12 @@
       <Atributo top="160" atributo="energia" text="Energia" />
       <Atributo top="190" atributo="corpo" text="Corpo" />
 
-      <layout left="280" width="300" height="400">
+      <layout left="320" width="300" height="400">
         <Atributo top="40" atributo="resistencia" text="Resistência" />
         <Atributo top="70" atributo="velocidade" text="Velocidade" />
         <Atributo top="100" atributo="agilidade" text="Agilidade" />
         <Atributo top="130" atributo="destreza" text="Destreza" />
-        <Atributo top="160" atributo="forca" text="Forca" />
+        <Atributo top="160" atributo="forca" text="Força" />
         <Atributo top="190" atributo="vigor" text="Vigor" />
       </layout>
     </tab>
@@ -66,7 +79,16 @@
     <tab title="Perícias">
       <scrollBox align="client">
         <button left="20" top="20" height="25" text="Nova Perícia" width="100" onClick="self.pericias:append()"/>
-        <recordList name="pericias" field="pericias" templateForm="frmPericias" left="20" top="60" width="530" autoHeight="true"/>
+
+        <layout left="55" top="45" width="350" margins="{top=5,bottom=15}">
+          <label align="left" horzTextAlign="center" width="100" margins="{left=2,right=2}" text="GRUPO"/>
+          <label align="left" horzTextAlign="center" width="100" margins="{left=2,right=2}" text="NOME"/>
+          <label align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" text="B"/>
+          <label align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" text="R/C"/>
+          <label align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" text="H"/>
+        </layout>
+
+        <recordList name="pericias" field="pericias" templateForm="frmPericias" left="20" top="80" width="530" autoHeight="true"/>
       </scrollBox>
     </tab>
 
