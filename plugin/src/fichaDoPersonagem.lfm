@@ -3,7 +3,7 @@
 <form
   formType="sheetTemplate"
   dataType="gtk.fichaDoPersonagem"
-  title="Sistema GTK - Ficha do Personagem (v0.2)"
+  title="Sistema GTK - Ficha do Personagem (v0.3)"
   name="frmFichaDoPersonagem"
 >
   <template name="NumberField">
@@ -50,7 +50,42 @@
 
   <tabControl align="client">
     <tab title="Informações">
-      <richEdit align="client" field="informacoes" />
+      <rectangle left="10" top="10" width="400" height="75" color="black">
+        <layout left="5" top="5" width="400" height="30">
+          <label align="left" width="140" text="NOME COMPLETO" />
+          <edit align="left" width="250" field="nome" />
+        </layout>
+
+        <layout left="5" top="40" width="400" height="30">
+          <label align="left" width="140" text="PROFISSÃO" />
+          <edit align="left" width="250" field="profissao" />
+        </layout>
+      </rectangle>
+
+      <rectangle left="10" top="90" width="400" height="80" color="black">
+        <layout left="5" top="5" width="400" height="30">
+          <label align="left" width="150" text="IDADE (ANOS)" />
+          <edit type="number" align="left" width="40" field="idade" />
+
+          <label align="left" width="150" text="GRUPO SANGUÍNEO" margins="{left=4}" />
+          <edit align="left" width="40" field="grupoSanguineo" />
+        </layout>
+
+        <layout left="5" top="40" width="500" height="30">
+          <label align="left" width="150" text="ALTURA (CENTÍMETROS)" />
+          <edit type="number" align="left" width="40" field="altura" />
+
+          <label align="left" width="150" text="PESO (QUILOGRAMAS)" margins="{left=4}" />
+          <edit type="number" align="left" width="40" field="peso" />
+        </layout>
+      </rectangle>
+
+      <rectangle left="10" top="175" width="400" height="350" color="black" strokeColor="white" strokeSize="1" />
+      <image left="12" top="177" width="396" height="346" field="avatar" editable="true" style="autoFit">
+        <event name="OnStartDrag">
+          drag:addData("imageURL", sheet.avatar);
+        </event>
+      </image>
     </tab>
 
     <tab title="Atributos">
