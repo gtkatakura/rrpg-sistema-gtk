@@ -38,11 +38,22 @@ function newfrmFichaDoPersonagem()
 
     obj.tab1 = gui.fromHandle(_obj_newObject("tab"));
     obj.tab1:setParent(obj.tabControl1);
-    obj.tab1:setTitle("Atributos");
+    obj.tab1:setTitle("Informações");
     obj.tab1:setName("tab1");
 
+    obj.richEdit1 = gui.fromHandle(_obj_newObject("richEdit"));
+    obj.richEdit1:setParent(obj.tab1);
+    obj.richEdit1:setAlign("client");
+    obj.richEdit1:setField("informacoes");
+    obj.richEdit1:setName("richEdit1");
+
+    obj.tab2 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab2:setParent(obj.tabControl1);
+    obj.tab2:setTitle("Atributos");
+    obj.tab2:setName("tab2");
+
     obj.layout1 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout1:setParent(obj.tab1);
+    obj.layout1:setParent(obj.tab2);
     obj.layout1:setTop(40);
     obj.layout1:setHeight(25);
     obj.layout1:setWidth(450);
@@ -135,7 +146,7 @@ function newfrmFichaDoPersonagem()
     obj.label3:setName("label3");
 
     obj.layout2 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout2:setParent(obj.tab1);
+    obj.layout2:setParent(obj.tab2);
     obj.layout2:setTop(70);
     obj.layout2:setHeight(25);
     obj.layout2:setWidth(450);
@@ -228,7 +239,7 @@ function newfrmFichaDoPersonagem()
     obj.label6:setName("label6");
 
     obj.layout3 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout3:setParent(obj.tab1);
+    obj.layout3:setParent(obj.tab2);
     obj.layout3:setTop(100);
     obj.layout3:setHeight(25);
     obj.layout3:setWidth(450);
@@ -321,7 +332,7 @@ function newfrmFichaDoPersonagem()
     obj.label9:setName("label9");
 
     obj.layout4 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout4:setParent(obj.tab1);
+    obj.layout4:setParent(obj.tab2);
     obj.layout4:setTop(130);
     obj.layout4:setHeight(25);
     obj.layout4:setWidth(450);
@@ -414,7 +425,7 @@ function newfrmFichaDoPersonagem()
     obj.label12:setName("label12");
 
     obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout5:setParent(obj.tab1);
+    obj.layout5:setParent(obj.tab2);
     obj.layout5:setTop(160);
     obj.layout5:setHeight(25);
     obj.layout5:setWidth(450);
@@ -507,7 +518,7 @@ function newfrmFichaDoPersonagem()
     obj.label15:setName("label15");
 
     obj.layout6 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout6:setParent(obj.tab1);
+    obj.layout6:setParent(obj.tab2);
     obj.layout6:setTop(190);
     obj.layout6:setHeight(25);
     obj.layout6:setWidth(450);
@@ -600,7 +611,7 @@ function newfrmFichaDoPersonagem()
     obj.label18:setName("label18");
 
     obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout7:setParent(obj.tab1);
+    obj.layout7:setParent(obj.tab2);
     obj.layout7:setLeft(280);
     obj.layout7:setWidth(300);
     obj.layout7:setHeight(400);
@@ -1164,13 +1175,24 @@ function newfrmFichaDoPersonagem()
     obj.label36:setField("atributos.vigor.total");
     obj.label36:setName("label36");
 
-    obj.tab2 = gui.fromHandle(_obj_newObject("tab"));
-    obj.tab2:setParent(obj.tabControl1);
-    obj.tab2:setTitle("Perícias");
-    obj.tab2:setName("tab2");
+    obj.tab3 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab3:setParent(obj.tabControl1);
+    obj.tab3:setTitle("Sentidos");
+    obj.tab3:setName("tab3");
+
+    obj.richEdit2 = gui.fromHandle(_obj_newObject("richEdit"));
+    obj.richEdit2:setParent(obj.tab3);
+    obj.richEdit2:setAlign("client");
+    obj.richEdit2:setField("sentidos");
+    obj.richEdit2:setName("richEdit2");
+
+    obj.tab4 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab4:setParent(obj.tabControl1);
+    obj.tab4:setTitle("Perícias");
+    obj.tab4:setName("tab4");
 
     obj.scrollBox1 = gui.fromHandle(_obj_newObject("scrollBox"));
-    obj.scrollBox1:setParent(obj.tab2);
+    obj.scrollBox1:setParent(obj.tab4);
     obj.scrollBox1:setAlign("client");
     obj.scrollBox1:setName("scrollBox1");
 
@@ -1192,6 +1214,50 @@ function newfrmFichaDoPersonagem()
     obj.pericias:setTop(60);
     obj.pericias:setWidth(530);
     obj.pericias:setAutoHeight(true);
+
+    obj.tab5 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab5:setParent(obj.tabControl1);
+    obj.tab5:setTitle("Habilidades");
+    obj.tab5:setName("tab5");
+
+    obj.richEdit3 = gui.fromHandle(_obj_newObject("richEdit"));
+    obj.richEdit3:setParent(obj.tab5);
+    obj.richEdit3:setAlign("client");
+    obj.richEdit3:setField("habilidades");
+    obj.richEdit3:setName("richEdit3");
+
+    obj.tab6 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab6:setParent(obj.tabControl1);
+    obj.tab6:setTitle("Acessórios");
+    obj.tab6:setName("tab6");
+
+    obj.richEdit4 = gui.fromHandle(_obj_newObject("richEdit"));
+    obj.richEdit4:setParent(obj.tab6);
+    obj.richEdit4:setAlign("client");
+    obj.richEdit4:setField("acessorios");
+    obj.richEdit4:setName("richEdit4");
+
+    obj.tab7 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab7:setParent(obj.tabControl1);
+    obj.tab7:setTitle("Moedas");
+    obj.tab7:setName("tab7");
+
+    obj.richEdit5 = gui.fromHandle(_obj_newObject("richEdit"));
+    obj.richEdit5:setParent(obj.tab7);
+    obj.richEdit5:setAlign("client");
+    obj.richEdit5:setField("moedas");
+    obj.richEdit5:setName("richEdit5");
+
+    obj.tab8 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab8:setParent(obj.tabControl1);
+    obj.tab8:setTitle("História");
+    obj.tab8:setName("tab8");
+
+    obj.richEdit6 = gui.fromHandle(_obj_newObject("richEdit"));
+    obj.richEdit6:setParent(obj.tab8);
+    obj.richEdit6:setAlign("client");
+    obj.richEdit6:setField("historia");
+    obj.richEdit6:setName("richEdit6");
 
     obj._e_event0 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
@@ -1741,8 +1807,10 @@ function newfrmFichaDoPersonagem()
 
         if self.dataLink12 ~= nil then self.dataLink12:destroy(); self.dataLink12 = nil; end;
         if self.label33 ~= nil then self.label33:destroy(); self.label33 = nil; end;
+        if self.tab6 ~= nil then self.tab6:destroy(); self.tab6 = nil; end;
         if self.label14 ~= nil then self.label14:destroy(); self.label14 = nil; end;
         if self.dataLink31 ~= nil then self.dataLink31:destroy(); self.dataLink31 = nil; end;
+        if self.tab3 ~= nil then self.tab3:destroy(); self.tab3 = nil; end;
         if self.edit46 ~= nil then self.edit46:destroy(); self.edit46 = nil; end;
         if self.dataLink40 ~= nil then self.dataLink40:destroy(); self.dataLink40 = nil; end;
         if self.edit41 ~= nil then self.edit41:destroy(); self.edit41 = nil; end;
@@ -1774,14 +1842,15 @@ function newfrmFichaDoPersonagem()
         if self.label13 ~= nil then self.label13:destroy(); self.label13 = nil; end;
         if self.layout8 ~= nil then self.layout8:destroy(); self.layout8 = nil; end;
         if self.label32 ~= nil then self.label32:destroy(); self.label32 = nil; end;
+        if self.tab2 ~= nil then self.tab2:destroy(); self.tab2 = nil; end;
         if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
         if self.label27 ~= nil then self.label27:destroy(); self.label27 = nil; end;
         if self.layout13 ~= nil then self.layout13:destroy(); self.layout13 = nil; end;
-        if self.label35 ~= nil then self.label35:destroy(); self.label35 = nil; end;
         if self.edit47 ~= nil then self.edit47:destroy(); self.edit47 = nil; end;
         if self.dataLink23 ~= nil then self.dataLink23:destroy(); self.dataLink23 = nil; end;
-        if self.tab2 ~= nil then self.tab2:destroy(); self.tab2 = nil; end;
+        if self.label35 ~= nil then self.label35:destroy(); self.label35 = nil; end;
         if self.edit24 ~= nil then self.edit24:destroy(); self.edit24 = nil; end;
+        if self.richEdit4 ~= nil then self.richEdit4:destroy(); self.richEdit4 = nil; end;
         if self.layout12 ~= nil then self.layout12:destroy(); self.layout12 = nil; end;
         if self.edit14 ~= nil then self.edit14:destroy(); self.edit14 = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
@@ -1805,9 +1874,11 @@ function newfrmFichaDoPersonagem()
         if self.dataLink9 ~= nil then self.dataLink9:destroy(); self.dataLink9 = nil; end;
         if self.label15 ~= nil then self.label15:destroy(); self.label15 = nil; end;
         if self.dataLink45 ~= nil then self.dataLink45:destroy(); self.dataLink45 = nil; end;
+        if self.tab8 ~= nil then self.tab8:destroy(); self.tab8 = nil; end;
         if self.dataLink41 ~= nil then self.dataLink41:destroy(); self.dataLink41 = nil; end;
         if self.dataLink19 ~= nil then self.dataLink19:destroy(); self.dataLink19 = nil; end;
         if self.dataLink43 ~= nil then self.dataLink43:destroy(); self.dataLink43 = nil; end;
+        if self.tab5 ~= nil then self.tab5:destroy(); self.tab5 = nil; end;
         if self.label12 ~= nil then self.label12:destroy(); self.label12 = nil; end;
         if self.edit45 ~= nil then self.edit45:destroy(); self.edit45 = nil; end;
         if self.edit8 ~= nil then self.edit8:destroy(); self.edit8 = nil; end;
@@ -1816,14 +1887,15 @@ function newfrmFichaDoPersonagem()
         if self.dataLink17 ~= nil then self.dataLink17:destroy(); self.dataLink17 = nil; end;
         if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
         if self.edit10 ~= nil then self.edit10:destroy(); self.edit10 = nil; end;
-        if self.edit16 ~= nil then self.edit16:destroy(); self.edit16 = nil; end;
         if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
+        if self.edit16 ~= nil then self.edit16:destroy(); self.edit16 = nil; end;
         if self.edit31 ~= nil then self.edit31:destroy(); self.edit31 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
         if self.label28 ~= nil then self.label28:destroy(); self.label28 = nil; end;
         if self.edit30 ~= nil then self.edit30:destroy(); self.edit30 = nil; end;
         if self.dataLink16 ~= nil then self.dataLink16:destroy(); self.dataLink16 = nil; end;
         if self.edit21 ~= nil then self.edit21:destroy(); self.edit21 = nil; end;
+        if self.tab4 ~= nil then self.tab4:destroy(); self.tab4 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.layout4 ~= nil then self.layout4:destroy(); self.layout4 = nil; end;
         if self.edit43 ~= nil then self.edit43:destroy(); self.edit43 = nil; end;
@@ -1836,6 +1908,7 @@ function newfrmFichaDoPersonagem()
         if self.edit23 ~= nil then self.edit23:destroy(); self.edit23 = nil; end;
         if self.edit39 ~= nil then self.edit39:destroy(); self.edit39 = nil; end;
         if self.dataLink1 ~= nil then self.dataLink1:destroy(); self.dataLink1 = nil; end;
+        if self.tab7 ~= nil then self.tab7:destroy(); self.tab7 = nil; end;
         if self.dataLink3 ~= nil then self.dataLink3:destroy(); self.dataLink3 = nil; end;
         if self.dataLink22 ~= nil then self.dataLink22:destroy(); self.dataLink22 = nil; end;
         if self.label29 ~= nil then self.label29:destroy(); self.label29 = nil; end;
@@ -1859,6 +1932,7 @@ function newfrmFichaDoPersonagem()
         if self.edit38 ~= nil then self.edit38:destroy(); self.edit38 = nil; end;
         if self.edit48 ~= nil then self.edit48:destroy(); self.edit48 = nil; end;
         if self.dataLink48 ~= nil then self.dataLink48:destroy(); self.dataLink48 = nil; end;
+        if self.richEdit1 ~= nil then self.richEdit1:destroy(); self.richEdit1 = nil; end;
         if self.edit15 ~= nil then self.edit15:destroy(); self.edit15 = nil; end;
         if self.label11 ~= nil then self.label11:destroy(); self.label11 = nil; end;
         if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
@@ -1867,10 +1941,13 @@ function newfrmFichaDoPersonagem()
         if self.dataLink37 ~= nil then self.dataLink37:destroy(); self.dataLink37 = nil; end;
         if self.dataLink34 ~= nil then self.dataLink34:destroy(); self.dataLink34 = nil; end;
         if self.dataLink29 ~= nil then self.dataLink29:destroy(); self.dataLink29 = nil; end;
+        if self.richEdit6 ~= nil then self.richEdit6:destroy(); self.richEdit6 = nil; end;
         if self.dataLink32 ~= nil then self.dataLink32:destroy(); self.dataLink32 = nil; end;
         if self.edit6 ~= nil then self.edit6:destroy(); self.edit6 = nil; end;
+        if self.richEdit3 ~= nil then self.richEdit3:destroy(); self.richEdit3 = nil; end;
         if self.label25 ~= nil then self.label25:destroy(); self.label25 = nil; end;
         if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;
+        if self.richEdit5 ~= nil then self.richEdit5:destroy(); self.richEdit5 = nil; end;
         if self.label18 ~= nil then self.label18:destroy(); self.label18 = nil; end;
         if self.label2 ~= nil then self.label2:destroy(); self.label2 = nil; end;
         if self.edit22 ~= nil then self.edit22:destroy(); self.edit22 = nil; end;
@@ -1884,6 +1961,7 @@ function newfrmFichaDoPersonagem()
         if self.edit32 ~= nil then self.edit32:destroy(); self.edit32 = nil; end;
         if self.tab1 ~= nil then self.tab1:destroy(); self.tab1 = nil; end;
         if self.dataLink38 ~= nil then self.dataLink38:destroy(); self.dataLink38 = nil; end;
+        if self.richEdit2 ~= nil then self.richEdit2:destroy(); self.richEdit2 = nil; end;
         if self.edit18 ~= nil then self.edit18:destroy(); self.edit18 = nil; end;
         if self.edit25 ~= nil then self.edit25:destroy(); self.edit25 = nil; end;
         if self.dataLink25 ~= nil then self.dataLink25:destroy(); self.dataLink25 = nil; end;

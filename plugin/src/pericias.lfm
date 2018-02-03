@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="frmPericias" height="30" margins="{top=2,bottom=2}">
+  <template name="PericiaParte">
+    <edit type="number" align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" field="$(field)"/>
+    <dataLink field="$(field)">
+      <event name="onChange">
+        sheet.pontos.total = (
+          (sheet.pontos.base or 0) +
+          (sheet.pontos.racaClasse or 0) +
+          (sheet.pontos.habilidade or 0)
+        )
+      </event>
+    </dataLink>
+  </template>
+
   <button align="left" width="30" margins="{right=4}" hint="Rolagem de Teste da Perícia">
     <image align="left" width="30" src="/src/assets/dice-six-faces.png" />
     <event name="onClick">
@@ -7,15 +20,20 @@
       local ficha = ndb.getRoot(sheet);
 
       mesa.chat:rolarDados(
-        "01d20 + " .. sheet.nivel .. " + " .. ficha.atributos[atributos[sheet.atributoBase]].total,
-        sheet.nome .. " - " .. sheet.atributoBase
+        "01d20 + " .. sheet.pontos.total .. " + " .. ficha.atributos[atributos[sheet.atributoBase]].total,
+        sheet.grupo .. " (" .. sheet.nome .. ") - " .. sheet.atributoBase
       )
     </event>
   </button>
 
+  <edit align="left" horzTextAlign="center" width="100" margins="{left=2,right=2}" field="grupo"/>
   <edit align="left" horzTextAlign="center" width="100" margins="{left=2,right=2}" field="nome"/>
 
-  <edit type="number" align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" field="nivel"/>
+  <PericiaParte field="pontos.base"/>
+  <PericiaParte field="pontos.racaClasse"/>
+  <PericiaParte field="pontos.habilidade"/>
+  <label align="left" text="=" width="10" margins="{left=4,right=4}" />
+  <label align="left" horzTextAlign="center" width="30" field="pontos.total" />
 
   <comboBox align="left" width="60" margins="{left=2,right=2}"
     field="atributoBase"
@@ -23,6 +41,6 @@
   />
 
   <button align="left" width="30" margins="{left=2,right=2}" hint="Excluir" onClick="ndb.deleteNode(sheet)">
-    <image align="left" width="20" margins="{left=4}" src="/src/assets/cancel.png" />
+    <image align="left" width="21" margins="{left=4}" src="/src/assets/cancel.png" />
   </button>
 </form>

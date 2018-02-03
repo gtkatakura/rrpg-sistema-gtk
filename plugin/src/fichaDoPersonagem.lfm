@@ -3,7 +3,7 @@
 <form
   formType="sheetTemplate"
   dataType="gtk.fichaDoPersonagem"
-  title="Sistema GTK - Ficha do Personagem (v0.1)"
+  title="Sistema GTK - Ficha do Personagem (v0.2)"
   name="frmFichaDoPersonagem"
 >
   <template name="NumberField">
@@ -37,6 +37,10 @@
   </template>
 
   <tabControl align="client">
+    <tab title="Informações">
+      <richEdit align="client" field="informacoes" />
+    </tab>
+
     <tab title="Atributos">
       <Atributo top="40" atributo="inteligencia" text="Inteligência" />
       <Atributo top="70" atributo="sabedoria" text="Sabedoria" />
@@ -55,11 +59,31 @@
       </layout>
     </tab>
 
+    <tab title="Sentidos">
+      <richEdit align="client" field="sentidos" />
+    </tab>
+
     <tab title="Perícias">
       <scrollBox align="client">
         <button left="20" top="20" height="25" text="Nova Perícia" width="100" onClick="self.pericias:append()"/>
         <recordList name="pericias" field="pericias" templateForm="frmPericias" left="20" top="60" width="530" autoHeight="true"/>
       </scrollBox>
+    </tab>
+
+    <tab title="Habilidades">
+      <richEdit align="client" field="habilidades" />
+    </tab>
+
+    <tab title="Acessórios">
+      <richEdit align="client" field="acessorios" />
+    </tab>
+
+    <tab title="Moedas">
+      <richEdit align="client" field="moedas" />
+    </tab>
+
+    <tab title="História">
+      <richEdit align="client" field="historia" />
     </tab>
   </tabControl>
 </form>
