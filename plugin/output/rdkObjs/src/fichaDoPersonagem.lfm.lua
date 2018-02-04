@@ -28,7 +28,7 @@ function newfrmFichaDoPersonagem()
     obj:beginUpdate();
     obj:setFormType("sheetTemplate");
     obj:setDataType("gtk.fichaDoPersonagem");
-    obj:setTitle("Sistema GTK - Ficha do Personagem (v0.4)");
+    obj:setTitle("Ficha do Personagem - GTK (v0.4.1)");
     obj:setName("frmFichaDoPersonagem");
 
     obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
@@ -2594,7 +2594,7 @@ local _frmFichaDoPersonagem = {
     dataType = "gtk.fichaDoPersonagem", 
     formType = "sheetTemplate", 
     formComponentName = "form", 
-    title = "Sistema GTK - Ficha do Personagem (v0.4)", 
+    title = "Ficha do Personagem - GTK (v0.4.1)", 
     description=""};
 
 frmFichaDoPersonagem = _frmFichaDoPersonagem;
