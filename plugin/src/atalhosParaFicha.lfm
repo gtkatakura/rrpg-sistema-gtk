@@ -2,28 +2,35 @@
 <form
   formType="tablesDock"
   dataType="gtk.atalhosDaFicha"
-  title="Atalhos para Ficha"
+  title="GTK (0.4) - Atalhos para Ficha"
   name="frmAtalhosParaFicha"
   height="300"
   width="300"
 >
-  <button text="Carregar" left="10" top="10">
-    <event name="onClick">
+  <script>
+    local function carregar()
       local mesa = rrpg.getMesaDe(self);
       local jogador = mesa.meuJogador;
       local personagemItem = mesa:findBibliotecaItem(jogador.personagemPrincipal)
       local personagem = rrpg.getPersonagemDe(personagemItem)
 
-      mesa.chat:escrever(chooseCharacter)
-
       personagem:loadSheetNDB(function(player)
         if player ~= nil then
-          self.player = player
+          sheet.player = player
+
           self.layoutAttributos.visible = true
         end
       end)
-    </event>
-  </button>
+    end
+  </script>
+
+  <event name="onNodeReady">
+    if sheet ~= nil and sheet.player ~= nil then
+      self.layoutAttributos.visible = true
+    else
+      carregar()
+    end
+  </event>
 
   <template name="ButtonAtributo">
     <button align="left" width="40" text="$(text)" margins="{left=2,right=2,top=2,bottom=2}">
@@ -31,25 +38,37 @@
         local mesa = rrpg.getMesaDe(self)
 
         mesa.chat:rolarDados(
-          "01d20 + " .. self.player.atributos[atributos.$(text)].total,
+          "01d20 + " .. sheet.player.atributos[atributos.$(text)].total,
           "Teste de " .. i18n.atributos.$(text)
         )
       </event>
     </button>
   </template>
 
-  <flowLayout name="layoutAttributos" left="10" top="50" height="200" width="150" visible="false">
-    <ButtonAtributo text="INT" />
-    <ButtonAtributo text="SAB" />
-    <ButtonAtributo text="VON" />
-    <ButtonAtributo text="CAR" />
-    <ButtonAtributo text="ENE" />
-    <ButtonAtributo text="COR" />
-    <ButtonAtributo text="RES" />
-    <ButtonAtributo text="VEL" />
-    <ButtonAtributo text="AGI" />
-    <ButtonAtributo text="DES" />
-    <ButtonAtributo text="FOR" />
-    <ButtonAtributo text="VIG" />
-  </flowLayout>
+  <tabControl align="client">
+    <tab title="Atributos">
+      <button name="btnCarregar" text="Carregar" left="10" top="10" onClick="carregar()" />
+
+      <flowLayout name="layoutAttributos" left="10" top="50" height="200" width="150" visible="false">
+        <ButtonAtributo text="INT" />
+        <ButtonAtributo text="SAB" />
+        <ButtonAtributo text="VON" />
+        <ButtonAtributo text="CAR" />
+        <ButtonAtributo text="ENE" />
+        <ButtonAtributo text="COR" />
+        <ButtonAtributo text="RES" />
+        <ButtonAtributo text="VEL" />
+        <ButtonAtributo text="AGI" />
+        <ButtonAtributo text="DES" />
+        <ButtonAtributo text="FOR" />
+        <ButtonAtributo text="VIG" />
+      </flowLayout>
+    </tab>
+
+    <tab title="Perícias">
+      <scrollBox align="client">
+        <recordList field="player.pericias" templateForm="frmListaDePericias" left="10" top="10" width="150" autoHeight="true"/>
+      </scrollBox>
+    </tab>
+  </tabControl>
 </form>

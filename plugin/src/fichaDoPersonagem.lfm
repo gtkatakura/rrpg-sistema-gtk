@@ -3,7 +3,7 @@
 <form
   formType="sheetTemplate"
   dataType="gtk.fichaDoPersonagem"
-  title="Sistema GTK - Ficha do Personagem (v0.3)"
+  title="Sistema GTK - Ficha do Personagem (v0.4)"
   name="frmFichaDoPersonagem"
 >
   <template name="NumberField">
