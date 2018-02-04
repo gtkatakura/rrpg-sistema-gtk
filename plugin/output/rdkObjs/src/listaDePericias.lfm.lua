@@ -46,7 +46,7 @@ function newfrmListaDePericias()
             local mesa = rrpg.getMesaDe(sheet)
                   local ficha = ndb.getRoot(sheet).player
             
-                  mesa.chat:rolarDados(
+                  mesa.activeChat:rolarDados(
                     "01d20 + " .. sheet.pontos.total .. " + " .. ficha.atributos[atributos[sheet.atributoBase]].total,
                     sheet.grupo .. " (" .. sheet.nome .. ") - " .. sheet.atributoBase
                   )

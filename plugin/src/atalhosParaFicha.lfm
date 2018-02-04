@@ -37,7 +37,7 @@
       <event name="onClick">
         local mesa = rrpg.getMesaDe(self)
 
-        mesa.chat:rolarDados(
+        mesa.activeChat:rolarDados(
           "01d20 + " .. sheet.player.atributos[atributos.$(text)].total,
           "Teste de " .. i18n.atributos.$(text)
         )

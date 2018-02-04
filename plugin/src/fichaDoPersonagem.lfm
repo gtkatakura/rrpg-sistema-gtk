@@ -32,7 +32,7 @@
           local mesa = rrpg.getMesaDe(sheet);
           local ficha = ndb.getRoot(sheet);
 
-          mesa.chat:rolarDados(
+          mesa.activeChat:rolarDados(
             "01d20 + " .. sheet.atributos.$(atributo).total,
             "Teste de $(text)"
           )
@@ -90,12 +90,14 @@
 
     <tab title="Atributos">
 
-      <Atributo top="40" atributo="inteligencia" text="Inteligência" />
-      <Atributo top="70" atributo="sabedoria" text="Sabedoria" />
-      <Atributo top="100" atributo="vontade" text="Vontade" />
-      <Atributo top="130" atributo="carisma" text="Carisma" />
-      <Atributo top="160" atributo="energia" text="Energia" />
-      <Atributo top="190" atributo="corpo" text="Corpo" />
+      <layout left="20" width="300" height="400">
+        <Atributo top="40" atributo="inteligencia" text="Inteligência" />
+        <Atributo top="70" atributo="sabedoria" text="Sabedoria" />
+        <Atributo top="100" atributo="vontade" text="Vontade" />
+        <Atributo top="130" atributo="carisma" text="Carisma" />
+        <Atributo top="160" atributo="energia" text="Energia" />
+        <Atributo top="190" atributo="corpo" text="Corpo" />
+      </layout>
 
       <layout left="320" width="300" height="400">
         <Atributo top="40" atributo="resistencia" text="Resistência" />
@@ -141,6 +143,10 @@
 
     <tab title="História">
       <richEdit align="client" field="historia" />
+    </tab>
+
+    <tab title="Backup" visible="false">
+      <richEdit align="client" field="backup" />
     </tab>
   </tabControl>
 </form>

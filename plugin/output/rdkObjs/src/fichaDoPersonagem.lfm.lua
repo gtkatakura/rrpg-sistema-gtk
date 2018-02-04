@@ -209,14 +209,21 @@ function newfrmFichaDoPersonagem()
 
     obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout5:setParent(obj.tab2);
-    obj.layout5:setTop(40);
-    obj.layout5:setHeight(25);
-    obj.layout5:setWidth(450);
-    obj.layout5:setMargins({left=4,right=4});
+    obj.layout5:setLeft(20);
+    obj.layout5:setWidth(300);
+    obj.layout5:setHeight(400);
     obj.layout5:setName("layout5");
 
+    obj.layout6 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout6:setParent(obj.layout5);
+    obj.layout6:setTop(40);
+    obj.layout6:setHeight(25);
+    obj.layout6:setWidth(450);
+    obj.layout6:setMargins({left=4,right=4});
+    obj.layout6:setName("layout6");
+
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
-    obj.button1:setParent(obj.layout5);
+    obj.button1:setParent(obj.layout6);
     obj.button1:setAlign("left");
     obj.button1:setWidth(30);
     obj.button1:setMargins({right=4});
@@ -231,7 +238,7 @@ function newfrmFichaDoPersonagem()
     obj.image2:setName("image2");
 
     obj.label7 = gui.fromHandle(_obj_newObject("label"));
-    obj.label7:setParent(obj.layout5);
+    obj.label7:setParent(obj.layout6);
     obj.label7:setAlign("left");
     obj.label7:setHorzTextAlign("center");
     obj.label7:setText("Inteligência");
@@ -240,7 +247,7 @@ function newfrmFichaDoPersonagem()
     obj.label7:setName("label7");
 
     obj.edit7 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit7:setParent(obj.layout5);
+    obj.edit7:setParent(obj.layout6);
     obj.edit7:setType("number");
     obj.edit7:setAlign("left");
     obj.edit7:setHorzTextAlign("center");
@@ -250,12 +257,12 @@ function newfrmFichaDoPersonagem()
     obj.edit7:setName("edit7");
 
     obj.dataLink1 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink1:setParent(obj.layout5);
+    obj.dataLink1:setParent(obj.layout6);
     obj.dataLink1:setField("atributos.inteligencia.base");
     obj.dataLink1:setName("dataLink1");
 
     obj.edit8 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit8:setParent(obj.layout5);
+    obj.edit8:setParent(obj.layout6);
     obj.edit8:setType("number");
     obj.edit8:setAlign("left");
     obj.edit8:setHorzTextAlign("center");
@@ -265,12 +272,12 @@ function newfrmFichaDoPersonagem()
     obj.edit8:setName("edit8");
 
     obj.dataLink2 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink2:setParent(obj.layout5);
+    obj.dataLink2:setParent(obj.layout6);
     obj.dataLink2:setField("atributos.inteligencia.racaClasse");
     obj.dataLink2:setName("dataLink2");
 
     obj.edit9 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit9:setParent(obj.layout5);
+    obj.edit9:setParent(obj.layout6);
     obj.edit9:setType("number");
     obj.edit9:setAlign("left");
     obj.edit9:setHorzTextAlign("center");
@@ -280,12 +287,12 @@ function newfrmFichaDoPersonagem()
     obj.edit9:setName("edit9");
 
     obj.dataLink3 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink3:setParent(obj.layout5);
+    obj.dataLink3:setParent(obj.layout6);
     obj.dataLink3:setField("atributos.inteligencia.treinamento");
     obj.dataLink3:setName("dataLink3");
 
     obj.edit10 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit10:setParent(obj.layout5);
+    obj.edit10:setParent(obj.layout6);
     obj.edit10:setType("number");
     obj.edit10:setAlign("left");
     obj.edit10:setHorzTextAlign("center");
@@ -295,12 +302,12 @@ function newfrmFichaDoPersonagem()
     obj.edit10:setName("edit10");
 
     obj.dataLink4 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink4:setParent(obj.layout5);
+    obj.dataLink4:setParent(obj.layout6);
     obj.dataLink4:setField("atributos.inteligencia.habilidade");
     obj.dataLink4:setName("dataLink4");
 
     obj.label8 = gui.fromHandle(_obj_newObject("label"));
-    obj.label8:setParent(obj.layout5);
+    obj.label8:setParent(obj.layout6);
     obj.label8:setAlign("left");
     obj.label8:setText("=");
     obj.label8:setWidth(10);
@@ -308,23 +315,23 @@ function newfrmFichaDoPersonagem()
     obj.label8:setName("label8");
 
     obj.label9 = gui.fromHandle(_obj_newObject("label"));
-    obj.label9:setParent(obj.layout5);
+    obj.label9:setParent(obj.layout6);
     obj.label9:setAlign("left");
     obj.label9:setHorzTextAlign("center");
     obj.label9:setWidth(30);
     obj.label9:setField("atributos.inteligencia.total");
     obj.label9:setName("label9");
 
-    obj.layout6 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout6:setParent(obj.tab2);
-    obj.layout6:setTop(70);
-    obj.layout6:setHeight(25);
-    obj.layout6:setWidth(450);
-    obj.layout6:setMargins({left=4,right=4});
-    obj.layout6:setName("layout6");
+    obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout7:setParent(obj.layout5);
+    obj.layout7:setTop(70);
+    obj.layout7:setHeight(25);
+    obj.layout7:setWidth(450);
+    obj.layout7:setMargins({left=4,right=4});
+    obj.layout7:setName("layout7");
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
-    obj.button2:setParent(obj.layout6);
+    obj.button2:setParent(obj.layout7);
     obj.button2:setAlign("left");
     obj.button2:setWidth(30);
     obj.button2:setMargins({right=4});
@@ -339,7 +346,7 @@ function newfrmFichaDoPersonagem()
     obj.image3:setName("image3");
 
     obj.label10 = gui.fromHandle(_obj_newObject("label"));
-    obj.label10:setParent(obj.layout6);
+    obj.label10:setParent(obj.layout7);
     obj.label10:setAlign("left");
     obj.label10:setHorzTextAlign("center");
     obj.label10:setText("Sabedoria");
@@ -348,7 +355,7 @@ function newfrmFichaDoPersonagem()
     obj.label10:setName("label10");
 
     obj.edit11 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit11:setParent(obj.layout6);
+    obj.edit11:setParent(obj.layout7);
     obj.edit11:setType("number");
     obj.edit11:setAlign("left");
     obj.edit11:setHorzTextAlign("center");
@@ -358,12 +365,12 @@ function newfrmFichaDoPersonagem()
     obj.edit11:setName("edit11");
 
     obj.dataLink5 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink5:setParent(obj.layout6);
+    obj.dataLink5:setParent(obj.layout7);
     obj.dataLink5:setField("atributos.sabedoria.base");
     obj.dataLink5:setName("dataLink5");
 
     obj.edit12 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit12:setParent(obj.layout6);
+    obj.edit12:setParent(obj.layout7);
     obj.edit12:setType("number");
     obj.edit12:setAlign("left");
     obj.edit12:setHorzTextAlign("center");
@@ -373,12 +380,12 @@ function newfrmFichaDoPersonagem()
     obj.edit12:setName("edit12");
 
     obj.dataLink6 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink6:setParent(obj.layout6);
+    obj.dataLink6:setParent(obj.layout7);
     obj.dataLink6:setField("atributos.sabedoria.racaClasse");
     obj.dataLink6:setName("dataLink6");
 
     obj.edit13 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit13:setParent(obj.layout6);
+    obj.edit13:setParent(obj.layout7);
     obj.edit13:setType("number");
     obj.edit13:setAlign("left");
     obj.edit13:setHorzTextAlign("center");
@@ -388,12 +395,12 @@ function newfrmFichaDoPersonagem()
     obj.edit13:setName("edit13");
 
     obj.dataLink7 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink7:setParent(obj.layout6);
+    obj.dataLink7:setParent(obj.layout7);
     obj.dataLink7:setField("atributos.sabedoria.treinamento");
     obj.dataLink7:setName("dataLink7");
 
     obj.edit14 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit14:setParent(obj.layout6);
+    obj.edit14:setParent(obj.layout7);
     obj.edit14:setType("number");
     obj.edit14:setAlign("left");
     obj.edit14:setHorzTextAlign("center");
@@ -403,12 +410,12 @@ function newfrmFichaDoPersonagem()
     obj.edit14:setName("edit14");
 
     obj.dataLink8 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink8:setParent(obj.layout6);
+    obj.dataLink8:setParent(obj.layout7);
     obj.dataLink8:setField("atributos.sabedoria.habilidade");
     obj.dataLink8:setName("dataLink8");
 
     obj.label11 = gui.fromHandle(_obj_newObject("label"));
-    obj.label11:setParent(obj.layout6);
+    obj.label11:setParent(obj.layout7);
     obj.label11:setAlign("left");
     obj.label11:setText("=");
     obj.label11:setWidth(10);
@@ -416,23 +423,23 @@ function newfrmFichaDoPersonagem()
     obj.label11:setName("label11");
 
     obj.label12 = gui.fromHandle(_obj_newObject("label"));
-    obj.label12:setParent(obj.layout6);
+    obj.label12:setParent(obj.layout7);
     obj.label12:setAlign("left");
     obj.label12:setHorzTextAlign("center");
     obj.label12:setWidth(30);
     obj.label12:setField("atributos.sabedoria.total");
     obj.label12:setName("label12");
 
-    obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout7:setParent(obj.tab2);
-    obj.layout7:setTop(100);
-    obj.layout7:setHeight(25);
-    obj.layout7:setWidth(450);
-    obj.layout7:setMargins({left=4,right=4});
-    obj.layout7:setName("layout7");
+    obj.layout8 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout8:setParent(obj.layout5);
+    obj.layout8:setTop(100);
+    obj.layout8:setHeight(25);
+    obj.layout8:setWidth(450);
+    obj.layout8:setMargins({left=4,right=4});
+    obj.layout8:setName("layout8");
 
     obj.button3 = gui.fromHandle(_obj_newObject("button"));
-    obj.button3:setParent(obj.layout7);
+    obj.button3:setParent(obj.layout8);
     obj.button3:setAlign("left");
     obj.button3:setWidth(30);
     obj.button3:setMargins({right=4});
@@ -447,7 +454,7 @@ function newfrmFichaDoPersonagem()
     obj.image4:setName("image4");
 
     obj.label13 = gui.fromHandle(_obj_newObject("label"));
-    obj.label13:setParent(obj.layout7);
+    obj.label13:setParent(obj.layout8);
     obj.label13:setAlign("left");
     obj.label13:setHorzTextAlign("center");
     obj.label13:setText("Vontade");
@@ -456,7 +463,7 @@ function newfrmFichaDoPersonagem()
     obj.label13:setName("label13");
 
     obj.edit15 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit15:setParent(obj.layout7);
+    obj.edit15:setParent(obj.layout8);
     obj.edit15:setType("number");
     obj.edit15:setAlign("left");
     obj.edit15:setHorzTextAlign("center");
@@ -466,12 +473,12 @@ function newfrmFichaDoPersonagem()
     obj.edit15:setName("edit15");
 
     obj.dataLink9 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink9:setParent(obj.layout7);
+    obj.dataLink9:setParent(obj.layout8);
     obj.dataLink9:setField("atributos.vontade.base");
     obj.dataLink9:setName("dataLink9");
 
     obj.edit16 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit16:setParent(obj.layout7);
+    obj.edit16:setParent(obj.layout8);
     obj.edit16:setType("number");
     obj.edit16:setAlign("left");
     obj.edit16:setHorzTextAlign("center");
@@ -481,12 +488,12 @@ function newfrmFichaDoPersonagem()
     obj.edit16:setName("edit16");
 
     obj.dataLink10 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink10:setParent(obj.layout7);
+    obj.dataLink10:setParent(obj.layout8);
     obj.dataLink10:setField("atributos.vontade.racaClasse");
     obj.dataLink10:setName("dataLink10");
 
     obj.edit17 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit17:setParent(obj.layout7);
+    obj.edit17:setParent(obj.layout8);
     obj.edit17:setType("number");
     obj.edit17:setAlign("left");
     obj.edit17:setHorzTextAlign("center");
@@ -496,12 +503,12 @@ function newfrmFichaDoPersonagem()
     obj.edit17:setName("edit17");
 
     obj.dataLink11 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink11:setParent(obj.layout7);
+    obj.dataLink11:setParent(obj.layout8);
     obj.dataLink11:setField("atributos.vontade.treinamento");
     obj.dataLink11:setName("dataLink11");
 
     obj.edit18 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit18:setParent(obj.layout7);
+    obj.edit18:setParent(obj.layout8);
     obj.edit18:setType("number");
     obj.edit18:setAlign("left");
     obj.edit18:setHorzTextAlign("center");
@@ -511,12 +518,12 @@ function newfrmFichaDoPersonagem()
     obj.edit18:setName("edit18");
 
     obj.dataLink12 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink12:setParent(obj.layout7);
+    obj.dataLink12:setParent(obj.layout8);
     obj.dataLink12:setField("atributos.vontade.habilidade");
     obj.dataLink12:setName("dataLink12");
 
     obj.label14 = gui.fromHandle(_obj_newObject("label"));
-    obj.label14:setParent(obj.layout7);
+    obj.label14:setParent(obj.layout8);
     obj.label14:setAlign("left");
     obj.label14:setText("=");
     obj.label14:setWidth(10);
@@ -524,23 +531,23 @@ function newfrmFichaDoPersonagem()
     obj.label14:setName("label14");
 
     obj.label15 = gui.fromHandle(_obj_newObject("label"));
-    obj.label15:setParent(obj.layout7);
+    obj.label15:setParent(obj.layout8);
     obj.label15:setAlign("left");
     obj.label15:setHorzTextAlign("center");
     obj.label15:setWidth(30);
     obj.label15:setField("atributos.vontade.total");
     obj.label15:setName("label15");
 
-    obj.layout8 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout8:setParent(obj.tab2);
-    obj.layout8:setTop(130);
-    obj.layout8:setHeight(25);
-    obj.layout8:setWidth(450);
-    obj.layout8:setMargins({left=4,right=4});
-    obj.layout8:setName("layout8");
+    obj.layout9 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout9:setParent(obj.layout5);
+    obj.layout9:setTop(130);
+    obj.layout9:setHeight(25);
+    obj.layout9:setWidth(450);
+    obj.layout9:setMargins({left=4,right=4});
+    obj.layout9:setName("layout9");
 
     obj.button4 = gui.fromHandle(_obj_newObject("button"));
-    obj.button4:setParent(obj.layout8);
+    obj.button4:setParent(obj.layout9);
     obj.button4:setAlign("left");
     obj.button4:setWidth(30);
     obj.button4:setMargins({right=4});
@@ -555,7 +562,7 @@ function newfrmFichaDoPersonagem()
     obj.image5:setName("image5");
 
     obj.label16 = gui.fromHandle(_obj_newObject("label"));
-    obj.label16:setParent(obj.layout8);
+    obj.label16:setParent(obj.layout9);
     obj.label16:setAlign("left");
     obj.label16:setHorzTextAlign("center");
     obj.label16:setText("Carisma");
@@ -564,7 +571,7 @@ function newfrmFichaDoPersonagem()
     obj.label16:setName("label16");
 
     obj.edit19 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit19:setParent(obj.layout8);
+    obj.edit19:setParent(obj.layout9);
     obj.edit19:setType("number");
     obj.edit19:setAlign("left");
     obj.edit19:setHorzTextAlign("center");
@@ -574,12 +581,12 @@ function newfrmFichaDoPersonagem()
     obj.edit19:setName("edit19");
 
     obj.dataLink13 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink13:setParent(obj.layout8);
+    obj.dataLink13:setParent(obj.layout9);
     obj.dataLink13:setField("atributos.carisma.base");
     obj.dataLink13:setName("dataLink13");
 
     obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit20:setParent(obj.layout8);
+    obj.edit20:setParent(obj.layout9);
     obj.edit20:setType("number");
     obj.edit20:setAlign("left");
     obj.edit20:setHorzTextAlign("center");
@@ -589,12 +596,12 @@ function newfrmFichaDoPersonagem()
     obj.edit20:setName("edit20");
 
     obj.dataLink14 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink14:setParent(obj.layout8);
+    obj.dataLink14:setParent(obj.layout9);
     obj.dataLink14:setField("atributos.carisma.racaClasse");
     obj.dataLink14:setName("dataLink14");
 
     obj.edit21 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit21:setParent(obj.layout8);
+    obj.edit21:setParent(obj.layout9);
     obj.edit21:setType("number");
     obj.edit21:setAlign("left");
     obj.edit21:setHorzTextAlign("center");
@@ -604,12 +611,12 @@ function newfrmFichaDoPersonagem()
     obj.edit21:setName("edit21");
 
     obj.dataLink15 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink15:setParent(obj.layout8);
+    obj.dataLink15:setParent(obj.layout9);
     obj.dataLink15:setField("atributos.carisma.treinamento");
     obj.dataLink15:setName("dataLink15");
 
     obj.edit22 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit22:setParent(obj.layout8);
+    obj.edit22:setParent(obj.layout9);
     obj.edit22:setType("number");
     obj.edit22:setAlign("left");
     obj.edit22:setHorzTextAlign("center");
@@ -619,12 +626,12 @@ function newfrmFichaDoPersonagem()
     obj.edit22:setName("edit22");
 
     obj.dataLink16 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink16:setParent(obj.layout8);
+    obj.dataLink16:setParent(obj.layout9);
     obj.dataLink16:setField("atributos.carisma.habilidade");
     obj.dataLink16:setName("dataLink16");
 
     obj.label17 = gui.fromHandle(_obj_newObject("label"));
-    obj.label17:setParent(obj.layout8);
+    obj.label17:setParent(obj.layout9);
     obj.label17:setAlign("left");
     obj.label17:setText("=");
     obj.label17:setWidth(10);
@@ -632,23 +639,23 @@ function newfrmFichaDoPersonagem()
     obj.label17:setName("label17");
 
     obj.label18 = gui.fromHandle(_obj_newObject("label"));
-    obj.label18:setParent(obj.layout8);
+    obj.label18:setParent(obj.layout9);
     obj.label18:setAlign("left");
     obj.label18:setHorzTextAlign("center");
     obj.label18:setWidth(30);
     obj.label18:setField("atributos.carisma.total");
     obj.label18:setName("label18");
 
-    obj.layout9 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout9:setParent(obj.tab2);
-    obj.layout9:setTop(160);
-    obj.layout9:setHeight(25);
-    obj.layout9:setWidth(450);
-    obj.layout9:setMargins({left=4,right=4});
-    obj.layout9:setName("layout9");
+    obj.layout10 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout10:setParent(obj.layout5);
+    obj.layout10:setTop(160);
+    obj.layout10:setHeight(25);
+    obj.layout10:setWidth(450);
+    obj.layout10:setMargins({left=4,right=4});
+    obj.layout10:setName("layout10");
 
     obj.button5 = gui.fromHandle(_obj_newObject("button"));
-    obj.button5:setParent(obj.layout9);
+    obj.button5:setParent(obj.layout10);
     obj.button5:setAlign("left");
     obj.button5:setWidth(30);
     obj.button5:setMargins({right=4});
@@ -663,7 +670,7 @@ function newfrmFichaDoPersonagem()
     obj.image6:setName("image6");
 
     obj.label19 = gui.fromHandle(_obj_newObject("label"));
-    obj.label19:setParent(obj.layout9);
+    obj.label19:setParent(obj.layout10);
     obj.label19:setAlign("left");
     obj.label19:setHorzTextAlign("center");
     obj.label19:setText("Energia");
@@ -672,7 +679,7 @@ function newfrmFichaDoPersonagem()
     obj.label19:setName("label19");
 
     obj.edit23 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit23:setParent(obj.layout9);
+    obj.edit23:setParent(obj.layout10);
     obj.edit23:setType("number");
     obj.edit23:setAlign("left");
     obj.edit23:setHorzTextAlign("center");
@@ -682,12 +689,12 @@ function newfrmFichaDoPersonagem()
     obj.edit23:setName("edit23");
 
     obj.dataLink17 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink17:setParent(obj.layout9);
+    obj.dataLink17:setParent(obj.layout10);
     obj.dataLink17:setField("atributos.energia.base");
     obj.dataLink17:setName("dataLink17");
 
     obj.edit24 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit24:setParent(obj.layout9);
+    obj.edit24:setParent(obj.layout10);
     obj.edit24:setType("number");
     obj.edit24:setAlign("left");
     obj.edit24:setHorzTextAlign("center");
@@ -697,12 +704,12 @@ function newfrmFichaDoPersonagem()
     obj.edit24:setName("edit24");
 
     obj.dataLink18 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink18:setParent(obj.layout9);
+    obj.dataLink18:setParent(obj.layout10);
     obj.dataLink18:setField("atributos.energia.racaClasse");
     obj.dataLink18:setName("dataLink18");
 
     obj.edit25 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit25:setParent(obj.layout9);
+    obj.edit25:setParent(obj.layout10);
     obj.edit25:setType("number");
     obj.edit25:setAlign("left");
     obj.edit25:setHorzTextAlign("center");
@@ -712,12 +719,12 @@ function newfrmFichaDoPersonagem()
     obj.edit25:setName("edit25");
 
     obj.dataLink19 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink19:setParent(obj.layout9);
+    obj.dataLink19:setParent(obj.layout10);
     obj.dataLink19:setField("atributos.energia.treinamento");
     obj.dataLink19:setName("dataLink19");
 
     obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit26:setParent(obj.layout9);
+    obj.edit26:setParent(obj.layout10);
     obj.edit26:setType("number");
     obj.edit26:setAlign("left");
     obj.edit26:setHorzTextAlign("center");
@@ -727,12 +734,12 @@ function newfrmFichaDoPersonagem()
     obj.edit26:setName("edit26");
 
     obj.dataLink20 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink20:setParent(obj.layout9);
+    obj.dataLink20:setParent(obj.layout10);
     obj.dataLink20:setField("atributos.energia.habilidade");
     obj.dataLink20:setName("dataLink20");
 
     obj.label20 = gui.fromHandle(_obj_newObject("label"));
-    obj.label20:setParent(obj.layout9);
+    obj.label20:setParent(obj.layout10);
     obj.label20:setAlign("left");
     obj.label20:setText("=");
     obj.label20:setWidth(10);
@@ -740,23 +747,23 @@ function newfrmFichaDoPersonagem()
     obj.label20:setName("label20");
 
     obj.label21 = gui.fromHandle(_obj_newObject("label"));
-    obj.label21:setParent(obj.layout9);
+    obj.label21:setParent(obj.layout10);
     obj.label21:setAlign("left");
     obj.label21:setHorzTextAlign("center");
     obj.label21:setWidth(30);
     obj.label21:setField("atributos.energia.total");
     obj.label21:setName("label21");
 
-    obj.layout10 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout10:setParent(obj.tab2);
-    obj.layout10:setTop(190);
-    obj.layout10:setHeight(25);
-    obj.layout10:setWidth(450);
-    obj.layout10:setMargins({left=4,right=4});
-    obj.layout10:setName("layout10");
+    obj.layout11 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout11:setParent(obj.layout5);
+    obj.layout11:setTop(190);
+    obj.layout11:setHeight(25);
+    obj.layout11:setWidth(450);
+    obj.layout11:setMargins({left=4,right=4});
+    obj.layout11:setName("layout11");
 
     obj.button6 = gui.fromHandle(_obj_newObject("button"));
-    obj.button6:setParent(obj.layout10);
+    obj.button6:setParent(obj.layout11);
     obj.button6:setAlign("left");
     obj.button6:setWidth(30);
     obj.button6:setMargins({right=4});
@@ -771,7 +778,7 @@ function newfrmFichaDoPersonagem()
     obj.image7:setName("image7");
 
     obj.label22 = gui.fromHandle(_obj_newObject("label"));
-    obj.label22:setParent(obj.layout10);
+    obj.label22:setParent(obj.layout11);
     obj.label22:setAlign("left");
     obj.label22:setHorzTextAlign("center");
     obj.label22:setText("Corpo");
@@ -780,7 +787,7 @@ function newfrmFichaDoPersonagem()
     obj.label22:setName("label22");
 
     obj.edit27 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit27:setParent(obj.layout10);
+    obj.edit27:setParent(obj.layout11);
     obj.edit27:setType("number");
     obj.edit27:setAlign("left");
     obj.edit27:setHorzTextAlign("center");
@@ -790,12 +797,12 @@ function newfrmFichaDoPersonagem()
     obj.edit27:setName("edit27");
 
     obj.dataLink21 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink21:setParent(obj.layout10);
+    obj.dataLink21:setParent(obj.layout11);
     obj.dataLink21:setField("atributos.corpo.base");
     obj.dataLink21:setName("dataLink21");
 
     obj.edit28 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit28:setParent(obj.layout10);
+    obj.edit28:setParent(obj.layout11);
     obj.edit28:setType("number");
     obj.edit28:setAlign("left");
     obj.edit28:setHorzTextAlign("center");
@@ -805,12 +812,12 @@ function newfrmFichaDoPersonagem()
     obj.edit28:setName("edit28");
 
     obj.dataLink22 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink22:setParent(obj.layout10);
+    obj.dataLink22:setParent(obj.layout11);
     obj.dataLink22:setField("atributos.corpo.racaClasse");
     obj.dataLink22:setName("dataLink22");
 
     obj.edit29 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit29:setParent(obj.layout10);
+    obj.edit29:setParent(obj.layout11);
     obj.edit29:setType("number");
     obj.edit29:setAlign("left");
     obj.edit29:setHorzTextAlign("center");
@@ -820,12 +827,12 @@ function newfrmFichaDoPersonagem()
     obj.edit29:setName("edit29");
 
     obj.dataLink23 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink23:setParent(obj.layout10);
+    obj.dataLink23:setParent(obj.layout11);
     obj.dataLink23:setField("atributos.corpo.treinamento");
     obj.dataLink23:setName("dataLink23");
 
     obj.edit30 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit30:setParent(obj.layout10);
+    obj.edit30:setParent(obj.layout11);
     obj.edit30:setType("number");
     obj.edit30:setAlign("left");
     obj.edit30:setHorzTextAlign("center");
@@ -835,12 +842,12 @@ function newfrmFichaDoPersonagem()
     obj.edit30:setName("edit30");
 
     obj.dataLink24 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink24:setParent(obj.layout10);
+    obj.dataLink24:setParent(obj.layout11);
     obj.dataLink24:setField("atributos.corpo.habilidade");
     obj.dataLink24:setName("dataLink24");
 
     obj.label23 = gui.fromHandle(_obj_newObject("label"));
-    obj.label23:setParent(obj.layout10);
+    obj.label23:setParent(obj.layout11);
     obj.label23:setAlign("left");
     obj.label23:setText("=");
     obj.label23:setWidth(10);
@@ -848,30 +855,30 @@ function newfrmFichaDoPersonagem()
     obj.label23:setName("label23");
 
     obj.label24 = gui.fromHandle(_obj_newObject("label"));
-    obj.label24:setParent(obj.layout10);
+    obj.label24:setParent(obj.layout11);
     obj.label24:setAlign("left");
     obj.label24:setHorzTextAlign("center");
     obj.label24:setWidth(30);
     obj.label24:setField("atributos.corpo.total");
     obj.label24:setName("label24");
 
-    obj.layout11 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout11:setParent(obj.tab2);
-    obj.layout11:setLeft(320);
-    obj.layout11:setWidth(300);
-    obj.layout11:setHeight(400);
-    obj.layout11:setName("layout11");
-
     obj.layout12 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout12:setParent(obj.layout11);
-    obj.layout12:setTop(40);
-    obj.layout12:setHeight(25);
-    obj.layout12:setWidth(450);
-    obj.layout12:setMargins({left=4,right=4});
+    obj.layout12:setParent(obj.tab2);
+    obj.layout12:setLeft(320);
+    obj.layout12:setWidth(300);
+    obj.layout12:setHeight(400);
     obj.layout12:setName("layout12");
 
+    obj.layout13 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout13:setParent(obj.layout12);
+    obj.layout13:setTop(40);
+    obj.layout13:setHeight(25);
+    obj.layout13:setWidth(450);
+    obj.layout13:setMargins({left=4,right=4});
+    obj.layout13:setName("layout13");
+
     obj.button7 = gui.fromHandle(_obj_newObject("button"));
-    obj.button7:setParent(obj.layout12);
+    obj.button7:setParent(obj.layout13);
     obj.button7:setAlign("left");
     obj.button7:setWidth(30);
     obj.button7:setMargins({right=4});
@@ -886,7 +893,7 @@ function newfrmFichaDoPersonagem()
     obj.image8:setName("image8");
 
     obj.label25 = gui.fromHandle(_obj_newObject("label"));
-    obj.label25:setParent(obj.layout12);
+    obj.label25:setParent(obj.layout13);
     obj.label25:setAlign("left");
     obj.label25:setHorzTextAlign("center");
     obj.label25:setText("Resistência");
@@ -895,7 +902,7 @@ function newfrmFichaDoPersonagem()
     obj.label25:setName("label25");
 
     obj.edit31 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit31:setParent(obj.layout12);
+    obj.edit31:setParent(obj.layout13);
     obj.edit31:setType("number");
     obj.edit31:setAlign("left");
     obj.edit31:setHorzTextAlign("center");
@@ -905,12 +912,12 @@ function newfrmFichaDoPersonagem()
     obj.edit31:setName("edit31");
 
     obj.dataLink25 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink25:setParent(obj.layout12);
+    obj.dataLink25:setParent(obj.layout13);
     obj.dataLink25:setField("atributos.resistencia.base");
     obj.dataLink25:setName("dataLink25");
 
     obj.edit32 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit32:setParent(obj.layout12);
+    obj.edit32:setParent(obj.layout13);
     obj.edit32:setType("number");
     obj.edit32:setAlign("left");
     obj.edit32:setHorzTextAlign("center");
@@ -920,12 +927,12 @@ function newfrmFichaDoPersonagem()
     obj.edit32:setName("edit32");
 
     obj.dataLink26 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink26:setParent(obj.layout12);
+    obj.dataLink26:setParent(obj.layout13);
     obj.dataLink26:setField("atributos.resistencia.racaClasse");
     obj.dataLink26:setName("dataLink26");
 
     obj.edit33 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit33:setParent(obj.layout12);
+    obj.edit33:setParent(obj.layout13);
     obj.edit33:setType("number");
     obj.edit33:setAlign("left");
     obj.edit33:setHorzTextAlign("center");
@@ -935,12 +942,12 @@ function newfrmFichaDoPersonagem()
     obj.edit33:setName("edit33");
 
     obj.dataLink27 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink27:setParent(obj.layout12);
+    obj.dataLink27:setParent(obj.layout13);
     obj.dataLink27:setField("atributos.resistencia.treinamento");
     obj.dataLink27:setName("dataLink27");
 
     obj.edit34 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit34:setParent(obj.layout12);
+    obj.edit34:setParent(obj.layout13);
     obj.edit34:setType("number");
     obj.edit34:setAlign("left");
     obj.edit34:setHorzTextAlign("center");
@@ -950,12 +957,12 @@ function newfrmFichaDoPersonagem()
     obj.edit34:setName("edit34");
 
     obj.dataLink28 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink28:setParent(obj.layout12);
+    obj.dataLink28:setParent(obj.layout13);
     obj.dataLink28:setField("atributos.resistencia.habilidade");
     obj.dataLink28:setName("dataLink28");
 
     obj.label26 = gui.fromHandle(_obj_newObject("label"));
-    obj.label26:setParent(obj.layout12);
+    obj.label26:setParent(obj.layout13);
     obj.label26:setAlign("left");
     obj.label26:setText("=");
     obj.label26:setWidth(10);
@@ -963,23 +970,23 @@ function newfrmFichaDoPersonagem()
     obj.label26:setName("label26");
 
     obj.label27 = gui.fromHandle(_obj_newObject("label"));
-    obj.label27:setParent(obj.layout12);
+    obj.label27:setParent(obj.layout13);
     obj.label27:setAlign("left");
     obj.label27:setHorzTextAlign("center");
     obj.label27:setWidth(30);
     obj.label27:setField("atributos.resistencia.total");
     obj.label27:setName("label27");
 
-    obj.layout13 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout13:setParent(obj.layout11);
-    obj.layout13:setTop(70);
-    obj.layout13:setHeight(25);
-    obj.layout13:setWidth(450);
-    obj.layout13:setMargins({left=4,right=4});
-    obj.layout13:setName("layout13");
+    obj.layout14 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout14:setParent(obj.layout12);
+    obj.layout14:setTop(70);
+    obj.layout14:setHeight(25);
+    obj.layout14:setWidth(450);
+    obj.layout14:setMargins({left=4,right=4});
+    obj.layout14:setName("layout14");
 
     obj.button8 = gui.fromHandle(_obj_newObject("button"));
-    obj.button8:setParent(obj.layout13);
+    obj.button8:setParent(obj.layout14);
     obj.button8:setAlign("left");
     obj.button8:setWidth(30);
     obj.button8:setMargins({right=4});
@@ -994,7 +1001,7 @@ function newfrmFichaDoPersonagem()
     obj.image9:setName("image9");
 
     obj.label28 = gui.fromHandle(_obj_newObject("label"));
-    obj.label28:setParent(obj.layout13);
+    obj.label28:setParent(obj.layout14);
     obj.label28:setAlign("left");
     obj.label28:setHorzTextAlign("center");
     obj.label28:setText("Velocidade");
@@ -1003,7 +1010,7 @@ function newfrmFichaDoPersonagem()
     obj.label28:setName("label28");
 
     obj.edit35 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit35:setParent(obj.layout13);
+    obj.edit35:setParent(obj.layout14);
     obj.edit35:setType("number");
     obj.edit35:setAlign("left");
     obj.edit35:setHorzTextAlign("center");
@@ -1013,12 +1020,12 @@ function newfrmFichaDoPersonagem()
     obj.edit35:setName("edit35");
 
     obj.dataLink29 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink29:setParent(obj.layout13);
+    obj.dataLink29:setParent(obj.layout14);
     obj.dataLink29:setField("atributos.velocidade.base");
     obj.dataLink29:setName("dataLink29");
 
     obj.edit36 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit36:setParent(obj.layout13);
+    obj.edit36:setParent(obj.layout14);
     obj.edit36:setType("number");
     obj.edit36:setAlign("left");
     obj.edit36:setHorzTextAlign("center");
@@ -1028,12 +1035,12 @@ function newfrmFichaDoPersonagem()
     obj.edit36:setName("edit36");
 
     obj.dataLink30 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink30:setParent(obj.layout13);
+    obj.dataLink30:setParent(obj.layout14);
     obj.dataLink30:setField("atributos.velocidade.racaClasse");
     obj.dataLink30:setName("dataLink30");
 
     obj.edit37 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit37:setParent(obj.layout13);
+    obj.edit37:setParent(obj.layout14);
     obj.edit37:setType("number");
     obj.edit37:setAlign("left");
     obj.edit37:setHorzTextAlign("center");
@@ -1043,12 +1050,12 @@ function newfrmFichaDoPersonagem()
     obj.edit37:setName("edit37");
 
     obj.dataLink31 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink31:setParent(obj.layout13);
+    obj.dataLink31:setParent(obj.layout14);
     obj.dataLink31:setField("atributos.velocidade.treinamento");
     obj.dataLink31:setName("dataLink31");
 
     obj.edit38 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit38:setParent(obj.layout13);
+    obj.edit38:setParent(obj.layout14);
     obj.edit38:setType("number");
     obj.edit38:setAlign("left");
     obj.edit38:setHorzTextAlign("center");
@@ -1058,12 +1065,12 @@ function newfrmFichaDoPersonagem()
     obj.edit38:setName("edit38");
 
     obj.dataLink32 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink32:setParent(obj.layout13);
+    obj.dataLink32:setParent(obj.layout14);
     obj.dataLink32:setField("atributos.velocidade.habilidade");
     obj.dataLink32:setName("dataLink32");
 
     obj.label29 = gui.fromHandle(_obj_newObject("label"));
-    obj.label29:setParent(obj.layout13);
+    obj.label29:setParent(obj.layout14);
     obj.label29:setAlign("left");
     obj.label29:setText("=");
     obj.label29:setWidth(10);
@@ -1071,23 +1078,23 @@ function newfrmFichaDoPersonagem()
     obj.label29:setName("label29");
 
     obj.label30 = gui.fromHandle(_obj_newObject("label"));
-    obj.label30:setParent(obj.layout13);
+    obj.label30:setParent(obj.layout14);
     obj.label30:setAlign("left");
     obj.label30:setHorzTextAlign("center");
     obj.label30:setWidth(30);
     obj.label30:setField("atributos.velocidade.total");
     obj.label30:setName("label30");
 
-    obj.layout14 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout14:setParent(obj.layout11);
-    obj.layout14:setTop(100);
-    obj.layout14:setHeight(25);
-    obj.layout14:setWidth(450);
-    obj.layout14:setMargins({left=4,right=4});
-    obj.layout14:setName("layout14");
+    obj.layout15 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout15:setParent(obj.layout12);
+    obj.layout15:setTop(100);
+    obj.layout15:setHeight(25);
+    obj.layout15:setWidth(450);
+    obj.layout15:setMargins({left=4,right=4});
+    obj.layout15:setName("layout15");
 
     obj.button9 = gui.fromHandle(_obj_newObject("button"));
-    obj.button9:setParent(obj.layout14);
+    obj.button9:setParent(obj.layout15);
     obj.button9:setAlign("left");
     obj.button9:setWidth(30);
     obj.button9:setMargins({right=4});
@@ -1102,7 +1109,7 @@ function newfrmFichaDoPersonagem()
     obj.image10:setName("image10");
 
     obj.label31 = gui.fromHandle(_obj_newObject("label"));
-    obj.label31:setParent(obj.layout14);
+    obj.label31:setParent(obj.layout15);
     obj.label31:setAlign("left");
     obj.label31:setHorzTextAlign("center");
     obj.label31:setText("Agilidade");
@@ -1111,7 +1118,7 @@ function newfrmFichaDoPersonagem()
     obj.label31:setName("label31");
 
     obj.edit39 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit39:setParent(obj.layout14);
+    obj.edit39:setParent(obj.layout15);
     obj.edit39:setType("number");
     obj.edit39:setAlign("left");
     obj.edit39:setHorzTextAlign("center");
@@ -1121,12 +1128,12 @@ function newfrmFichaDoPersonagem()
     obj.edit39:setName("edit39");
 
     obj.dataLink33 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink33:setParent(obj.layout14);
+    obj.dataLink33:setParent(obj.layout15);
     obj.dataLink33:setField("atributos.agilidade.base");
     obj.dataLink33:setName("dataLink33");
 
     obj.edit40 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit40:setParent(obj.layout14);
+    obj.edit40:setParent(obj.layout15);
     obj.edit40:setType("number");
     obj.edit40:setAlign("left");
     obj.edit40:setHorzTextAlign("center");
@@ -1136,12 +1143,12 @@ function newfrmFichaDoPersonagem()
     obj.edit40:setName("edit40");
 
     obj.dataLink34 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink34:setParent(obj.layout14);
+    obj.dataLink34:setParent(obj.layout15);
     obj.dataLink34:setField("atributos.agilidade.racaClasse");
     obj.dataLink34:setName("dataLink34");
 
     obj.edit41 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit41:setParent(obj.layout14);
+    obj.edit41:setParent(obj.layout15);
     obj.edit41:setType("number");
     obj.edit41:setAlign("left");
     obj.edit41:setHorzTextAlign("center");
@@ -1151,12 +1158,12 @@ function newfrmFichaDoPersonagem()
     obj.edit41:setName("edit41");
 
     obj.dataLink35 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink35:setParent(obj.layout14);
+    obj.dataLink35:setParent(obj.layout15);
     obj.dataLink35:setField("atributos.agilidade.treinamento");
     obj.dataLink35:setName("dataLink35");
 
     obj.edit42 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit42:setParent(obj.layout14);
+    obj.edit42:setParent(obj.layout15);
     obj.edit42:setType("number");
     obj.edit42:setAlign("left");
     obj.edit42:setHorzTextAlign("center");
@@ -1166,12 +1173,12 @@ function newfrmFichaDoPersonagem()
     obj.edit42:setName("edit42");
 
     obj.dataLink36 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink36:setParent(obj.layout14);
+    obj.dataLink36:setParent(obj.layout15);
     obj.dataLink36:setField("atributos.agilidade.habilidade");
     obj.dataLink36:setName("dataLink36");
 
     obj.label32 = gui.fromHandle(_obj_newObject("label"));
-    obj.label32:setParent(obj.layout14);
+    obj.label32:setParent(obj.layout15);
     obj.label32:setAlign("left");
     obj.label32:setText("=");
     obj.label32:setWidth(10);
@@ -1179,23 +1186,23 @@ function newfrmFichaDoPersonagem()
     obj.label32:setName("label32");
 
     obj.label33 = gui.fromHandle(_obj_newObject("label"));
-    obj.label33:setParent(obj.layout14);
+    obj.label33:setParent(obj.layout15);
     obj.label33:setAlign("left");
     obj.label33:setHorzTextAlign("center");
     obj.label33:setWidth(30);
     obj.label33:setField("atributos.agilidade.total");
     obj.label33:setName("label33");
 
-    obj.layout15 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout15:setParent(obj.layout11);
-    obj.layout15:setTop(130);
-    obj.layout15:setHeight(25);
-    obj.layout15:setWidth(450);
-    obj.layout15:setMargins({left=4,right=4});
-    obj.layout15:setName("layout15");
+    obj.layout16 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout16:setParent(obj.layout12);
+    obj.layout16:setTop(130);
+    obj.layout16:setHeight(25);
+    obj.layout16:setWidth(450);
+    obj.layout16:setMargins({left=4,right=4});
+    obj.layout16:setName("layout16");
 
     obj.button10 = gui.fromHandle(_obj_newObject("button"));
-    obj.button10:setParent(obj.layout15);
+    obj.button10:setParent(obj.layout16);
     obj.button10:setAlign("left");
     obj.button10:setWidth(30);
     obj.button10:setMargins({right=4});
@@ -1210,7 +1217,7 @@ function newfrmFichaDoPersonagem()
     obj.image11:setName("image11");
 
     obj.label34 = gui.fromHandle(_obj_newObject("label"));
-    obj.label34:setParent(obj.layout15);
+    obj.label34:setParent(obj.layout16);
     obj.label34:setAlign("left");
     obj.label34:setHorzTextAlign("center");
     obj.label34:setText("Destreza");
@@ -1219,7 +1226,7 @@ function newfrmFichaDoPersonagem()
     obj.label34:setName("label34");
 
     obj.edit43 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit43:setParent(obj.layout15);
+    obj.edit43:setParent(obj.layout16);
     obj.edit43:setType("number");
     obj.edit43:setAlign("left");
     obj.edit43:setHorzTextAlign("center");
@@ -1229,12 +1236,12 @@ function newfrmFichaDoPersonagem()
     obj.edit43:setName("edit43");
 
     obj.dataLink37 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink37:setParent(obj.layout15);
+    obj.dataLink37:setParent(obj.layout16);
     obj.dataLink37:setField("atributos.destreza.base");
     obj.dataLink37:setName("dataLink37");
 
     obj.edit44 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit44:setParent(obj.layout15);
+    obj.edit44:setParent(obj.layout16);
     obj.edit44:setType("number");
     obj.edit44:setAlign("left");
     obj.edit44:setHorzTextAlign("center");
@@ -1244,12 +1251,12 @@ function newfrmFichaDoPersonagem()
     obj.edit44:setName("edit44");
 
     obj.dataLink38 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink38:setParent(obj.layout15);
+    obj.dataLink38:setParent(obj.layout16);
     obj.dataLink38:setField("atributos.destreza.racaClasse");
     obj.dataLink38:setName("dataLink38");
 
     obj.edit45 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit45:setParent(obj.layout15);
+    obj.edit45:setParent(obj.layout16);
     obj.edit45:setType("number");
     obj.edit45:setAlign("left");
     obj.edit45:setHorzTextAlign("center");
@@ -1259,12 +1266,12 @@ function newfrmFichaDoPersonagem()
     obj.edit45:setName("edit45");
 
     obj.dataLink39 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink39:setParent(obj.layout15);
+    obj.dataLink39:setParent(obj.layout16);
     obj.dataLink39:setField("atributos.destreza.treinamento");
     obj.dataLink39:setName("dataLink39");
 
     obj.edit46 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit46:setParent(obj.layout15);
+    obj.edit46:setParent(obj.layout16);
     obj.edit46:setType("number");
     obj.edit46:setAlign("left");
     obj.edit46:setHorzTextAlign("center");
@@ -1274,12 +1281,12 @@ function newfrmFichaDoPersonagem()
     obj.edit46:setName("edit46");
 
     obj.dataLink40 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink40:setParent(obj.layout15);
+    obj.dataLink40:setParent(obj.layout16);
     obj.dataLink40:setField("atributos.destreza.habilidade");
     obj.dataLink40:setName("dataLink40");
 
     obj.label35 = gui.fromHandle(_obj_newObject("label"));
-    obj.label35:setParent(obj.layout15);
+    obj.label35:setParent(obj.layout16);
     obj.label35:setAlign("left");
     obj.label35:setText("=");
     obj.label35:setWidth(10);
@@ -1287,23 +1294,23 @@ function newfrmFichaDoPersonagem()
     obj.label35:setName("label35");
 
     obj.label36 = gui.fromHandle(_obj_newObject("label"));
-    obj.label36:setParent(obj.layout15);
+    obj.label36:setParent(obj.layout16);
     obj.label36:setAlign("left");
     obj.label36:setHorzTextAlign("center");
     obj.label36:setWidth(30);
     obj.label36:setField("atributos.destreza.total");
     obj.label36:setName("label36");
 
-    obj.layout16 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout16:setParent(obj.layout11);
-    obj.layout16:setTop(160);
-    obj.layout16:setHeight(25);
-    obj.layout16:setWidth(450);
-    obj.layout16:setMargins({left=4,right=4});
-    obj.layout16:setName("layout16");
+    obj.layout17 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout17:setParent(obj.layout12);
+    obj.layout17:setTop(160);
+    obj.layout17:setHeight(25);
+    obj.layout17:setWidth(450);
+    obj.layout17:setMargins({left=4,right=4});
+    obj.layout17:setName("layout17");
 
     obj.button11 = gui.fromHandle(_obj_newObject("button"));
-    obj.button11:setParent(obj.layout16);
+    obj.button11:setParent(obj.layout17);
     obj.button11:setAlign("left");
     obj.button11:setWidth(30);
     obj.button11:setMargins({right=4});
@@ -1318,7 +1325,7 @@ function newfrmFichaDoPersonagem()
     obj.image12:setName("image12");
 
     obj.label37 = gui.fromHandle(_obj_newObject("label"));
-    obj.label37:setParent(obj.layout16);
+    obj.label37:setParent(obj.layout17);
     obj.label37:setAlign("left");
     obj.label37:setHorzTextAlign("center");
     obj.label37:setText("Força");
@@ -1327,7 +1334,7 @@ function newfrmFichaDoPersonagem()
     obj.label37:setName("label37");
 
     obj.edit47 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit47:setParent(obj.layout16);
+    obj.edit47:setParent(obj.layout17);
     obj.edit47:setType("number");
     obj.edit47:setAlign("left");
     obj.edit47:setHorzTextAlign("center");
@@ -1337,12 +1344,12 @@ function newfrmFichaDoPersonagem()
     obj.edit47:setName("edit47");
 
     obj.dataLink41 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink41:setParent(obj.layout16);
+    obj.dataLink41:setParent(obj.layout17);
     obj.dataLink41:setField("atributos.forca.base");
     obj.dataLink41:setName("dataLink41");
 
     obj.edit48 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit48:setParent(obj.layout16);
+    obj.edit48:setParent(obj.layout17);
     obj.edit48:setType("number");
     obj.edit48:setAlign("left");
     obj.edit48:setHorzTextAlign("center");
@@ -1352,12 +1359,12 @@ function newfrmFichaDoPersonagem()
     obj.edit48:setName("edit48");
 
     obj.dataLink42 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink42:setParent(obj.layout16);
+    obj.dataLink42:setParent(obj.layout17);
     obj.dataLink42:setField("atributos.forca.racaClasse");
     obj.dataLink42:setName("dataLink42");
 
     obj.edit49 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit49:setParent(obj.layout16);
+    obj.edit49:setParent(obj.layout17);
     obj.edit49:setType("number");
     obj.edit49:setAlign("left");
     obj.edit49:setHorzTextAlign("center");
@@ -1367,12 +1374,12 @@ function newfrmFichaDoPersonagem()
     obj.edit49:setName("edit49");
 
     obj.dataLink43 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink43:setParent(obj.layout16);
+    obj.dataLink43:setParent(obj.layout17);
     obj.dataLink43:setField("atributos.forca.treinamento");
     obj.dataLink43:setName("dataLink43");
 
     obj.edit50 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit50:setParent(obj.layout16);
+    obj.edit50:setParent(obj.layout17);
     obj.edit50:setType("number");
     obj.edit50:setAlign("left");
     obj.edit50:setHorzTextAlign("center");
@@ -1382,12 +1389,12 @@ function newfrmFichaDoPersonagem()
     obj.edit50:setName("edit50");
 
     obj.dataLink44 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink44:setParent(obj.layout16);
+    obj.dataLink44:setParent(obj.layout17);
     obj.dataLink44:setField("atributos.forca.habilidade");
     obj.dataLink44:setName("dataLink44");
 
     obj.label38 = gui.fromHandle(_obj_newObject("label"));
-    obj.label38:setParent(obj.layout16);
+    obj.label38:setParent(obj.layout17);
     obj.label38:setAlign("left");
     obj.label38:setText("=");
     obj.label38:setWidth(10);
@@ -1395,23 +1402,23 @@ function newfrmFichaDoPersonagem()
     obj.label38:setName("label38");
 
     obj.label39 = gui.fromHandle(_obj_newObject("label"));
-    obj.label39:setParent(obj.layout16);
+    obj.label39:setParent(obj.layout17);
     obj.label39:setAlign("left");
     obj.label39:setHorzTextAlign("center");
     obj.label39:setWidth(30);
     obj.label39:setField("atributos.forca.total");
     obj.label39:setName("label39");
 
-    obj.layout17 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout17:setParent(obj.layout11);
-    obj.layout17:setTop(190);
-    obj.layout17:setHeight(25);
-    obj.layout17:setWidth(450);
-    obj.layout17:setMargins({left=4,right=4});
-    obj.layout17:setName("layout17");
+    obj.layout18 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout18:setParent(obj.layout12);
+    obj.layout18:setTop(190);
+    obj.layout18:setHeight(25);
+    obj.layout18:setWidth(450);
+    obj.layout18:setMargins({left=4,right=4});
+    obj.layout18:setName("layout18");
 
     obj.button12 = gui.fromHandle(_obj_newObject("button"));
-    obj.button12:setParent(obj.layout17);
+    obj.button12:setParent(obj.layout18);
     obj.button12:setAlign("left");
     obj.button12:setWidth(30);
     obj.button12:setMargins({right=4});
@@ -1426,7 +1433,7 @@ function newfrmFichaDoPersonagem()
     obj.image13:setName("image13");
 
     obj.label40 = gui.fromHandle(_obj_newObject("label"));
-    obj.label40:setParent(obj.layout17);
+    obj.label40:setParent(obj.layout18);
     obj.label40:setAlign("left");
     obj.label40:setHorzTextAlign("center");
     obj.label40:setText("Vigor");
@@ -1435,7 +1442,7 @@ function newfrmFichaDoPersonagem()
     obj.label40:setName("label40");
 
     obj.edit51 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit51:setParent(obj.layout17);
+    obj.edit51:setParent(obj.layout18);
     obj.edit51:setType("number");
     obj.edit51:setAlign("left");
     obj.edit51:setHorzTextAlign("center");
@@ -1445,12 +1452,12 @@ function newfrmFichaDoPersonagem()
     obj.edit51:setName("edit51");
 
     obj.dataLink45 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink45:setParent(obj.layout17);
+    obj.dataLink45:setParent(obj.layout18);
     obj.dataLink45:setField("atributos.vigor.base");
     obj.dataLink45:setName("dataLink45");
 
     obj.edit52 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit52:setParent(obj.layout17);
+    obj.edit52:setParent(obj.layout18);
     obj.edit52:setType("number");
     obj.edit52:setAlign("left");
     obj.edit52:setHorzTextAlign("center");
@@ -1460,12 +1467,12 @@ function newfrmFichaDoPersonagem()
     obj.edit52:setName("edit52");
 
     obj.dataLink46 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink46:setParent(obj.layout17);
+    obj.dataLink46:setParent(obj.layout18);
     obj.dataLink46:setField("atributos.vigor.racaClasse");
     obj.dataLink46:setName("dataLink46");
 
     obj.edit53 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit53:setParent(obj.layout17);
+    obj.edit53:setParent(obj.layout18);
     obj.edit53:setType("number");
     obj.edit53:setAlign("left");
     obj.edit53:setHorzTextAlign("center");
@@ -1475,12 +1482,12 @@ function newfrmFichaDoPersonagem()
     obj.edit53:setName("edit53");
 
     obj.dataLink47 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink47:setParent(obj.layout17);
+    obj.dataLink47:setParent(obj.layout18);
     obj.dataLink47:setField("atributos.vigor.treinamento");
     obj.dataLink47:setName("dataLink47");
 
     obj.edit54 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit54:setParent(obj.layout17);
+    obj.edit54:setParent(obj.layout18);
     obj.edit54:setType("number");
     obj.edit54:setAlign("left");
     obj.edit54:setHorzTextAlign("center");
@@ -1490,12 +1497,12 @@ function newfrmFichaDoPersonagem()
     obj.edit54:setName("edit54");
 
     obj.dataLink48 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink48:setParent(obj.layout17);
+    obj.dataLink48:setParent(obj.layout18);
     obj.dataLink48:setField("atributos.vigor.habilidade");
     obj.dataLink48:setName("dataLink48");
 
     obj.label41 = gui.fromHandle(_obj_newObject("label"));
-    obj.label41:setParent(obj.layout17);
+    obj.label41:setParent(obj.layout18);
     obj.label41:setAlign("left");
     obj.label41:setText("=");
     obj.label41:setWidth(10);
@@ -1503,7 +1510,7 @@ function newfrmFichaDoPersonagem()
     obj.label41:setName("label41");
 
     obj.label42 = gui.fromHandle(_obj_newObject("label"));
-    obj.label42:setParent(obj.layout17);
+    obj.label42:setParent(obj.layout18);
     obj.label42:setAlign("left");
     obj.label42:setHorzTextAlign("center");
     obj.label42:setWidth(30);
@@ -1540,16 +1547,16 @@ function newfrmFichaDoPersonagem()
     obj.button13:setWidth(100);
     obj.button13:setName("button13");
 
-    obj.layout18 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout18:setParent(obj.scrollBox1);
-    obj.layout18:setLeft(55);
-    obj.layout18:setTop(45);
-    obj.layout18:setWidth(350);
-    obj.layout18:setMargins({top=5,bottom=15});
-    obj.layout18:setName("layout18");
+    obj.layout19 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout19:setParent(obj.scrollBox1);
+    obj.layout19:setLeft(55);
+    obj.layout19:setTop(45);
+    obj.layout19:setWidth(350);
+    obj.layout19:setMargins({top=5,bottom=15});
+    obj.layout19:setName("layout19");
 
     obj.label43 = gui.fromHandle(_obj_newObject("label"));
-    obj.label43:setParent(obj.layout18);
+    obj.label43:setParent(obj.layout19);
     obj.label43:setAlign("left");
     obj.label43:setHorzTextAlign("center");
     obj.label43:setWidth(100);
@@ -1558,7 +1565,7 @@ function newfrmFichaDoPersonagem()
     obj.label43:setName("label43");
 
     obj.label44 = gui.fromHandle(_obj_newObject("label"));
-    obj.label44:setParent(obj.layout18);
+    obj.label44:setParent(obj.layout19);
     obj.label44:setAlign("left");
     obj.label44:setHorzTextAlign("center");
     obj.label44:setWidth(100);
@@ -1567,7 +1574,7 @@ function newfrmFichaDoPersonagem()
     obj.label44:setName("label44");
 
     obj.label45 = gui.fromHandle(_obj_newObject("label"));
-    obj.label45:setParent(obj.layout18);
+    obj.label45:setParent(obj.layout19);
     obj.label45:setAlign("left");
     obj.label45:setHorzTextAlign("center");
     obj.label45:setWidth(30);
@@ -1576,7 +1583,7 @@ function newfrmFichaDoPersonagem()
     obj.label45:setName("label45");
 
     obj.label46 = gui.fromHandle(_obj_newObject("label"));
-    obj.label46:setParent(obj.layout18);
+    obj.label46:setParent(obj.layout19);
     obj.label46:setAlign("left");
     obj.label46:setHorzTextAlign("center");
     obj.label46:setWidth(30);
@@ -1585,7 +1592,7 @@ function newfrmFichaDoPersonagem()
     obj.label46:setName("label46");
 
     obj.label47 = gui.fromHandle(_obj_newObject("label"));
-    obj.label47:setParent(obj.layout18);
+    obj.label47:setParent(obj.layout19);
     obj.label47:setAlign("left");
     obj.label47:setHorzTextAlign("center");
     obj.label47:setWidth(30);
@@ -1647,6 +1654,18 @@ function newfrmFichaDoPersonagem()
     obj.richEdit5:setField("historia");
     obj.richEdit5:setName("richEdit5");
 
+    obj.tab9 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab9:setParent(obj.tabControl1);
+    obj.tab9:setTitle("Backup");
+    obj.tab9:setVisible(false);
+    obj.tab9:setName("tab9");
+
+    obj.richEdit6 = gui.fromHandle(_obj_newObject("richEdit"));
+    obj.richEdit6:setParent(obj.tab9);
+    obj.richEdit6:setAlign("client");
+    obj.richEdit6:setField("backup");
+    obj.richEdit6:setName("richEdit6");
+
     obj._e_event0 = obj.image1:addEventListener("onStartDrag",
         function (self, drag, x, y)
             drag:addData("imageURL", sheet.avatar);
@@ -1657,7 +1676,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.inteligencia.total,
                         "Teste de Inteligência"
                       )
@@ -1708,7 +1727,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.sabedoria.total,
                         "Teste de Sabedoria"
                       )
@@ -1759,7 +1778,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.vontade.total,
                         "Teste de Vontade"
                       )
@@ -1810,7 +1829,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.carisma.total,
                         "Teste de Carisma"
                       )
@@ -1861,7 +1880,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.energia.total,
                         "Teste de Energia"
                       )
@@ -1912,7 +1931,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.corpo.total,
                         "Teste de Corpo"
                       )
@@ -1963,7 +1982,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.resistencia.total,
                         "Teste de Resistência"
                       )
@@ -2014,7 +2033,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.velocidade.total,
                         "Teste de Velocidade"
                       )
@@ -2065,7 +2084,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.agilidade.total,
                         "Teste de Agilidade"
                       )
@@ -2116,7 +2135,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.destreza.total,
                         "Teste de Destreza"
                       )
@@ -2167,7 +2186,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.forca.total,
                         "Teste de Força"
                       )
@@ -2218,7 +2237,7 @@ function newfrmFichaDoPersonagem()
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
             
-                      mesa.chat:rolarDados(
+                      mesa.activeChat:rolarDados(
                         "01d20 + " .. sheet.atributos.vigor.total,
                         "Teste de Vigor"
                       )
@@ -2379,9 +2398,9 @@ function newfrmFichaDoPersonagem()
         if self.edit26 ~= nil then self.edit26:destroy(); self.edit26 = nil; end;
         if self.edit34 ~= nil then self.edit34:destroy(); self.edit34 = nil; end;
         if self.edit11 ~= nil then self.edit11:destroy(); self.edit11 = nil; end;
-        if self.edit19 ~= nil then self.edit19:destroy(); self.edit19 = nil; end;
-        if self.image1 ~= nil then self.image1:destroy(); self.image1 = nil; end;
         if self.layout9 ~= nil then self.layout9:destroy(); self.layout9 = nil; end;
+        if self.image1 ~= nil then self.image1:destroy(); self.image1 = nil; end;
+        if self.edit19 ~= nil then self.edit19:destroy(); self.edit19 = nil; end;
         if self.label31 ~= nil then self.label31:destroy(); self.label31 = nil; end;
         if self.dataLink44 ~= nil then self.dataLink44:destroy(); self.dataLink44 = nil; end;
         if self.label34 ~= nil then self.label34:destroy(); self.label34 = nil; end;
@@ -2415,6 +2434,7 @@ function newfrmFichaDoPersonagem()
         if self.dataLink3 ~= nil then self.dataLink3:destroy(); self.dataLink3 = nil; end;
         if self.tab7 ~= nil then self.tab7:destroy(); self.tab7 = nil; end;
         if self.label29 ~= nil then self.label29:destroy(); self.label29 = nil; end;
+        if self.tab9 ~= nil then self.tab9:destroy(); self.tab9 = nil; end;
         if self.dataLink7 ~= nil then self.dataLink7:destroy(); self.dataLink7 = nil; end;
         if self.rectangle2 ~= nil then self.rectangle2:destroy(); self.rectangle2 = nil; end;
         if self.label21 ~= nil then self.label21:destroy(); self.label21 = nil; end;
@@ -2503,6 +2523,7 @@ function newfrmFichaDoPersonagem()
         if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
         if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
         if self.label28 ~= nil then self.label28:destroy(); self.label28 = nil; end;
+        if self.layout19 ~= nil then self.layout19:destroy(); self.layout19 = nil; end;
         if self.edit30 ~= nil then self.edit30:destroy(); self.edit30 = nil; end;
         if self.edit21 ~= nil then self.edit21:destroy(); self.edit21 = nil; end;
         if self.tab4 ~= nil then self.tab4:destroy(); self.tab4 = nil; end;
@@ -2539,6 +2560,7 @@ function newfrmFichaDoPersonagem()
         if self.edit15 ~= nil then self.edit15:destroy(); self.edit15 = nil; end;
         if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
         if self.label20 ~= nil then self.label20:destroy(); self.label20 = nil; end;
+        if self.richEdit6 ~= nil then self.richEdit6:destroy(); self.richEdit6 = nil; end;
         if self.label25 ~= nil then self.label25:destroy(); self.label25 = nil; end;
         if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;
         if self.button8 ~= nil then self.button8:destroy(); self.button8 = nil; end;

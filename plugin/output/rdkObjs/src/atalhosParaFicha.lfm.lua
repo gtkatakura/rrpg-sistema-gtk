@@ -211,7 +211,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.INT].total,
                       "Teste de " .. i18n.atributos.INT
                     )
@@ -221,7 +221,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.SAB].total,
                       "Teste de " .. i18n.atributos.SAB
                     )
@@ -231,7 +231,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.VON].total,
                       "Teste de " .. i18n.atributos.VON
                     )
@@ -241,7 +241,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.CAR].total,
                       "Teste de " .. i18n.atributos.CAR
                     )
@@ -251,7 +251,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.ENE].total,
                       "Teste de " .. i18n.atributos.ENE
                     )
@@ -261,7 +261,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.COR].total,
                       "Teste de " .. i18n.atributos.COR
                     )
@@ -271,7 +271,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.RES].total,
                       "Teste de " .. i18n.atributos.RES
                     )
@@ -281,7 +281,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.VEL].total,
                       "Teste de " .. i18n.atributos.VEL
                     )
@@ -291,7 +291,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.AGI].total,
                       "Teste de " .. i18n.atributos.AGI
                     )
@@ -301,7 +301,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.DES].total,
                       "Teste de " .. i18n.atributos.DES
                     )
@@ -311,7 +311,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.FOR].total,
                       "Teste de " .. i18n.atributos.FOR
                     )
@@ -321,7 +321,7 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
-                    mesa.chat:rolarDados(
+                    mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.VIG].total,
                       "Teste de " .. i18n.atributos.VIG
                     )
