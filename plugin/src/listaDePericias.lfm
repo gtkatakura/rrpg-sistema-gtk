@@ -5,9 +5,15 @@
       local mesa = rrpg.getMesaDe(sheet)
       local ficha = ndb.getRoot(sheet).player
 
+      local textoPersonagem = ""
+
+      if mesa.meuJogador.isMestre then
+        textoPersonagem = ficha.nome .. ": "
+      end
+
       mesa.activeChat:rolarDados(
         "01d20 + " .. sheet.pontos.total .. " + " .. ficha.atributos[atributos[sheet.atributoBase]].total,
-        ficha.nome .. ": " .. sheet.grupo .. " (" .. sheet.nome .. ") - " .. sheet.atributoBase
+        textoPersonagem .. sheet.grupo .. " (" .. sheet.nome .. ") - " .. sheet.atributoBase
       )
     </event>
   </button>

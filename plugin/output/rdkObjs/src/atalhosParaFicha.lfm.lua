@@ -28,7 +28,7 @@ function newfrmAtalhosParaFicha()
     obj:beginUpdate();
     obj:setFormType("tablesDock");
     obj:setDataType("gtk.atalhosDaFicha");
-    obj:setTitle("Atalhos para Ficha - GTK (v0.5)");
+    obj:setTitle("Atalhos para Ficha - GTK (v0.5.2)");
     obj:setName("frmAtalhosParaFicha");
     obj:setHeight(300);
     obj:setWidth(300);
@@ -316,9 +316,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.INT].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.INT
+                      textoPersonagem .. "Teste de " .. i18n.atributos.INT
                     )
         end, obj);
 
@@ -326,9 +332,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.SAB].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.SAB
+                      textoPersonagem .. "Teste de " .. i18n.atributos.SAB
                     )
         end, obj);
 
@@ -336,9 +348,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.VON].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.VON
+                      textoPersonagem .. "Teste de " .. i18n.atributos.VON
                     )
         end, obj);
 
@@ -346,9 +364,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.CAR].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.CAR
+                      textoPersonagem .. "Teste de " .. i18n.atributos.CAR
                     )
         end, obj);
 
@@ -356,9 +380,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.ENE].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.ENE
+                      textoPersonagem .. "Teste de " .. i18n.atributos.ENE
                     )
         end, obj);
 
@@ -366,9 +396,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.COR].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.COR
+                      textoPersonagem .. "Teste de " .. i18n.atributos.COR
                     )
         end, obj);
 
@@ -376,9 +412,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.RES].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.RES
+                      textoPersonagem .. "Teste de " .. i18n.atributos.RES
                     )
         end, obj);
 
@@ -386,9 +428,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.VEL].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.VEL
+                      textoPersonagem .. "Teste de " .. i18n.atributos.VEL
                     )
         end, obj);
 
@@ -396,9 +444,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.AGI].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.AGI
+                      textoPersonagem .. "Teste de " .. i18n.atributos.AGI
                     )
         end, obj);
 
@@ -406,9 +460,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.DES].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.DES
+                      textoPersonagem .. "Teste de " .. i18n.atributos.DES
                     )
         end, obj);
 
@@ -416,9 +476,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.FOR].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.FOR
+                      textoPersonagem .. "Teste de " .. i18n.atributos.FOR
                     )
         end, obj);
 
@@ -426,9 +492,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.atributos[atributos.VIG].total,
-                      sheet.player.nome .. ": Teste de " .. i18n.atributos.VIG
+                      textoPersonagem .. "Teste de " .. i18n.atributos.VIG
                     )
         end, obj);
 
@@ -436,9 +508,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.sentidos.sextoSentido.total,
-                      sheet.player.nome .. ": Teste de Sexto Sentido"
+                      textoPersonagem .. "Teste de Sexto Sentido"
                     )
         end, obj);
 
@@ -446,9 +524,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.sentidos.audicao.total,
-                      sheet.player.nome .. ": Teste de Audição"
+                      textoPersonagem .. "Teste de Audição"
                     )
         end, obj);
 
@@ -456,9 +540,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.sentidos.paladar.total,
-                      sheet.player.nome .. ": Teste de Paladar"
+                      textoPersonagem .. "Teste de Paladar"
                     )
         end, obj);
 
@@ -466,9 +556,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.sentidos.olfato.total,
-                      sheet.player.nome .. ": Teste de Olfato"
+                      textoPersonagem .. "Teste de Olfato"
                     )
         end, obj);
 
@@ -476,9 +572,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.sentidos.visao.total,
-                      sheet.player.nome .. ": Teste de Visão"
+                      textoPersonagem .. "Teste de Visão"
                     )
         end, obj);
 
@@ -486,9 +588,15 @@ function newfrmAtalhosParaFicha()
         function (self)
             local mesa = rrpg.getMesaDe(self)
             
+                    local textoPersonagem = ""
+            
+                    if mesa.meuJogador.isMestre then
+                      textoPersonagem = sheet.player.nome .. ": "
+                    end
+            
                     mesa.activeChat:rolarDados(
                       "01d20 + " .. sheet.player.sentidos.tato.total,
-                      sheet.player.nome .. ": Teste de Tato"
+                      textoPersonagem .. "Teste de Tato"
                     )
         end, obj);
 
@@ -570,7 +678,7 @@ local _frmAtalhosParaFicha = {
     dataType = "gtk.atalhosDaFicha", 
     formType = "tablesDock", 
     formComponentName = "form", 
-    title = "Atalhos para Ficha - GTK (v0.5)", 
+    title = "Atalhos para Ficha - GTK (v0.5.2)", 
     description=""};
 
 frmAtalhosParaFicha = _frmAtalhosParaFicha;

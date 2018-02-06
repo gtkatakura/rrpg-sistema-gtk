@@ -2,7 +2,7 @@
 <form
   formType="tablesDock"
   dataType="gtk.atalhosDaFicha"
-  title="Atalhos para Ficha - GTK (v0.5.1)"
+  title="Atalhos para Ficha - GTK (v0.5.2)"
   name="frmAtalhosParaFicha"
   height="300"
   width="300"
@@ -58,9 +58,15 @@
       <event name="onClick">
         local mesa = rrpg.getMesaDe(self)
 
+        local textoPersonagem = ""
+
+        if mesa.meuJogador.isMestre then
+          textoPersonagem = sheet.player.nome .. ": "
+        end
+
         mesa.activeChat:rolarDados(
           "01d20 + " .. sheet.player.atributos[atributos.$(text)].total,
-          sheet.player.nome .. ": Teste de " .. i18n.atributos.$(text)
+          textoPersonagem .. "Teste de " .. i18n.atributos.$(text)
         )
       </event>
     </button>
@@ -71,9 +77,15 @@
       <event name="onClick">
         local mesa = rrpg.getMesaDe(self)
 
+        local textoPersonagem = ""
+
+        if mesa.meuJogador.isMestre then
+          textoPersonagem = sheet.player.nome .. ": "
+        end
+
         mesa.activeChat:rolarDados(
           "01d20 + " .. sheet.player.sentidos.$(value).total,
-          sheet.player.nome .. ": Teste de $(text)"
+          textoPersonagem .. "Teste de $(text)"
         )
       </event>
     </button>
