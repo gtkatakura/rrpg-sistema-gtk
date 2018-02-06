@@ -48,7 +48,7 @@ function newfrmListaDePericias()
             
                   mesa.activeChat:rolarDados(
                     "01d20 + " .. sheet.pontos.total .. " + " .. ficha.atributos[atributos[sheet.atributoBase]].total,
-                    sheet.grupo .. " (" .. sheet.nome .. ") - " .. sheet.atributoBase
+                    ficha.nome .. ": " .. sheet.grupo .. " (" .. sheet.nome .. ") - " .. sheet.atributoBase
                   )
         end, obj);
 

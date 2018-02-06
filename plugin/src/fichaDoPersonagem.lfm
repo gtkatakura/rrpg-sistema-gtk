@@ -3,7 +3,7 @@
 <form
   formType="sheetTemplate"
   dataType="gtk.fichaDoPersonagem"
-  title="Ficha do Personagem - GTK (v0.4.1)"
+  title="Ficha do Personagem - GTK (v0.5)"
   name="frmFichaDoPersonagem"
 >
   <template name="NumberField">
@@ -20,6 +20,10 @@
           (sheet.atributos.$(atributo).treinamento or 0) +
           (sheet.atributos.$(atributo).habilidade or 0)
         )
+
+        if "$(atributo)" == "corpo" then
+          self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.$(atributo).total * 3)
+        end
       </event>
     </dataLink>
   </template>
@@ -38,13 +42,52 @@
           )
         </event>
       </button>
-      <label align="left" horzTextAlign="center" text="$(text)" width="80" autoSize="true"/>
+      <label align="left" horzTextAlign="center" text="$(text)" width="85" autoSize="true"/>
       <AtributoParte atributo="$(atributo)" parte="base" />
       <AtributoParte atributo="$(atributo)" parte="racaClasse" />
       <AtributoParte atributo="$(atributo)" parte="treinamento" />
       <AtributoParte atributo="$(atributo)" parte="habilidade" />
       <label align="left" text="=" width="10" margins="{left=4,right=4}" />
       <label align="left" horzTextAlign="center" width="30" field="atributos.$(atributo).total" />
+    </layout>
+  </template>
+
+  <template name="SentidoParte">
+    <NumberField field="sentidos.$(sentido).$(parte)"/>
+    <dataLink field="sentidos.$(sentido).$(parte)">
+      <event name="onChange">
+        sheet.sentidos.$(sentido) = sheet.sentidos.$(sentido) or {}
+        sheet.sentidos.$(sentido).total = (
+          (sheet.sentidos.$(sentido).base or 0) +
+          (sheet.sentidos.$(sentido).racaClasse or 0) +
+          (sheet.sentidos.$(sentido).treinamento or 0) +
+          (sheet.sentidos.$(sentido).habilidade or 0)
+        )
+      </event>
+    </dataLink>
+  </template>
+
+  <template name="Sentido">
+    <layout top="$(top)" height="25" width="450" margins="{left=4,right=4}">
+      <button align="left" width="30" margins="{right=4}" hint="Rolagem de Teste de Sentido">
+        <image align="left" width="30" src="/src/assets/dice-six-faces.png" />
+        <event name="onClick">
+          local mesa = rrpg.getMesaDe(sheet);
+          local ficha = ndb.getRoot(sheet);
+
+          mesa.activeChat:rolarDados(
+            "01d20 + " .. sheet.sentidos.$(sentido).total,
+            "Teste de $(text)"
+          )
+        </event>
+      </button>
+      <label align="left" horzTextAlign="center" text="$(text)" width="85" autoSize="true"/>
+      <SentidoParte sentido="$(sentido)" parte="base" />
+      <SentidoParte sentido="$(sentido)" parte="racaClasse" />
+      <SentidoParte sentido="$(sentido)" parte="treinamento" />
+      <SentidoParte sentido="$(sentido)" parte="habilidade" />
+      <label align="left" text="=" width="10" margins="{left=4,right=4}" />
+      <label align="left" horzTextAlign="center" width="30" field="sentidos.$(sentido).total" />
     </layout>
   </template>
 
@@ -89,7 +132,6 @@
     </tab>
 
     <tab title="Atributos">
-
       <layout left="20" width="300" height="400">
         <Atributo top="40" atributo="inteligencia" text="Inteligência" />
         <Atributo top="70" atributo="sabedoria" text="Sabedoria" />
@@ -110,7 +152,19 @@
     </tab>
 
     <tab title="Sentidos">
-      <richEdit align="client" field="sentidos" />
+      <label name="textTotalSentidos" left="20" top="10" text="PONTOS: (CORPO * 3) = 0" width="180" />
+
+      <layout left="20" width="300" height="400">
+        <Sentido top="40" sentido="sextoSentido" text="Sexto Sentido" />
+        <Sentido top="70" sentido="audicao" text="Audição" />
+        <Sentido top="100" sentido="paladar" text="Paladar" />
+      </layout>
+
+      <layout left="320" width="300" height="400">
+        <Sentido top="40" sentido="olfato" text="Olfato" />
+        <Sentido top="70" sentido="visao" text="Visão" />
+        <Sentido top="100" sentido="tato" text="Tato" />
+      </layout>
     </tab>
 
     <tab title="Perícias">
@@ -145,7 +199,7 @@
       <richEdit align="client" field="historia" />
     </tab>
 
-    <tab title="Backup" visible="false">
+    <tab title="Backup">
       <richEdit align="client" field="backup" />
     </tab>
   </tabControl>
