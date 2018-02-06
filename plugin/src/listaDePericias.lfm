@@ -19,6 +19,9 @@
   </button>
 
   <event name="onNodeReady">
-    self.nomeCompleto.text = sheet.grupo .. " (" .. sheet.nome .. ")"
+    local text = sheet.grupo .. " (" .. sheet.nome .. ")"
+
+    self.nomeCompleto.text = text
+    self.nomeCompleto.hint = text
   </event>
 </form>

@@ -38,7 +38,10 @@ function newfrmListaDePericias()
 
     obj._e_event0 = obj:addEventListener("onNodeReady",
         function (self)
-            self.nomeCompleto.text = sheet.grupo .. " (" .. sheet.nome .. ")"
+            local text = sheet.grupo .. " (" .. sheet.nome .. ")"
+            
+                self.nomeCompleto.text = text
+                self.nomeCompleto.hint = text
         end, obj);
 
     obj._e_event1 = obj.nomeCompleto:addEventListener("onClick",
