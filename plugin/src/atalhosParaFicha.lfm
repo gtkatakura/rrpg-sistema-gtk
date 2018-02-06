@@ -2,7 +2,7 @@
 <form
   formType="tablesDock"
   dataType="gtk.atalhosDaFicha"
-  title="Atalhos para Ficha - GTK (v0.5)"
+  title="Atalhos para Ficha - GTK (v0.5.1)"
   name="frmAtalhosParaFicha"
   height="300"
   width="300"

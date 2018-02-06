@@ -41,8 +41,13 @@ function newfrmFichaDoPersonagem()
     obj.tab1:setTitle("Informações");
     obj.tab1:setName("tab1");
 
+    obj.scrollBox1 = gui.fromHandle(_obj_newObject("scrollBox"));
+    obj.scrollBox1:setParent(obj.tab1);
+    obj.scrollBox1:setAlign("client");
+    obj.scrollBox1:setName("scrollBox1");
+
     obj.rectangle1 = gui.fromHandle(_obj_newObject("rectangle"));
-    obj.rectangle1:setParent(obj.tab1);
+    obj.rectangle1:setParent(obj.scrollBox1);
     obj.rectangle1:setLeft(10);
     obj.rectangle1:setTop(10);
     obj.rectangle1:setWidth(400);
@@ -95,7 +100,7 @@ function newfrmFichaDoPersonagem()
     obj.edit2:setName("edit2");
 
     obj.rectangle2 = gui.fromHandle(_obj_newObject("rectangle"));
-    obj.rectangle2:setParent(obj.tab1);
+    obj.rectangle2:setParent(obj.scrollBox1);
     obj.rectangle2:setLeft(10);
     obj.rectangle2:setTop(90);
     obj.rectangle2:setWidth(400);
@@ -181,25 +186,25 @@ function newfrmFichaDoPersonagem()
     obj.edit6:setName("edit6");
 
     obj.rectangle3 = gui.fromHandle(_obj_newObject("rectangle"));
-    obj.rectangle3:setParent(obj.tab1);
+    obj.rectangle3:setParent(obj.scrollBox1);
     obj.rectangle3:setLeft(10);
     obj.rectangle3:setTop(175);
     obj.rectangle3:setWidth(400);
-    obj.rectangle3:setHeight(350);
+    obj.rectangle3:setHeight(380);
     obj.rectangle3:setColor("black");
     obj.rectangle3:setStrokeColor("white");
     obj.rectangle3:setStrokeSize(1);
     obj.rectangle3:setName("rectangle3");
 
     obj.image1 = gui.fromHandle(_obj_newObject("image"));
-    obj.image1:setParent(obj.tab1);
+    obj.image1:setParent(obj.scrollBox1);
     obj.image1:setLeft(12);
     obj.image1:setTop(177);
     obj.image1:setWidth(396);
-    obj.image1:setHeight(346);
+    obj.image1:setHeight(376);
     obj.image1:setField("avatar");
     obj.image1:setEditable(true);
-    obj.image1:setStyle("autoFit");
+    obj.image1:setStyle("proportional");
     obj.image1:setName("image1");
 
     obj.tab2 = gui.fromHandle(_obj_newObject("tab"));
@@ -2197,13 +2202,13 @@ function newfrmFichaDoPersonagem()
     obj.tab4:setTitle("Perícias");
     obj.tab4:setName("tab4");
 
-    obj.scrollBox1 = gui.fromHandle(_obj_newObject("scrollBox"));
-    obj.scrollBox1:setParent(obj.tab4);
-    obj.scrollBox1:setAlign("client");
-    obj.scrollBox1:setName("scrollBox1");
+    obj.scrollBox2 = gui.fromHandle(_obj_newObject("scrollBox"));
+    obj.scrollBox2:setParent(obj.tab4);
+    obj.scrollBox2:setAlign("client");
+    obj.scrollBox2:setName("scrollBox2");
 
     obj.button19 = gui.fromHandle(_obj_newObject("button"));
-    obj.button19:setParent(obj.scrollBox1);
+    obj.button19:setParent(obj.scrollBox2);
     obj.button19:setLeft(20);
     obj.button19:setTop(20);
     obj.button19:setHeight(25);
@@ -2212,7 +2217,7 @@ function newfrmFichaDoPersonagem()
     obj.button19:setName("button19");
 
     obj.layout27 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout27:setParent(obj.scrollBox1);
+    obj.layout27:setParent(obj.scrollBox2);
     obj.layout27:setLeft(55);
     obj.layout27:setTop(45);
     obj.layout27:setWidth(350);
@@ -2265,7 +2270,7 @@ function newfrmFichaDoPersonagem()
     obj.label65:setName("label65");
 
     obj.pericias = gui.fromHandle(_obj_newObject("recordList"));
-    obj.pericias:setParent(obj.scrollBox1);
+    obj.pericias:setParent(obj.scrollBox2);
     obj.pericias:setName("pericias");
     obj.pericias:setField("pericias");
     obj.pericias:setTemplateForm("frmPericias");
@@ -3640,6 +3645,7 @@ function newfrmFichaDoPersonagem()
         if self.label15 ~= nil then self.label15:destroy(); self.label15 = nil; end;
         if self.label41 ~= nil then self.label41:destroy(); self.label41 = nil; end;
         if self.label49 ~= nil then self.label49:destroy(); self.label49 = nil; end;
+        if self.scrollBox2 ~= nil then self.scrollBox2:destroy(); self.scrollBox2 = nil; end;
         if self.tab5 ~= nil then self.tab5:destroy(); self.tab5 = nil; end;
         if self.label12 ~= nil then self.label12:destroy(); self.label12 = nil; end;
         if self.image11 ~= nil then self.image11:destroy(); self.image11 = nil; end;
@@ -3722,8 +3728,8 @@ function newfrmFichaDoPersonagem()
         if self.edit25 ~= nil then self.edit25:destroy(); self.edit25 = nil; end;
         if self.dataLink58 ~= nil then self.dataLink58:destroy(); self.dataLink58 = nil; end;
         if self.edit74 ~= nil then self.edit74:destroy(); self.edit74 = nil; end;
-        if self.dataLink25 ~= nil then self.dataLink25:destroy(); self.dataLink25 = nil; end;
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
+        if self.dataLink25 ~= nil then self.dataLink25:destroy(); self.dataLink25 = nil; end;
         if self.layout7 ~= nil then self.layout7:destroy(); self.layout7 = nil; end;
         if self.edit60 ~= nil then self.edit60:destroy(); self.edit60 = nil; end;
         if self.label33 ~= nil then self.label33:destroy(); self.label33 = nil; end;
