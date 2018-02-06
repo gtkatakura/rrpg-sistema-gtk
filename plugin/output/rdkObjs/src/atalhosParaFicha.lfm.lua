@@ -28,10 +28,8 @@ function newfrmAtalhosParaFicha()
     obj:beginUpdate();
     obj:setFormType("tablesDock");
     obj:setDataType("gtk.atalhosDaFicha");
-    obj:setTitle("Atalhos para Ficha - GTK (v0.5.2)");
+    obj:setTitle("Atalhos para Ficha - GTK (v0.5.3)");
     obj:setName("frmAtalhosParaFicha");
-    obj:setHeight(300);
-    obj:setWidth(300);
 
 
     local function loadPlayers()
@@ -76,29 +74,19 @@ function newfrmAtalhosParaFicha()
   
 
 
-    obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
-    obj.tabControl1:setParent(obj);
-    obj.tabControl1:setAlign("client");
-    obj.tabControl1:setName("tabControl1");
-
-    obj.tab1 = gui.fromHandle(_obj_newObject("tab"));
-    obj.tab1:setParent(obj.tabControl1);
-    obj.tab1:setTitle("Atributos");
-    obj.tab1:setName("tab1");
-
     obj.layout1 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout1:setParent(obj.tab1);
-    obj.layout1:setLeft(10);
-    obj.layout1:setTop(10);
+    obj.layout1:setParent(obj);
+    obj.layout1:setLeft(5);
+    obj.layout1:setTop(5);
     obj.layout1:setHeight(20);
-    obj.layout1:setWidth(200);
+    obj.layout1:setWidth(135);
     obj.layout1:setName("layout1");
 
     obj.cmbPlayer = gui.fromHandle(_obj_newObject("comboBox"));
     obj.cmbPlayer:setParent(obj.layout1);
     obj.cmbPlayer:setAlign("left");
     obj.cmbPlayer:setName("cmbPlayer");
-    obj.cmbPlayer:setWidth(130);
+    obj.cmbPlayer:setWidth(110);
     obj.cmbPlayer:setMargins({right=2});
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
@@ -109,12 +97,24 @@ function newfrmAtalhosParaFicha()
     obj.button1:setHint("Recarregar dados");
     obj.button1:setName("button1");
 
+    obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
+    obj.tabControl1:setParent(obj);
+    obj.tabControl1:setAlign("client");
+    obj.tabControl1:setMargins({top=30});
+    obj.tabControl1:setName("tabControl1");
+
+    obj.tab1 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab1:setParent(obj.tabControl1);
+    obj.tab1:setTitle("ATR");
+    obj.tab1:setHint("Atributos");
+    obj.tab1:setName("tab1");
+
     obj.layoutAtributos = gui.fromHandle(_obj_newObject("flowLayout"));
     obj.layoutAtributos:setParent(obj.tab1);
     obj.layoutAtributos:setName("layoutAtributos");
-    obj.layoutAtributos:setLeft(10);
-    obj.layoutAtributos:setTop(50);
-    obj.layoutAtributos:setHeight(200);
+    obj.layoutAtributos:setLeft(5);
+    obj.layoutAtributos:setTop(5);
+    obj.layoutAtributos:setHeight(110);
     obj.layoutAtributos:setWidth(150);
     obj.layoutAtributos:setVisible(false);
 
@@ -214,13 +214,19 @@ function newfrmAtalhosParaFicha()
     obj.button13:setMargins({left=2,right=2,top=2,bottom=2});
     obj.button13:setName("button13");
 
+    obj.tab2 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab2:setParent(obj.tabControl1);
+    obj.tab2:setTitle("SEN");
+    obj.tab2:setHint("Sentidos");
+    obj.tab2:setName("tab2");
+
     obj.layoutSentidos = gui.fromHandle(_obj_newObject("flowLayout"));
-    obj.layoutSentidos:setParent(obj.tab1);
+    obj.layoutSentidos:setParent(obj.tab2);
     obj.layoutSentidos:setName("layoutSentidos");
-    obj.layoutSentidos:setLeft(10);
-    obj.layoutSentidos:setTop(170);
-    obj.layoutSentidos:setHeight(200);
-    obj.layoutSentidos:setWidth(180);
+    obj.layoutSentidos:setLeft(5);
+    obj.layoutSentidos:setTop(5);
+    obj.layoutSentidos:setHeight(80);
+    obj.layoutSentidos:setWidth(150);
     obj.layoutSentidos:setVisible(false);
 
     obj.button14 = gui.fromHandle(_obj_newObject("button"));
@@ -277,13 +283,14 @@ function newfrmAtalhosParaFicha()
     obj.button19:setMargins({left=2,right=2,top=2,bottom=2});
     obj.button19:setName("button19");
 
-    obj.tab2 = gui.fromHandle(_obj_newObject("tab"));
-    obj.tab2:setParent(obj.tabControl1);
-    obj.tab2:setTitle("Perícias");
-    obj.tab2:setName("tab2");
+    obj.tab3 = gui.fromHandle(_obj_newObject("tab"));
+    obj.tab3:setParent(obj.tabControl1);
+    obj.tab3:setTitle("PER");
+    obj.tab3:setHint("Perícias");
+    obj.tab3:setName("tab3");
 
     obj.scrollBox1 = gui.fromHandle(_obj_newObject("scrollBox"));
-    obj.scrollBox1:setParent(obj.tab2);
+    obj.scrollBox1:setParent(obj.tab3);
     obj.scrollBox1:setAlign("client");
     obj.scrollBox1:setName("scrollBox1");
 
@@ -291,9 +298,9 @@ function newfrmAtalhosParaFicha()
     obj.recordList1:setParent(obj.scrollBox1);
     obj.recordList1:setField("player.pericias");
     obj.recordList1:setTemplateForm("frmListaDePericias");
-    obj.recordList1:setLeft(10);
-    obj.recordList1:setTop(10);
-    obj.recordList1:setWidth(150);
+    obj.recordList1:setLeft(5);
+    obj.recordList1:setTop(5);
+    obj.recordList1:setWidth(135);
     obj.recordList1:setAutoHeight(true);
     obj.recordList1:setName("recordList1");
 
@@ -636,6 +643,7 @@ function newfrmAtalhosParaFicha()
         if self.button4 ~= nil then self.button4:destroy(); self.button4 = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         if self.button3 ~= nil then self.button3:destroy(); self.button3 = nil; end;
+        if self.tab3 ~= nil then self.tab3:destroy(); self.tab3 = nil; end;
         if self.button15 ~= nil then self.button15:destroy(); self.button15 = nil; end;
         if self.button7 ~= nil then self.button7:destroy(); self.button7 = nil; end;
         if self.button9 ~= nil then self.button9:destroy(); self.button9 = nil; end;
@@ -678,7 +686,7 @@ local _frmAtalhosParaFicha = {
     dataType = "gtk.atalhosDaFicha", 
     formType = "tablesDock", 
     formComponentName = "form", 
-    title = "Atalhos para Ficha - GTK (v0.5.2)", 
+    title = "Atalhos para Ficha - GTK (v0.5.3)", 
     description=""};
 
 frmAtalhosParaFicha = _frmAtalhosParaFicha;

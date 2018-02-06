@@ -2,10 +2,8 @@
 <form
   formType="tablesDock"
   dataType="gtk.atalhosDaFicha"
-  title="Atalhos para Ficha - GTK (v0.5.2)"
+  title="Atalhos para Ficha - GTK (v0.5.3)"
   name="frmAtalhosParaFicha"
-  height="300"
-  width="300"
 >
   <script>
     local function loadPlayers()
@@ -91,15 +89,14 @@
     </button>
   </template>
 
-  <tabControl align="client">
-    <tab title="Atributos">
-      <layout left="10" top="10" height="20" width="200">
-        <comboBox align="left" name="cmbPlayer" width="130" margins="{right=2}" onChange="changePlayer()" />
+  <layout left="5" top="5" height="20" width="135">
+    <comboBox align="left" name="cmbPlayer" width="110" margins="{right=2}" onChange="changePlayer()" />
+    <button align="left" width="20" text="R" hint="Recarregar dados" onClick="loadPlayers()" />
+  </layout>
 
-        <button align="left" width="20" text="R" hint="Recarregar dados" onClick="loadPlayers()" />
-      </layout>
-
-      <flowLayout name="layoutAtributos" left="10" top="50" height="200" width="150" visible="false">
+  <tabControl align="client" margins="{top=30}">
+    <tab title="ATR" hint="Atributos">
+      <flowLayout name="layoutAtributos" left="5" top="5" height="110" width="150" visible="false">
         <ButtonAtributo text="INT" />
         <ButtonAtributo text="SAB" />
         <ButtonAtributo text="VON" />
@@ -113,8 +110,10 @@
         <ButtonAtributo text="FOR" />
         <ButtonAtributo text="VIG" />
       </flowLayout>
+    </tab>
 
-      <flowLayout name="layoutSentidos" left="10" top="170" height="200" width="180" visible="false">
+    <tab title="SEN" hint="Sentidos">
+      <flowLayout name="layoutSentidos" left="5" top="5" height="80" width="150" visible="false">
         <ButtonSentido text="Sexto Sentido" value="sextoSentido" />
         <ButtonSentido text="Audição" value="audicao" />
         <ButtonSentido text="Paladar" value="paladar" />
@@ -124,9 +123,9 @@
       </flowLayout>
     </tab>
 
-    <tab title="Perícias">
+    <tab title="PER" hint="Perícias">
       <scrollBox align="client">
-        <recordList field="player.pericias" templateForm="frmListaDePericias" left="10" top="10" width="150" autoHeight="true"/>
+        <recordList field="player.pericias" templateForm="frmListaDePericias" left="5" top="5" width="135" autoHeight="true"/>
       </scrollBox>
     </tab>
   </tabControl>

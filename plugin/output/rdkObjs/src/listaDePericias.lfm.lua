@@ -27,13 +27,13 @@ function newfrmListaDePericias()
     _gui_assignInitialParentForForm(obj.handle);
     obj:beginUpdate();
     obj:setName("frmListaDePericias");
-    obj:setHeight(30);
+    obj:setHeight(25);
     obj:setMargins({top=2,bottom=2});
 
     obj.nomeCompleto = gui.fromHandle(_obj_newObject("button"));
     obj.nomeCompleto:setParent(obj);
     obj.nomeCompleto:setAlign("left");
-    obj.nomeCompleto:setWidth(150);
+    obj.nomeCompleto:setWidth(135);
     obj.nomeCompleto:setName("nomeCompleto");
 
     obj._e_event0 = obj:addEventListener("onNodeReady",
