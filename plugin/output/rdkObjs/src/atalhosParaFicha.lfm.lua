@@ -28,22 +28,16 @@ function newfrmAtalhosParaFicha()
     obj:beginUpdate();
     obj:setFormType("tablesDock");
     obj:setDataType("gtk.atalhosDaFicha");
-    obj:setTitle("Atalhos para Ficha - GTK (v0.5.4)");
+    obj:setTitle("Atalhos para Ficha - GTK (v0.5.5)");
     obj:setName("frmAtalhosParaFicha");
 
 
     local function loadPlayers()
       local mesa = rrpg.getMesaDe(self)
-      local characteres = Character.find(mesa, "mine")
+      local characteres = Character.find(mesa, 'mine')
 
-      local items = {}
-      local values = {}
-      local i = 1
-
-      for i = 1, #characteres, 1 do
-        items[i] = characteres[i].nome
-        values[i] = characteres[i].codigoInterno
-      end
+      local items = _.pluck(characteres, {'nome'})
+      local values = _.pluck(characteres, {'codigoInterno'})
 
       self.cmbPlayer.items = items
       self.cmbPlayer.values = values
@@ -686,7 +680,7 @@ local _frmAtalhosParaFicha = {
     dataType = "gtk.atalhosDaFicha", 
     formType = "tablesDock", 
     formComponentName = "form", 
-    title = "Atalhos para Ficha - GTK (v0.5.4)", 
+    title = "Atalhos para Ficha - GTK (v0.5.5)", 
     description=""};
 
 frmAtalhosParaFicha = _frmAtalhosParaFicha;
