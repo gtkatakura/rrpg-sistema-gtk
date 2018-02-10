@@ -28,7 +28,7 @@ function newfrmFichaDoPersonagem()
     obj:beginUpdate();
     obj:setFormType("sheetTemplate");
     obj:setDataType("gtk.fichaDoPersonagem");
-    obj:setTitle("Ficha do Personagem - GTK (v0.5.5)");
+    obj:setTitle("Ficha do Personagem - GTK (v0.5.6)");
     obj:setName("frmFichaDoPersonagem");
 
     obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
@@ -2352,7 +2352,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event2 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.inteligencia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.inteligencia = sheet.atributos.inteligencia or {}
+                    sheet.atributos.inteligencia.total = (
                       (sheet.atributos.inteligencia.base or 0) +
                       (sheet.atributos.inteligencia.racaClasse or 0) +
                       (sheet.atributos.inteligencia.treinamento or 0) +
@@ -2366,7 +2368,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event3 = obj.dataLink2:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.inteligencia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.inteligencia = sheet.atributos.inteligencia or {}
+                    sheet.atributos.inteligencia.total = (
                       (sheet.atributos.inteligencia.base or 0) +
                       (sheet.atributos.inteligencia.racaClasse or 0) +
                       (sheet.atributos.inteligencia.treinamento or 0) +
@@ -2380,7 +2384,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event4 = obj.dataLink3:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.inteligencia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.inteligencia = sheet.atributos.inteligencia or {}
+                    sheet.atributos.inteligencia.total = (
                       (sheet.atributos.inteligencia.base or 0) +
                       (sheet.atributos.inteligencia.racaClasse or 0) +
                       (sheet.atributos.inteligencia.treinamento or 0) +
@@ -2394,7 +2400,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event5 = obj.dataLink4:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.inteligencia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.inteligencia = sheet.atributos.inteligencia or {}
+                    sheet.atributos.inteligencia.total = (
                       (sheet.atributos.inteligencia.base or 0) +
                       (sheet.atributos.inteligencia.racaClasse or 0) +
                       (sheet.atributos.inteligencia.treinamento or 0) +
@@ -2419,7 +2427,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event7 = obj.dataLink5:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.sabedoria.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.sabedoria = sheet.atributos.sabedoria or {}
+                    sheet.atributos.sabedoria.total = (
                       (sheet.atributos.sabedoria.base or 0) +
                       (sheet.atributos.sabedoria.racaClasse or 0) +
                       (sheet.atributos.sabedoria.treinamento or 0) +
@@ -2433,7 +2443,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event8 = obj.dataLink6:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.sabedoria.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.sabedoria = sheet.atributos.sabedoria or {}
+                    sheet.atributos.sabedoria.total = (
                       (sheet.atributos.sabedoria.base or 0) +
                       (sheet.atributos.sabedoria.racaClasse or 0) +
                       (sheet.atributos.sabedoria.treinamento or 0) +
@@ -2447,7 +2459,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event9 = obj.dataLink7:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.sabedoria.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.sabedoria = sheet.atributos.sabedoria or {}
+                    sheet.atributos.sabedoria.total = (
                       (sheet.atributos.sabedoria.base or 0) +
                       (sheet.atributos.sabedoria.racaClasse or 0) +
                       (sheet.atributos.sabedoria.treinamento or 0) +
@@ -2461,7 +2475,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event10 = obj.dataLink8:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.sabedoria.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.sabedoria = sheet.atributos.sabedoria or {}
+                    sheet.atributos.sabedoria.total = (
                       (sheet.atributos.sabedoria.base or 0) +
                       (sheet.atributos.sabedoria.racaClasse or 0) +
                       (sheet.atributos.sabedoria.treinamento or 0) +
@@ -2486,7 +2502,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event12 = obj.dataLink9:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.vontade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.vontade = sheet.atributos.vontade or {}
+                    sheet.atributos.vontade.total = (
                       (sheet.atributos.vontade.base or 0) +
                       (sheet.atributos.vontade.racaClasse or 0) +
                       (sheet.atributos.vontade.treinamento or 0) +
@@ -2500,7 +2518,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event13 = obj.dataLink10:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.vontade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.vontade = sheet.atributos.vontade or {}
+                    sheet.atributos.vontade.total = (
                       (sheet.atributos.vontade.base or 0) +
                       (sheet.atributos.vontade.racaClasse or 0) +
                       (sheet.atributos.vontade.treinamento or 0) +
@@ -2514,7 +2534,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event14 = obj.dataLink11:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.vontade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.vontade = sheet.atributos.vontade or {}
+                    sheet.atributos.vontade.total = (
                       (sheet.atributos.vontade.base or 0) +
                       (sheet.atributos.vontade.racaClasse or 0) +
                       (sheet.atributos.vontade.treinamento or 0) +
@@ -2528,7 +2550,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event15 = obj.dataLink12:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.vontade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.vontade = sheet.atributos.vontade or {}
+                    sheet.atributos.vontade.total = (
                       (sheet.atributos.vontade.base or 0) +
                       (sheet.atributos.vontade.racaClasse or 0) +
                       (sheet.atributos.vontade.treinamento or 0) +
@@ -2553,7 +2577,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event17 = obj.dataLink13:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.carisma.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.carisma = sheet.atributos.carisma or {}
+                    sheet.atributos.carisma.total = (
                       (sheet.atributos.carisma.base or 0) +
                       (sheet.atributos.carisma.racaClasse or 0) +
                       (sheet.atributos.carisma.treinamento or 0) +
@@ -2567,7 +2593,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event18 = obj.dataLink14:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.carisma.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.carisma = sheet.atributos.carisma or {}
+                    sheet.atributos.carisma.total = (
                       (sheet.atributos.carisma.base or 0) +
                       (sheet.atributos.carisma.racaClasse or 0) +
                       (sheet.atributos.carisma.treinamento or 0) +
@@ -2581,7 +2609,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event19 = obj.dataLink15:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.carisma.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.carisma = sheet.atributos.carisma or {}
+                    sheet.atributos.carisma.total = (
                       (sheet.atributos.carisma.base or 0) +
                       (sheet.atributos.carisma.racaClasse or 0) +
                       (sheet.atributos.carisma.treinamento or 0) +
@@ -2595,7 +2625,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event20 = obj.dataLink16:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.carisma.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.carisma = sheet.atributos.carisma or {}
+                    sheet.atributos.carisma.total = (
                       (sheet.atributos.carisma.base or 0) +
                       (sheet.atributos.carisma.racaClasse or 0) +
                       (sheet.atributos.carisma.treinamento or 0) +
@@ -2620,7 +2652,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event22 = obj.dataLink17:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.energia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.energia = sheet.atributos.energia or {}
+                    sheet.atributos.energia.total = (
                       (sheet.atributos.energia.base or 0) +
                       (sheet.atributos.energia.racaClasse or 0) +
                       (sheet.atributos.energia.treinamento or 0) +
@@ -2634,7 +2668,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event23 = obj.dataLink18:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.energia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.energia = sheet.atributos.energia or {}
+                    sheet.atributos.energia.total = (
                       (sheet.atributos.energia.base or 0) +
                       (sheet.atributos.energia.racaClasse or 0) +
                       (sheet.atributos.energia.treinamento or 0) +
@@ -2648,7 +2684,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event24 = obj.dataLink19:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.energia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.energia = sheet.atributos.energia or {}
+                    sheet.atributos.energia.total = (
                       (sheet.atributos.energia.base or 0) +
                       (sheet.atributos.energia.racaClasse or 0) +
                       (sheet.atributos.energia.treinamento or 0) +
@@ -2662,7 +2700,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event25 = obj.dataLink20:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.energia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.energia = sheet.atributos.energia or {}
+                    sheet.atributos.energia.total = (
                       (sheet.atributos.energia.base or 0) +
                       (sheet.atributos.energia.racaClasse or 0) +
                       (sheet.atributos.energia.treinamento or 0) +
@@ -2687,7 +2727,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event27 = obj.dataLink21:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.corpo.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.corpo = sheet.atributos.corpo or {}
+                    sheet.atributos.corpo.total = (
                       (sheet.atributos.corpo.base or 0) +
                       (sheet.atributos.corpo.racaClasse or 0) +
                       (sheet.atributos.corpo.treinamento or 0) +
@@ -2701,7 +2743,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event28 = obj.dataLink22:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.corpo.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.corpo = sheet.atributos.corpo or {}
+                    sheet.atributos.corpo.total = (
                       (sheet.atributos.corpo.base or 0) +
                       (sheet.atributos.corpo.racaClasse or 0) +
                       (sheet.atributos.corpo.treinamento or 0) +
@@ -2715,7 +2759,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event29 = obj.dataLink23:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.corpo.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.corpo = sheet.atributos.corpo or {}
+                    sheet.atributos.corpo.total = (
                       (sheet.atributos.corpo.base or 0) +
                       (sheet.atributos.corpo.racaClasse or 0) +
                       (sheet.atributos.corpo.treinamento or 0) +
@@ -2729,7 +2775,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event30 = obj.dataLink24:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.corpo.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.corpo = sheet.atributos.corpo or {}
+                    sheet.atributos.corpo.total = (
                       (sheet.atributos.corpo.base or 0) +
                       (sheet.atributos.corpo.racaClasse or 0) +
                       (sheet.atributos.corpo.treinamento or 0) +
@@ -2754,7 +2802,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event32 = obj.dataLink25:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.resistencia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.resistencia = sheet.atributos.resistencia or {}
+                    sheet.atributos.resistencia.total = (
                       (sheet.atributos.resistencia.base or 0) +
                       (sheet.atributos.resistencia.racaClasse or 0) +
                       (sheet.atributos.resistencia.treinamento or 0) +
@@ -2768,7 +2818,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event33 = obj.dataLink26:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.resistencia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.resistencia = sheet.atributos.resistencia or {}
+                    sheet.atributos.resistencia.total = (
                       (sheet.atributos.resistencia.base or 0) +
                       (sheet.atributos.resistencia.racaClasse or 0) +
                       (sheet.atributos.resistencia.treinamento or 0) +
@@ -2782,7 +2834,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event34 = obj.dataLink27:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.resistencia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.resistencia = sheet.atributos.resistencia or {}
+                    sheet.atributos.resistencia.total = (
                       (sheet.atributos.resistencia.base or 0) +
                       (sheet.atributos.resistencia.racaClasse or 0) +
                       (sheet.atributos.resistencia.treinamento or 0) +
@@ -2796,7 +2850,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event35 = obj.dataLink28:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.resistencia.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.resistencia = sheet.atributos.resistencia or {}
+                    sheet.atributos.resistencia.total = (
                       (sheet.atributos.resistencia.base or 0) +
                       (sheet.atributos.resistencia.racaClasse or 0) +
                       (sheet.atributos.resistencia.treinamento or 0) +
@@ -2821,7 +2877,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event37 = obj.dataLink29:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.velocidade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.velocidade = sheet.atributos.velocidade or {}
+                    sheet.atributos.velocidade.total = (
                       (sheet.atributos.velocidade.base or 0) +
                       (sheet.atributos.velocidade.racaClasse or 0) +
                       (sheet.atributos.velocidade.treinamento or 0) +
@@ -2835,7 +2893,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event38 = obj.dataLink30:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.velocidade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.velocidade = sheet.atributos.velocidade or {}
+                    sheet.atributos.velocidade.total = (
                       (sheet.atributos.velocidade.base or 0) +
                       (sheet.atributos.velocidade.racaClasse or 0) +
                       (sheet.atributos.velocidade.treinamento or 0) +
@@ -2849,7 +2909,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event39 = obj.dataLink31:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.velocidade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.velocidade = sheet.atributos.velocidade or {}
+                    sheet.atributos.velocidade.total = (
                       (sheet.atributos.velocidade.base or 0) +
                       (sheet.atributos.velocidade.racaClasse or 0) +
                       (sheet.atributos.velocidade.treinamento or 0) +
@@ -2863,7 +2925,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event40 = obj.dataLink32:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.velocidade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.velocidade = sheet.atributos.velocidade or {}
+                    sheet.atributos.velocidade.total = (
                       (sheet.atributos.velocidade.base or 0) +
                       (sheet.atributos.velocidade.racaClasse or 0) +
                       (sheet.atributos.velocidade.treinamento or 0) +
@@ -2888,7 +2952,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event42 = obj.dataLink33:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.agilidade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.agilidade = sheet.atributos.agilidade or {}
+                    sheet.atributos.agilidade.total = (
                       (sheet.atributos.agilidade.base or 0) +
                       (sheet.atributos.agilidade.racaClasse or 0) +
                       (sheet.atributos.agilidade.treinamento or 0) +
@@ -2902,7 +2968,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event43 = obj.dataLink34:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.agilidade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.agilidade = sheet.atributos.agilidade or {}
+                    sheet.atributos.agilidade.total = (
                       (sheet.atributos.agilidade.base or 0) +
                       (sheet.atributos.agilidade.racaClasse or 0) +
                       (sheet.atributos.agilidade.treinamento or 0) +
@@ -2916,7 +2984,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event44 = obj.dataLink35:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.agilidade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.agilidade = sheet.atributos.agilidade or {}
+                    sheet.atributos.agilidade.total = (
                       (sheet.atributos.agilidade.base or 0) +
                       (sheet.atributos.agilidade.racaClasse or 0) +
                       (sheet.atributos.agilidade.treinamento or 0) +
@@ -2930,7 +3000,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event45 = obj.dataLink36:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.agilidade.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.agilidade = sheet.atributos.agilidade or {}
+                    sheet.atributos.agilidade.total = (
                       (sheet.atributos.agilidade.base or 0) +
                       (sheet.atributos.agilidade.racaClasse or 0) +
                       (sheet.atributos.agilidade.treinamento or 0) +
@@ -2955,7 +3027,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event47 = obj.dataLink37:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.destreza.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.destreza = sheet.atributos.destreza or {}
+                    sheet.atributos.destreza.total = (
                       (sheet.atributos.destreza.base or 0) +
                       (sheet.atributos.destreza.racaClasse or 0) +
                       (sheet.atributos.destreza.treinamento or 0) +
@@ -2969,7 +3043,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event48 = obj.dataLink38:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.destreza.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.destreza = sheet.atributos.destreza or {}
+                    sheet.atributos.destreza.total = (
                       (sheet.atributos.destreza.base or 0) +
                       (sheet.atributos.destreza.racaClasse or 0) +
                       (sheet.atributos.destreza.treinamento or 0) +
@@ -2983,7 +3059,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event49 = obj.dataLink39:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.destreza.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.destreza = sheet.atributos.destreza or {}
+                    sheet.atributos.destreza.total = (
                       (sheet.atributos.destreza.base or 0) +
                       (sheet.atributos.destreza.racaClasse or 0) +
                       (sheet.atributos.destreza.treinamento or 0) +
@@ -2997,7 +3075,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event50 = obj.dataLink40:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.destreza.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.destreza = sheet.atributos.destreza or {}
+                    sheet.atributos.destreza.total = (
                       (sheet.atributos.destreza.base or 0) +
                       (sheet.atributos.destreza.racaClasse or 0) +
                       (sheet.atributos.destreza.treinamento or 0) +
@@ -3022,7 +3102,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event52 = obj.dataLink41:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.forca.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.forca = sheet.atributos.forca or {}
+                    sheet.atributos.forca.total = (
                       (sheet.atributos.forca.base or 0) +
                       (sheet.atributos.forca.racaClasse or 0) +
                       (sheet.atributos.forca.treinamento or 0) +
@@ -3036,7 +3118,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event53 = obj.dataLink42:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.forca.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.forca = sheet.atributos.forca or {}
+                    sheet.atributos.forca.total = (
                       (sheet.atributos.forca.base or 0) +
                       (sheet.atributos.forca.racaClasse or 0) +
                       (sheet.atributos.forca.treinamento or 0) +
@@ -3050,7 +3134,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event54 = obj.dataLink43:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.forca.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.forca = sheet.atributos.forca or {}
+                    sheet.atributos.forca.total = (
                       (sheet.atributos.forca.base or 0) +
                       (sheet.atributos.forca.racaClasse or 0) +
                       (sheet.atributos.forca.treinamento or 0) +
@@ -3064,7 +3150,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event55 = obj.dataLink44:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.forca.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.forca = sheet.atributos.forca or {}
+                    sheet.atributos.forca.total = (
                       (sheet.atributos.forca.base or 0) +
                       (sheet.atributos.forca.racaClasse or 0) +
                       (sheet.atributos.forca.treinamento or 0) +
@@ -3089,7 +3177,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event57 = obj.dataLink45:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.vigor.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.vigor = sheet.atributos.vigor or {}
+                    sheet.atributos.vigor.total = (
                       (sheet.atributos.vigor.base or 0) +
                       (sheet.atributos.vigor.racaClasse or 0) +
                       (sheet.atributos.vigor.treinamento or 0) +
@@ -3103,7 +3193,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event58 = obj.dataLink46:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.vigor.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.vigor = sheet.atributos.vigor or {}
+                    sheet.atributos.vigor.total = (
                       (sheet.atributos.vigor.base or 0) +
                       (sheet.atributos.vigor.racaClasse or 0) +
                       (sheet.atributos.vigor.treinamento or 0) +
@@ -3117,7 +3209,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event59 = obj.dataLink47:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.vigor.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.vigor = sheet.atributos.vigor or {}
+                    sheet.atributos.vigor.total = (
                       (sheet.atributos.vigor.base or 0) +
                       (sheet.atributos.vigor.racaClasse or 0) +
                       (sheet.atributos.vigor.treinamento or 0) +
@@ -3131,7 +3225,9 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event60 = obj.dataLink48:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.atributos.vigor.total = (
+            sheet.atributos = sheet.atributos or {}
+                    sheet.atributos.vigor = sheet.atributos.vigor or {}
+                    sheet.atributos.vigor.total = (
                       (sheet.atributos.vigor.base or 0) +
                       (sheet.atributos.vigor.racaClasse or 0) +
                       (sheet.atributos.vigor.treinamento or 0) +
@@ -3156,7 +3252,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event62 = obj.dataLink49:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
                     sheet.sentidos.sextoSentido.total = (
                       (sheet.sentidos.sextoSentido.base or 0) +
                       (sheet.sentidos.sextoSentido.racaClasse or 0) +
@@ -3167,7 +3264,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event63 = obj.dataLink50:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
                     sheet.sentidos.sextoSentido.total = (
                       (sheet.sentidos.sextoSentido.base or 0) +
                       (sheet.sentidos.sextoSentido.racaClasse or 0) +
@@ -3178,7 +3276,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event64 = obj.dataLink51:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
                     sheet.sentidos.sextoSentido.total = (
                       (sheet.sentidos.sextoSentido.base or 0) +
                       (sheet.sentidos.sextoSentido.racaClasse or 0) +
@@ -3189,7 +3288,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event65 = obj.dataLink52:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
                     sheet.sentidos.sextoSentido.total = (
                       (sheet.sentidos.sextoSentido.base or 0) +
                       (sheet.sentidos.sextoSentido.racaClasse or 0) +
@@ -3211,7 +3311,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event67 = obj.dataLink53:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.audicao = sheet.sentidos.audicao or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.audicao = sheet.sentidos.audicao or {}
                     sheet.sentidos.audicao.total = (
                       (sheet.sentidos.audicao.base or 0) +
                       (sheet.sentidos.audicao.racaClasse or 0) +
@@ -3222,7 +3323,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event68 = obj.dataLink54:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.audicao = sheet.sentidos.audicao or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.audicao = sheet.sentidos.audicao or {}
                     sheet.sentidos.audicao.total = (
                       (sheet.sentidos.audicao.base or 0) +
                       (sheet.sentidos.audicao.racaClasse or 0) +
@@ -3233,7 +3335,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event69 = obj.dataLink55:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.audicao = sheet.sentidos.audicao or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.audicao = sheet.sentidos.audicao or {}
                     sheet.sentidos.audicao.total = (
                       (sheet.sentidos.audicao.base or 0) +
                       (sheet.sentidos.audicao.racaClasse or 0) +
@@ -3244,7 +3347,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event70 = obj.dataLink56:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.audicao = sheet.sentidos.audicao or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.audicao = sheet.sentidos.audicao or {}
                     sheet.sentidos.audicao.total = (
                       (sheet.sentidos.audicao.base or 0) +
                       (sheet.sentidos.audicao.racaClasse or 0) +
@@ -3266,7 +3370,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event72 = obj.dataLink57:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.paladar = sheet.sentidos.paladar or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.paladar = sheet.sentidos.paladar or {}
                     sheet.sentidos.paladar.total = (
                       (sheet.sentidos.paladar.base or 0) +
                       (sheet.sentidos.paladar.racaClasse or 0) +
@@ -3277,7 +3382,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event73 = obj.dataLink58:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.paladar = sheet.sentidos.paladar or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.paladar = sheet.sentidos.paladar or {}
                     sheet.sentidos.paladar.total = (
                       (sheet.sentidos.paladar.base or 0) +
                       (sheet.sentidos.paladar.racaClasse or 0) +
@@ -3288,7 +3394,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event74 = obj.dataLink59:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.paladar = sheet.sentidos.paladar or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.paladar = sheet.sentidos.paladar or {}
                     sheet.sentidos.paladar.total = (
                       (sheet.sentidos.paladar.base or 0) +
                       (sheet.sentidos.paladar.racaClasse or 0) +
@@ -3299,7 +3406,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event75 = obj.dataLink60:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.paladar = sheet.sentidos.paladar or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.paladar = sheet.sentidos.paladar or {}
                     sheet.sentidos.paladar.total = (
                       (sheet.sentidos.paladar.base or 0) +
                       (sheet.sentidos.paladar.racaClasse or 0) +
@@ -3321,7 +3429,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event77 = obj.dataLink61:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.olfato = sheet.sentidos.olfato or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.olfato = sheet.sentidos.olfato or {}
                     sheet.sentidos.olfato.total = (
                       (sheet.sentidos.olfato.base or 0) +
                       (sheet.sentidos.olfato.racaClasse or 0) +
@@ -3332,7 +3441,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event78 = obj.dataLink62:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.olfato = sheet.sentidos.olfato or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.olfato = sheet.sentidos.olfato or {}
                     sheet.sentidos.olfato.total = (
                       (sheet.sentidos.olfato.base or 0) +
                       (sheet.sentidos.olfato.racaClasse or 0) +
@@ -3343,7 +3453,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event79 = obj.dataLink63:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.olfato = sheet.sentidos.olfato or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.olfato = sheet.sentidos.olfato or {}
                     sheet.sentidos.olfato.total = (
                       (sheet.sentidos.olfato.base or 0) +
                       (sheet.sentidos.olfato.racaClasse or 0) +
@@ -3354,7 +3465,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event80 = obj.dataLink64:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.olfato = sheet.sentidos.olfato or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.olfato = sheet.sentidos.olfato or {}
                     sheet.sentidos.olfato.total = (
                       (sheet.sentidos.olfato.base or 0) +
                       (sheet.sentidos.olfato.racaClasse or 0) +
@@ -3376,7 +3488,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event82 = obj.dataLink65:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.visao = sheet.sentidos.visao or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.visao = sheet.sentidos.visao or {}
                     sheet.sentidos.visao.total = (
                       (sheet.sentidos.visao.base or 0) +
                       (sheet.sentidos.visao.racaClasse or 0) +
@@ -3387,7 +3500,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event83 = obj.dataLink66:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.visao = sheet.sentidos.visao or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.visao = sheet.sentidos.visao or {}
                     sheet.sentidos.visao.total = (
                       (sheet.sentidos.visao.base or 0) +
                       (sheet.sentidos.visao.racaClasse or 0) +
@@ -3398,7 +3512,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event84 = obj.dataLink67:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.visao = sheet.sentidos.visao or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.visao = sheet.sentidos.visao or {}
                     sheet.sentidos.visao.total = (
                       (sheet.sentidos.visao.base or 0) +
                       (sheet.sentidos.visao.racaClasse or 0) +
@@ -3409,7 +3524,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event85 = obj.dataLink68:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.visao = sheet.sentidos.visao or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.visao = sheet.sentidos.visao or {}
                     sheet.sentidos.visao.total = (
                       (sheet.sentidos.visao.base or 0) +
                       (sheet.sentidos.visao.racaClasse or 0) +
@@ -3431,7 +3547,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event87 = obj.dataLink69:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.tato = sheet.sentidos.tato or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.tato = sheet.sentidos.tato or {}
                     sheet.sentidos.tato.total = (
                       (sheet.sentidos.tato.base or 0) +
                       (sheet.sentidos.tato.racaClasse or 0) +
@@ -3442,7 +3559,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event88 = obj.dataLink70:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.tato = sheet.sentidos.tato or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.tato = sheet.sentidos.tato or {}
                     sheet.sentidos.tato.total = (
                       (sheet.sentidos.tato.base or 0) +
                       (sheet.sentidos.tato.racaClasse or 0) +
@@ -3453,7 +3571,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event89 = obj.dataLink71:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.tato = sheet.sentidos.tato or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.tato = sheet.sentidos.tato or {}
                     sheet.sentidos.tato.total = (
                       (sheet.sentidos.tato.base or 0) +
                       (sheet.sentidos.tato.racaClasse or 0) +
@@ -3464,7 +3583,8 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event90 = obj.dataLink72:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.sentidos.tato = sheet.sentidos.tato or {}
+            sheet.sentidos = sheet.sentidos or {}
+                    sheet.sentidos.tato = sheet.sentidos.tato or {}
                     sheet.sentidos.tato.total = (
                       (sheet.sentidos.tato.base or 0) +
                       (sheet.sentidos.tato.racaClasse or 0) +
@@ -3901,7 +4021,7 @@ local _frmFichaDoPersonagem = {
     dataType = "gtk.fichaDoPersonagem", 
     formType = "sheetTemplate", 
     formComponentName = "form", 
-    title = "Ficha do Personagem - GTK (v0.5.5)", 
+    title = "Ficha do Personagem - GTK (v0.5.6)", 
     description=""};
 
 frmFichaDoPersonagem = _frmFichaDoPersonagem;
