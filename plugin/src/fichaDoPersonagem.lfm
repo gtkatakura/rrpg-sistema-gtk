@@ -3,7 +3,7 @@
 <form
   formType="sheetTemplate"
   dataType="gtk.fichaDoPersonagem"
-  title="Ficha do Personagem - GTK (v0.5.6)"
+  title="Ficha do Personagem - GTK (v0.5.7)"
   name="frmFichaDoPersonagem"
 >
   <template name="NumberField">
@@ -22,6 +22,14 @@
           (sheet.atributos.$(atributo).treinamento or 0) +
           (sheet.atributos.$(atributo).habilidade or 0)
         )
+
+        local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+
+        if not (totalBase > 24) then
+          totalBase = 24
+        end
+
+        self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
 
         if "$(atributo)" == "corpo" then
           self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.$(atributo).total * 3)
@@ -137,6 +145,8 @@
     </tab>
 
     <tab title="Atributos">
+      <label name="textAtributosPdesGastos" left="20" top="10" text="PDEs: 0 PONTOS" width="180" />
+
       <layout left="20" width="300" height="400">
         <Atributo top="40" atributo="inteligencia" text="Inteligência" />
         <Atributo top="70" atributo="sabedoria" text="Sabedoria" />
@@ -174,9 +184,11 @@
 
     <tab title="Perícias">
       <scrollBox align="client">
-        <button left="20" top="20" height="25" text="Nova Perícia" width="100" onClick="self.pericias:append()"/>
+        <label name="textPericiasPdesGastos" left="20" top="10" text="PDEs: 0 PONTOS" width="180" />
 
-        <layout left="55" top="45" width="350" margins="{top=5,bottom=15}">
+        <button left="20" top="40" height="25" text="Nova Perícia" width="100" onClick="self.rclPericias:append()"/>
+
+        <layout left="55" top="65" width="350" margins="{top=5,bottom=15}">
           <label align="left" horzTextAlign="center" width="100" margins="{left=2,right=2}" text="GRUPO"/>
           <label align="left" horzTextAlign="center" width="100" margins="{left=2,right=2}" text="NOME"/>
           <label align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" text="B"/>
@@ -184,7 +196,7 @@
           <label align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" text="H"/>
         </layout>
 
-        <recordList name="pericias" field="pericias" templateForm="frmPericias" left="20" top="80" width="530" autoHeight="true"/>
+        <recordList name="rclPericias" field="pericias" templateForm="frmPericias" left="20" top="80" width="530" autoHeight="true"/>
       </scrollBox>
     </tab>
 

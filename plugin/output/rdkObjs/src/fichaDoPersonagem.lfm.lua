@@ -28,7 +28,7 @@ function newfrmFichaDoPersonagem()
     obj:beginUpdate();
     obj:setFormType("sheetTemplate");
     obj:setDataType("gtk.fichaDoPersonagem");
-    obj:setTitle("Ficha do Personagem - GTK (v0.5.6)");
+    obj:setTitle("Ficha do Personagem - GTK (v0.5.7)");
     obj:setName("frmFichaDoPersonagem");
 
     obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
@@ -211,6 +211,14 @@ function newfrmFichaDoPersonagem()
     obj.tab2:setParent(obj.tabControl1);
     obj.tab2:setTitle("Atributos");
     obj.tab2:setName("tab2");
+
+    obj.textAtributosPdesGastos = gui.fromHandle(_obj_newObject("label"));
+    obj.textAtributosPdesGastos:setParent(obj.tab2);
+    obj.textAtributosPdesGastos:setName("textAtributosPdesGastos");
+    obj.textAtributosPdesGastos:setLeft(20);
+    obj.textAtributosPdesGastos:setTop(10);
+    obj.textAtributosPdesGastos:setText("PDEs: 0 PONTOS");
+    obj.textAtributosPdesGastos:setWidth(180);
 
     obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout5:setParent(obj.tab2);
@@ -2207,10 +2215,18 @@ function newfrmFichaDoPersonagem()
     obj.scrollBox2:setAlign("client");
     obj.scrollBox2:setName("scrollBox2");
 
+    obj.textPericiasPdesGastos = gui.fromHandle(_obj_newObject("label"));
+    obj.textPericiasPdesGastos:setParent(obj.scrollBox2);
+    obj.textPericiasPdesGastos:setName("textPericiasPdesGastos");
+    obj.textPericiasPdesGastos:setLeft(20);
+    obj.textPericiasPdesGastos:setTop(10);
+    obj.textPericiasPdesGastos:setText("PDEs: 0 PONTOS");
+    obj.textPericiasPdesGastos:setWidth(180);
+
     obj.button19 = gui.fromHandle(_obj_newObject("button"));
     obj.button19:setParent(obj.scrollBox2);
     obj.button19:setLeft(20);
-    obj.button19:setTop(20);
+    obj.button19:setTop(40);
     obj.button19:setHeight(25);
     obj.button19:setText("Nova Perícia");
     obj.button19:setWidth(100);
@@ -2219,7 +2235,7 @@ function newfrmFichaDoPersonagem()
     obj.layout27 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout27:setParent(obj.scrollBox2);
     obj.layout27:setLeft(55);
-    obj.layout27:setTop(45);
+    obj.layout27:setTop(65);
     obj.layout27:setWidth(350);
     obj.layout27:setMargins({top=5,bottom=15});
     obj.layout27:setName("layout27");
@@ -2269,15 +2285,15 @@ function newfrmFichaDoPersonagem()
     obj.label65:setText("H");
     obj.label65:setName("label65");
 
-    obj.pericias = gui.fromHandle(_obj_newObject("recordList"));
-    obj.pericias:setParent(obj.scrollBox2);
-    obj.pericias:setName("pericias");
-    obj.pericias:setField("pericias");
-    obj.pericias:setTemplateForm("frmPericias");
-    obj.pericias:setLeft(20);
-    obj.pericias:setTop(80);
-    obj.pericias:setWidth(530);
-    obj.pericias:setAutoHeight(true);
+    obj.rclPericias = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclPericias:setParent(obj.scrollBox2);
+    obj.rclPericias:setName("rclPericias");
+    obj.rclPericias:setField("pericias");
+    obj.rclPericias:setTemplateForm("frmPericias");
+    obj.rclPericias:setLeft(20);
+    obj.rclPericias:setTop(80);
+    obj.rclPericias:setWidth(530);
+    obj.rclPericias:setAutoHeight(true);
 
     obj.tab5 = gui.fromHandle(_obj_newObject("tab"));
     obj.tab5:setParent(obj.tabControl1);
@@ -2361,6 +2377,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.inteligencia.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "inteligencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.inteligencia.total * 3)
                     end
@@ -2376,6 +2400,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.inteligencia.treinamento or 0) +
                       (sheet.atributos.inteligencia.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "inteligencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.inteligencia.total * 3)
@@ -2393,6 +2425,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.inteligencia.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "inteligencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.inteligencia.total * 3)
                     end
@@ -2408,6 +2448,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.inteligencia.treinamento or 0) +
                       (sheet.atributos.inteligencia.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "inteligencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.inteligencia.total * 3)
@@ -2436,6 +2484,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.sabedoria.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "sabedoria" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.sabedoria.total * 3)
                     end
@@ -2451,6 +2507,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.sabedoria.treinamento or 0) +
                       (sheet.atributos.sabedoria.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "sabedoria" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.sabedoria.total * 3)
@@ -2468,6 +2532,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.sabedoria.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "sabedoria" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.sabedoria.total * 3)
                     end
@@ -2483,6 +2555,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.sabedoria.treinamento or 0) +
                       (sheet.atributos.sabedoria.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "sabedoria" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.sabedoria.total * 3)
@@ -2511,6 +2591,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vontade.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "vontade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vontade.total * 3)
                     end
@@ -2526,6 +2614,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vontade.treinamento or 0) +
                       (sheet.atributos.vontade.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "vontade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vontade.total * 3)
@@ -2543,6 +2639,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vontade.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "vontade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vontade.total * 3)
                     end
@@ -2558,6 +2662,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vontade.treinamento or 0) +
                       (sheet.atributos.vontade.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "vontade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vontade.total * 3)
@@ -2586,6 +2698,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.carisma.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "carisma" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.carisma.total * 3)
                     end
@@ -2601,6 +2721,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.carisma.treinamento or 0) +
                       (sheet.atributos.carisma.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "carisma" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.carisma.total * 3)
@@ -2618,6 +2746,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.carisma.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "carisma" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.carisma.total * 3)
                     end
@@ -2633,6 +2769,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.carisma.treinamento or 0) +
                       (sheet.atributos.carisma.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "carisma" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.carisma.total * 3)
@@ -2661,6 +2805,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.energia.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "energia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.energia.total * 3)
                     end
@@ -2676,6 +2828,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.energia.treinamento or 0) +
                       (sheet.atributos.energia.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "energia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.energia.total * 3)
@@ -2693,6 +2853,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.energia.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "energia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.energia.total * 3)
                     end
@@ -2708,6 +2876,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.energia.treinamento or 0) +
                       (sheet.atributos.energia.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "energia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.energia.total * 3)
@@ -2736,6 +2912,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.corpo.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "corpo" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.corpo.total * 3)
                     end
@@ -2751,6 +2935,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.corpo.treinamento or 0) +
                       (sheet.atributos.corpo.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "corpo" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.corpo.total * 3)
@@ -2768,6 +2960,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.corpo.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "corpo" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.corpo.total * 3)
                     end
@@ -2783,6 +2983,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.corpo.treinamento or 0) +
                       (sheet.atributos.corpo.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "corpo" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.corpo.total * 3)
@@ -2811,6 +3019,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.resistencia.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "resistencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.resistencia.total * 3)
                     end
@@ -2826,6 +3042,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.resistencia.treinamento or 0) +
                       (sheet.atributos.resistencia.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "resistencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.resistencia.total * 3)
@@ -2843,6 +3067,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.resistencia.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "resistencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.resistencia.total * 3)
                     end
@@ -2858,6 +3090,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.resistencia.treinamento or 0) +
                       (sheet.atributos.resistencia.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "resistencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.resistencia.total * 3)
@@ -2886,6 +3126,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.velocidade.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "velocidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.velocidade.total * 3)
                     end
@@ -2901,6 +3149,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.velocidade.treinamento or 0) +
                       (sheet.atributos.velocidade.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "velocidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.velocidade.total * 3)
@@ -2918,6 +3174,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.velocidade.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "velocidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.velocidade.total * 3)
                     end
@@ -2933,6 +3197,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.velocidade.treinamento or 0) +
                       (sheet.atributos.velocidade.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "velocidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.velocidade.total * 3)
@@ -2961,6 +3233,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.agilidade.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "agilidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.agilidade.total * 3)
                     end
@@ -2976,6 +3256,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.agilidade.treinamento or 0) +
                       (sheet.atributos.agilidade.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "agilidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.agilidade.total * 3)
@@ -2993,6 +3281,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.agilidade.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "agilidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.agilidade.total * 3)
                     end
@@ -3008,6 +3304,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.agilidade.treinamento or 0) +
                       (sheet.atributos.agilidade.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "agilidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.agilidade.total * 3)
@@ -3036,6 +3340,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.destreza.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "destreza" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.destreza.total * 3)
                     end
@@ -3051,6 +3363,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.destreza.treinamento or 0) +
                       (sheet.atributos.destreza.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "destreza" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.destreza.total * 3)
@@ -3068,6 +3388,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.destreza.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "destreza" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.destreza.total * 3)
                     end
@@ -3083,6 +3411,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.destreza.treinamento or 0) +
                       (sheet.atributos.destreza.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "destreza" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.destreza.total * 3)
@@ -3111,6 +3447,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.forca.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "forca" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.forca.total * 3)
                     end
@@ -3126,6 +3470,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.forca.treinamento or 0) +
                       (sheet.atributos.forca.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "forca" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.forca.total * 3)
@@ -3143,6 +3495,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.forca.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "forca" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.forca.total * 3)
                     end
@@ -3158,6 +3518,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.forca.treinamento or 0) +
                       (sheet.atributos.forca.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "forca" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.forca.total * 3)
@@ -3186,6 +3554,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vigor.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "vigor" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vigor.total * 3)
                     end
@@ -3201,6 +3577,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vigor.treinamento or 0) +
                       (sheet.atributos.vigor.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "vigor" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vigor.total * 3)
@@ -3218,6 +3602,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vigor.habilidade or 0)
                     )
             
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+            
                     if "vigor" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vigor.total * 3)
                     end
@@ -3233,6 +3625,14 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vigor.treinamento or 0) +
                       (sheet.atributos.vigor.habilidade or 0)
                     )
+            
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+            
+                    if not (totalBase > 24) then
+                      totalBase = 24
+                    end
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
             
                     if "vigor" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vigor.total * 3)
@@ -3595,7 +3995,7 @@ function newfrmFichaDoPersonagem()
 
     obj._e_event91 = obj.button19:addEventListener("onClick",
         function (self)
-            self.pericias:append()
+            self.rclPericias:append()
         end, obj);
 
     function obj:_releaseEvents()
@@ -3707,6 +4107,7 @@ function newfrmFichaDoPersonagem()
         if self.dataLink71 ~= nil then self.dataLink71:destroy(); self.dataLink71 = nil; end;
         if self.edit73 ~= nil then self.edit73:destroy(); self.edit73 = nil; end;
         if self.edit64 ~= nil then self.edit64:destroy(); self.edit64 = nil; end;
+        if self.textPericiasPdesGastos ~= nil then self.textPericiasPdesGastos:destroy(); self.textPericiasPdesGastos = nil; end;
         if self.button15 ~= nil then self.button15:destroy(); self.button15 = nil; end;
         if self.layout15 ~= nil then self.layout15:destroy(); self.layout15 = nil; end;
         if self.edit41 ~= nil then self.edit41:destroy(); self.edit41 = nil; end;
@@ -3904,7 +4305,6 @@ function newfrmFichaDoPersonagem()
         if self.label4 ~= nil then self.label4:destroy(); self.label4 = nil; end;
         if self.label6 ~= nil then self.label6:destroy(); self.label6 = nil; end;
         if self.dataLink65 ~= nil then self.dataLink65:destroy(); self.dataLink65 = nil; end;
-        if self.pericias ~= nil then self.pericias:destroy(); self.pericias = nil; end;
         if self.button13 ~= nil then self.button13:destroy(); self.button13 = nil; end;
         if self.image12 ~= nil then self.image12:destroy(); self.image12 = nil; end;
         if self.dataLink45 ~= nil then self.dataLink45:destroy(); self.dataLink45 = nil; end;
@@ -3936,6 +4336,7 @@ function newfrmFichaDoPersonagem()
         if self.edit55 ~= nil then self.edit55:destroy(); self.edit55 = nil; end;
         if self.edit43 ~= nil then self.edit43:destroy(); self.edit43 = nil; end;
         if self.label17 ~= nil then self.label17:destroy(); self.label17 = nil; end;
+        if self.textAtributosPdesGastos ~= nil then self.textAtributosPdesGastos:destroy(); self.textAtributosPdesGastos = nil; end;
         if self.edit75 ~= nil then self.edit75:destroy(); self.edit75 = nil; end;
         if self.edit65 ~= nil then self.edit65:destroy(); self.edit65 = nil; end;
         if self.dataLink54 ~= nil then self.dataLink54:destroy(); self.dataLink54 = nil; end;
@@ -3970,6 +4371,7 @@ function newfrmFichaDoPersonagem()
         if self.dataLink48 ~= nil then self.dataLink48:destroy(); self.dataLink48 = nil; end;
         if self.label46 ~= nil then self.label46:destroy(); self.label46 = nil; end;
         if self.button17 ~= nil then self.button17:destroy(); self.button17 = nil; end;
+        if self.rclPericias ~= nil then self.rclPericias:destroy(); self.rclPericias = nil; end;
         if self.label39 ~= nil then self.label39:destroy(); self.label39 = nil; end;
         if self.label11 ~= nil then self.label11:destroy(); self.label11 = nil; end;
         if self.edit15 ~= nil then self.edit15:destroy(); self.edit15 = nil; end;
@@ -4021,7 +4423,7 @@ local _frmFichaDoPersonagem = {
     dataType = "gtk.fichaDoPersonagem", 
     formType = "sheetTemplate", 
     formComponentName = "form", 
-    title = "Ficha do Personagem - GTK (v0.5.6)", 
+    title = "Ficha do Personagem - GTK (v0.5.7)", 
     description=""};
 
 frmFichaDoPersonagem = _frmFichaDoPersonagem;

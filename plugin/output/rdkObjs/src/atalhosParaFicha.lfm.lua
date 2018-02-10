@@ -28,7 +28,7 @@ function newfrmAtalhosParaFicha()
     obj:beginUpdate();
     obj:setFormType("tablesDock");
     obj:setDataType("gtk.atalhosDaFicha");
-    obj:setTitle("Atalhos para Ficha - GTK (v0.5.6)");
+    obj:setTitle("Atalhos para Ficha - GTK (v0.5.7)");
     obj:setName("frmAtalhosParaFicha");
 
 
@@ -680,7 +680,7 @@ local _frmAtalhosParaFicha = {
     dataType = "gtk.atalhosDaFicha", 
     formType = "tablesDock", 
     formComponentName = "form", 
-    title = "Atalhos para Ficha - GTK (v0.5.6)", 
+    title = "Atalhos para Ficha - GTK (v0.5.7)", 
     description=""};
 
 frmAtalhosParaFicha = _frmAtalhosParaFicha;

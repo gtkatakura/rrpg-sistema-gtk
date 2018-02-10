@@ -4,11 +4,24 @@
     <edit type="number" align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" field="$(field)"/>
     <dataLink field="$(field)">
       <event name="onChange">
+        local ficha = ndb.getRoot(sheet)
+
+        sheet.pontos = sheet.pontos or {}
+        sheet.pontos.base = sheet.pontos.base or 0
         sheet.pontos.total = (
           (sheet.pontos.base or 0) +
           (sheet.pontos.racaClasse or 0) +
           (sheet.pontos.habilidade or 0)
         )
+
+        local pericias = ndb.getChildNodes(ficha.pericias)
+        local totalBase = _.sumBy(pericias, {'pontos', 'base'})
+
+        if not (totalBase > 30) then
+          totalBase = 30
+        end
+
+        self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. ((totalBase - 30) * 2) .. " PONTOS"
       </event>
     </dataLink>
   </template>

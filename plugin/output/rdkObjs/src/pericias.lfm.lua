@@ -162,29 +162,68 @@ function newfrmPericias()
 
     obj._e_event1 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.pontos.total = (
+            local ficha = ndb.getRoot(sheet)
+            
+                    sheet.pontos = sheet.pontos or {}
+                    sheet.pontos.base = sheet.pontos.base or 0
+                    sheet.pontos.total = (
                       (sheet.pontos.base or 0) +
                       (sheet.pontos.racaClasse or 0) +
                       (sheet.pontos.habilidade or 0)
                     )
+            
+                    local pericias = ndb.getChildNodes(ficha.pericias)
+                    local totalBase = _.sumBy(pericias, {'pontos', 'base'})
+            
+                    if not (totalBase > 30) then
+                      totalBase = 30
+                    end
+            
+                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. ((totalBase - 30) * 2) .. " PONTOS"
         end, obj);
 
     obj._e_event2 = obj.dataLink2:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.pontos.total = (
+            local ficha = ndb.getRoot(sheet)
+            
+                    sheet.pontos = sheet.pontos or {}
+                    sheet.pontos.base = sheet.pontos.base or 0
+                    sheet.pontos.total = (
                       (sheet.pontos.base or 0) +
                       (sheet.pontos.racaClasse or 0) +
                       (sheet.pontos.habilidade or 0)
                     )
+            
+                    local pericias = ndb.getChildNodes(ficha.pericias)
+                    local totalBase = _.sumBy(pericias, {'pontos', 'base'})
+            
+                    if not (totalBase > 30) then
+                      totalBase = 30
+                    end
+            
+                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. ((totalBase - 30) * 2) .. " PONTOS"
         end, obj);
 
     obj._e_event3 = obj.dataLink3:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            sheet.pontos.total = (
+            local ficha = ndb.getRoot(sheet)
+            
+                    sheet.pontos = sheet.pontos or {}
+                    sheet.pontos.base = sheet.pontos.base or 0
+                    sheet.pontos.total = (
                       (sheet.pontos.base or 0) +
                       (sheet.pontos.racaClasse or 0) +
                       (sheet.pontos.habilidade or 0)
                     )
+            
+                    local pericias = ndb.getChildNodes(ficha.pericias)
+                    local totalBase = _.sumBy(pericias, {'pontos', 'base'})
+            
+                    if not (totalBase > 30) then
+                      totalBase = 30
+                    end
+            
+                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. ((totalBase - 30) * 2) .. " PONTOS"
         end, obj);
 
     obj._e_event4 = obj.button2:addEventListener("onClick",
