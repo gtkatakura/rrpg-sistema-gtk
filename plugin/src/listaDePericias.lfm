@@ -3,7 +3,7 @@
   <button align="left" width="135" name="nomeCompleto">
     <event name="onClick">
       local mesa = rrpg.getMesaDe(sheet)
-      local ficha = ndb.getRoot(sheet).player
+      local ficha = ndb.getRoot(sheet)
 
       local textoPersonagem = ""
 

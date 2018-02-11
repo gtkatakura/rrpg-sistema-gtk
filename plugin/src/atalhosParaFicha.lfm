@@ -2,7 +2,7 @@
 <form
   formType="tablesDock"
   dataType="gtk.atalhosDaFicha"
-  title="Atalhos para Ficha - GTK (v0.5.7)"
+  title="Atalhos para Ficha - GTK (v0.5.8)"
   name="frmAtalhosParaFicha"
 >
   <script>
@@ -15,20 +15,18 @@
 
       self.cmbPlayer.items = items
       self.cmbPlayer.values = values
-      self.cmbPlayer.value = sheet.playerId
+      self.cmbPlayer.value = values[1]
     end
 
     local function changePlayer()
       if self.cmbPlayer.value ~= "" then
-        sheet.playerId = self.cmbPlayer.value
-
         local mesa = rrpg.getMesaDe(self)
-        local personagemItem = mesa:findBibliotecaItem(sheet.playerId)
+        local personagemItem = mesa:findBibliotecaItem(self.cmbPlayer.value)
         local personagem = rrpg.getPersonagemDe(personagemItem)
 
         personagem:loadSheetNDB(function(player)
           if player ~= nil then
-            sheet.player = player
+            self.boxAtalhosParaFicha.node = player
 
             self.layoutAtributos.visible = true
             self.layoutSentidos.visible = true
@@ -53,11 +51,11 @@
         local textoPersonagem = ""
 
         if mesa.meuJogador.isMestre then
-          textoPersonagem = sheet.player.nome .. ": "
+          textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
         end
 
         mesa.activeChat:rolarDados(
-          "01d20 + " .. sheet.player.atributos[atributos.$(text)].total,
+          "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.$(text)].total,
           textoPersonagem .. "Teste de " .. i18n.atributos.$(text)
         )
       </event>
@@ -72,11 +70,11 @@
         local textoPersonagem = ""
 
         if mesa.meuJogador.isMestre then
-          textoPersonagem = sheet.player.nome .. ": "
+          textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
         end
 
         mesa.activeChat:rolarDados(
-          "01d20 + " .. sheet.player.sentidos.$(value).total,
+          "01d20 + " .. self.boxAtalhosParaFicha.node.sentidos.$(value).total,
           textoPersonagem .. "Teste de $(text)"
         )
       </event>
@@ -88,39 +86,41 @@
     <button align="left" width="20" text="R" hint="Recarregar dados" onClick="loadPlayers()" />
   </layout>
 
-  <tabControl align="client" margins="{top=30}">
-    <tab title="ATR" hint="Atributos">
-      <flowLayout name="layoutAtributos" left="5" top="5" height="110" width="150" visible="false">
-        <ButtonAtributo text="INT" />
-        <ButtonAtributo text="SAB" />
-        <ButtonAtributo text="VON" />
-        <ButtonAtributo text="CAR" />
-        <ButtonAtributo text="ENE" />
-        <ButtonAtributo text="COR" />
-        <ButtonAtributo text="RES" />
-        <ButtonAtributo text="VEL" />
-        <ButtonAtributo text="AGI" />
-        <ButtonAtributo text="DES" />
-        <ButtonAtributo text="FOR" />
-        <ButtonAtributo text="VIG" />
-      </flowLayout>
-    </tab>
+  <dataScopeBox name="boxAtalhosParaFicha" visible="true" align="client">
+    <tabControl align="client" margins="{top=30}">
+      <tab title="ATR" hint="Atributos">
+        <flowLayout name="layoutAtributos" left="5" top="5" height="140" width="150" visible="false">
+          <ButtonAtributo text="INT" />
+          <ButtonAtributo text="SAB" />
+          <ButtonAtributo text="VON" />
+          <ButtonAtributo text="CAR" />
+          <ButtonAtributo text="ENE" />
+          <ButtonAtributo text="COR" />
+          <ButtonAtributo text="RES" />
+          <ButtonAtributo text="VEL" />
+          <ButtonAtributo text="AGI" />
+          <ButtonAtributo text="DES" />
+          <ButtonAtributo text="FOR" />
+          <ButtonAtributo text="VIG" />
+        </flowLayout>
+      </tab>
 
-    <tab title="SEN" hint="Sentidos">
-      <flowLayout name="layoutSentidos" left="5" top="5" height="80" width="150" visible="false">
-        <ButtonSentido text="Sexto Sentido" value="sextoSentido" />
-        <ButtonSentido text="Audição" value="audicao" />
-        <ButtonSentido text="Paladar" value="paladar" />
-        <ButtonSentido text="Olfato" value="olfato" />
-        <ButtonSentido text="Visão" value="visao" />
-        <ButtonSentido text="Tato" value="tato" />
-      </flowLayout>
-    </tab>
+      <tab title="SEN" hint="Sentidos">
+        <flowLayout name="layoutSentidos" left="5" top="5" height="80" width="150" visible="false">
+          <ButtonSentido text="Sexto Sentido" value="sextoSentido" />
+          <ButtonSentido text="Audição" value="audicao" />
+          <ButtonSentido text="Paladar" value="paladar" />
+          <ButtonSentido text="Olfato" value="olfato" />
+          <ButtonSentido text="Visão" value="visao" />
+          <ButtonSentido text="Tato" value="tato" />
+        </flowLayout>
+      </tab>
 
-    <tab title="PER" hint="Perícias">
-      <scrollBox align="client">
-        <recordList field="player.pericias" templateForm="frmListaDePericias" left="5" top="5" width="135" autoHeight="true"/>
-      </scrollBox>
-    </tab>
-  </tabControl>
+      <tab title="PER" hint="Perícias">
+        <scrollBox align="client">
+          <recordList field="pericias" templateForm="frmListaDePericias" left="5" top="5" width="135" autoHeight="true"/>
+        </scrollBox>
+      </tab>
+    </tabControl>
+  </dataScopeBox>
 </form>

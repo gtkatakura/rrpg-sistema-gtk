@@ -28,7 +28,7 @@ function newfrmAtalhosParaFicha()
     obj:beginUpdate();
     obj:setFormType("tablesDock");
     obj:setDataType("gtk.atalhosDaFicha");
-    obj:setTitle("Atalhos para Ficha - GTK (v0.5.7)");
+    obj:setTitle("Atalhos para Ficha - GTK (v0.5.8)");
     obj:setName("frmAtalhosParaFicha");
 
 
@@ -41,20 +41,18 @@ function newfrmAtalhosParaFicha()
 
       self.cmbPlayer.items = items
       self.cmbPlayer.values = values
-      self.cmbPlayer.value = sheet.playerId
+      self.cmbPlayer.value = values[1]
     end
 
     local function changePlayer()
       if self.cmbPlayer.value ~= "" then
-        sheet.playerId = self.cmbPlayer.value
-
         local mesa = rrpg.getMesaDe(self)
-        local personagemItem = mesa:findBibliotecaItem(sheet.playerId)
+        local personagemItem = mesa:findBibliotecaItem(self.cmbPlayer.value)
         local personagem = rrpg.getPersonagemDe(personagemItem)
 
         personagem:loadSheetNDB(function(player)
           if player ~= nil then
-            sheet.player = player
+            self.boxAtalhosParaFicha.node = player
 
             self.layoutAtributos.visible = true
             self.layoutSentidos.visible = true
@@ -91,8 +89,14 @@ function newfrmAtalhosParaFicha()
     obj.button1:setHint("Recarregar dados");
     obj.button1:setName("button1");
 
+    obj.boxAtalhosParaFicha = gui.fromHandle(_obj_newObject("dataScopeBox"));
+    obj.boxAtalhosParaFicha:setParent(obj);
+    obj.boxAtalhosParaFicha:setName("boxAtalhosParaFicha");
+    obj.boxAtalhosParaFicha:setVisible(true);
+    obj.boxAtalhosParaFicha:setAlign("client");
+
     obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
-    obj.tabControl1:setParent(obj);
+    obj.tabControl1:setParent(obj.boxAtalhosParaFicha);
     obj.tabControl1:setAlign("client");
     obj.tabControl1:setMargins({top=30});
     obj.tabControl1:setName("tabControl1");
@@ -108,7 +112,7 @@ function newfrmAtalhosParaFicha()
     obj.layoutAtributos:setName("layoutAtributos");
     obj.layoutAtributos:setLeft(5);
     obj.layoutAtributos:setTop(5);
-    obj.layoutAtributos:setHeight(110);
+    obj.layoutAtributos:setHeight(140);
     obj.layoutAtributos:setWidth(150);
     obj.layoutAtributos:setVisible(false);
 
@@ -290,7 +294,7 @@ function newfrmAtalhosParaFicha()
 
     obj.recordList1 = gui.fromHandle(_obj_newObject("recordList"));
     obj.recordList1:setParent(obj.scrollBox1);
-    obj.recordList1:setField("player.pericias");
+    obj.recordList1:setField("pericias");
     obj.recordList1:setTemplateForm("frmListaDePericias");
     obj.recordList1:setLeft(5);
     obj.recordList1:setTop(5);
@@ -320,11 +324,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.INT].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.INT].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.INT
                     )
         end, obj);
@@ -336,11 +340,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.SAB].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.SAB].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.SAB
                     )
         end, obj);
@@ -352,11 +356,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.VON].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.VON].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.VON
                     )
         end, obj);
@@ -368,11 +372,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.CAR].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.CAR].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.CAR
                     )
         end, obj);
@@ -384,11 +388,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.ENE].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.ENE].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.ENE
                     )
         end, obj);
@@ -400,11 +404,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.COR].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.COR].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.COR
                     )
         end, obj);
@@ -416,11 +420,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.RES].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.RES].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.RES
                     )
         end, obj);
@@ -432,11 +436,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.VEL].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.VEL].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.VEL
                     )
         end, obj);
@@ -448,11 +452,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.AGI].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.AGI].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.AGI
                     )
         end, obj);
@@ -464,11 +468,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.DES].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.DES].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.DES
                     )
         end, obj);
@@ -480,11 +484,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.FOR].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.FOR].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.FOR
                     )
         end, obj);
@@ -496,11 +500,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.atributos[atributos.VIG].total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.atributos[atributos.VIG].total,
                       textoPersonagem .. "Teste de " .. i18n.atributos.VIG
                     )
         end, obj);
@@ -512,11 +516,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.sentidos.sextoSentido.total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.sentidos.sextoSentido.total,
                       textoPersonagem .. "Teste de Sexto Sentido"
                     )
         end, obj);
@@ -528,11 +532,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.sentidos.audicao.total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.sentidos.audicao.total,
                       textoPersonagem .. "Teste de Audição"
                     )
         end, obj);
@@ -544,11 +548,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.sentidos.paladar.total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.sentidos.paladar.total,
                       textoPersonagem .. "Teste de Paladar"
                     )
         end, obj);
@@ -560,11 +564,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.sentidos.olfato.total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.sentidos.olfato.total,
                       textoPersonagem .. "Teste de Olfato"
                     )
         end, obj);
@@ -576,11 +580,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.sentidos.visao.total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.sentidos.visao.total,
                       textoPersonagem .. "Teste de Visão"
                     )
         end, obj);
@@ -592,11 +596,11 @@ function newfrmAtalhosParaFicha()
                     local textoPersonagem = ""
             
                     if mesa.meuJogador.isMestre then
-                      textoPersonagem = sheet.player.nome .. ": "
+                      textoPersonagem = self.boxAtalhosParaFicha.node.nome .. ": "
                     end
             
                     mesa.activeChat:rolarDados(
-                      "01d20 + " .. sheet.player.sentidos.tato.total,
+                      "01d20 + " .. self.boxAtalhosParaFicha.node.sentidos.tato.total,
                       textoPersonagem .. "Teste de Tato"
                     )
         end, obj);
@@ -655,14 +659,15 @@ function newfrmAtalhosParaFicha()
         if self.tab1 ~= nil then self.tab1:destroy(); self.tab1 = nil; end;
         if self.tabControl1 ~= nil then self.tabControl1:destroy(); self.tabControl1 = nil; end;
         if self.layoutSentidos ~= nil then self.layoutSentidos:destroy(); self.layoutSentidos = nil; end;
-        if self.cmbPlayer ~= nil then self.cmbPlayer:destroy(); self.cmbPlayer = nil; end;
+        if self.boxAtalhosParaFicha ~= nil then self.boxAtalhosParaFicha:destroy(); self.boxAtalhosParaFicha = nil; end;
         if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
-        if self.tab2 ~= nil then self.tab2:destroy(); self.tab2 = nil; end;
+        if self.cmbPlayer ~= nil then self.cmbPlayer:destroy(); self.cmbPlayer = nil; end;
         if self.button10 ~= nil then self.button10:destroy(); self.button10 = nil; end;
-        if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
+        if self.tab2 ~= nil then self.tab2:destroy(); self.tab2 = nil; end;
         if self.button17 ~= nil then self.button17:destroy(); self.button17 = nil; end;
-        if self.recordList1 ~= nil then self.recordList1:destroy(); self.recordList1 = nil; end;
+        if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
         if self.layoutAtributos ~= nil then self.layoutAtributos:destroy(); self.layoutAtributos = nil; end;
+        if self.recordList1 ~= nil then self.recordList1:destroy(); self.recordList1 = nil; end;
         self:_oldLFMDestroy();
     end;
 
@@ -680,7 +685,7 @@ local _frmAtalhosParaFicha = {
     dataType = "gtk.atalhosDaFicha", 
     formType = "tablesDock", 
     formComponentName = "form", 
-    title = "Atalhos para Ficha - GTK (v0.5.7)", 
+    title = "Atalhos para Ficha - GTK (v0.5.8)", 
     description=""};
 
 frmAtalhosParaFicha = _frmAtalhosParaFicha;

@@ -47,7 +47,7 @@ function newfrmListaDePericias()
     obj._e_event1 = obj.nomeCompleto:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet)
-                  local ficha = ndb.getRoot(sheet).player
+                  local ficha = ndb.getRoot(sheet)
             
                   local textoPersonagem = ""
             
