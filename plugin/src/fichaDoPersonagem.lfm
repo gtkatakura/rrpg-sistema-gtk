@@ -6,6 +6,41 @@
   title="Ficha do Personagem - GTK (v0.5.8)"
   name="frmFichaDoPersonagem"
 >
+  <script>
+    local function load()
+      local mesa = rrpg.getMesaDe(sheet)
+      local characteres = Character.find(mesa, 'npc')
+
+      local gerenciador = _.find(characteres, function(character)
+        return character.nome == '1.3 - Raças e Classes'
+      end)
+
+      if gerenciador ~= nil then
+        gerenciador:loadSheetNDB(function(gerenciadorSheet)
+          if gerenciadorSheet ~= nil then
+            local racas = ndb.getChildNodes(gerenciadorSheet.racas)
+
+            local items = _.pluck(racas, {'nome'})
+            local values = _.pluck(racas, {'codigoInterno'})
+
+            self.cbmRaca.items = items
+            self.cbmRaca.values = values
+            self.cbmRaca.value = sheet.raca
+          end
+        end)
+      end
+    end
+
+    local function changeRaca()
+      if self.cbmRaca.value ~= "" then
+        sheet.raca = self.cbmRaca.value
+      end
+    end
+  </script>
+  <event name="onNodeReady">
+    load()
+  </event>
+
   <template name="NumberField">
     <edit type="number" align="left" horzTextAlign="center" width="30" margins="{left=2, right=2}" field="$(field)"/>
   </template>
@@ -132,6 +167,13 @@
 
             <label align="left" width="150" text="PESO (QUILOGRAMAS)" margins="{left=4}" />
             <edit type="number" align="left" width="40" field="peso" />
+          </layout>
+        </rectangle>
+
+        <rectangle left="415" top="10" width="210" height="40" color="black">
+          <layout left="5" top="5" width="210" height="30">
+            <label align="left" width="50" text="RAÇA" />
+            <comboBox align="left" width="150" name="cbmRaca" onChange="changeRaca()" />
           </layout>
         </rectangle>
 

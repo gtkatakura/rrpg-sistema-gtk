@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form
+  formType="sheetTemplate"
+  dataType="gtk.gerenciadorRacasClasses"
+  title="Gerenciador de Raças - GTK (v0.5.8)"
+  name="frmGerenciadorRacasClasses"
+>
+  <tabControl align="client">
+    <tab title="Raças">
+      <scrollBox align="client">
+        <flowLayout left="10" top="10" width="170" autoHeight="true">
+          <button width="50" text="Nova" onClick="self.rclRacas:append()" />
+
+          <recordList name="rclRacas" field="racas" margins="{top=10}" templateForm="frmRaca" width="530" autoHeight="true" />
+        </flowLayout>
+      </scrollBox>
+    </tab>
+  </tabControl>
+</form>

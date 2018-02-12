@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmRaca" height="30" margins="{top=2,bottom=2}" theme="dark">
+  <edit align="left" horzTextAlign="center" width="100" margins="{left=2,right=2}" field="nome"/>
+  <dataLink field="nome" defaultValue="Nome da Raça" />
+
+  <button align="left" width="30" margins="{left=2,right=2}" hint="Excluir">
+    <event name="onClick">
+      dialogs.confirmOkCancel('Deseja realmente excluir essa raça?', function (response)
+        if response then
+          ndb.deleteNode(sheet)
+        end
+      end)
+    </event>
+
+    <image align="left" width="21" margins="{left=4}" src="/src/assets/cancel.png" />
+  </button>
+</form>

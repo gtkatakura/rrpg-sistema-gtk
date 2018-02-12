@@ -31,6 +31,39 @@ function newfrmFichaDoPersonagem()
     obj:setTitle("Ficha do Personagem - GTK (v0.5.8)");
     obj:setName("frmFichaDoPersonagem");
 
+
+    local function load()
+      local mesa = rrpg.getMesaDe(sheet)
+      local characteres = Character.find(mesa, 'npc')
+
+      local gerenciador = _.find(characteres, function(character)
+        return character.nome == '1.3 - Raças e Classes'
+      end)
+
+      if gerenciador ~= nil then
+        gerenciador:loadSheetNDB(function(gerenciadorSheet)
+          if gerenciadorSheet ~= nil then
+            local racas = ndb.getChildNodes(gerenciadorSheet.racas)
+
+            local items = _.pluck(racas, {'nome'})
+            local values = _.pluck(racas, {'codigoInterno'})
+
+            self.cbmRaca.items = items
+            self.cbmRaca.values = values
+            self.cbmRaca.value = sheet.raca
+          end
+        end)
+      end
+    end
+
+    local function changeRaca()
+      if self.cbmRaca.value ~= "" then
+        sheet.raca = self.cbmRaca.value
+      end
+    end
+  
+
+
     obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
     obj.tabControl1:setParent(obj);
     obj.tabControl1:setAlign("client");
@@ -187,14 +220,44 @@ function newfrmFichaDoPersonagem()
 
     obj.rectangle3 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle3:setParent(obj.scrollBox1);
-    obj.rectangle3:setLeft(10);
-    obj.rectangle3:setTop(175);
-    obj.rectangle3:setWidth(400);
-    obj.rectangle3:setHeight(380);
+    obj.rectangle3:setLeft(415);
+    obj.rectangle3:setTop(10);
+    obj.rectangle3:setWidth(210);
+    obj.rectangle3:setHeight(40);
     obj.rectangle3:setColor("black");
-    obj.rectangle3:setStrokeColor("white");
-    obj.rectangle3:setStrokeSize(1);
     obj.rectangle3:setName("rectangle3");
+
+    obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout5:setParent(obj.rectangle3);
+    obj.layout5:setLeft(5);
+    obj.layout5:setTop(5);
+    obj.layout5:setWidth(210);
+    obj.layout5:setHeight(30);
+    obj.layout5:setName("layout5");
+
+    obj.label7 = gui.fromHandle(_obj_newObject("label"));
+    obj.label7:setParent(obj.layout5);
+    obj.label7:setAlign("left");
+    obj.label7:setWidth(50);
+    obj.label7:setText("RAÇA");
+    obj.label7:setName("label7");
+
+    obj.cbmRaca = gui.fromHandle(_obj_newObject("comboBox"));
+    obj.cbmRaca:setParent(obj.layout5);
+    obj.cbmRaca:setAlign("left");
+    obj.cbmRaca:setWidth(150);
+    obj.cbmRaca:setName("cbmRaca");
+
+    obj.rectangle4 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle4:setParent(obj.scrollBox1);
+    obj.rectangle4:setLeft(10);
+    obj.rectangle4:setTop(175);
+    obj.rectangle4:setWidth(400);
+    obj.rectangle4:setHeight(380);
+    obj.rectangle4:setColor("black");
+    obj.rectangle4:setStrokeColor("white");
+    obj.rectangle4:setStrokeSize(1);
+    obj.rectangle4:setName("rectangle4");
 
     obj.image1 = gui.fromHandle(_obj_newObject("image"));
     obj.image1:setParent(obj.scrollBox1);
@@ -220,23 +283,23 @@ function newfrmFichaDoPersonagem()
     obj.textAtributosPdesGastos:setText("PDEs: 0 PONTOS");
     obj.textAtributosPdesGastos:setWidth(180);
 
-    obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout5:setParent(obj.tab2);
-    obj.layout5:setLeft(20);
-    obj.layout5:setWidth(300);
-    obj.layout5:setHeight(400);
-    obj.layout5:setName("layout5");
-
     obj.layout6 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout6:setParent(obj.layout5);
-    obj.layout6:setTop(40);
-    obj.layout6:setHeight(25);
-    obj.layout6:setWidth(450);
-    obj.layout6:setMargins({left=4,right=4});
+    obj.layout6:setParent(obj.tab2);
+    obj.layout6:setLeft(20);
+    obj.layout6:setWidth(300);
+    obj.layout6:setHeight(400);
     obj.layout6:setName("layout6");
 
+    obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout7:setParent(obj.layout6);
+    obj.layout7:setTop(40);
+    obj.layout7:setHeight(25);
+    obj.layout7:setWidth(450);
+    obj.layout7:setMargins({left=4,right=4});
+    obj.layout7:setName("layout7");
+
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
-    obj.button1:setParent(obj.layout6);
+    obj.button1:setParent(obj.layout7);
     obj.button1:setAlign("left");
     obj.button1:setWidth(30);
     obj.button1:setMargins({right=4});
@@ -250,17 +313,17 @@ function newfrmFichaDoPersonagem()
     obj.image2:setSRC("/src/assets/dice-six-faces.png");
     obj.image2:setName("image2");
 
-    obj.label7 = gui.fromHandle(_obj_newObject("label"));
-    obj.label7:setParent(obj.layout6);
-    obj.label7:setAlign("left");
-    obj.label7:setHorzTextAlign("center");
-    obj.label7:setText("Inteligência");
-    obj.label7:setWidth(85);
-    obj.label7:setAutoSize(true);
-    obj.label7:setName("label7");
+    obj.label8 = gui.fromHandle(_obj_newObject("label"));
+    obj.label8:setParent(obj.layout7);
+    obj.label8:setAlign("left");
+    obj.label8:setHorzTextAlign("center");
+    obj.label8:setText("Inteligência");
+    obj.label8:setWidth(85);
+    obj.label8:setAutoSize(true);
+    obj.label8:setName("label8");
 
     obj.edit7 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit7:setParent(obj.layout6);
+    obj.edit7:setParent(obj.layout7);
     obj.edit7:setType("number");
     obj.edit7:setAlign("left");
     obj.edit7:setHorzTextAlign("center");
@@ -270,12 +333,12 @@ function newfrmFichaDoPersonagem()
     obj.edit7:setName("edit7");
 
     obj.dataLink1 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink1:setParent(obj.layout6);
+    obj.dataLink1:setParent(obj.layout7);
     obj.dataLink1:setField("atributos.inteligencia.base");
     obj.dataLink1:setName("dataLink1");
 
     obj.edit8 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit8:setParent(obj.layout6);
+    obj.edit8:setParent(obj.layout7);
     obj.edit8:setType("number");
     obj.edit8:setAlign("left");
     obj.edit8:setHorzTextAlign("center");
@@ -285,12 +348,12 @@ function newfrmFichaDoPersonagem()
     obj.edit8:setName("edit8");
 
     obj.dataLink2 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink2:setParent(obj.layout6);
+    obj.dataLink2:setParent(obj.layout7);
     obj.dataLink2:setField("atributos.inteligencia.racaClasse");
     obj.dataLink2:setName("dataLink2");
 
     obj.edit9 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit9:setParent(obj.layout6);
+    obj.edit9:setParent(obj.layout7);
     obj.edit9:setType("number");
     obj.edit9:setAlign("left");
     obj.edit9:setHorzTextAlign("center");
@@ -300,12 +363,12 @@ function newfrmFichaDoPersonagem()
     obj.edit9:setName("edit9");
 
     obj.dataLink3 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink3:setParent(obj.layout6);
+    obj.dataLink3:setParent(obj.layout7);
     obj.dataLink3:setField("atributos.inteligencia.treinamento");
     obj.dataLink3:setName("dataLink3");
 
     obj.edit10 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit10:setParent(obj.layout6);
+    obj.edit10:setParent(obj.layout7);
     obj.edit10:setType("number");
     obj.edit10:setAlign("left");
     obj.edit10:setHorzTextAlign("center");
@@ -315,36 +378,36 @@ function newfrmFichaDoPersonagem()
     obj.edit10:setName("edit10");
 
     obj.dataLink4 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink4:setParent(obj.layout6);
+    obj.dataLink4:setParent(obj.layout7);
     obj.dataLink4:setField("atributos.inteligencia.habilidade");
     obj.dataLink4:setName("dataLink4");
 
-    obj.label8 = gui.fromHandle(_obj_newObject("label"));
-    obj.label8:setParent(obj.layout6);
-    obj.label8:setAlign("left");
-    obj.label8:setText("=");
-    obj.label8:setWidth(10);
-    obj.label8:setMargins({left=4,right=4});
-    obj.label8:setName("label8");
-
     obj.label9 = gui.fromHandle(_obj_newObject("label"));
-    obj.label9:setParent(obj.layout6);
+    obj.label9:setParent(obj.layout7);
     obj.label9:setAlign("left");
-    obj.label9:setHorzTextAlign("center");
-    obj.label9:setWidth(30);
-    obj.label9:setField("atributos.inteligencia.total");
+    obj.label9:setText("=");
+    obj.label9:setWidth(10);
+    obj.label9:setMargins({left=4,right=4});
     obj.label9:setName("label9");
 
-    obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout7:setParent(obj.layout5);
-    obj.layout7:setTop(70);
-    obj.layout7:setHeight(25);
-    obj.layout7:setWidth(450);
-    obj.layout7:setMargins({left=4,right=4});
-    obj.layout7:setName("layout7");
+    obj.label10 = gui.fromHandle(_obj_newObject("label"));
+    obj.label10:setParent(obj.layout7);
+    obj.label10:setAlign("left");
+    obj.label10:setHorzTextAlign("center");
+    obj.label10:setWidth(30);
+    obj.label10:setField("atributos.inteligencia.total");
+    obj.label10:setName("label10");
+
+    obj.layout8 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout8:setParent(obj.layout6);
+    obj.layout8:setTop(70);
+    obj.layout8:setHeight(25);
+    obj.layout8:setWidth(450);
+    obj.layout8:setMargins({left=4,right=4});
+    obj.layout8:setName("layout8");
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
-    obj.button2:setParent(obj.layout7);
+    obj.button2:setParent(obj.layout8);
     obj.button2:setAlign("left");
     obj.button2:setWidth(30);
     obj.button2:setMargins({right=4});
@@ -358,17 +421,17 @@ function newfrmFichaDoPersonagem()
     obj.image3:setSRC("/src/assets/dice-six-faces.png");
     obj.image3:setName("image3");
 
-    obj.label10 = gui.fromHandle(_obj_newObject("label"));
-    obj.label10:setParent(obj.layout7);
-    obj.label10:setAlign("left");
-    obj.label10:setHorzTextAlign("center");
-    obj.label10:setText("Sabedoria");
-    obj.label10:setWidth(85);
-    obj.label10:setAutoSize(true);
-    obj.label10:setName("label10");
+    obj.label11 = gui.fromHandle(_obj_newObject("label"));
+    obj.label11:setParent(obj.layout8);
+    obj.label11:setAlign("left");
+    obj.label11:setHorzTextAlign("center");
+    obj.label11:setText("Sabedoria");
+    obj.label11:setWidth(85);
+    obj.label11:setAutoSize(true);
+    obj.label11:setName("label11");
 
     obj.edit11 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit11:setParent(obj.layout7);
+    obj.edit11:setParent(obj.layout8);
     obj.edit11:setType("number");
     obj.edit11:setAlign("left");
     obj.edit11:setHorzTextAlign("center");
@@ -378,12 +441,12 @@ function newfrmFichaDoPersonagem()
     obj.edit11:setName("edit11");
 
     obj.dataLink5 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink5:setParent(obj.layout7);
+    obj.dataLink5:setParent(obj.layout8);
     obj.dataLink5:setField("atributos.sabedoria.base");
     obj.dataLink5:setName("dataLink5");
 
     obj.edit12 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit12:setParent(obj.layout7);
+    obj.edit12:setParent(obj.layout8);
     obj.edit12:setType("number");
     obj.edit12:setAlign("left");
     obj.edit12:setHorzTextAlign("center");
@@ -393,12 +456,12 @@ function newfrmFichaDoPersonagem()
     obj.edit12:setName("edit12");
 
     obj.dataLink6 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink6:setParent(obj.layout7);
+    obj.dataLink6:setParent(obj.layout8);
     obj.dataLink6:setField("atributos.sabedoria.racaClasse");
     obj.dataLink6:setName("dataLink6");
 
     obj.edit13 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit13:setParent(obj.layout7);
+    obj.edit13:setParent(obj.layout8);
     obj.edit13:setType("number");
     obj.edit13:setAlign("left");
     obj.edit13:setHorzTextAlign("center");
@@ -408,12 +471,12 @@ function newfrmFichaDoPersonagem()
     obj.edit13:setName("edit13");
 
     obj.dataLink7 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink7:setParent(obj.layout7);
+    obj.dataLink7:setParent(obj.layout8);
     obj.dataLink7:setField("atributos.sabedoria.treinamento");
     obj.dataLink7:setName("dataLink7");
 
     obj.edit14 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit14:setParent(obj.layout7);
+    obj.edit14:setParent(obj.layout8);
     obj.edit14:setType("number");
     obj.edit14:setAlign("left");
     obj.edit14:setHorzTextAlign("center");
@@ -423,36 +486,36 @@ function newfrmFichaDoPersonagem()
     obj.edit14:setName("edit14");
 
     obj.dataLink8 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink8:setParent(obj.layout7);
+    obj.dataLink8:setParent(obj.layout8);
     obj.dataLink8:setField("atributos.sabedoria.habilidade");
     obj.dataLink8:setName("dataLink8");
 
-    obj.label11 = gui.fromHandle(_obj_newObject("label"));
-    obj.label11:setParent(obj.layout7);
-    obj.label11:setAlign("left");
-    obj.label11:setText("=");
-    obj.label11:setWidth(10);
-    obj.label11:setMargins({left=4,right=4});
-    obj.label11:setName("label11");
-
     obj.label12 = gui.fromHandle(_obj_newObject("label"));
-    obj.label12:setParent(obj.layout7);
+    obj.label12:setParent(obj.layout8);
     obj.label12:setAlign("left");
-    obj.label12:setHorzTextAlign("center");
-    obj.label12:setWidth(30);
-    obj.label12:setField("atributos.sabedoria.total");
+    obj.label12:setText("=");
+    obj.label12:setWidth(10);
+    obj.label12:setMargins({left=4,right=4});
     obj.label12:setName("label12");
 
-    obj.layout8 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout8:setParent(obj.layout5);
-    obj.layout8:setTop(100);
-    obj.layout8:setHeight(25);
-    obj.layout8:setWidth(450);
-    obj.layout8:setMargins({left=4,right=4});
-    obj.layout8:setName("layout8");
+    obj.label13 = gui.fromHandle(_obj_newObject("label"));
+    obj.label13:setParent(obj.layout8);
+    obj.label13:setAlign("left");
+    obj.label13:setHorzTextAlign("center");
+    obj.label13:setWidth(30);
+    obj.label13:setField("atributos.sabedoria.total");
+    obj.label13:setName("label13");
+
+    obj.layout9 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout9:setParent(obj.layout6);
+    obj.layout9:setTop(100);
+    obj.layout9:setHeight(25);
+    obj.layout9:setWidth(450);
+    obj.layout9:setMargins({left=4,right=4});
+    obj.layout9:setName("layout9");
 
     obj.button3 = gui.fromHandle(_obj_newObject("button"));
-    obj.button3:setParent(obj.layout8);
+    obj.button3:setParent(obj.layout9);
     obj.button3:setAlign("left");
     obj.button3:setWidth(30);
     obj.button3:setMargins({right=4});
@@ -466,17 +529,17 @@ function newfrmFichaDoPersonagem()
     obj.image4:setSRC("/src/assets/dice-six-faces.png");
     obj.image4:setName("image4");
 
-    obj.label13 = gui.fromHandle(_obj_newObject("label"));
-    obj.label13:setParent(obj.layout8);
-    obj.label13:setAlign("left");
-    obj.label13:setHorzTextAlign("center");
-    obj.label13:setText("Vontade");
-    obj.label13:setWidth(85);
-    obj.label13:setAutoSize(true);
-    obj.label13:setName("label13");
+    obj.label14 = gui.fromHandle(_obj_newObject("label"));
+    obj.label14:setParent(obj.layout9);
+    obj.label14:setAlign("left");
+    obj.label14:setHorzTextAlign("center");
+    obj.label14:setText("Vontade");
+    obj.label14:setWidth(85);
+    obj.label14:setAutoSize(true);
+    obj.label14:setName("label14");
 
     obj.edit15 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit15:setParent(obj.layout8);
+    obj.edit15:setParent(obj.layout9);
     obj.edit15:setType("number");
     obj.edit15:setAlign("left");
     obj.edit15:setHorzTextAlign("center");
@@ -486,12 +549,12 @@ function newfrmFichaDoPersonagem()
     obj.edit15:setName("edit15");
 
     obj.dataLink9 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink9:setParent(obj.layout8);
+    obj.dataLink9:setParent(obj.layout9);
     obj.dataLink9:setField("atributos.vontade.base");
     obj.dataLink9:setName("dataLink9");
 
     obj.edit16 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit16:setParent(obj.layout8);
+    obj.edit16:setParent(obj.layout9);
     obj.edit16:setType("number");
     obj.edit16:setAlign("left");
     obj.edit16:setHorzTextAlign("center");
@@ -501,12 +564,12 @@ function newfrmFichaDoPersonagem()
     obj.edit16:setName("edit16");
 
     obj.dataLink10 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink10:setParent(obj.layout8);
+    obj.dataLink10:setParent(obj.layout9);
     obj.dataLink10:setField("atributos.vontade.racaClasse");
     obj.dataLink10:setName("dataLink10");
 
     obj.edit17 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit17:setParent(obj.layout8);
+    obj.edit17:setParent(obj.layout9);
     obj.edit17:setType("number");
     obj.edit17:setAlign("left");
     obj.edit17:setHorzTextAlign("center");
@@ -516,12 +579,12 @@ function newfrmFichaDoPersonagem()
     obj.edit17:setName("edit17");
 
     obj.dataLink11 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink11:setParent(obj.layout8);
+    obj.dataLink11:setParent(obj.layout9);
     obj.dataLink11:setField("atributos.vontade.treinamento");
     obj.dataLink11:setName("dataLink11");
 
     obj.edit18 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit18:setParent(obj.layout8);
+    obj.edit18:setParent(obj.layout9);
     obj.edit18:setType("number");
     obj.edit18:setAlign("left");
     obj.edit18:setHorzTextAlign("center");
@@ -531,36 +594,36 @@ function newfrmFichaDoPersonagem()
     obj.edit18:setName("edit18");
 
     obj.dataLink12 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink12:setParent(obj.layout8);
+    obj.dataLink12:setParent(obj.layout9);
     obj.dataLink12:setField("atributos.vontade.habilidade");
     obj.dataLink12:setName("dataLink12");
 
-    obj.label14 = gui.fromHandle(_obj_newObject("label"));
-    obj.label14:setParent(obj.layout8);
-    obj.label14:setAlign("left");
-    obj.label14:setText("=");
-    obj.label14:setWidth(10);
-    obj.label14:setMargins({left=4,right=4});
-    obj.label14:setName("label14");
-
     obj.label15 = gui.fromHandle(_obj_newObject("label"));
-    obj.label15:setParent(obj.layout8);
+    obj.label15:setParent(obj.layout9);
     obj.label15:setAlign("left");
-    obj.label15:setHorzTextAlign("center");
-    obj.label15:setWidth(30);
-    obj.label15:setField("atributos.vontade.total");
+    obj.label15:setText("=");
+    obj.label15:setWidth(10);
+    obj.label15:setMargins({left=4,right=4});
     obj.label15:setName("label15");
 
-    obj.layout9 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout9:setParent(obj.layout5);
-    obj.layout9:setTop(130);
-    obj.layout9:setHeight(25);
-    obj.layout9:setWidth(450);
-    obj.layout9:setMargins({left=4,right=4});
-    obj.layout9:setName("layout9");
+    obj.label16 = gui.fromHandle(_obj_newObject("label"));
+    obj.label16:setParent(obj.layout9);
+    obj.label16:setAlign("left");
+    obj.label16:setHorzTextAlign("center");
+    obj.label16:setWidth(30);
+    obj.label16:setField("atributos.vontade.total");
+    obj.label16:setName("label16");
+
+    obj.layout10 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout10:setParent(obj.layout6);
+    obj.layout10:setTop(130);
+    obj.layout10:setHeight(25);
+    obj.layout10:setWidth(450);
+    obj.layout10:setMargins({left=4,right=4});
+    obj.layout10:setName("layout10");
 
     obj.button4 = gui.fromHandle(_obj_newObject("button"));
-    obj.button4:setParent(obj.layout9);
+    obj.button4:setParent(obj.layout10);
     obj.button4:setAlign("left");
     obj.button4:setWidth(30);
     obj.button4:setMargins({right=4});
@@ -574,17 +637,17 @@ function newfrmFichaDoPersonagem()
     obj.image5:setSRC("/src/assets/dice-six-faces.png");
     obj.image5:setName("image5");
 
-    obj.label16 = gui.fromHandle(_obj_newObject("label"));
-    obj.label16:setParent(obj.layout9);
-    obj.label16:setAlign("left");
-    obj.label16:setHorzTextAlign("center");
-    obj.label16:setText("Carisma");
-    obj.label16:setWidth(85);
-    obj.label16:setAutoSize(true);
-    obj.label16:setName("label16");
+    obj.label17 = gui.fromHandle(_obj_newObject("label"));
+    obj.label17:setParent(obj.layout10);
+    obj.label17:setAlign("left");
+    obj.label17:setHorzTextAlign("center");
+    obj.label17:setText("Carisma");
+    obj.label17:setWidth(85);
+    obj.label17:setAutoSize(true);
+    obj.label17:setName("label17");
 
     obj.edit19 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit19:setParent(obj.layout9);
+    obj.edit19:setParent(obj.layout10);
     obj.edit19:setType("number");
     obj.edit19:setAlign("left");
     obj.edit19:setHorzTextAlign("center");
@@ -594,12 +657,12 @@ function newfrmFichaDoPersonagem()
     obj.edit19:setName("edit19");
 
     obj.dataLink13 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink13:setParent(obj.layout9);
+    obj.dataLink13:setParent(obj.layout10);
     obj.dataLink13:setField("atributos.carisma.base");
     obj.dataLink13:setName("dataLink13");
 
     obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit20:setParent(obj.layout9);
+    obj.edit20:setParent(obj.layout10);
     obj.edit20:setType("number");
     obj.edit20:setAlign("left");
     obj.edit20:setHorzTextAlign("center");
@@ -609,12 +672,12 @@ function newfrmFichaDoPersonagem()
     obj.edit20:setName("edit20");
 
     obj.dataLink14 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink14:setParent(obj.layout9);
+    obj.dataLink14:setParent(obj.layout10);
     obj.dataLink14:setField("atributos.carisma.racaClasse");
     obj.dataLink14:setName("dataLink14");
 
     obj.edit21 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit21:setParent(obj.layout9);
+    obj.edit21:setParent(obj.layout10);
     obj.edit21:setType("number");
     obj.edit21:setAlign("left");
     obj.edit21:setHorzTextAlign("center");
@@ -624,12 +687,12 @@ function newfrmFichaDoPersonagem()
     obj.edit21:setName("edit21");
 
     obj.dataLink15 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink15:setParent(obj.layout9);
+    obj.dataLink15:setParent(obj.layout10);
     obj.dataLink15:setField("atributos.carisma.treinamento");
     obj.dataLink15:setName("dataLink15");
 
     obj.edit22 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit22:setParent(obj.layout9);
+    obj.edit22:setParent(obj.layout10);
     obj.edit22:setType("number");
     obj.edit22:setAlign("left");
     obj.edit22:setHorzTextAlign("center");
@@ -639,36 +702,36 @@ function newfrmFichaDoPersonagem()
     obj.edit22:setName("edit22");
 
     obj.dataLink16 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink16:setParent(obj.layout9);
+    obj.dataLink16:setParent(obj.layout10);
     obj.dataLink16:setField("atributos.carisma.habilidade");
     obj.dataLink16:setName("dataLink16");
 
-    obj.label17 = gui.fromHandle(_obj_newObject("label"));
-    obj.label17:setParent(obj.layout9);
-    obj.label17:setAlign("left");
-    obj.label17:setText("=");
-    obj.label17:setWidth(10);
-    obj.label17:setMargins({left=4,right=4});
-    obj.label17:setName("label17");
-
     obj.label18 = gui.fromHandle(_obj_newObject("label"));
-    obj.label18:setParent(obj.layout9);
+    obj.label18:setParent(obj.layout10);
     obj.label18:setAlign("left");
-    obj.label18:setHorzTextAlign("center");
-    obj.label18:setWidth(30);
-    obj.label18:setField("atributos.carisma.total");
+    obj.label18:setText("=");
+    obj.label18:setWidth(10);
+    obj.label18:setMargins({left=4,right=4});
     obj.label18:setName("label18");
 
-    obj.layout10 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout10:setParent(obj.layout5);
-    obj.layout10:setTop(160);
-    obj.layout10:setHeight(25);
-    obj.layout10:setWidth(450);
-    obj.layout10:setMargins({left=4,right=4});
-    obj.layout10:setName("layout10");
+    obj.label19 = gui.fromHandle(_obj_newObject("label"));
+    obj.label19:setParent(obj.layout10);
+    obj.label19:setAlign("left");
+    obj.label19:setHorzTextAlign("center");
+    obj.label19:setWidth(30);
+    obj.label19:setField("atributos.carisma.total");
+    obj.label19:setName("label19");
+
+    obj.layout11 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout11:setParent(obj.layout6);
+    obj.layout11:setTop(160);
+    obj.layout11:setHeight(25);
+    obj.layout11:setWidth(450);
+    obj.layout11:setMargins({left=4,right=4});
+    obj.layout11:setName("layout11");
 
     obj.button5 = gui.fromHandle(_obj_newObject("button"));
-    obj.button5:setParent(obj.layout10);
+    obj.button5:setParent(obj.layout11);
     obj.button5:setAlign("left");
     obj.button5:setWidth(30);
     obj.button5:setMargins({right=4});
@@ -682,17 +745,17 @@ function newfrmFichaDoPersonagem()
     obj.image6:setSRC("/src/assets/dice-six-faces.png");
     obj.image6:setName("image6");
 
-    obj.label19 = gui.fromHandle(_obj_newObject("label"));
-    obj.label19:setParent(obj.layout10);
-    obj.label19:setAlign("left");
-    obj.label19:setHorzTextAlign("center");
-    obj.label19:setText("Energia");
-    obj.label19:setWidth(85);
-    obj.label19:setAutoSize(true);
-    obj.label19:setName("label19");
+    obj.label20 = gui.fromHandle(_obj_newObject("label"));
+    obj.label20:setParent(obj.layout11);
+    obj.label20:setAlign("left");
+    obj.label20:setHorzTextAlign("center");
+    obj.label20:setText("Energia");
+    obj.label20:setWidth(85);
+    obj.label20:setAutoSize(true);
+    obj.label20:setName("label20");
 
     obj.edit23 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit23:setParent(obj.layout10);
+    obj.edit23:setParent(obj.layout11);
     obj.edit23:setType("number");
     obj.edit23:setAlign("left");
     obj.edit23:setHorzTextAlign("center");
@@ -702,12 +765,12 @@ function newfrmFichaDoPersonagem()
     obj.edit23:setName("edit23");
 
     obj.dataLink17 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink17:setParent(obj.layout10);
+    obj.dataLink17:setParent(obj.layout11);
     obj.dataLink17:setField("atributos.energia.base");
     obj.dataLink17:setName("dataLink17");
 
     obj.edit24 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit24:setParent(obj.layout10);
+    obj.edit24:setParent(obj.layout11);
     obj.edit24:setType("number");
     obj.edit24:setAlign("left");
     obj.edit24:setHorzTextAlign("center");
@@ -717,12 +780,12 @@ function newfrmFichaDoPersonagem()
     obj.edit24:setName("edit24");
 
     obj.dataLink18 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink18:setParent(obj.layout10);
+    obj.dataLink18:setParent(obj.layout11);
     obj.dataLink18:setField("atributos.energia.racaClasse");
     obj.dataLink18:setName("dataLink18");
 
     obj.edit25 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit25:setParent(obj.layout10);
+    obj.edit25:setParent(obj.layout11);
     obj.edit25:setType("number");
     obj.edit25:setAlign("left");
     obj.edit25:setHorzTextAlign("center");
@@ -732,12 +795,12 @@ function newfrmFichaDoPersonagem()
     obj.edit25:setName("edit25");
 
     obj.dataLink19 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink19:setParent(obj.layout10);
+    obj.dataLink19:setParent(obj.layout11);
     obj.dataLink19:setField("atributos.energia.treinamento");
     obj.dataLink19:setName("dataLink19");
 
     obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit26:setParent(obj.layout10);
+    obj.edit26:setParent(obj.layout11);
     obj.edit26:setType("number");
     obj.edit26:setAlign("left");
     obj.edit26:setHorzTextAlign("center");
@@ -747,36 +810,36 @@ function newfrmFichaDoPersonagem()
     obj.edit26:setName("edit26");
 
     obj.dataLink20 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink20:setParent(obj.layout10);
+    obj.dataLink20:setParent(obj.layout11);
     obj.dataLink20:setField("atributos.energia.habilidade");
     obj.dataLink20:setName("dataLink20");
 
-    obj.label20 = gui.fromHandle(_obj_newObject("label"));
-    obj.label20:setParent(obj.layout10);
-    obj.label20:setAlign("left");
-    obj.label20:setText("=");
-    obj.label20:setWidth(10);
-    obj.label20:setMargins({left=4,right=4});
-    obj.label20:setName("label20");
-
     obj.label21 = gui.fromHandle(_obj_newObject("label"));
-    obj.label21:setParent(obj.layout10);
+    obj.label21:setParent(obj.layout11);
     obj.label21:setAlign("left");
-    obj.label21:setHorzTextAlign("center");
-    obj.label21:setWidth(30);
-    obj.label21:setField("atributos.energia.total");
+    obj.label21:setText("=");
+    obj.label21:setWidth(10);
+    obj.label21:setMargins({left=4,right=4});
     obj.label21:setName("label21");
 
-    obj.layout11 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout11:setParent(obj.layout5);
-    obj.layout11:setTop(190);
-    obj.layout11:setHeight(25);
-    obj.layout11:setWidth(450);
-    obj.layout11:setMargins({left=4,right=4});
-    obj.layout11:setName("layout11");
+    obj.label22 = gui.fromHandle(_obj_newObject("label"));
+    obj.label22:setParent(obj.layout11);
+    obj.label22:setAlign("left");
+    obj.label22:setHorzTextAlign("center");
+    obj.label22:setWidth(30);
+    obj.label22:setField("atributos.energia.total");
+    obj.label22:setName("label22");
+
+    obj.layout12 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout12:setParent(obj.layout6);
+    obj.layout12:setTop(190);
+    obj.layout12:setHeight(25);
+    obj.layout12:setWidth(450);
+    obj.layout12:setMargins({left=4,right=4});
+    obj.layout12:setName("layout12");
 
     obj.button6 = gui.fromHandle(_obj_newObject("button"));
-    obj.button6:setParent(obj.layout11);
+    obj.button6:setParent(obj.layout12);
     obj.button6:setAlign("left");
     obj.button6:setWidth(30);
     obj.button6:setMargins({right=4});
@@ -790,17 +853,17 @@ function newfrmFichaDoPersonagem()
     obj.image7:setSRC("/src/assets/dice-six-faces.png");
     obj.image7:setName("image7");
 
-    obj.label22 = gui.fromHandle(_obj_newObject("label"));
-    obj.label22:setParent(obj.layout11);
-    obj.label22:setAlign("left");
-    obj.label22:setHorzTextAlign("center");
-    obj.label22:setText("Corpo");
-    obj.label22:setWidth(85);
-    obj.label22:setAutoSize(true);
-    obj.label22:setName("label22");
+    obj.label23 = gui.fromHandle(_obj_newObject("label"));
+    obj.label23:setParent(obj.layout12);
+    obj.label23:setAlign("left");
+    obj.label23:setHorzTextAlign("center");
+    obj.label23:setText("Corpo");
+    obj.label23:setWidth(85);
+    obj.label23:setAutoSize(true);
+    obj.label23:setName("label23");
 
     obj.edit27 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit27:setParent(obj.layout11);
+    obj.edit27:setParent(obj.layout12);
     obj.edit27:setType("number");
     obj.edit27:setAlign("left");
     obj.edit27:setHorzTextAlign("center");
@@ -810,12 +873,12 @@ function newfrmFichaDoPersonagem()
     obj.edit27:setName("edit27");
 
     obj.dataLink21 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink21:setParent(obj.layout11);
+    obj.dataLink21:setParent(obj.layout12);
     obj.dataLink21:setField("atributos.corpo.base");
     obj.dataLink21:setName("dataLink21");
 
     obj.edit28 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit28:setParent(obj.layout11);
+    obj.edit28:setParent(obj.layout12);
     obj.edit28:setType("number");
     obj.edit28:setAlign("left");
     obj.edit28:setHorzTextAlign("center");
@@ -825,12 +888,12 @@ function newfrmFichaDoPersonagem()
     obj.edit28:setName("edit28");
 
     obj.dataLink22 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink22:setParent(obj.layout11);
+    obj.dataLink22:setParent(obj.layout12);
     obj.dataLink22:setField("atributos.corpo.racaClasse");
     obj.dataLink22:setName("dataLink22");
 
     obj.edit29 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit29:setParent(obj.layout11);
+    obj.edit29:setParent(obj.layout12);
     obj.edit29:setType("number");
     obj.edit29:setAlign("left");
     obj.edit29:setHorzTextAlign("center");
@@ -840,12 +903,12 @@ function newfrmFichaDoPersonagem()
     obj.edit29:setName("edit29");
 
     obj.dataLink23 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink23:setParent(obj.layout11);
+    obj.dataLink23:setParent(obj.layout12);
     obj.dataLink23:setField("atributos.corpo.treinamento");
     obj.dataLink23:setName("dataLink23");
 
     obj.edit30 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit30:setParent(obj.layout11);
+    obj.edit30:setParent(obj.layout12);
     obj.edit30:setType("number");
     obj.edit30:setAlign("left");
     obj.edit30:setHorzTextAlign("center");
@@ -855,43 +918,43 @@ function newfrmFichaDoPersonagem()
     obj.edit30:setName("edit30");
 
     obj.dataLink24 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink24:setParent(obj.layout11);
+    obj.dataLink24:setParent(obj.layout12);
     obj.dataLink24:setField("atributos.corpo.habilidade");
     obj.dataLink24:setName("dataLink24");
 
-    obj.label23 = gui.fromHandle(_obj_newObject("label"));
-    obj.label23:setParent(obj.layout11);
-    obj.label23:setAlign("left");
-    obj.label23:setText("=");
-    obj.label23:setWidth(10);
-    obj.label23:setMargins({left=4,right=4});
-    obj.label23:setName("label23");
-
     obj.label24 = gui.fromHandle(_obj_newObject("label"));
-    obj.label24:setParent(obj.layout11);
+    obj.label24:setParent(obj.layout12);
     obj.label24:setAlign("left");
-    obj.label24:setHorzTextAlign("center");
-    obj.label24:setWidth(30);
-    obj.label24:setField("atributos.corpo.total");
+    obj.label24:setText("=");
+    obj.label24:setWidth(10);
+    obj.label24:setMargins({left=4,right=4});
     obj.label24:setName("label24");
 
-    obj.layout12 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout12:setParent(obj.tab2);
-    obj.layout12:setLeft(320);
-    obj.layout12:setWidth(300);
-    obj.layout12:setHeight(400);
-    obj.layout12:setName("layout12");
+    obj.label25 = gui.fromHandle(_obj_newObject("label"));
+    obj.label25:setParent(obj.layout12);
+    obj.label25:setAlign("left");
+    obj.label25:setHorzTextAlign("center");
+    obj.label25:setWidth(30);
+    obj.label25:setField("atributos.corpo.total");
+    obj.label25:setName("label25");
 
     obj.layout13 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout13:setParent(obj.layout12);
-    obj.layout13:setTop(40);
-    obj.layout13:setHeight(25);
-    obj.layout13:setWidth(450);
-    obj.layout13:setMargins({left=4,right=4});
+    obj.layout13:setParent(obj.tab2);
+    obj.layout13:setLeft(320);
+    obj.layout13:setWidth(300);
+    obj.layout13:setHeight(400);
     obj.layout13:setName("layout13");
 
+    obj.layout14 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout14:setParent(obj.layout13);
+    obj.layout14:setTop(40);
+    obj.layout14:setHeight(25);
+    obj.layout14:setWidth(450);
+    obj.layout14:setMargins({left=4,right=4});
+    obj.layout14:setName("layout14");
+
     obj.button7 = gui.fromHandle(_obj_newObject("button"));
-    obj.button7:setParent(obj.layout13);
+    obj.button7:setParent(obj.layout14);
     obj.button7:setAlign("left");
     obj.button7:setWidth(30);
     obj.button7:setMargins({right=4});
@@ -905,17 +968,17 @@ function newfrmFichaDoPersonagem()
     obj.image8:setSRC("/src/assets/dice-six-faces.png");
     obj.image8:setName("image8");
 
-    obj.label25 = gui.fromHandle(_obj_newObject("label"));
-    obj.label25:setParent(obj.layout13);
-    obj.label25:setAlign("left");
-    obj.label25:setHorzTextAlign("center");
-    obj.label25:setText("Resistência");
-    obj.label25:setWidth(85);
-    obj.label25:setAutoSize(true);
-    obj.label25:setName("label25");
+    obj.label26 = gui.fromHandle(_obj_newObject("label"));
+    obj.label26:setParent(obj.layout14);
+    obj.label26:setAlign("left");
+    obj.label26:setHorzTextAlign("center");
+    obj.label26:setText("Resistência");
+    obj.label26:setWidth(85);
+    obj.label26:setAutoSize(true);
+    obj.label26:setName("label26");
 
     obj.edit31 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit31:setParent(obj.layout13);
+    obj.edit31:setParent(obj.layout14);
     obj.edit31:setType("number");
     obj.edit31:setAlign("left");
     obj.edit31:setHorzTextAlign("center");
@@ -925,12 +988,12 @@ function newfrmFichaDoPersonagem()
     obj.edit31:setName("edit31");
 
     obj.dataLink25 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink25:setParent(obj.layout13);
+    obj.dataLink25:setParent(obj.layout14);
     obj.dataLink25:setField("atributos.resistencia.base");
     obj.dataLink25:setName("dataLink25");
 
     obj.edit32 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit32:setParent(obj.layout13);
+    obj.edit32:setParent(obj.layout14);
     obj.edit32:setType("number");
     obj.edit32:setAlign("left");
     obj.edit32:setHorzTextAlign("center");
@@ -940,12 +1003,12 @@ function newfrmFichaDoPersonagem()
     obj.edit32:setName("edit32");
 
     obj.dataLink26 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink26:setParent(obj.layout13);
+    obj.dataLink26:setParent(obj.layout14);
     obj.dataLink26:setField("atributos.resistencia.racaClasse");
     obj.dataLink26:setName("dataLink26");
 
     obj.edit33 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit33:setParent(obj.layout13);
+    obj.edit33:setParent(obj.layout14);
     obj.edit33:setType("number");
     obj.edit33:setAlign("left");
     obj.edit33:setHorzTextAlign("center");
@@ -955,12 +1018,12 @@ function newfrmFichaDoPersonagem()
     obj.edit33:setName("edit33");
 
     obj.dataLink27 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink27:setParent(obj.layout13);
+    obj.dataLink27:setParent(obj.layout14);
     obj.dataLink27:setField("atributos.resistencia.treinamento");
     obj.dataLink27:setName("dataLink27");
 
     obj.edit34 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit34:setParent(obj.layout13);
+    obj.edit34:setParent(obj.layout14);
     obj.edit34:setType("number");
     obj.edit34:setAlign("left");
     obj.edit34:setHorzTextAlign("center");
@@ -970,36 +1033,36 @@ function newfrmFichaDoPersonagem()
     obj.edit34:setName("edit34");
 
     obj.dataLink28 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink28:setParent(obj.layout13);
+    obj.dataLink28:setParent(obj.layout14);
     obj.dataLink28:setField("atributos.resistencia.habilidade");
     obj.dataLink28:setName("dataLink28");
 
-    obj.label26 = gui.fromHandle(_obj_newObject("label"));
-    obj.label26:setParent(obj.layout13);
-    obj.label26:setAlign("left");
-    obj.label26:setText("=");
-    obj.label26:setWidth(10);
-    obj.label26:setMargins({left=4,right=4});
-    obj.label26:setName("label26");
-
     obj.label27 = gui.fromHandle(_obj_newObject("label"));
-    obj.label27:setParent(obj.layout13);
+    obj.label27:setParent(obj.layout14);
     obj.label27:setAlign("left");
-    obj.label27:setHorzTextAlign("center");
-    obj.label27:setWidth(30);
-    obj.label27:setField("atributos.resistencia.total");
+    obj.label27:setText("=");
+    obj.label27:setWidth(10);
+    obj.label27:setMargins({left=4,right=4});
     obj.label27:setName("label27");
 
-    obj.layout14 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout14:setParent(obj.layout12);
-    obj.layout14:setTop(70);
-    obj.layout14:setHeight(25);
-    obj.layout14:setWidth(450);
-    obj.layout14:setMargins({left=4,right=4});
-    obj.layout14:setName("layout14");
+    obj.label28 = gui.fromHandle(_obj_newObject("label"));
+    obj.label28:setParent(obj.layout14);
+    obj.label28:setAlign("left");
+    obj.label28:setHorzTextAlign("center");
+    obj.label28:setWidth(30);
+    obj.label28:setField("atributos.resistencia.total");
+    obj.label28:setName("label28");
+
+    obj.layout15 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout15:setParent(obj.layout13);
+    obj.layout15:setTop(70);
+    obj.layout15:setHeight(25);
+    obj.layout15:setWidth(450);
+    obj.layout15:setMargins({left=4,right=4});
+    obj.layout15:setName("layout15");
 
     obj.button8 = gui.fromHandle(_obj_newObject("button"));
-    obj.button8:setParent(obj.layout14);
+    obj.button8:setParent(obj.layout15);
     obj.button8:setAlign("left");
     obj.button8:setWidth(30);
     obj.button8:setMargins({right=4});
@@ -1013,17 +1076,17 @@ function newfrmFichaDoPersonagem()
     obj.image9:setSRC("/src/assets/dice-six-faces.png");
     obj.image9:setName("image9");
 
-    obj.label28 = gui.fromHandle(_obj_newObject("label"));
-    obj.label28:setParent(obj.layout14);
-    obj.label28:setAlign("left");
-    obj.label28:setHorzTextAlign("center");
-    obj.label28:setText("Velocidade");
-    obj.label28:setWidth(85);
-    obj.label28:setAutoSize(true);
-    obj.label28:setName("label28");
+    obj.label29 = gui.fromHandle(_obj_newObject("label"));
+    obj.label29:setParent(obj.layout15);
+    obj.label29:setAlign("left");
+    obj.label29:setHorzTextAlign("center");
+    obj.label29:setText("Velocidade");
+    obj.label29:setWidth(85);
+    obj.label29:setAutoSize(true);
+    obj.label29:setName("label29");
 
     obj.edit35 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit35:setParent(obj.layout14);
+    obj.edit35:setParent(obj.layout15);
     obj.edit35:setType("number");
     obj.edit35:setAlign("left");
     obj.edit35:setHorzTextAlign("center");
@@ -1033,12 +1096,12 @@ function newfrmFichaDoPersonagem()
     obj.edit35:setName("edit35");
 
     obj.dataLink29 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink29:setParent(obj.layout14);
+    obj.dataLink29:setParent(obj.layout15);
     obj.dataLink29:setField("atributos.velocidade.base");
     obj.dataLink29:setName("dataLink29");
 
     obj.edit36 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit36:setParent(obj.layout14);
+    obj.edit36:setParent(obj.layout15);
     obj.edit36:setType("number");
     obj.edit36:setAlign("left");
     obj.edit36:setHorzTextAlign("center");
@@ -1048,12 +1111,12 @@ function newfrmFichaDoPersonagem()
     obj.edit36:setName("edit36");
 
     obj.dataLink30 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink30:setParent(obj.layout14);
+    obj.dataLink30:setParent(obj.layout15);
     obj.dataLink30:setField("atributos.velocidade.racaClasse");
     obj.dataLink30:setName("dataLink30");
 
     obj.edit37 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit37:setParent(obj.layout14);
+    obj.edit37:setParent(obj.layout15);
     obj.edit37:setType("number");
     obj.edit37:setAlign("left");
     obj.edit37:setHorzTextAlign("center");
@@ -1063,12 +1126,12 @@ function newfrmFichaDoPersonagem()
     obj.edit37:setName("edit37");
 
     obj.dataLink31 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink31:setParent(obj.layout14);
+    obj.dataLink31:setParent(obj.layout15);
     obj.dataLink31:setField("atributos.velocidade.treinamento");
     obj.dataLink31:setName("dataLink31");
 
     obj.edit38 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit38:setParent(obj.layout14);
+    obj.edit38:setParent(obj.layout15);
     obj.edit38:setType("number");
     obj.edit38:setAlign("left");
     obj.edit38:setHorzTextAlign("center");
@@ -1078,36 +1141,36 @@ function newfrmFichaDoPersonagem()
     obj.edit38:setName("edit38");
 
     obj.dataLink32 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink32:setParent(obj.layout14);
+    obj.dataLink32:setParent(obj.layout15);
     obj.dataLink32:setField("atributos.velocidade.habilidade");
     obj.dataLink32:setName("dataLink32");
 
-    obj.label29 = gui.fromHandle(_obj_newObject("label"));
-    obj.label29:setParent(obj.layout14);
-    obj.label29:setAlign("left");
-    obj.label29:setText("=");
-    obj.label29:setWidth(10);
-    obj.label29:setMargins({left=4,right=4});
-    obj.label29:setName("label29");
-
     obj.label30 = gui.fromHandle(_obj_newObject("label"));
-    obj.label30:setParent(obj.layout14);
+    obj.label30:setParent(obj.layout15);
     obj.label30:setAlign("left");
-    obj.label30:setHorzTextAlign("center");
-    obj.label30:setWidth(30);
-    obj.label30:setField("atributos.velocidade.total");
+    obj.label30:setText("=");
+    obj.label30:setWidth(10);
+    obj.label30:setMargins({left=4,right=4});
     obj.label30:setName("label30");
 
-    obj.layout15 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout15:setParent(obj.layout12);
-    obj.layout15:setTop(100);
-    obj.layout15:setHeight(25);
-    obj.layout15:setWidth(450);
-    obj.layout15:setMargins({left=4,right=4});
-    obj.layout15:setName("layout15");
+    obj.label31 = gui.fromHandle(_obj_newObject("label"));
+    obj.label31:setParent(obj.layout15);
+    obj.label31:setAlign("left");
+    obj.label31:setHorzTextAlign("center");
+    obj.label31:setWidth(30);
+    obj.label31:setField("atributos.velocidade.total");
+    obj.label31:setName("label31");
+
+    obj.layout16 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout16:setParent(obj.layout13);
+    obj.layout16:setTop(100);
+    obj.layout16:setHeight(25);
+    obj.layout16:setWidth(450);
+    obj.layout16:setMargins({left=4,right=4});
+    obj.layout16:setName("layout16");
 
     obj.button9 = gui.fromHandle(_obj_newObject("button"));
-    obj.button9:setParent(obj.layout15);
+    obj.button9:setParent(obj.layout16);
     obj.button9:setAlign("left");
     obj.button9:setWidth(30);
     obj.button9:setMargins({right=4});
@@ -1121,17 +1184,17 @@ function newfrmFichaDoPersonagem()
     obj.image10:setSRC("/src/assets/dice-six-faces.png");
     obj.image10:setName("image10");
 
-    obj.label31 = gui.fromHandle(_obj_newObject("label"));
-    obj.label31:setParent(obj.layout15);
-    obj.label31:setAlign("left");
-    obj.label31:setHorzTextAlign("center");
-    obj.label31:setText("Agilidade");
-    obj.label31:setWidth(85);
-    obj.label31:setAutoSize(true);
-    obj.label31:setName("label31");
+    obj.label32 = gui.fromHandle(_obj_newObject("label"));
+    obj.label32:setParent(obj.layout16);
+    obj.label32:setAlign("left");
+    obj.label32:setHorzTextAlign("center");
+    obj.label32:setText("Agilidade");
+    obj.label32:setWidth(85);
+    obj.label32:setAutoSize(true);
+    obj.label32:setName("label32");
 
     obj.edit39 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit39:setParent(obj.layout15);
+    obj.edit39:setParent(obj.layout16);
     obj.edit39:setType("number");
     obj.edit39:setAlign("left");
     obj.edit39:setHorzTextAlign("center");
@@ -1141,12 +1204,12 @@ function newfrmFichaDoPersonagem()
     obj.edit39:setName("edit39");
 
     obj.dataLink33 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink33:setParent(obj.layout15);
+    obj.dataLink33:setParent(obj.layout16);
     obj.dataLink33:setField("atributos.agilidade.base");
     obj.dataLink33:setName("dataLink33");
 
     obj.edit40 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit40:setParent(obj.layout15);
+    obj.edit40:setParent(obj.layout16);
     obj.edit40:setType("number");
     obj.edit40:setAlign("left");
     obj.edit40:setHorzTextAlign("center");
@@ -1156,12 +1219,12 @@ function newfrmFichaDoPersonagem()
     obj.edit40:setName("edit40");
 
     obj.dataLink34 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink34:setParent(obj.layout15);
+    obj.dataLink34:setParent(obj.layout16);
     obj.dataLink34:setField("atributos.agilidade.racaClasse");
     obj.dataLink34:setName("dataLink34");
 
     obj.edit41 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit41:setParent(obj.layout15);
+    obj.edit41:setParent(obj.layout16);
     obj.edit41:setType("number");
     obj.edit41:setAlign("left");
     obj.edit41:setHorzTextAlign("center");
@@ -1171,12 +1234,12 @@ function newfrmFichaDoPersonagem()
     obj.edit41:setName("edit41");
 
     obj.dataLink35 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink35:setParent(obj.layout15);
+    obj.dataLink35:setParent(obj.layout16);
     obj.dataLink35:setField("atributos.agilidade.treinamento");
     obj.dataLink35:setName("dataLink35");
 
     obj.edit42 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit42:setParent(obj.layout15);
+    obj.edit42:setParent(obj.layout16);
     obj.edit42:setType("number");
     obj.edit42:setAlign("left");
     obj.edit42:setHorzTextAlign("center");
@@ -1186,36 +1249,36 @@ function newfrmFichaDoPersonagem()
     obj.edit42:setName("edit42");
 
     obj.dataLink36 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink36:setParent(obj.layout15);
+    obj.dataLink36:setParent(obj.layout16);
     obj.dataLink36:setField("atributos.agilidade.habilidade");
     obj.dataLink36:setName("dataLink36");
 
-    obj.label32 = gui.fromHandle(_obj_newObject("label"));
-    obj.label32:setParent(obj.layout15);
-    obj.label32:setAlign("left");
-    obj.label32:setText("=");
-    obj.label32:setWidth(10);
-    obj.label32:setMargins({left=4,right=4});
-    obj.label32:setName("label32");
-
     obj.label33 = gui.fromHandle(_obj_newObject("label"));
-    obj.label33:setParent(obj.layout15);
+    obj.label33:setParent(obj.layout16);
     obj.label33:setAlign("left");
-    obj.label33:setHorzTextAlign("center");
-    obj.label33:setWidth(30);
-    obj.label33:setField("atributos.agilidade.total");
+    obj.label33:setText("=");
+    obj.label33:setWidth(10);
+    obj.label33:setMargins({left=4,right=4});
     obj.label33:setName("label33");
 
-    obj.layout16 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout16:setParent(obj.layout12);
-    obj.layout16:setTop(130);
-    obj.layout16:setHeight(25);
-    obj.layout16:setWidth(450);
-    obj.layout16:setMargins({left=4,right=4});
-    obj.layout16:setName("layout16");
+    obj.label34 = gui.fromHandle(_obj_newObject("label"));
+    obj.label34:setParent(obj.layout16);
+    obj.label34:setAlign("left");
+    obj.label34:setHorzTextAlign("center");
+    obj.label34:setWidth(30);
+    obj.label34:setField("atributos.agilidade.total");
+    obj.label34:setName("label34");
+
+    obj.layout17 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout17:setParent(obj.layout13);
+    obj.layout17:setTop(130);
+    obj.layout17:setHeight(25);
+    obj.layout17:setWidth(450);
+    obj.layout17:setMargins({left=4,right=4});
+    obj.layout17:setName("layout17");
 
     obj.button10 = gui.fromHandle(_obj_newObject("button"));
-    obj.button10:setParent(obj.layout16);
+    obj.button10:setParent(obj.layout17);
     obj.button10:setAlign("left");
     obj.button10:setWidth(30);
     obj.button10:setMargins({right=4});
@@ -1229,17 +1292,17 @@ function newfrmFichaDoPersonagem()
     obj.image11:setSRC("/src/assets/dice-six-faces.png");
     obj.image11:setName("image11");
 
-    obj.label34 = gui.fromHandle(_obj_newObject("label"));
-    obj.label34:setParent(obj.layout16);
-    obj.label34:setAlign("left");
-    obj.label34:setHorzTextAlign("center");
-    obj.label34:setText("Destreza");
-    obj.label34:setWidth(85);
-    obj.label34:setAutoSize(true);
-    obj.label34:setName("label34");
+    obj.label35 = gui.fromHandle(_obj_newObject("label"));
+    obj.label35:setParent(obj.layout17);
+    obj.label35:setAlign("left");
+    obj.label35:setHorzTextAlign("center");
+    obj.label35:setText("Destreza");
+    obj.label35:setWidth(85);
+    obj.label35:setAutoSize(true);
+    obj.label35:setName("label35");
 
     obj.edit43 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit43:setParent(obj.layout16);
+    obj.edit43:setParent(obj.layout17);
     obj.edit43:setType("number");
     obj.edit43:setAlign("left");
     obj.edit43:setHorzTextAlign("center");
@@ -1249,12 +1312,12 @@ function newfrmFichaDoPersonagem()
     obj.edit43:setName("edit43");
 
     obj.dataLink37 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink37:setParent(obj.layout16);
+    obj.dataLink37:setParent(obj.layout17);
     obj.dataLink37:setField("atributos.destreza.base");
     obj.dataLink37:setName("dataLink37");
 
     obj.edit44 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit44:setParent(obj.layout16);
+    obj.edit44:setParent(obj.layout17);
     obj.edit44:setType("number");
     obj.edit44:setAlign("left");
     obj.edit44:setHorzTextAlign("center");
@@ -1264,12 +1327,12 @@ function newfrmFichaDoPersonagem()
     obj.edit44:setName("edit44");
 
     obj.dataLink38 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink38:setParent(obj.layout16);
+    obj.dataLink38:setParent(obj.layout17);
     obj.dataLink38:setField("atributos.destreza.racaClasse");
     obj.dataLink38:setName("dataLink38");
 
     obj.edit45 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit45:setParent(obj.layout16);
+    obj.edit45:setParent(obj.layout17);
     obj.edit45:setType("number");
     obj.edit45:setAlign("left");
     obj.edit45:setHorzTextAlign("center");
@@ -1279,12 +1342,12 @@ function newfrmFichaDoPersonagem()
     obj.edit45:setName("edit45");
 
     obj.dataLink39 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink39:setParent(obj.layout16);
+    obj.dataLink39:setParent(obj.layout17);
     obj.dataLink39:setField("atributos.destreza.treinamento");
     obj.dataLink39:setName("dataLink39");
 
     obj.edit46 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit46:setParent(obj.layout16);
+    obj.edit46:setParent(obj.layout17);
     obj.edit46:setType("number");
     obj.edit46:setAlign("left");
     obj.edit46:setHorzTextAlign("center");
@@ -1294,36 +1357,36 @@ function newfrmFichaDoPersonagem()
     obj.edit46:setName("edit46");
 
     obj.dataLink40 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink40:setParent(obj.layout16);
+    obj.dataLink40:setParent(obj.layout17);
     obj.dataLink40:setField("atributos.destreza.habilidade");
     obj.dataLink40:setName("dataLink40");
 
-    obj.label35 = gui.fromHandle(_obj_newObject("label"));
-    obj.label35:setParent(obj.layout16);
-    obj.label35:setAlign("left");
-    obj.label35:setText("=");
-    obj.label35:setWidth(10);
-    obj.label35:setMargins({left=4,right=4});
-    obj.label35:setName("label35");
-
     obj.label36 = gui.fromHandle(_obj_newObject("label"));
-    obj.label36:setParent(obj.layout16);
+    obj.label36:setParent(obj.layout17);
     obj.label36:setAlign("left");
-    obj.label36:setHorzTextAlign("center");
-    obj.label36:setWidth(30);
-    obj.label36:setField("atributos.destreza.total");
+    obj.label36:setText("=");
+    obj.label36:setWidth(10);
+    obj.label36:setMargins({left=4,right=4});
     obj.label36:setName("label36");
 
-    obj.layout17 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout17:setParent(obj.layout12);
-    obj.layout17:setTop(160);
-    obj.layout17:setHeight(25);
-    obj.layout17:setWidth(450);
-    obj.layout17:setMargins({left=4,right=4});
-    obj.layout17:setName("layout17");
+    obj.label37 = gui.fromHandle(_obj_newObject("label"));
+    obj.label37:setParent(obj.layout17);
+    obj.label37:setAlign("left");
+    obj.label37:setHorzTextAlign("center");
+    obj.label37:setWidth(30);
+    obj.label37:setField("atributos.destreza.total");
+    obj.label37:setName("label37");
+
+    obj.layout18 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout18:setParent(obj.layout13);
+    obj.layout18:setTop(160);
+    obj.layout18:setHeight(25);
+    obj.layout18:setWidth(450);
+    obj.layout18:setMargins({left=4,right=4});
+    obj.layout18:setName("layout18");
 
     obj.button11 = gui.fromHandle(_obj_newObject("button"));
-    obj.button11:setParent(obj.layout17);
+    obj.button11:setParent(obj.layout18);
     obj.button11:setAlign("left");
     obj.button11:setWidth(30);
     obj.button11:setMargins({right=4});
@@ -1337,17 +1400,17 @@ function newfrmFichaDoPersonagem()
     obj.image12:setSRC("/src/assets/dice-six-faces.png");
     obj.image12:setName("image12");
 
-    obj.label37 = gui.fromHandle(_obj_newObject("label"));
-    obj.label37:setParent(obj.layout17);
-    obj.label37:setAlign("left");
-    obj.label37:setHorzTextAlign("center");
-    obj.label37:setText("Força");
-    obj.label37:setWidth(85);
-    obj.label37:setAutoSize(true);
-    obj.label37:setName("label37");
+    obj.label38 = gui.fromHandle(_obj_newObject("label"));
+    obj.label38:setParent(obj.layout18);
+    obj.label38:setAlign("left");
+    obj.label38:setHorzTextAlign("center");
+    obj.label38:setText("Força");
+    obj.label38:setWidth(85);
+    obj.label38:setAutoSize(true);
+    obj.label38:setName("label38");
 
     obj.edit47 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit47:setParent(obj.layout17);
+    obj.edit47:setParent(obj.layout18);
     obj.edit47:setType("number");
     obj.edit47:setAlign("left");
     obj.edit47:setHorzTextAlign("center");
@@ -1357,12 +1420,12 @@ function newfrmFichaDoPersonagem()
     obj.edit47:setName("edit47");
 
     obj.dataLink41 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink41:setParent(obj.layout17);
+    obj.dataLink41:setParent(obj.layout18);
     obj.dataLink41:setField("atributos.forca.base");
     obj.dataLink41:setName("dataLink41");
 
     obj.edit48 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit48:setParent(obj.layout17);
+    obj.edit48:setParent(obj.layout18);
     obj.edit48:setType("number");
     obj.edit48:setAlign("left");
     obj.edit48:setHorzTextAlign("center");
@@ -1372,12 +1435,12 @@ function newfrmFichaDoPersonagem()
     obj.edit48:setName("edit48");
 
     obj.dataLink42 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink42:setParent(obj.layout17);
+    obj.dataLink42:setParent(obj.layout18);
     obj.dataLink42:setField("atributos.forca.racaClasse");
     obj.dataLink42:setName("dataLink42");
 
     obj.edit49 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit49:setParent(obj.layout17);
+    obj.edit49:setParent(obj.layout18);
     obj.edit49:setType("number");
     obj.edit49:setAlign("left");
     obj.edit49:setHorzTextAlign("center");
@@ -1387,12 +1450,12 @@ function newfrmFichaDoPersonagem()
     obj.edit49:setName("edit49");
 
     obj.dataLink43 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink43:setParent(obj.layout17);
+    obj.dataLink43:setParent(obj.layout18);
     obj.dataLink43:setField("atributos.forca.treinamento");
     obj.dataLink43:setName("dataLink43");
 
     obj.edit50 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit50:setParent(obj.layout17);
+    obj.edit50:setParent(obj.layout18);
     obj.edit50:setType("number");
     obj.edit50:setAlign("left");
     obj.edit50:setHorzTextAlign("center");
@@ -1402,36 +1465,36 @@ function newfrmFichaDoPersonagem()
     obj.edit50:setName("edit50");
 
     obj.dataLink44 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink44:setParent(obj.layout17);
+    obj.dataLink44:setParent(obj.layout18);
     obj.dataLink44:setField("atributos.forca.habilidade");
     obj.dataLink44:setName("dataLink44");
 
-    obj.label38 = gui.fromHandle(_obj_newObject("label"));
-    obj.label38:setParent(obj.layout17);
-    obj.label38:setAlign("left");
-    obj.label38:setText("=");
-    obj.label38:setWidth(10);
-    obj.label38:setMargins({left=4,right=4});
-    obj.label38:setName("label38");
-
     obj.label39 = gui.fromHandle(_obj_newObject("label"));
-    obj.label39:setParent(obj.layout17);
+    obj.label39:setParent(obj.layout18);
     obj.label39:setAlign("left");
-    obj.label39:setHorzTextAlign("center");
-    obj.label39:setWidth(30);
-    obj.label39:setField("atributos.forca.total");
+    obj.label39:setText("=");
+    obj.label39:setWidth(10);
+    obj.label39:setMargins({left=4,right=4});
     obj.label39:setName("label39");
 
-    obj.layout18 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout18:setParent(obj.layout12);
-    obj.layout18:setTop(190);
-    obj.layout18:setHeight(25);
-    obj.layout18:setWidth(450);
-    obj.layout18:setMargins({left=4,right=4});
-    obj.layout18:setName("layout18");
+    obj.label40 = gui.fromHandle(_obj_newObject("label"));
+    obj.label40:setParent(obj.layout18);
+    obj.label40:setAlign("left");
+    obj.label40:setHorzTextAlign("center");
+    obj.label40:setWidth(30);
+    obj.label40:setField("atributos.forca.total");
+    obj.label40:setName("label40");
+
+    obj.layout19 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout19:setParent(obj.layout13);
+    obj.layout19:setTop(190);
+    obj.layout19:setHeight(25);
+    obj.layout19:setWidth(450);
+    obj.layout19:setMargins({left=4,right=4});
+    obj.layout19:setName("layout19");
 
     obj.button12 = gui.fromHandle(_obj_newObject("button"));
-    obj.button12:setParent(obj.layout18);
+    obj.button12:setParent(obj.layout19);
     obj.button12:setAlign("left");
     obj.button12:setWidth(30);
     obj.button12:setMargins({right=4});
@@ -1445,17 +1508,17 @@ function newfrmFichaDoPersonagem()
     obj.image13:setSRC("/src/assets/dice-six-faces.png");
     obj.image13:setName("image13");
 
-    obj.label40 = gui.fromHandle(_obj_newObject("label"));
-    obj.label40:setParent(obj.layout18);
-    obj.label40:setAlign("left");
-    obj.label40:setHorzTextAlign("center");
-    obj.label40:setText("Vigor");
-    obj.label40:setWidth(85);
-    obj.label40:setAutoSize(true);
-    obj.label40:setName("label40");
+    obj.label41 = gui.fromHandle(_obj_newObject("label"));
+    obj.label41:setParent(obj.layout19);
+    obj.label41:setAlign("left");
+    obj.label41:setHorzTextAlign("center");
+    obj.label41:setText("Vigor");
+    obj.label41:setWidth(85);
+    obj.label41:setAutoSize(true);
+    obj.label41:setName("label41");
 
     obj.edit51 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit51:setParent(obj.layout18);
+    obj.edit51:setParent(obj.layout19);
     obj.edit51:setType("number");
     obj.edit51:setAlign("left");
     obj.edit51:setHorzTextAlign("center");
@@ -1465,12 +1528,12 @@ function newfrmFichaDoPersonagem()
     obj.edit51:setName("edit51");
 
     obj.dataLink45 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink45:setParent(obj.layout18);
+    obj.dataLink45:setParent(obj.layout19);
     obj.dataLink45:setField("atributos.vigor.base");
     obj.dataLink45:setName("dataLink45");
 
     obj.edit52 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit52:setParent(obj.layout18);
+    obj.edit52:setParent(obj.layout19);
     obj.edit52:setType("number");
     obj.edit52:setAlign("left");
     obj.edit52:setHorzTextAlign("center");
@@ -1480,12 +1543,12 @@ function newfrmFichaDoPersonagem()
     obj.edit52:setName("edit52");
 
     obj.dataLink46 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink46:setParent(obj.layout18);
+    obj.dataLink46:setParent(obj.layout19);
     obj.dataLink46:setField("atributos.vigor.racaClasse");
     obj.dataLink46:setName("dataLink46");
 
     obj.edit53 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit53:setParent(obj.layout18);
+    obj.edit53:setParent(obj.layout19);
     obj.edit53:setType("number");
     obj.edit53:setAlign("left");
     obj.edit53:setHorzTextAlign("center");
@@ -1495,12 +1558,12 @@ function newfrmFichaDoPersonagem()
     obj.edit53:setName("edit53");
 
     obj.dataLink47 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink47:setParent(obj.layout18);
+    obj.dataLink47:setParent(obj.layout19);
     obj.dataLink47:setField("atributos.vigor.treinamento");
     obj.dataLink47:setName("dataLink47");
 
     obj.edit54 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit54:setParent(obj.layout18);
+    obj.edit54:setParent(obj.layout19);
     obj.edit54:setType("number");
     obj.edit54:setAlign("left");
     obj.edit54:setHorzTextAlign("center");
@@ -1510,25 +1573,25 @@ function newfrmFichaDoPersonagem()
     obj.edit54:setName("edit54");
 
     obj.dataLink48 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink48:setParent(obj.layout18);
+    obj.dataLink48:setParent(obj.layout19);
     obj.dataLink48:setField("atributos.vigor.habilidade");
     obj.dataLink48:setName("dataLink48");
 
-    obj.label41 = gui.fromHandle(_obj_newObject("label"));
-    obj.label41:setParent(obj.layout18);
-    obj.label41:setAlign("left");
-    obj.label41:setText("=");
-    obj.label41:setWidth(10);
-    obj.label41:setMargins({left=4,right=4});
-    obj.label41:setName("label41");
-
     obj.label42 = gui.fromHandle(_obj_newObject("label"));
-    obj.label42:setParent(obj.layout18);
+    obj.label42:setParent(obj.layout19);
     obj.label42:setAlign("left");
-    obj.label42:setHorzTextAlign("center");
-    obj.label42:setWidth(30);
-    obj.label42:setField("atributos.vigor.total");
+    obj.label42:setText("=");
+    obj.label42:setWidth(10);
+    obj.label42:setMargins({left=4,right=4});
     obj.label42:setName("label42");
+
+    obj.label43 = gui.fromHandle(_obj_newObject("label"));
+    obj.label43:setParent(obj.layout19);
+    obj.label43:setAlign("left");
+    obj.label43:setHorzTextAlign("center");
+    obj.label43:setWidth(30);
+    obj.label43:setField("atributos.vigor.total");
+    obj.label43:setName("label43");
 
     obj.tab3 = gui.fromHandle(_obj_newObject("tab"));
     obj.tab3:setParent(obj.tabControl1);
@@ -1543,23 +1606,23 @@ function newfrmFichaDoPersonagem()
     obj.textTotalSentidos:setText("PONTOS: (CORPO * 3) = 0");
     obj.textTotalSentidos:setWidth(180);
 
-    obj.layout19 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout19:setParent(obj.tab3);
-    obj.layout19:setLeft(20);
-    obj.layout19:setWidth(300);
-    obj.layout19:setHeight(400);
-    obj.layout19:setName("layout19");
-
     obj.layout20 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout20:setParent(obj.layout19);
-    obj.layout20:setTop(40);
-    obj.layout20:setHeight(25);
-    obj.layout20:setWidth(450);
-    obj.layout20:setMargins({left=4,right=4});
+    obj.layout20:setParent(obj.tab3);
+    obj.layout20:setLeft(20);
+    obj.layout20:setWidth(300);
+    obj.layout20:setHeight(400);
     obj.layout20:setName("layout20");
 
+    obj.layout21 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout21:setParent(obj.layout20);
+    obj.layout21:setTop(40);
+    obj.layout21:setHeight(25);
+    obj.layout21:setWidth(450);
+    obj.layout21:setMargins({left=4,right=4});
+    obj.layout21:setName("layout21");
+
     obj.button13 = gui.fromHandle(_obj_newObject("button"));
-    obj.button13:setParent(obj.layout20);
+    obj.button13:setParent(obj.layout21);
     obj.button13:setAlign("left");
     obj.button13:setWidth(30);
     obj.button13:setMargins({right=4});
@@ -1573,17 +1636,17 @@ function newfrmFichaDoPersonagem()
     obj.image14:setSRC("/src/assets/dice-six-faces.png");
     obj.image14:setName("image14");
 
-    obj.label43 = gui.fromHandle(_obj_newObject("label"));
-    obj.label43:setParent(obj.layout20);
-    obj.label43:setAlign("left");
-    obj.label43:setHorzTextAlign("center");
-    obj.label43:setText("Sexto Sentido");
-    obj.label43:setWidth(85);
-    obj.label43:setAutoSize(true);
-    obj.label43:setName("label43");
+    obj.label44 = gui.fromHandle(_obj_newObject("label"));
+    obj.label44:setParent(obj.layout21);
+    obj.label44:setAlign("left");
+    obj.label44:setHorzTextAlign("center");
+    obj.label44:setText("Sexto Sentido");
+    obj.label44:setWidth(85);
+    obj.label44:setAutoSize(true);
+    obj.label44:setName("label44");
 
     obj.edit55 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit55:setParent(obj.layout20);
+    obj.edit55:setParent(obj.layout21);
     obj.edit55:setType("number");
     obj.edit55:setAlign("left");
     obj.edit55:setHorzTextAlign("center");
@@ -1593,12 +1656,12 @@ function newfrmFichaDoPersonagem()
     obj.edit55:setName("edit55");
 
     obj.dataLink49 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink49:setParent(obj.layout20);
+    obj.dataLink49:setParent(obj.layout21);
     obj.dataLink49:setField("sentidos.sextoSentido.base");
     obj.dataLink49:setName("dataLink49");
 
     obj.edit56 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit56:setParent(obj.layout20);
+    obj.edit56:setParent(obj.layout21);
     obj.edit56:setType("number");
     obj.edit56:setAlign("left");
     obj.edit56:setHorzTextAlign("center");
@@ -1608,12 +1671,12 @@ function newfrmFichaDoPersonagem()
     obj.edit56:setName("edit56");
 
     obj.dataLink50 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink50:setParent(obj.layout20);
+    obj.dataLink50:setParent(obj.layout21);
     obj.dataLink50:setField("sentidos.sextoSentido.racaClasse");
     obj.dataLink50:setName("dataLink50");
 
     obj.edit57 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit57:setParent(obj.layout20);
+    obj.edit57:setParent(obj.layout21);
     obj.edit57:setType("number");
     obj.edit57:setAlign("left");
     obj.edit57:setHorzTextAlign("center");
@@ -1623,12 +1686,12 @@ function newfrmFichaDoPersonagem()
     obj.edit57:setName("edit57");
 
     obj.dataLink51 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink51:setParent(obj.layout20);
+    obj.dataLink51:setParent(obj.layout21);
     obj.dataLink51:setField("sentidos.sextoSentido.treinamento");
     obj.dataLink51:setName("dataLink51");
 
     obj.edit58 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit58:setParent(obj.layout20);
+    obj.edit58:setParent(obj.layout21);
     obj.edit58:setType("number");
     obj.edit58:setAlign("left");
     obj.edit58:setHorzTextAlign("center");
@@ -1638,36 +1701,36 @@ function newfrmFichaDoPersonagem()
     obj.edit58:setName("edit58");
 
     obj.dataLink52 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink52:setParent(obj.layout20);
+    obj.dataLink52:setParent(obj.layout21);
     obj.dataLink52:setField("sentidos.sextoSentido.habilidade");
     obj.dataLink52:setName("dataLink52");
 
-    obj.label44 = gui.fromHandle(_obj_newObject("label"));
-    obj.label44:setParent(obj.layout20);
-    obj.label44:setAlign("left");
-    obj.label44:setText("=");
-    obj.label44:setWidth(10);
-    obj.label44:setMargins({left=4,right=4});
-    obj.label44:setName("label44");
-
     obj.label45 = gui.fromHandle(_obj_newObject("label"));
-    obj.label45:setParent(obj.layout20);
+    obj.label45:setParent(obj.layout21);
     obj.label45:setAlign("left");
-    obj.label45:setHorzTextAlign("center");
-    obj.label45:setWidth(30);
-    obj.label45:setField("sentidos.sextoSentido.total");
+    obj.label45:setText("=");
+    obj.label45:setWidth(10);
+    obj.label45:setMargins({left=4,right=4});
     obj.label45:setName("label45");
 
-    obj.layout21 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout21:setParent(obj.layout19);
-    obj.layout21:setTop(70);
-    obj.layout21:setHeight(25);
-    obj.layout21:setWidth(450);
-    obj.layout21:setMargins({left=4,right=4});
-    obj.layout21:setName("layout21");
+    obj.label46 = gui.fromHandle(_obj_newObject("label"));
+    obj.label46:setParent(obj.layout21);
+    obj.label46:setAlign("left");
+    obj.label46:setHorzTextAlign("center");
+    obj.label46:setWidth(30);
+    obj.label46:setField("sentidos.sextoSentido.total");
+    obj.label46:setName("label46");
+
+    obj.layout22 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout22:setParent(obj.layout20);
+    obj.layout22:setTop(70);
+    obj.layout22:setHeight(25);
+    obj.layout22:setWidth(450);
+    obj.layout22:setMargins({left=4,right=4});
+    obj.layout22:setName("layout22");
 
     obj.button14 = gui.fromHandle(_obj_newObject("button"));
-    obj.button14:setParent(obj.layout21);
+    obj.button14:setParent(obj.layout22);
     obj.button14:setAlign("left");
     obj.button14:setWidth(30);
     obj.button14:setMargins({right=4});
@@ -1681,17 +1744,17 @@ function newfrmFichaDoPersonagem()
     obj.image15:setSRC("/src/assets/dice-six-faces.png");
     obj.image15:setName("image15");
 
-    obj.label46 = gui.fromHandle(_obj_newObject("label"));
-    obj.label46:setParent(obj.layout21);
-    obj.label46:setAlign("left");
-    obj.label46:setHorzTextAlign("center");
-    obj.label46:setText("Audição");
-    obj.label46:setWidth(85);
-    obj.label46:setAutoSize(true);
-    obj.label46:setName("label46");
+    obj.label47 = gui.fromHandle(_obj_newObject("label"));
+    obj.label47:setParent(obj.layout22);
+    obj.label47:setAlign("left");
+    obj.label47:setHorzTextAlign("center");
+    obj.label47:setText("Audição");
+    obj.label47:setWidth(85);
+    obj.label47:setAutoSize(true);
+    obj.label47:setName("label47");
 
     obj.edit59 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit59:setParent(obj.layout21);
+    obj.edit59:setParent(obj.layout22);
     obj.edit59:setType("number");
     obj.edit59:setAlign("left");
     obj.edit59:setHorzTextAlign("center");
@@ -1701,12 +1764,12 @@ function newfrmFichaDoPersonagem()
     obj.edit59:setName("edit59");
 
     obj.dataLink53 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink53:setParent(obj.layout21);
+    obj.dataLink53:setParent(obj.layout22);
     obj.dataLink53:setField("sentidos.audicao.base");
     obj.dataLink53:setName("dataLink53");
 
     obj.edit60 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit60:setParent(obj.layout21);
+    obj.edit60:setParent(obj.layout22);
     obj.edit60:setType("number");
     obj.edit60:setAlign("left");
     obj.edit60:setHorzTextAlign("center");
@@ -1716,12 +1779,12 @@ function newfrmFichaDoPersonagem()
     obj.edit60:setName("edit60");
 
     obj.dataLink54 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink54:setParent(obj.layout21);
+    obj.dataLink54:setParent(obj.layout22);
     obj.dataLink54:setField("sentidos.audicao.racaClasse");
     obj.dataLink54:setName("dataLink54");
 
     obj.edit61 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit61:setParent(obj.layout21);
+    obj.edit61:setParent(obj.layout22);
     obj.edit61:setType("number");
     obj.edit61:setAlign("left");
     obj.edit61:setHorzTextAlign("center");
@@ -1731,12 +1794,12 @@ function newfrmFichaDoPersonagem()
     obj.edit61:setName("edit61");
 
     obj.dataLink55 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink55:setParent(obj.layout21);
+    obj.dataLink55:setParent(obj.layout22);
     obj.dataLink55:setField("sentidos.audicao.treinamento");
     obj.dataLink55:setName("dataLink55");
 
     obj.edit62 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit62:setParent(obj.layout21);
+    obj.edit62:setParent(obj.layout22);
     obj.edit62:setType("number");
     obj.edit62:setAlign("left");
     obj.edit62:setHorzTextAlign("center");
@@ -1746,36 +1809,36 @@ function newfrmFichaDoPersonagem()
     obj.edit62:setName("edit62");
 
     obj.dataLink56 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink56:setParent(obj.layout21);
+    obj.dataLink56:setParent(obj.layout22);
     obj.dataLink56:setField("sentidos.audicao.habilidade");
     obj.dataLink56:setName("dataLink56");
 
-    obj.label47 = gui.fromHandle(_obj_newObject("label"));
-    obj.label47:setParent(obj.layout21);
-    obj.label47:setAlign("left");
-    obj.label47:setText("=");
-    obj.label47:setWidth(10);
-    obj.label47:setMargins({left=4,right=4});
-    obj.label47:setName("label47");
-
     obj.label48 = gui.fromHandle(_obj_newObject("label"));
-    obj.label48:setParent(obj.layout21);
+    obj.label48:setParent(obj.layout22);
     obj.label48:setAlign("left");
-    obj.label48:setHorzTextAlign("center");
-    obj.label48:setWidth(30);
-    obj.label48:setField("sentidos.audicao.total");
+    obj.label48:setText("=");
+    obj.label48:setWidth(10);
+    obj.label48:setMargins({left=4,right=4});
     obj.label48:setName("label48");
 
-    obj.layout22 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout22:setParent(obj.layout19);
-    obj.layout22:setTop(100);
-    obj.layout22:setHeight(25);
-    obj.layout22:setWidth(450);
-    obj.layout22:setMargins({left=4,right=4});
-    obj.layout22:setName("layout22");
+    obj.label49 = gui.fromHandle(_obj_newObject("label"));
+    obj.label49:setParent(obj.layout22);
+    obj.label49:setAlign("left");
+    obj.label49:setHorzTextAlign("center");
+    obj.label49:setWidth(30);
+    obj.label49:setField("sentidos.audicao.total");
+    obj.label49:setName("label49");
+
+    obj.layout23 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout23:setParent(obj.layout20);
+    obj.layout23:setTop(100);
+    obj.layout23:setHeight(25);
+    obj.layout23:setWidth(450);
+    obj.layout23:setMargins({left=4,right=4});
+    obj.layout23:setName("layout23");
 
     obj.button15 = gui.fromHandle(_obj_newObject("button"));
-    obj.button15:setParent(obj.layout22);
+    obj.button15:setParent(obj.layout23);
     obj.button15:setAlign("left");
     obj.button15:setWidth(30);
     obj.button15:setMargins({right=4});
@@ -1789,17 +1852,17 @@ function newfrmFichaDoPersonagem()
     obj.image16:setSRC("/src/assets/dice-six-faces.png");
     obj.image16:setName("image16");
 
-    obj.label49 = gui.fromHandle(_obj_newObject("label"));
-    obj.label49:setParent(obj.layout22);
-    obj.label49:setAlign("left");
-    obj.label49:setHorzTextAlign("center");
-    obj.label49:setText("Paladar");
-    obj.label49:setWidth(85);
-    obj.label49:setAutoSize(true);
-    obj.label49:setName("label49");
+    obj.label50 = gui.fromHandle(_obj_newObject("label"));
+    obj.label50:setParent(obj.layout23);
+    obj.label50:setAlign("left");
+    obj.label50:setHorzTextAlign("center");
+    obj.label50:setText("Paladar");
+    obj.label50:setWidth(85);
+    obj.label50:setAutoSize(true);
+    obj.label50:setName("label50");
 
     obj.edit63 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit63:setParent(obj.layout22);
+    obj.edit63:setParent(obj.layout23);
     obj.edit63:setType("number");
     obj.edit63:setAlign("left");
     obj.edit63:setHorzTextAlign("center");
@@ -1809,12 +1872,12 @@ function newfrmFichaDoPersonagem()
     obj.edit63:setName("edit63");
 
     obj.dataLink57 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink57:setParent(obj.layout22);
+    obj.dataLink57:setParent(obj.layout23);
     obj.dataLink57:setField("sentidos.paladar.base");
     obj.dataLink57:setName("dataLink57");
 
     obj.edit64 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit64:setParent(obj.layout22);
+    obj.edit64:setParent(obj.layout23);
     obj.edit64:setType("number");
     obj.edit64:setAlign("left");
     obj.edit64:setHorzTextAlign("center");
@@ -1824,12 +1887,12 @@ function newfrmFichaDoPersonagem()
     obj.edit64:setName("edit64");
 
     obj.dataLink58 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink58:setParent(obj.layout22);
+    obj.dataLink58:setParent(obj.layout23);
     obj.dataLink58:setField("sentidos.paladar.racaClasse");
     obj.dataLink58:setName("dataLink58");
 
     obj.edit65 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit65:setParent(obj.layout22);
+    obj.edit65:setParent(obj.layout23);
     obj.edit65:setType("number");
     obj.edit65:setAlign("left");
     obj.edit65:setHorzTextAlign("center");
@@ -1839,12 +1902,12 @@ function newfrmFichaDoPersonagem()
     obj.edit65:setName("edit65");
 
     obj.dataLink59 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink59:setParent(obj.layout22);
+    obj.dataLink59:setParent(obj.layout23);
     obj.dataLink59:setField("sentidos.paladar.treinamento");
     obj.dataLink59:setName("dataLink59");
 
     obj.edit66 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit66:setParent(obj.layout22);
+    obj.edit66:setParent(obj.layout23);
     obj.edit66:setType("number");
     obj.edit66:setAlign("left");
     obj.edit66:setHorzTextAlign("center");
@@ -1854,43 +1917,43 @@ function newfrmFichaDoPersonagem()
     obj.edit66:setName("edit66");
 
     obj.dataLink60 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink60:setParent(obj.layout22);
+    obj.dataLink60:setParent(obj.layout23);
     obj.dataLink60:setField("sentidos.paladar.habilidade");
     obj.dataLink60:setName("dataLink60");
 
-    obj.label50 = gui.fromHandle(_obj_newObject("label"));
-    obj.label50:setParent(obj.layout22);
-    obj.label50:setAlign("left");
-    obj.label50:setText("=");
-    obj.label50:setWidth(10);
-    obj.label50:setMargins({left=4,right=4});
-    obj.label50:setName("label50");
-
     obj.label51 = gui.fromHandle(_obj_newObject("label"));
-    obj.label51:setParent(obj.layout22);
+    obj.label51:setParent(obj.layout23);
     obj.label51:setAlign("left");
-    obj.label51:setHorzTextAlign("center");
-    obj.label51:setWidth(30);
-    obj.label51:setField("sentidos.paladar.total");
+    obj.label51:setText("=");
+    obj.label51:setWidth(10);
+    obj.label51:setMargins({left=4,right=4});
     obj.label51:setName("label51");
 
-    obj.layout23 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout23:setParent(obj.tab3);
-    obj.layout23:setLeft(320);
-    obj.layout23:setWidth(300);
-    obj.layout23:setHeight(400);
-    obj.layout23:setName("layout23");
+    obj.label52 = gui.fromHandle(_obj_newObject("label"));
+    obj.label52:setParent(obj.layout23);
+    obj.label52:setAlign("left");
+    obj.label52:setHorzTextAlign("center");
+    obj.label52:setWidth(30);
+    obj.label52:setField("sentidos.paladar.total");
+    obj.label52:setName("label52");
 
     obj.layout24 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout24:setParent(obj.layout23);
-    obj.layout24:setTop(40);
-    obj.layout24:setHeight(25);
-    obj.layout24:setWidth(450);
-    obj.layout24:setMargins({left=4,right=4});
+    obj.layout24:setParent(obj.tab3);
+    obj.layout24:setLeft(320);
+    obj.layout24:setWidth(300);
+    obj.layout24:setHeight(400);
     obj.layout24:setName("layout24");
 
+    obj.layout25 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout25:setParent(obj.layout24);
+    obj.layout25:setTop(40);
+    obj.layout25:setHeight(25);
+    obj.layout25:setWidth(450);
+    obj.layout25:setMargins({left=4,right=4});
+    obj.layout25:setName("layout25");
+
     obj.button16 = gui.fromHandle(_obj_newObject("button"));
-    obj.button16:setParent(obj.layout24);
+    obj.button16:setParent(obj.layout25);
     obj.button16:setAlign("left");
     obj.button16:setWidth(30);
     obj.button16:setMargins({right=4});
@@ -1904,17 +1967,17 @@ function newfrmFichaDoPersonagem()
     obj.image17:setSRC("/src/assets/dice-six-faces.png");
     obj.image17:setName("image17");
 
-    obj.label52 = gui.fromHandle(_obj_newObject("label"));
-    obj.label52:setParent(obj.layout24);
-    obj.label52:setAlign("left");
-    obj.label52:setHorzTextAlign("center");
-    obj.label52:setText("Olfato");
-    obj.label52:setWidth(85);
-    obj.label52:setAutoSize(true);
-    obj.label52:setName("label52");
+    obj.label53 = gui.fromHandle(_obj_newObject("label"));
+    obj.label53:setParent(obj.layout25);
+    obj.label53:setAlign("left");
+    obj.label53:setHorzTextAlign("center");
+    obj.label53:setText("Olfato");
+    obj.label53:setWidth(85);
+    obj.label53:setAutoSize(true);
+    obj.label53:setName("label53");
 
     obj.edit67 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit67:setParent(obj.layout24);
+    obj.edit67:setParent(obj.layout25);
     obj.edit67:setType("number");
     obj.edit67:setAlign("left");
     obj.edit67:setHorzTextAlign("center");
@@ -1924,12 +1987,12 @@ function newfrmFichaDoPersonagem()
     obj.edit67:setName("edit67");
 
     obj.dataLink61 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink61:setParent(obj.layout24);
+    obj.dataLink61:setParent(obj.layout25);
     obj.dataLink61:setField("sentidos.olfato.base");
     obj.dataLink61:setName("dataLink61");
 
     obj.edit68 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit68:setParent(obj.layout24);
+    obj.edit68:setParent(obj.layout25);
     obj.edit68:setType("number");
     obj.edit68:setAlign("left");
     obj.edit68:setHorzTextAlign("center");
@@ -1939,12 +2002,12 @@ function newfrmFichaDoPersonagem()
     obj.edit68:setName("edit68");
 
     obj.dataLink62 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink62:setParent(obj.layout24);
+    obj.dataLink62:setParent(obj.layout25);
     obj.dataLink62:setField("sentidos.olfato.racaClasse");
     obj.dataLink62:setName("dataLink62");
 
     obj.edit69 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit69:setParent(obj.layout24);
+    obj.edit69:setParent(obj.layout25);
     obj.edit69:setType("number");
     obj.edit69:setAlign("left");
     obj.edit69:setHorzTextAlign("center");
@@ -1954,12 +2017,12 @@ function newfrmFichaDoPersonagem()
     obj.edit69:setName("edit69");
 
     obj.dataLink63 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink63:setParent(obj.layout24);
+    obj.dataLink63:setParent(obj.layout25);
     obj.dataLink63:setField("sentidos.olfato.treinamento");
     obj.dataLink63:setName("dataLink63");
 
     obj.edit70 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit70:setParent(obj.layout24);
+    obj.edit70:setParent(obj.layout25);
     obj.edit70:setType("number");
     obj.edit70:setAlign("left");
     obj.edit70:setHorzTextAlign("center");
@@ -1969,36 +2032,36 @@ function newfrmFichaDoPersonagem()
     obj.edit70:setName("edit70");
 
     obj.dataLink64 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink64:setParent(obj.layout24);
+    obj.dataLink64:setParent(obj.layout25);
     obj.dataLink64:setField("sentidos.olfato.habilidade");
     obj.dataLink64:setName("dataLink64");
 
-    obj.label53 = gui.fromHandle(_obj_newObject("label"));
-    obj.label53:setParent(obj.layout24);
-    obj.label53:setAlign("left");
-    obj.label53:setText("=");
-    obj.label53:setWidth(10);
-    obj.label53:setMargins({left=4,right=4});
-    obj.label53:setName("label53");
-
     obj.label54 = gui.fromHandle(_obj_newObject("label"));
-    obj.label54:setParent(obj.layout24);
+    obj.label54:setParent(obj.layout25);
     obj.label54:setAlign("left");
-    obj.label54:setHorzTextAlign("center");
-    obj.label54:setWidth(30);
-    obj.label54:setField("sentidos.olfato.total");
+    obj.label54:setText("=");
+    obj.label54:setWidth(10);
+    obj.label54:setMargins({left=4,right=4});
     obj.label54:setName("label54");
 
-    obj.layout25 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout25:setParent(obj.layout23);
-    obj.layout25:setTop(70);
-    obj.layout25:setHeight(25);
-    obj.layout25:setWidth(450);
-    obj.layout25:setMargins({left=4,right=4});
-    obj.layout25:setName("layout25");
+    obj.label55 = gui.fromHandle(_obj_newObject("label"));
+    obj.label55:setParent(obj.layout25);
+    obj.label55:setAlign("left");
+    obj.label55:setHorzTextAlign("center");
+    obj.label55:setWidth(30);
+    obj.label55:setField("sentidos.olfato.total");
+    obj.label55:setName("label55");
+
+    obj.layout26 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout26:setParent(obj.layout24);
+    obj.layout26:setTop(70);
+    obj.layout26:setHeight(25);
+    obj.layout26:setWidth(450);
+    obj.layout26:setMargins({left=4,right=4});
+    obj.layout26:setName("layout26");
 
     obj.button17 = gui.fromHandle(_obj_newObject("button"));
-    obj.button17:setParent(obj.layout25);
+    obj.button17:setParent(obj.layout26);
     obj.button17:setAlign("left");
     obj.button17:setWidth(30);
     obj.button17:setMargins({right=4});
@@ -2012,17 +2075,17 @@ function newfrmFichaDoPersonagem()
     obj.image18:setSRC("/src/assets/dice-six-faces.png");
     obj.image18:setName("image18");
 
-    obj.label55 = gui.fromHandle(_obj_newObject("label"));
-    obj.label55:setParent(obj.layout25);
-    obj.label55:setAlign("left");
-    obj.label55:setHorzTextAlign("center");
-    obj.label55:setText("Visão");
-    obj.label55:setWidth(85);
-    obj.label55:setAutoSize(true);
-    obj.label55:setName("label55");
+    obj.label56 = gui.fromHandle(_obj_newObject("label"));
+    obj.label56:setParent(obj.layout26);
+    obj.label56:setAlign("left");
+    obj.label56:setHorzTextAlign("center");
+    obj.label56:setText("Visão");
+    obj.label56:setWidth(85);
+    obj.label56:setAutoSize(true);
+    obj.label56:setName("label56");
 
     obj.edit71 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit71:setParent(obj.layout25);
+    obj.edit71:setParent(obj.layout26);
     obj.edit71:setType("number");
     obj.edit71:setAlign("left");
     obj.edit71:setHorzTextAlign("center");
@@ -2032,12 +2095,12 @@ function newfrmFichaDoPersonagem()
     obj.edit71:setName("edit71");
 
     obj.dataLink65 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink65:setParent(obj.layout25);
+    obj.dataLink65:setParent(obj.layout26);
     obj.dataLink65:setField("sentidos.visao.base");
     obj.dataLink65:setName("dataLink65");
 
     obj.edit72 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit72:setParent(obj.layout25);
+    obj.edit72:setParent(obj.layout26);
     obj.edit72:setType("number");
     obj.edit72:setAlign("left");
     obj.edit72:setHorzTextAlign("center");
@@ -2047,12 +2110,12 @@ function newfrmFichaDoPersonagem()
     obj.edit72:setName("edit72");
 
     obj.dataLink66 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink66:setParent(obj.layout25);
+    obj.dataLink66:setParent(obj.layout26);
     obj.dataLink66:setField("sentidos.visao.racaClasse");
     obj.dataLink66:setName("dataLink66");
 
     obj.edit73 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit73:setParent(obj.layout25);
+    obj.edit73:setParent(obj.layout26);
     obj.edit73:setType("number");
     obj.edit73:setAlign("left");
     obj.edit73:setHorzTextAlign("center");
@@ -2062,12 +2125,12 @@ function newfrmFichaDoPersonagem()
     obj.edit73:setName("edit73");
 
     obj.dataLink67 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink67:setParent(obj.layout25);
+    obj.dataLink67:setParent(obj.layout26);
     obj.dataLink67:setField("sentidos.visao.treinamento");
     obj.dataLink67:setName("dataLink67");
 
     obj.edit74 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit74:setParent(obj.layout25);
+    obj.edit74:setParent(obj.layout26);
     obj.edit74:setType("number");
     obj.edit74:setAlign("left");
     obj.edit74:setHorzTextAlign("center");
@@ -2077,36 +2140,36 @@ function newfrmFichaDoPersonagem()
     obj.edit74:setName("edit74");
 
     obj.dataLink68 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink68:setParent(obj.layout25);
+    obj.dataLink68:setParent(obj.layout26);
     obj.dataLink68:setField("sentidos.visao.habilidade");
     obj.dataLink68:setName("dataLink68");
 
-    obj.label56 = gui.fromHandle(_obj_newObject("label"));
-    obj.label56:setParent(obj.layout25);
-    obj.label56:setAlign("left");
-    obj.label56:setText("=");
-    obj.label56:setWidth(10);
-    obj.label56:setMargins({left=4,right=4});
-    obj.label56:setName("label56");
-
     obj.label57 = gui.fromHandle(_obj_newObject("label"));
-    obj.label57:setParent(obj.layout25);
+    obj.label57:setParent(obj.layout26);
     obj.label57:setAlign("left");
-    obj.label57:setHorzTextAlign("center");
-    obj.label57:setWidth(30);
-    obj.label57:setField("sentidos.visao.total");
+    obj.label57:setText("=");
+    obj.label57:setWidth(10);
+    obj.label57:setMargins({left=4,right=4});
     obj.label57:setName("label57");
 
-    obj.layout26 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout26:setParent(obj.layout23);
-    obj.layout26:setTop(100);
-    obj.layout26:setHeight(25);
-    obj.layout26:setWidth(450);
-    obj.layout26:setMargins({left=4,right=4});
-    obj.layout26:setName("layout26");
+    obj.label58 = gui.fromHandle(_obj_newObject("label"));
+    obj.label58:setParent(obj.layout26);
+    obj.label58:setAlign("left");
+    obj.label58:setHorzTextAlign("center");
+    obj.label58:setWidth(30);
+    obj.label58:setField("sentidos.visao.total");
+    obj.label58:setName("label58");
+
+    obj.layout27 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout27:setParent(obj.layout24);
+    obj.layout27:setTop(100);
+    obj.layout27:setHeight(25);
+    obj.layout27:setWidth(450);
+    obj.layout27:setMargins({left=4,right=4});
+    obj.layout27:setName("layout27");
 
     obj.button18 = gui.fromHandle(_obj_newObject("button"));
-    obj.button18:setParent(obj.layout26);
+    obj.button18:setParent(obj.layout27);
     obj.button18:setAlign("left");
     obj.button18:setWidth(30);
     obj.button18:setMargins({right=4});
@@ -2120,17 +2183,17 @@ function newfrmFichaDoPersonagem()
     obj.image19:setSRC("/src/assets/dice-six-faces.png");
     obj.image19:setName("image19");
 
-    obj.label58 = gui.fromHandle(_obj_newObject("label"));
-    obj.label58:setParent(obj.layout26);
-    obj.label58:setAlign("left");
-    obj.label58:setHorzTextAlign("center");
-    obj.label58:setText("Tato");
-    obj.label58:setWidth(85);
-    obj.label58:setAutoSize(true);
-    obj.label58:setName("label58");
+    obj.label59 = gui.fromHandle(_obj_newObject("label"));
+    obj.label59:setParent(obj.layout27);
+    obj.label59:setAlign("left");
+    obj.label59:setHorzTextAlign("center");
+    obj.label59:setText("Tato");
+    obj.label59:setWidth(85);
+    obj.label59:setAutoSize(true);
+    obj.label59:setName("label59");
 
     obj.edit75 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit75:setParent(obj.layout26);
+    obj.edit75:setParent(obj.layout27);
     obj.edit75:setType("number");
     obj.edit75:setAlign("left");
     obj.edit75:setHorzTextAlign("center");
@@ -2140,12 +2203,12 @@ function newfrmFichaDoPersonagem()
     obj.edit75:setName("edit75");
 
     obj.dataLink69 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink69:setParent(obj.layout26);
+    obj.dataLink69:setParent(obj.layout27);
     obj.dataLink69:setField("sentidos.tato.base");
     obj.dataLink69:setName("dataLink69");
 
     obj.edit76 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit76:setParent(obj.layout26);
+    obj.edit76:setParent(obj.layout27);
     obj.edit76:setType("number");
     obj.edit76:setAlign("left");
     obj.edit76:setHorzTextAlign("center");
@@ -2155,12 +2218,12 @@ function newfrmFichaDoPersonagem()
     obj.edit76:setName("edit76");
 
     obj.dataLink70 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink70:setParent(obj.layout26);
+    obj.dataLink70:setParent(obj.layout27);
     obj.dataLink70:setField("sentidos.tato.racaClasse");
     obj.dataLink70:setName("dataLink70");
 
     obj.edit77 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit77:setParent(obj.layout26);
+    obj.edit77:setParent(obj.layout27);
     obj.edit77:setType("number");
     obj.edit77:setAlign("left");
     obj.edit77:setHorzTextAlign("center");
@@ -2170,12 +2233,12 @@ function newfrmFichaDoPersonagem()
     obj.edit77:setName("edit77");
 
     obj.dataLink71 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink71:setParent(obj.layout26);
+    obj.dataLink71:setParent(obj.layout27);
     obj.dataLink71:setField("sentidos.tato.treinamento");
     obj.dataLink71:setName("dataLink71");
 
     obj.edit78 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit78:setParent(obj.layout26);
+    obj.edit78:setParent(obj.layout27);
     obj.edit78:setType("number");
     obj.edit78:setAlign("left");
     obj.edit78:setHorzTextAlign("center");
@@ -2185,25 +2248,25 @@ function newfrmFichaDoPersonagem()
     obj.edit78:setName("edit78");
 
     obj.dataLink72 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink72:setParent(obj.layout26);
+    obj.dataLink72:setParent(obj.layout27);
     obj.dataLink72:setField("sentidos.tato.habilidade");
     obj.dataLink72:setName("dataLink72");
 
-    obj.label59 = gui.fromHandle(_obj_newObject("label"));
-    obj.label59:setParent(obj.layout26);
-    obj.label59:setAlign("left");
-    obj.label59:setText("=");
-    obj.label59:setWidth(10);
-    obj.label59:setMargins({left=4,right=4});
-    obj.label59:setName("label59");
-
     obj.label60 = gui.fromHandle(_obj_newObject("label"));
-    obj.label60:setParent(obj.layout26);
+    obj.label60:setParent(obj.layout27);
     obj.label60:setAlign("left");
-    obj.label60:setHorzTextAlign("center");
-    obj.label60:setWidth(30);
-    obj.label60:setField("sentidos.tato.total");
+    obj.label60:setText("=");
+    obj.label60:setWidth(10);
+    obj.label60:setMargins({left=4,right=4});
     obj.label60:setName("label60");
+
+    obj.label61 = gui.fromHandle(_obj_newObject("label"));
+    obj.label61:setParent(obj.layout27);
+    obj.label61:setAlign("left");
+    obj.label61:setHorzTextAlign("center");
+    obj.label61:setWidth(30);
+    obj.label61:setField("sentidos.tato.total");
+    obj.label61:setName("label61");
 
     obj.tab4 = gui.fromHandle(_obj_newObject("tab"));
     obj.tab4:setParent(obj.tabControl1);
@@ -2232,58 +2295,58 @@ function newfrmFichaDoPersonagem()
     obj.button19:setWidth(100);
     obj.button19:setName("button19");
 
-    obj.layout27 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout27:setParent(obj.scrollBox2);
-    obj.layout27:setLeft(55);
-    obj.layout27:setTop(65);
-    obj.layout27:setWidth(350);
-    obj.layout27:setMargins({top=5,bottom=15});
-    obj.layout27:setName("layout27");
-
-    obj.label61 = gui.fromHandle(_obj_newObject("label"));
-    obj.label61:setParent(obj.layout27);
-    obj.label61:setAlign("left");
-    obj.label61:setHorzTextAlign("center");
-    obj.label61:setWidth(100);
-    obj.label61:setMargins({left=2,right=2});
-    obj.label61:setText("GRUPO");
-    obj.label61:setName("label61");
+    obj.layout28 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout28:setParent(obj.scrollBox2);
+    obj.layout28:setLeft(55);
+    obj.layout28:setTop(65);
+    obj.layout28:setWidth(350);
+    obj.layout28:setMargins({top=5,bottom=15});
+    obj.layout28:setName("layout28");
 
     obj.label62 = gui.fromHandle(_obj_newObject("label"));
-    obj.label62:setParent(obj.layout27);
+    obj.label62:setParent(obj.layout28);
     obj.label62:setAlign("left");
     obj.label62:setHorzTextAlign("center");
     obj.label62:setWidth(100);
     obj.label62:setMargins({left=2,right=2});
-    obj.label62:setText("NOME");
+    obj.label62:setText("GRUPO");
     obj.label62:setName("label62");
 
     obj.label63 = gui.fromHandle(_obj_newObject("label"));
-    obj.label63:setParent(obj.layout27);
+    obj.label63:setParent(obj.layout28);
     obj.label63:setAlign("left");
     obj.label63:setHorzTextAlign("center");
-    obj.label63:setWidth(30);
+    obj.label63:setWidth(100);
     obj.label63:setMargins({left=2,right=2});
-    obj.label63:setText("B");
+    obj.label63:setText("NOME");
     obj.label63:setName("label63");
 
     obj.label64 = gui.fromHandle(_obj_newObject("label"));
-    obj.label64:setParent(obj.layout27);
+    obj.label64:setParent(obj.layout28);
     obj.label64:setAlign("left");
     obj.label64:setHorzTextAlign("center");
     obj.label64:setWidth(30);
     obj.label64:setMargins({left=2,right=2});
-    obj.label64:setText("R/C");
+    obj.label64:setText("B");
     obj.label64:setName("label64");
 
     obj.label65 = gui.fromHandle(_obj_newObject("label"));
-    obj.label65:setParent(obj.layout27);
+    obj.label65:setParent(obj.layout28);
     obj.label65:setAlign("left");
     obj.label65:setHorzTextAlign("center");
     obj.label65:setWidth(30);
     obj.label65:setMargins({left=2,right=2});
-    obj.label65:setText("H");
+    obj.label65:setText("R/C");
     obj.label65:setName("label65");
+
+    obj.label66 = gui.fromHandle(_obj_newObject("label"));
+    obj.label66:setParent(obj.layout28);
+    obj.label66:setAlign("left");
+    obj.label66:setHorzTextAlign("center");
+    obj.label66:setWidth(30);
+    obj.label66:setMargins({left=2,right=2});
+    obj.label66:setText("H");
+    obj.label66:setName("label66");
 
     obj.rclPericias = gui.fromHandle(_obj_newObject("recordList"));
     obj.rclPericias:setParent(obj.scrollBox2);
@@ -2350,12 +2413,22 @@ function newfrmFichaDoPersonagem()
     obj.richEdit5:setField("backup");
     obj.richEdit5:setName("richEdit5");
 
-    obj._e_event0 = obj.image1:addEventListener("onStartDrag",
+    obj._e_event0 = obj:addEventListener("onNodeReady",
+        function (self)
+            load()
+        end, obj);
+
+    obj._e_event1 = obj.cbmRaca:addEventListener("onChange",
+        function (self)
+            changeRaca()
+        end, obj);
+
+    obj._e_event2 = obj.image1:addEventListener("onStartDrag",
         function (self, drag, x, y)
             drag:addData("imageURL", sheet.avatar);
         end, obj);
 
-    obj._e_event1 = obj.button1:addEventListener("onClick",
+    obj._e_event3 = obj.button1:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -2366,7 +2439,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event2 = obj.dataLink1:addEventListener("onChange",
+    obj._e_event4 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.inteligencia = sheet.atributos.inteligencia or {}
@@ -2390,7 +2463,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event3 = obj.dataLink2:addEventListener("onChange",
+    obj._e_event5 = obj.dataLink2:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.inteligencia = sheet.atributos.inteligencia or {}
@@ -2414,7 +2487,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event4 = obj.dataLink3:addEventListener("onChange",
+    obj._e_event6 = obj.dataLink3:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.inteligencia = sheet.atributos.inteligencia or {}
@@ -2438,7 +2511,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event5 = obj.dataLink4:addEventListener("onChange",
+    obj._e_event7 = obj.dataLink4:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.inteligencia = sheet.atributos.inteligencia or {}
@@ -2462,7 +2535,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event6 = obj.button2:addEventListener("onClick",
+    obj._e_event8 = obj.button2:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -2473,7 +2546,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event7 = obj.dataLink5:addEventListener("onChange",
+    obj._e_event9 = obj.dataLink5:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.sabedoria = sheet.atributos.sabedoria or {}
@@ -2497,7 +2570,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event8 = obj.dataLink6:addEventListener("onChange",
+    obj._e_event10 = obj.dataLink6:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.sabedoria = sheet.atributos.sabedoria or {}
@@ -2521,7 +2594,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event9 = obj.dataLink7:addEventListener("onChange",
+    obj._e_event11 = obj.dataLink7:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.sabedoria = sheet.atributos.sabedoria or {}
@@ -2545,7 +2618,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event10 = obj.dataLink8:addEventListener("onChange",
+    obj._e_event12 = obj.dataLink8:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.sabedoria = sheet.atributos.sabedoria or {}
@@ -2569,7 +2642,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event11 = obj.button3:addEventListener("onClick",
+    obj._e_event13 = obj.button3:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -2580,7 +2653,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event12 = obj.dataLink9:addEventListener("onChange",
+    obj._e_event14 = obj.dataLink9:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.vontade = sheet.atributos.vontade or {}
@@ -2604,7 +2677,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event13 = obj.dataLink10:addEventListener("onChange",
+    obj._e_event15 = obj.dataLink10:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.vontade = sheet.atributos.vontade or {}
@@ -2628,7 +2701,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event14 = obj.dataLink11:addEventListener("onChange",
+    obj._e_event16 = obj.dataLink11:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.vontade = sheet.atributos.vontade or {}
@@ -2652,7 +2725,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event15 = obj.dataLink12:addEventListener("onChange",
+    obj._e_event17 = obj.dataLink12:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.vontade = sheet.atributos.vontade or {}
@@ -2676,7 +2749,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event16 = obj.button4:addEventListener("onClick",
+    obj._e_event18 = obj.button4:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -2687,7 +2760,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event17 = obj.dataLink13:addEventListener("onChange",
+    obj._e_event19 = obj.dataLink13:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.carisma = sheet.atributos.carisma or {}
@@ -2711,7 +2784,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event18 = obj.dataLink14:addEventListener("onChange",
+    obj._e_event20 = obj.dataLink14:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.carisma = sheet.atributos.carisma or {}
@@ -2735,7 +2808,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event19 = obj.dataLink15:addEventListener("onChange",
+    obj._e_event21 = obj.dataLink15:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.carisma = sheet.atributos.carisma or {}
@@ -2759,7 +2832,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event20 = obj.dataLink16:addEventListener("onChange",
+    obj._e_event22 = obj.dataLink16:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.carisma = sheet.atributos.carisma or {}
@@ -2783,7 +2856,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event21 = obj.button5:addEventListener("onClick",
+    obj._e_event23 = obj.button5:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -2794,7 +2867,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event22 = obj.dataLink17:addEventListener("onChange",
+    obj._e_event24 = obj.dataLink17:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.energia = sheet.atributos.energia or {}
@@ -2818,7 +2891,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event23 = obj.dataLink18:addEventListener("onChange",
+    obj._e_event25 = obj.dataLink18:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.energia = sheet.atributos.energia or {}
@@ -2842,7 +2915,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event24 = obj.dataLink19:addEventListener("onChange",
+    obj._e_event26 = obj.dataLink19:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.energia = sheet.atributos.energia or {}
@@ -2866,7 +2939,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event25 = obj.dataLink20:addEventListener("onChange",
+    obj._e_event27 = obj.dataLink20:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.energia = sheet.atributos.energia or {}
@@ -2890,7 +2963,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event26 = obj.button6:addEventListener("onClick",
+    obj._e_event28 = obj.button6:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -2901,7 +2974,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event27 = obj.dataLink21:addEventListener("onChange",
+    obj._e_event29 = obj.dataLink21:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.corpo = sheet.atributos.corpo or {}
@@ -2925,7 +2998,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event28 = obj.dataLink22:addEventListener("onChange",
+    obj._e_event30 = obj.dataLink22:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.corpo = sheet.atributos.corpo or {}
@@ -2949,7 +3022,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event29 = obj.dataLink23:addEventListener("onChange",
+    obj._e_event31 = obj.dataLink23:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.corpo = sheet.atributos.corpo or {}
@@ -2973,7 +3046,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event30 = obj.dataLink24:addEventListener("onChange",
+    obj._e_event32 = obj.dataLink24:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.corpo = sheet.atributos.corpo or {}
@@ -2997,7 +3070,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event31 = obj.button7:addEventListener("onClick",
+    obj._e_event33 = obj.button7:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3008,7 +3081,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event32 = obj.dataLink25:addEventListener("onChange",
+    obj._e_event34 = obj.dataLink25:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.resistencia = sheet.atributos.resistencia or {}
@@ -3032,7 +3105,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event33 = obj.dataLink26:addEventListener("onChange",
+    obj._e_event35 = obj.dataLink26:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.resistencia = sheet.atributos.resistencia or {}
@@ -3056,7 +3129,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event34 = obj.dataLink27:addEventListener("onChange",
+    obj._e_event36 = obj.dataLink27:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.resistencia = sheet.atributos.resistencia or {}
@@ -3080,7 +3153,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event35 = obj.dataLink28:addEventListener("onChange",
+    obj._e_event37 = obj.dataLink28:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.resistencia = sheet.atributos.resistencia or {}
@@ -3104,7 +3177,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event36 = obj.button8:addEventListener("onClick",
+    obj._e_event38 = obj.button8:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3115,7 +3188,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event37 = obj.dataLink29:addEventListener("onChange",
+    obj._e_event39 = obj.dataLink29:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.velocidade = sheet.atributos.velocidade or {}
@@ -3139,7 +3212,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event38 = obj.dataLink30:addEventListener("onChange",
+    obj._e_event40 = obj.dataLink30:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.velocidade = sheet.atributos.velocidade or {}
@@ -3163,7 +3236,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event39 = obj.dataLink31:addEventListener("onChange",
+    obj._e_event41 = obj.dataLink31:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.velocidade = sheet.atributos.velocidade or {}
@@ -3187,7 +3260,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event40 = obj.dataLink32:addEventListener("onChange",
+    obj._e_event42 = obj.dataLink32:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.velocidade = sheet.atributos.velocidade or {}
@@ -3211,7 +3284,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event41 = obj.button9:addEventListener("onClick",
+    obj._e_event43 = obj.button9:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3222,7 +3295,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event42 = obj.dataLink33:addEventListener("onChange",
+    obj._e_event44 = obj.dataLink33:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.agilidade = sheet.atributos.agilidade or {}
@@ -3246,7 +3319,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event43 = obj.dataLink34:addEventListener("onChange",
+    obj._e_event45 = obj.dataLink34:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.agilidade = sheet.atributos.agilidade or {}
@@ -3270,7 +3343,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event44 = obj.dataLink35:addEventListener("onChange",
+    obj._e_event46 = obj.dataLink35:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.agilidade = sheet.atributos.agilidade or {}
@@ -3294,7 +3367,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event45 = obj.dataLink36:addEventListener("onChange",
+    obj._e_event47 = obj.dataLink36:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.agilidade = sheet.atributos.agilidade or {}
@@ -3318,7 +3391,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event46 = obj.button10:addEventListener("onClick",
+    obj._e_event48 = obj.button10:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3329,7 +3402,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event47 = obj.dataLink37:addEventListener("onChange",
+    obj._e_event49 = obj.dataLink37:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.destreza = sheet.atributos.destreza or {}
@@ -3353,7 +3426,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event48 = obj.dataLink38:addEventListener("onChange",
+    obj._e_event50 = obj.dataLink38:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.destreza = sheet.atributos.destreza or {}
@@ -3377,7 +3450,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event49 = obj.dataLink39:addEventListener("onChange",
+    obj._e_event51 = obj.dataLink39:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.destreza = sheet.atributos.destreza or {}
@@ -3401,7 +3474,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event50 = obj.dataLink40:addEventListener("onChange",
+    obj._e_event52 = obj.dataLink40:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.destreza = sheet.atributos.destreza or {}
@@ -3425,7 +3498,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event51 = obj.button11:addEventListener("onClick",
+    obj._e_event53 = obj.button11:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3436,7 +3509,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event52 = obj.dataLink41:addEventListener("onChange",
+    obj._e_event54 = obj.dataLink41:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.forca = sheet.atributos.forca or {}
@@ -3460,7 +3533,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event53 = obj.dataLink42:addEventListener("onChange",
+    obj._e_event55 = obj.dataLink42:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.forca = sheet.atributos.forca or {}
@@ -3484,7 +3557,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event54 = obj.dataLink43:addEventListener("onChange",
+    obj._e_event56 = obj.dataLink43:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.forca = sheet.atributos.forca or {}
@@ -3508,7 +3581,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event55 = obj.dataLink44:addEventListener("onChange",
+    obj._e_event57 = obj.dataLink44:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.forca = sheet.atributos.forca or {}
@@ -3532,7 +3605,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event56 = obj.button12:addEventListener("onClick",
+    obj._e_event58 = obj.button12:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3543,7 +3616,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event57 = obj.dataLink45:addEventListener("onChange",
+    obj._e_event59 = obj.dataLink45:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.vigor = sheet.atributos.vigor or {}
@@ -3567,7 +3640,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event58 = obj.dataLink46:addEventListener("onChange",
+    obj._e_event60 = obj.dataLink46:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.vigor = sheet.atributos.vigor or {}
@@ -3591,7 +3664,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event59 = obj.dataLink47:addEventListener("onChange",
+    obj._e_event61 = obj.dataLink47:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.vigor = sheet.atributos.vigor or {}
@@ -3615,7 +3688,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event60 = obj.dataLink48:addEventListener("onChange",
+    obj._e_event62 = obj.dataLink48:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.atributos = sheet.atributos or {}
                     sheet.atributos.vigor = sheet.atributos.vigor or {}
@@ -3639,7 +3712,7 @@ function newfrmFichaDoPersonagem()
                     end
         end, obj);
 
-    obj._e_event61 = obj.button13:addEventListener("onClick",
+    obj._e_event63 = obj.button13:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3650,7 +3723,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event62 = obj.dataLink49:addEventListener("onChange",
+    obj._e_event64 = obj.dataLink49:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
@@ -3662,7 +3735,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event63 = obj.dataLink50:addEventListener("onChange",
+    obj._e_event65 = obj.dataLink50:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
@@ -3674,7 +3747,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event64 = obj.dataLink51:addEventListener("onChange",
+    obj._e_event66 = obj.dataLink51:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
@@ -3686,7 +3759,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event65 = obj.dataLink52:addEventListener("onChange",
+    obj._e_event67 = obj.dataLink52:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.sextoSentido = sheet.sentidos.sextoSentido or {}
@@ -3698,7 +3771,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event66 = obj.button14:addEventListener("onClick",
+    obj._e_event68 = obj.button14:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3709,7 +3782,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event67 = obj.dataLink53:addEventListener("onChange",
+    obj._e_event69 = obj.dataLink53:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.audicao = sheet.sentidos.audicao or {}
@@ -3721,7 +3794,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event68 = obj.dataLink54:addEventListener("onChange",
+    obj._e_event70 = obj.dataLink54:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.audicao = sheet.sentidos.audicao or {}
@@ -3733,7 +3806,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event69 = obj.dataLink55:addEventListener("onChange",
+    obj._e_event71 = obj.dataLink55:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.audicao = sheet.sentidos.audicao or {}
@@ -3745,7 +3818,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event70 = obj.dataLink56:addEventListener("onChange",
+    obj._e_event72 = obj.dataLink56:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.audicao = sheet.sentidos.audicao or {}
@@ -3757,7 +3830,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event71 = obj.button15:addEventListener("onClick",
+    obj._e_event73 = obj.button15:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3768,7 +3841,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event72 = obj.dataLink57:addEventListener("onChange",
+    obj._e_event74 = obj.dataLink57:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.paladar = sheet.sentidos.paladar or {}
@@ -3780,7 +3853,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event73 = obj.dataLink58:addEventListener("onChange",
+    obj._e_event75 = obj.dataLink58:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.paladar = sheet.sentidos.paladar or {}
@@ -3792,7 +3865,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event74 = obj.dataLink59:addEventListener("onChange",
+    obj._e_event76 = obj.dataLink59:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.paladar = sheet.sentidos.paladar or {}
@@ -3804,7 +3877,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event75 = obj.dataLink60:addEventListener("onChange",
+    obj._e_event77 = obj.dataLink60:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.paladar = sheet.sentidos.paladar or {}
@@ -3816,7 +3889,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event76 = obj.button16:addEventListener("onClick",
+    obj._e_event78 = obj.button16:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3827,7 +3900,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event77 = obj.dataLink61:addEventListener("onChange",
+    obj._e_event79 = obj.dataLink61:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.olfato = sheet.sentidos.olfato or {}
@@ -3839,7 +3912,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event78 = obj.dataLink62:addEventListener("onChange",
+    obj._e_event80 = obj.dataLink62:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.olfato = sheet.sentidos.olfato or {}
@@ -3851,7 +3924,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event79 = obj.dataLink63:addEventListener("onChange",
+    obj._e_event81 = obj.dataLink63:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.olfato = sheet.sentidos.olfato or {}
@@ -3863,7 +3936,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event80 = obj.dataLink64:addEventListener("onChange",
+    obj._e_event82 = obj.dataLink64:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.olfato = sheet.sentidos.olfato or {}
@@ -3875,7 +3948,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event81 = obj.button17:addEventListener("onClick",
+    obj._e_event83 = obj.button17:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3886,7 +3959,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event82 = obj.dataLink65:addEventListener("onChange",
+    obj._e_event84 = obj.dataLink65:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.visao = sheet.sentidos.visao or {}
@@ -3898,7 +3971,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event83 = obj.dataLink66:addEventListener("onChange",
+    obj._e_event85 = obj.dataLink66:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.visao = sheet.sentidos.visao or {}
@@ -3910,7 +3983,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event84 = obj.dataLink67:addEventListener("onChange",
+    obj._e_event86 = obj.dataLink67:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.visao = sheet.sentidos.visao or {}
@@ -3922,7 +3995,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event85 = obj.dataLink68:addEventListener("onChange",
+    obj._e_event87 = obj.dataLink68:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.visao = sheet.sentidos.visao or {}
@@ -3934,7 +4007,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event86 = obj.button18:addEventListener("onClick",
+    obj._e_event88 = obj.button18:addEventListener("onClick",
         function (self)
             local mesa = rrpg.getMesaDe(sheet);
                       local ficha = ndb.getRoot(sheet);
@@ -3945,7 +4018,7 @@ function newfrmFichaDoPersonagem()
                       )
         end, obj);
 
-    obj._e_event87 = obj.dataLink69:addEventListener("onChange",
+    obj._e_event89 = obj.dataLink69:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.tato = sheet.sentidos.tato or {}
@@ -3957,7 +4030,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event88 = obj.dataLink70:addEventListener("onChange",
+    obj._e_event90 = obj.dataLink70:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.tato = sheet.sentidos.tato or {}
@@ -3969,7 +4042,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event89 = obj.dataLink71:addEventListener("onChange",
+    obj._e_event91 = obj.dataLink71:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.tato = sheet.sentidos.tato or {}
@@ -3981,7 +4054,7 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event90 = obj.dataLink72:addEventListener("onChange",
+    obj._e_event92 = obj.dataLink72:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             sheet.sentidos = sheet.sentidos or {}
                     sheet.sentidos.tato = sheet.sentidos.tato or {}
@@ -3993,12 +4066,14 @@ function newfrmFichaDoPersonagem()
                     )
         end, obj);
 
-    obj._e_event91 = obj.button19:addEventListener("onClick",
+    obj._e_event93 = obj.button19:addEventListener("onClick",
         function (self)
             self.rclPericias:append()
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event93);
+        __o_rrpgObjs.removeEventListenerById(self._e_event92);
         __o_rrpgObjs.removeEventListenerById(self._e_event91);
         __o_rrpgObjs.removeEventListenerById(self._e_event90);
         __o_rrpgObjs.removeEventListenerById(self._e_event89);
@@ -4235,8 +4310,8 @@ function newfrmFichaDoPersonagem()
         if self.label2 ~= nil then self.label2:destroy(); self.label2 = nil; end;
         if self.edit3 ~= nil then self.edit3:destroy(); self.edit3 = nil; end;
         if self.dataLink56 ~= nil then self.dataLink56:destroy(); self.dataLink56 = nil; end;
-        if self.edit49 ~= nil then self.edit49:destroy(); self.edit49 = nil; end;
         if self.label38 ~= nil then self.label38:destroy(); self.label38 = nil; end;
+        if self.edit49 ~= nil then self.edit49:destroy(); self.edit49 = nil; end;
         if self.label62 ~= nil then self.label62:destroy(); self.label62 = nil; end;
         if self.edit27 ~= nil then self.edit27:destroy(); self.edit27 = nil; end;
         if self.layout14 ~= nil then self.layout14:destroy(); self.layout14 = nil; end;
@@ -4267,6 +4342,7 @@ function newfrmFichaDoPersonagem()
         if self.edit7 ~= nil then self.edit7:destroy(); self.edit7 = nil; end;
         if self.label55 ~= nil then self.label55:destroy(); self.label55 = nil; end;
         if self.edit12 ~= nil then self.edit12:destroy(); self.edit12 = nil; end;
+        if self.label66 ~= nil then self.label66:destroy(); self.label66 = nil; end;
         if self.edit35 ~= nil then self.edit35:destroy(); self.edit35 = nil; end;
         if self.label26 ~= nil then self.label26:destroy(); self.label26 = nil; end;
         if self.image14 ~= nil then self.image14:destroy(); self.image14 = nil; end;
@@ -4319,6 +4395,8 @@ function newfrmFichaDoPersonagem()
         if self.dataLink36 ~= nil then self.dataLink36:destroy(); self.dataLink36 = nil; end;
         if self.dataLink60 ~= nil then self.dataLink60:destroy(); self.dataLink60 = nil; end;
         if self.edit53 ~= nil then self.edit53:destroy(); self.edit53 = nil; end;
+        if self.layout28 ~= nil then self.layout28:destroy(); self.layout28 = nil; end;
+        if self.cbmRaca ~= nil then self.cbmRaca:destroy(); self.cbmRaca = nil; end;
         if self.dataLink17 ~= nil then self.dataLink17:destroy(); self.dataLink17 = nil; end;
         if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
         if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
@@ -4382,8 +4460,8 @@ function newfrmFichaDoPersonagem()
         if self.label25 ~= nil then self.label25:destroy(); self.label25 = nil; end;
         if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;
         if self.button8 ~= nil then self.button8:destroy(); self.button8 = nil; end;
-        if self.dataLink57 ~= nil then self.dataLink57:destroy(); self.dataLink57 = nil; end;
         if self.label50 ~= nil then self.label50:destroy(); self.label50 = nil; end;
+        if self.dataLink57 ~= nil then self.dataLink57:destroy(); self.dataLink57 = nil; end;
         if self.edit70 ~= nil then self.edit70:destroy(); self.edit70 = nil; end;
         if self.edit42 ~= nil then self.edit42:destroy(); self.edit42 = nil; end;
         if self.edit22 ~= nil then self.edit22:destroy(); self.edit22 = nil; end;
@@ -4393,6 +4471,7 @@ function newfrmFichaDoPersonagem()
         if self.label5 ~= nil then self.label5:destroy(); self.label5 = nil; end;
         if self.layout6 ~= nil then self.layout6:destroy(); self.layout6 = nil; end;
         if self.richEdit5 ~= nil then self.richEdit5:destroy(); self.richEdit5 = nil; end;
+        if self.rectangle4 ~= nil then self.rectangle4:destroy(); self.rectangle4 = nil; end;
         if self.dataLink11 ~= nil then self.dataLink11:destroy(); self.dataLink11 = nil; end;
         if self.dataLink46 ~= nil then self.dataLink46:destroy(); self.dataLink46 = nil; end;
         if self.layout22 ~= nil then self.layout22:destroy(); self.layout22 = nil; end;
