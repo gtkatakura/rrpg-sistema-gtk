@@ -2291,7 +2291,7 @@ function newfrmFichaDoPersonagem()
     obj.rclPericias:setField("pericias");
     obj.rclPericias:setTemplateForm("frmPericias");
     obj.rclPericias:setLeft(20);
-    obj.rclPericias:setTop(80);
+    obj.rclPericias:setTop(100);
     obj.rclPericias:setWidth(530);
     obj.rclPericias:setAutoHeight(true);
 

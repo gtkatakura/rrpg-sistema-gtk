@@ -196,7 +196,7 @@
           <label align="left" horzTextAlign="center" width="30" margins="{left=2,right=2}" text="H"/>
         </layout>
 
-        <recordList name="rclPericias" field="pericias" templateForm="frmPericias" left="20" top="80" width="530" autoHeight="true"/>
+        <recordList name="rclPericias" field="pericias" templateForm="frmPericias" left="20" top="100" width="530" autoHeight="true"/>
       </scrollBox>
     </tab>
 
