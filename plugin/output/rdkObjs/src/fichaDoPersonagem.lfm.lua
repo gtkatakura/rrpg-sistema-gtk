@@ -28,7 +28,7 @@ function newfrmFichaDoPersonagem()
     obj:beginUpdate();
     obj:setFormType("sheetTemplate");
     obj:setDataType("gtk.fichaDoPersonagem");
-    obj:setTitle("Ficha do Personagem - GTK (v0.5.8)");
+    obj:setTitle("Ficha do Personagem - GTK (v0.6.0)");
     obj:setName("frmFichaDoPersonagem");
 
     obj.tabControl1 = gui.fromHandle(_obj_newObject("tabControl"));
@@ -207,6 +207,55 @@ function newfrmFichaDoPersonagem()
     obj.image1:setStyle("proportional");
     obj.image1:setName("image1");
 
+    obj.rectangle4 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle4:setParent(obj.scrollBox1);
+    obj.rectangle4:setLeft(420);
+    obj.rectangle4:setTop(10);
+    obj.rectangle4:setWidth(135);
+    obj.rectangle4:setHeight(40);
+    obj.rectangle4:setColor("black");
+    obj.rectangle4:setName("rectangle4");
+
+    obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout5:setParent(obj.rectangle4);
+    obj.layout5:setLeft(5);
+    obj.layout5:setTop(5);
+    obj.layout5:setWidth(135);
+    obj.layout5:setHeight(30);
+    obj.layout5:setName("layout5");
+
+    obj.label7 = gui.fromHandle(_obj_newObject("label"));
+    obj.label7:setParent(obj.layout5);
+    obj.label7:setAlign("left");
+    obj.label7:setWidth(40);
+    obj.label7:setText("PDEs");
+    obj.label7:setName("label7");
+
+    obj.label8 = gui.fromHandle(_obj_newObject("label"));
+    obj.label8:setParent(obj.layout5);
+    obj.label8:setAlign("left");
+    obj.label8:setHorzTextAlign("center");
+    obj.label8:setWidth(25);
+    obj.label8:setField("pdes.gastos.total");
+    obj.label8:setName("label8");
+
+    obj.label9 = gui.fromHandle(_obj_newObject("label"));
+    obj.label9:setParent(obj.layout5);
+    obj.label9:setAlign("left");
+    obj.label9:setHorzTextAlign("center");
+    obj.label9:setWidth(15);
+    obj.label9:setMargins({left=2,right=2});
+    obj.label9:setText("/");
+    obj.label9:setName("label9");
+
+    obj.edit7 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit7:setParent(obj.layout5);
+    obj.edit7:setType("number");
+    obj.edit7:setAlign("left");
+    obj.edit7:setWidth(40);
+    obj.edit7:setField("pdes.total");
+    obj.edit7:setName("edit7");
+
     obj.tab2 = gui.fromHandle(_obj_newObject("tab"));
     obj.tab2:setParent(obj.tabControl1);
     obj.tab2:setTitle("Atributos");
@@ -220,23 +269,23 @@ function newfrmFichaDoPersonagem()
     obj.textAtributosPdesGastos:setText("PDEs: 0 PONTOS");
     obj.textAtributosPdesGastos:setWidth(180);
 
-    obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout5:setParent(obj.tab2);
-    obj.layout5:setLeft(20);
-    obj.layout5:setWidth(300);
-    obj.layout5:setHeight(400);
-    obj.layout5:setName("layout5");
-
     obj.layout6 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout6:setParent(obj.layout5);
-    obj.layout6:setTop(40);
-    obj.layout6:setHeight(25);
-    obj.layout6:setWidth(450);
-    obj.layout6:setMargins({left=4,right=4});
+    obj.layout6:setParent(obj.tab2);
+    obj.layout6:setLeft(20);
+    obj.layout6:setWidth(300);
+    obj.layout6:setHeight(400);
     obj.layout6:setName("layout6");
 
+    obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout7:setParent(obj.layout6);
+    obj.layout7:setTop(40);
+    obj.layout7:setHeight(25);
+    obj.layout7:setWidth(450);
+    obj.layout7:setMargins({left=4,right=4});
+    obj.layout7:setName("layout7");
+
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
-    obj.button1:setParent(obj.layout6);
+    obj.button1:setParent(obj.layout7);
     obj.button1:setAlign("left");
     obj.button1:setWidth(30);
     obj.button1:setMargins({right=4});
@@ -250,122 +299,59 @@ function newfrmFichaDoPersonagem()
     obj.image2:setSRC("/src/assets/dice-six-faces.png");
     obj.image2:setName("image2");
 
-    obj.label7 = gui.fromHandle(_obj_newObject("label"));
-    obj.label7:setParent(obj.layout6);
-    obj.label7:setAlign("left");
-    obj.label7:setHorzTextAlign("center");
-    obj.label7:setText("Inteligência");
-    obj.label7:setWidth(85);
-    obj.label7:setAutoSize(true);
-    obj.label7:setName("label7");
-
-    obj.edit7 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit7:setParent(obj.layout6);
-    obj.edit7:setType("number");
-    obj.edit7:setAlign("left");
-    obj.edit7:setHorzTextAlign("center");
-    obj.edit7:setWidth(30);
-    obj.edit7:setMargins({left=2, right=2});
-    obj.edit7:setField("atributos.inteligencia.base");
-    obj.edit7:setName("edit7");
-
-    obj.dataLink1 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink1:setParent(obj.layout6);
-    obj.dataLink1:setField("atributos.inteligencia.base");
-    obj.dataLink1:setName("dataLink1");
+    obj.label10 = gui.fromHandle(_obj_newObject("label"));
+    obj.label10:setParent(obj.layout7);
+    obj.label10:setAlign("left");
+    obj.label10:setHorzTextAlign("center");
+    obj.label10:setText("Inteligência");
+    obj.label10:setWidth(85);
+    obj.label10:setAutoSize(true);
+    obj.label10:setName("label10");
 
     obj.edit8 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit8:setParent(obj.layout6);
+    obj.edit8:setParent(obj.layout7);
     obj.edit8:setType("number");
     obj.edit8:setAlign("left");
     obj.edit8:setHorzTextAlign("center");
     obj.edit8:setWidth(30);
     obj.edit8:setMargins({left=2, right=2});
-    obj.edit8:setField("atributos.inteligencia.racaClasse");
+    obj.edit8:setField("atributos.inteligencia.base");
     obj.edit8:setName("edit8");
 
-    obj.dataLink2 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink2:setParent(obj.layout6);
-    obj.dataLink2:setField("atributos.inteligencia.racaClasse");
-    obj.dataLink2:setName("dataLink2");
+    obj.dataLink1 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink1:setParent(obj.layout7);
+    obj.dataLink1:setField("atributos.inteligencia.base");
+    obj.dataLink1:setName("dataLink1");
 
     obj.edit9 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit9:setParent(obj.layout6);
+    obj.edit9:setParent(obj.layout7);
     obj.edit9:setType("number");
     obj.edit9:setAlign("left");
     obj.edit9:setHorzTextAlign("center");
     obj.edit9:setWidth(30);
     obj.edit9:setMargins({left=2, right=2});
-    obj.edit9:setField("atributos.inteligencia.treinamento");
+    obj.edit9:setField("atributos.inteligencia.racaClasse");
     obj.edit9:setName("edit9");
 
-    obj.dataLink3 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink3:setParent(obj.layout6);
-    obj.dataLink3:setField("atributos.inteligencia.treinamento");
-    obj.dataLink3:setName("dataLink3");
+    obj.dataLink2 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink2:setParent(obj.layout7);
+    obj.dataLink2:setField("atributos.inteligencia.racaClasse");
+    obj.dataLink2:setName("dataLink2");
 
     obj.edit10 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit10:setParent(obj.layout6);
+    obj.edit10:setParent(obj.layout7);
     obj.edit10:setType("number");
     obj.edit10:setAlign("left");
     obj.edit10:setHorzTextAlign("center");
     obj.edit10:setWidth(30);
     obj.edit10:setMargins({left=2, right=2});
-    obj.edit10:setField("atributos.inteligencia.habilidade");
+    obj.edit10:setField("atributos.inteligencia.treinamento");
     obj.edit10:setName("edit10");
 
-    obj.dataLink4 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink4:setParent(obj.layout6);
-    obj.dataLink4:setField("atributos.inteligencia.habilidade");
-    obj.dataLink4:setName("dataLink4");
-
-    obj.label8 = gui.fromHandle(_obj_newObject("label"));
-    obj.label8:setParent(obj.layout6);
-    obj.label8:setAlign("left");
-    obj.label8:setText("=");
-    obj.label8:setWidth(10);
-    obj.label8:setMargins({left=4,right=4});
-    obj.label8:setName("label8");
-
-    obj.label9 = gui.fromHandle(_obj_newObject("label"));
-    obj.label9:setParent(obj.layout6);
-    obj.label9:setAlign("left");
-    obj.label9:setHorzTextAlign("center");
-    obj.label9:setWidth(30);
-    obj.label9:setField("atributos.inteligencia.total");
-    obj.label9:setName("label9");
-
-    obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout7:setParent(obj.layout5);
-    obj.layout7:setTop(70);
-    obj.layout7:setHeight(25);
-    obj.layout7:setWidth(450);
-    obj.layout7:setMargins({left=4,right=4});
-    obj.layout7:setName("layout7");
-
-    obj.button2 = gui.fromHandle(_obj_newObject("button"));
-    obj.button2:setParent(obj.layout7);
-    obj.button2:setAlign("left");
-    obj.button2:setWidth(30);
-    obj.button2:setMargins({right=4});
-    obj.button2:setHint("Rolagem de Teste de Atributo");
-    obj.button2:setName("button2");
-
-    obj.image3 = gui.fromHandle(_obj_newObject("image"));
-    obj.image3:setParent(obj.button2);
-    obj.image3:setAlign("left");
-    obj.image3:setWidth(30);
-    obj.image3:setSRC("/src/assets/dice-six-faces.png");
-    obj.image3:setName("image3");
-
-    obj.label10 = gui.fromHandle(_obj_newObject("label"));
-    obj.label10:setParent(obj.layout7);
-    obj.label10:setAlign("left");
-    obj.label10:setHorzTextAlign("center");
-    obj.label10:setText("Sabedoria");
-    obj.label10:setWidth(85);
-    obj.label10:setAutoSize(true);
-    obj.label10:setName("label10");
+    obj.dataLink3 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink3:setParent(obj.layout7);
+    obj.dataLink3:setField("atributos.inteligencia.treinamento");
+    obj.dataLink3:setName("dataLink3");
 
     obj.edit11 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit11:setParent(obj.layout7);
@@ -374,58 +360,13 @@ function newfrmFichaDoPersonagem()
     obj.edit11:setHorzTextAlign("center");
     obj.edit11:setWidth(30);
     obj.edit11:setMargins({left=2, right=2});
-    obj.edit11:setField("atributos.sabedoria.base");
+    obj.edit11:setField("atributos.inteligencia.habilidade");
     obj.edit11:setName("edit11");
 
-    obj.dataLink5 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink5:setParent(obj.layout7);
-    obj.dataLink5:setField("atributos.sabedoria.base");
-    obj.dataLink5:setName("dataLink5");
-
-    obj.edit12 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit12:setParent(obj.layout7);
-    obj.edit12:setType("number");
-    obj.edit12:setAlign("left");
-    obj.edit12:setHorzTextAlign("center");
-    obj.edit12:setWidth(30);
-    obj.edit12:setMargins({left=2, right=2});
-    obj.edit12:setField("atributos.sabedoria.racaClasse");
-    obj.edit12:setName("edit12");
-
-    obj.dataLink6 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink6:setParent(obj.layout7);
-    obj.dataLink6:setField("atributos.sabedoria.racaClasse");
-    obj.dataLink6:setName("dataLink6");
-
-    obj.edit13 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit13:setParent(obj.layout7);
-    obj.edit13:setType("number");
-    obj.edit13:setAlign("left");
-    obj.edit13:setHorzTextAlign("center");
-    obj.edit13:setWidth(30);
-    obj.edit13:setMargins({left=2, right=2});
-    obj.edit13:setField("atributos.sabedoria.treinamento");
-    obj.edit13:setName("edit13");
-
-    obj.dataLink7 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink7:setParent(obj.layout7);
-    obj.dataLink7:setField("atributos.sabedoria.treinamento");
-    obj.dataLink7:setName("dataLink7");
-
-    obj.edit14 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit14:setParent(obj.layout7);
-    obj.edit14:setType("number");
-    obj.edit14:setAlign("left");
-    obj.edit14:setHorzTextAlign("center");
-    obj.edit14:setWidth(30);
-    obj.edit14:setMargins({left=2, right=2});
-    obj.edit14:setField("atributos.sabedoria.habilidade");
-    obj.edit14:setName("edit14");
-
-    obj.dataLink8 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink8:setParent(obj.layout7);
-    obj.dataLink8:setField("atributos.sabedoria.habilidade");
-    obj.dataLink8:setName("dataLink8");
+    obj.dataLink4 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink4:setParent(obj.layout7);
+    obj.dataLink4:setField("atributos.inteligencia.habilidade");
+    obj.dataLink4:setName("dataLink4");
 
     obj.label11 = gui.fromHandle(_obj_newObject("label"));
     obj.label11:setParent(obj.layout7);
@@ -440,40 +381,85 @@ function newfrmFichaDoPersonagem()
     obj.label12:setAlign("left");
     obj.label12:setHorzTextAlign("center");
     obj.label12:setWidth(30);
-    obj.label12:setField("atributos.sabedoria.total");
+    obj.label12:setField("atributos.inteligencia.total");
     obj.label12:setName("label12");
 
     obj.layout8 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout8:setParent(obj.layout5);
-    obj.layout8:setTop(100);
+    obj.layout8:setParent(obj.layout6);
+    obj.layout8:setTop(70);
     obj.layout8:setHeight(25);
     obj.layout8:setWidth(450);
     obj.layout8:setMargins({left=4,right=4});
     obj.layout8:setName("layout8");
 
-    obj.button3 = gui.fromHandle(_obj_newObject("button"));
-    obj.button3:setParent(obj.layout8);
-    obj.button3:setAlign("left");
-    obj.button3:setWidth(30);
-    obj.button3:setMargins({right=4});
-    obj.button3:setHint("Rolagem de Teste de Atributo");
-    obj.button3:setName("button3");
+    obj.button2 = gui.fromHandle(_obj_newObject("button"));
+    obj.button2:setParent(obj.layout8);
+    obj.button2:setAlign("left");
+    obj.button2:setWidth(30);
+    obj.button2:setMargins({right=4});
+    obj.button2:setHint("Rolagem de Teste de Atributo");
+    obj.button2:setName("button2");
 
-    obj.image4 = gui.fromHandle(_obj_newObject("image"));
-    obj.image4:setParent(obj.button3);
-    obj.image4:setAlign("left");
-    obj.image4:setWidth(30);
-    obj.image4:setSRC("/src/assets/dice-six-faces.png");
-    obj.image4:setName("image4");
+    obj.image3 = gui.fromHandle(_obj_newObject("image"));
+    obj.image3:setParent(obj.button2);
+    obj.image3:setAlign("left");
+    obj.image3:setWidth(30);
+    obj.image3:setSRC("/src/assets/dice-six-faces.png");
+    obj.image3:setName("image3");
 
     obj.label13 = gui.fromHandle(_obj_newObject("label"));
     obj.label13:setParent(obj.layout8);
     obj.label13:setAlign("left");
     obj.label13:setHorzTextAlign("center");
-    obj.label13:setText("Vontade");
+    obj.label13:setText("Sabedoria");
     obj.label13:setWidth(85);
     obj.label13:setAutoSize(true);
     obj.label13:setName("label13");
+
+    obj.edit12 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit12:setParent(obj.layout8);
+    obj.edit12:setType("number");
+    obj.edit12:setAlign("left");
+    obj.edit12:setHorzTextAlign("center");
+    obj.edit12:setWidth(30);
+    obj.edit12:setMargins({left=2, right=2});
+    obj.edit12:setField("atributos.sabedoria.base");
+    obj.edit12:setName("edit12");
+
+    obj.dataLink5 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink5:setParent(obj.layout8);
+    obj.dataLink5:setField("atributos.sabedoria.base");
+    obj.dataLink5:setName("dataLink5");
+
+    obj.edit13 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit13:setParent(obj.layout8);
+    obj.edit13:setType("number");
+    obj.edit13:setAlign("left");
+    obj.edit13:setHorzTextAlign("center");
+    obj.edit13:setWidth(30);
+    obj.edit13:setMargins({left=2, right=2});
+    obj.edit13:setField("atributos.sabedoria.racaClasse");
+    obj.edit13:setName("edit13");
+
+    obj.dataLink6 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink6:setParent(obj.layout8);
+    obj.dataLink6:setField("atributos.sabedoria.racaClasse");
+    obj.dataLink6:setName("dataLink6");
+
+    obj.edit14 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit14:setParent(obj.layout8);
+    obj.edit14:setType("number");
+    obj.edit14:setAlign("left");
+    obj.edit14:setHorzTextAlign("center");
+    obj.edit14:setWidth(30);
+    obj.edit14:setMargins({left=2, right=2});
+    obj.edit14:setField("atributos.sabedoria.treinamento");
+    obj.edit14:setName("edit14");
+
+    obj.dataLink7 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink7:setParent(obj.layout8);
+    obj.dataLink7:setField("atributos.sabedoria.treinamento");
+    obj.dataLink7:setName("dataLink7");
 
     obj.edit15 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit15:setParent(obj.layout8);
@@ -482,58 +468,13 @@ function newfrmFichaDoPersonagem()
     obj.edit15:setHorzTextAlign("center");
     obj.edit15:setWidth(30);
     obj.edit15:setMargins({left=2, right=2});
-    obj.edit15:setField("atributos.vontade.base");
+    obj.edit15:setField("atributos.sabedoria.habilidade");
     obj.edit15:setName("edit15");
 
-    obj.dataLink9 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink9:setParent(obj.layout8);
-    obj.dataLink9:setField("atributos.vontade.base");
-    obj.dataLink9:setName("dataLink9");
-
-    obj.edit16 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit16:setParent(obj.layout8);
-    obj.edit16:setType("number");
-    obj.edit16:setAlign("left");
-    obj.edit16:setHorzTextAlign("center");
-    obj.edit16:setWidth(30);
-    obj.edit16:setMargins({left=2, right=2});
-    obj.edit16:setField("atributos.vontade.racaClasse");
-    obj.edit16:setName("edit16");
-
-    obj.dataLink10 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink10:setParent(obj.layout8);
-    obj.dataLink10:setField("atributos.vontade.racaClasse");
-    obj.dataLink10:setName("dataLink10");
-
-    obj.edit17 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit17:setParent(obj.layout8);
-    obj.edit17:setType("number");
-    obj.edit17:setAlign("left");
-    obj.edit17:setHorzTextAlign("center");
-    obj.edit17:setWidth(30);
-    obj.edit17:setMargins({left=2, right=2});
-    obj.edit17:setField("atributos.vontade.treinamento");
-    obj.edit17:setName("edit17");
-
-    obj.dataLink11 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink11:setParent(obj.layout8);
-    obj.dataLink11:setField("atributos.vontade.treinamento");
-    obj.dataLink11:setName("dataLink11");
-
-    obj.edit18 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit18:setParent(obj.layout8);
-    obj.edit18:setType("number");
-    obj.edit18:setAlign("left");
-    obj.edit18:setHorzTextAlign("center");
-    obj.edit18:setWidth(30);
-    obj.edit18:setMargins({left=2, right=2});
-    obj.edit18:setField("atributos.vontade.habilidade");
-    obj.edit18:setName("edit18");
-
-    obj.dataLink12 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink12:setParent(obj.layout8);
-    obj.dataLink12:setField("atributos.vontade.habilidade");
-    obj.dataLink12:setName("dataLink12");
+    obj.dataLink8 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink8:setParent(obj.layout8);
+    obj.dataLink8:setField("atributos.sabedoria.habilidade");
+    obj.dataLink8:setName("dataLink8");
 
     obj.label14 = gui.fromHandle(_obj_newObject("label"));
     obj.label14:setParent(obj.layout8);
@@ -548,40 +489,85 @@ function newfrmFichaDoPersonagem()
     obj.label15:setAlign("left");
     obj.label15:setHorzTextAlign("center");
     obj.label15:setWidth(30);
-    obj.label15:setField("atributos.vontade.total");
+    obj.label15:setField("atributos.sabedoria.total");
     obj.label15:setName("label15");
 
     obj.layout9 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout9:setParent(obj.layout5);
-    obj.layout9:setTop(130);
+    obj.layout9:setParent(obj.layout6);
+    obj.layout9:setTop(100);
     obj.layout9:setHeight(25);
     obj.layout9:setWidth(450);
     obj.layout9:setMargins({left=4,right=4});
     obj.layout9:setName("layout9");
 
-    obj.button4 = gui.fromHandle(_obj_newObject("button"));
-    obj.button4:setParent(obj.layout9);
-    obj.button4:setAlign("left");
-    obj.button4:setWidth(30);
-    obj.button4:setMargins({right=4});
-    obj.button4:setHint("Rolagem de Teste de Atributo");
-    obj.button4:setName("button4");
+    obj.button3 = gui.fromHandle(_obj_newObject("button"));
+    obj.button3:setParent(obj.layout9);
+    obj.button3:setAlign("left");
+    obj.button3:setWidth(30);
+    obj.button3:setMargins({right=4});
+    obj.button3:setHint("Rolagem de Teste de Atributo");
+    obj.button3:setName("button3");
 
-    obj.image5 = gui.fromHandle(_obj_newObject("image"));
-    obj.image5:setParent(obj.button4);
-    obj.image5:setAlign("left");
-    obj.image5:setWidth(30);
-    obj.image5:setSRC("/src/assets/dice-six-faces.png");
-    obj.image5:setName("image5");
+    obj.image4 = gui.fromHandle(_obj_newObject("image"));
+    obj.image4:setParent(obj.button3);
+    obj.image4:setAlign("left");
+    obj.image4:setWidth(30);
+    obj.image4:setSRC("/src/assets/dice-six-faces.png");
+    obj.image4:setName("image4");
 
     obj.label16 = gui.fromHandle(_obj_newObject("label"));
     obj.label16:setParent(obj.layout9);
     obj.label16:setAlign("left");
     obj.label16:setHorzTextAlign("center");
-    obj.label16:setText("Carisma");
+    obj.label16:setText("Vontade");
     obj.label16:setWidth(85);
     obj.label16:setAutoSize(true);
     obj.label16:setName("label16");
+
+    obj.edit16 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit16:setParent(obj.layout9);
+    obj.edit16:setType("number");
+    obj.edit16:setAlign("left");
+    obj.edit16:setHorzTextAlign("center");
+    obj.edit16:setWidth(30);
+    obj.edit16:setMargins({left=2, right=2});
+    obj.edit16:setField("atributos.vontade.base");
+    obj.edit16:setName("edit16");
+
+    obj.dataLink9 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink9:setParent(obj.layout9);
+    obj.dataLink9:setField("atributos.vontade.base");
+    obj.dataLink9:setName("dataLink9");
+
+    obj.edit17 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit17:setParent(obj.layout9);
+    obj.edit17:setType("number");
+    obj.edit17:setAlign("left");
+    obj.edit17:setHorzTextAlign("center");
+    obj.edit17:setWidth(30);
+    obj.edit17:setMargins({left=2, right=2});
+    obj.edit17:setField("atributos.vontade.racaClasse");
+    obj.edit17:setName("edit17");
+
+    obj.dataLink10 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink10:setParent(obj.layout9);
+    obj.dataLink10:setField("atributos.vontade.racaClasse");
+    obj.dataLink10:setName("dataLink10");
+
+    obj.edit18 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit18:setParent(obj.layout9);
+    obj.edit18:setType("number");
+    obj.edit18:setAlign("left");
+    obj.edit18:setHorzTextAlign("center");
+    obj.edit18:setWidth(30);
+    obj.edit18:setMargins({left=2, right=2});
+    obj.edit18:setField("atributos.vontade.treinamento");
+    obj.edit18:setName("edit18");
+
+    obj.dataLink11 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink11:setParent(obj.layout9);
+    obj.dataLink11:setField("atributos.vontade.treinamento");
+    obj.dataLink11:setName("dataLink11");
 
     obj.edit19 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit19:setParent(obj.layout9);
@@ -590,58 +576,13 @@ function newfrmFichaDoPersonagem()
     obj.edit19:setHorzTextAlign("center");
     obj.edit19:setWidth(30);
     obj.edit19:setMargins({left=2, right=2});
-    obj.edit19:setField("atributos.carisma.base");
+    obj.edit19:setField("atributos.vontade.habilidade");
     obj.edit19:setName("edit19");
 
-    obj.dataLink13 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink13:setParent(obj.layout9);
-    obj.dataLink13:setField("atributos.carisma.base");
-    obj.dataLink13:setName("dataLink13");
-
-    obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit20:setParent(obj.layout9);
-    obj.edit20:setType("number");
-    obj.edit20:setAlign("left");
-    obj.edit20:setHorzTextAlign("center");
-    obj.edit20:setWidth(30);
-    obj.edit20:setMargins({left=2, right=2});
-    obj.edit20:setField("atributos.carisma.racaClasse");
-    obj.edit20:setName("edit20");
-
-    obj.dataLink14 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink14:setParent(obj.layout9);
-    obj.dataLink14:setField("atributos.carisma.racaClasse");
-    obj.dataLink14:setName("dataLink14");
-
-    obj.edit21 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit21:setParent(obj.layout9);
-    obj.edit21:setType("number");
-    obj.edit21:setAlign("left");
-    obj.edit21:setHorzTextAlign("center");
-    obj.edit21:setWidth(30);
-    obj.edit21:setMargins({left=2, right=2});
-    obj.edit21:setField("atributos.carisma.treinamento");
-    obj.edit21:setName("edit21");
-
-    obj.dataLink15 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink15:setParent(obj.layout9);
-    obj.dataLink15:setField("atributos.carisma.treinamento");
-    obj.dataLink15:setName("dataLink15");
-
-    obj.edit22 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit22:setParent(obj.layout9);
-    obj.edit22:setType("number");
-    obj.edit22:setAlign("left");
-    obj.edit22:setHorzTextAlign("center");
-    obj.edit22:setWidth(30);
-    obj.edit22:setMargins({left=2, right=2});
-    obj.edit22:setField("atributos.carisma.habilidade");
-    obj.edit22:setName("edit22");
-
-    obj.dataLink16 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink16:setParent(obj.layout9);
-    obj.dataLink16:setField("atributos.carisma.habilidade");
-    obj.dataLink16:setName("dataLink16");
+    obj.dataLink12 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink12:setParent(obj.layout9);
+    obj.dataLink12:setField("atributos.vontade.habilidade");
+    obj.dataLink12:setName("dataLink12");
 
     obj.label17 = gui.fromHandle(_obj_newObject("label"));
     obj.label17:setParent(obj.layout9);
@@ -656,40 +597,85 @@ function newfrmFichaDoPersonagem()
     obj.label18:setAlign("left");
     obj.label18:setHorzTextAlign("center");
     obj.label18:setWidth(30);
-    obj.label18:setField("atributos.carisma.total");
+    obj.label18:setField("atributos.vontade.total");
     obj.label18:setName("label18");
 
     obj.layout10 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout10:setParent(obj.layout5);
-    obj.layout10:setTop(160);
+    obj.layout10:setParent(obj.layout6);
+    obj.layout10:setTop(130);
     obj.layout10:setHeight(25);
     obj.layout10:setWidth(450);
     obj.layout10:setMargins({left=4,right=4});
     obj.layout10:setName("layout10");
 
-    obj.button5 = gui.fromHandle(_obj_newObject("button"));
-    obj.button5:setParent(obj.layout10);
-    obj.button5:setAlign("left");
-    obj.button5:setWidth(30);
-    obj.button5:setMargins({right=4});
-    obj.button5:setHint("Rolagem de Teste de Atributo");
-    obj.button5:setName("button5");
+    obj.button4 = gui.fromHandle(_obj_newObject("button"));
+    obj.button4:setParent(obj.layout10);
+    obj.button4:setAlign("left");
+    obj.button4:setWidth(30);
+    obj.button4:setMargins({right=4});
+    obj.button4:setHint("Rolagem de Teste de Atributo");
+    obj.button4:setName("button4");
 
-    obj.image6 = gui.fromHandle(_obj_newObject("image"));
-    obj.image6:setParent(obj.button5);
-    obj.image6:setAlign("left");
-    obj.image6:setWidth(30);
-    obj.image6:setSRC("/src/assets/dice-six-faces.png");
-    obj.image6:setName("image6");
+    obj.image5 = gui.fromHandle(_obj_newObject("image"));
+    obj.image5:setParent(obj.button4);
+    obj.image5:setAlign("left");
+    obj.image5:setWidth(30);
+    obj.image5:setSRC("/src/assets/dice-six-faces.png");
+    obj.image5:setName("image5");
 
     obj.label19 = gui.fromHandle(_obj_newObject("label"));
     obj.label19:setParent(obj.layout10);
     obj.label19:setAlign("left");
     obj.label19:setHorzTextAlign("center");
-    obj.label19:setText("Energia");
+    obj.label19:setText("Carisma");
     obj.label19:setWidth(85);
     obj.label19:setAutoSize(true);
     obj.label19:setName("label19");
+
+    obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit20:setParent(obj.layout10);
+    obj.edit20:setType("number");
+    obj.edit20:setAlign("left");
+    obj.edit20:setHorzTextAlign("center");
+    obj.edit20:setWidth(30);
+    obj.edit20:setMargins({left=2, right=2});
+    obj.edit20:setField("atributos.carisma.base");
+    obj.edit20:setName("edit20");
+
+    obj.dataLink13 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink13:setParent(obj.layout10);
+    obj.dataLink13:setField("atributos.carisma.base");
+    obj.dataLink13:setName("dataLink13");
+
+    obj.edit21 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit21:setParent(obj.layout10);
+    obj.edit21:setType("number");
+    obj.edit21:setAlign("left");
+    obj.edit21:setHorzTextAlign("center");
+    obj.edit21:setWidth(30);
+    obj.edit21:setMargins({left=2, right=2});
+    obj.edit21:setField("atributos.carisma.racaClasse");
+    obj.edit21:setName("edit21");
+
+    obj.dataLink14 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink14:setParent(obj.layout10);
+    obj.dataLink14:setField("atributos.carisma.racaClasse");
+    obj.dataLink14:setName("dataLink14");
+
+    obj.edit22 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit22:setParent(obj.layout10);
+    obj.edit22:setType("number");
+    obj.edit22:setAlign("left");
+    obj.edit22:setHorzTextAlign("center");
+    obj.edit22:setWidth(30);
+    obj.edit22:setMargins({left=2, right=2});
+    obj.edit22:setField("atributos.carisma.treinamento");
+    obj.edit22:setName("edit22");
+
+    obj.dataLink15 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink15:setParent(obj.layout10);
+    obj.dataLink15:setField("atributos.carisma.treinamento");
+    obj.dataLink15:setName("dataLink15");
 
     obj.edit23 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit23:setParent(obj.layout10);
@@ -698,58 +684,13 @@ function newfrmFichaDoPersonagem()
     obj.edit23:setHorzTextAlign("center");
     obj.edit23:setWidth(30);
     obj.edit23:setMargins({left=2, right=2});
-    obj.edit23:setField("atributos.energia.base");
+    obj.edit23:setField("atributos.carisma.habilidade");
     obj.edit23:setName("edit23");
 
-    obj.dataLink17 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink17:setParent(obj.layout10);
-    obj.dataLink17:setField("atributos.energia.base");
-    obj.dataLink17:setName("dataLink17");
-
-    obj.edit24 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit24:setParent(obj.layout10);
-    obj.edit24:setType("number");
-    obj.edit24:setAlign("left");
-    obj.edit24:setHorzTextAlign("center");
-    obj.edit24:setWidth(30);
-    obj.edit24:setMargins({left=2, right=2});
-    obj.edit24:setField("atributos.energia.racaClasse");
-    obj.edit24:setName("edit24");
-
-    obj.dataLink18 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink18:setParent(obj.layout10);
-    obj.dataLink18:setField("atributos.energia.racaClasse");
-    obj.dataLink18:setName("dataLink18");
-
-    obj.edit25 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit25:setParent(obj.layout10);
-    obj.edit25:setType("number");
-    obj.edit25:setAlign("left");
-    obj.edit25:setHorzTextAlign("center");
-    obj.edit25:setWidth(30);
-    obj.edit25:setMargins({left=2, right=2});
-    obj.edit25:setField("atributos.energia.treinamento");
-    obj.edit25:setName("edit25");
-
-    obj.dataLink19 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink19:setParent(obj.layout10);
-    obj.dataLink19:setField("atributos.energia.treinamento");
-    obj.dataLink19:setName("dataLink19");
-
-    obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit26:setParent(obj.layout10);
-    obj.edit26:setType("number");
-    obj.edit26:setAlign("left");
-    obj.edit26:setHorzTextAlign("center");
-    obj.edit26:setWidth(30);
-    obj.edit26:setMargins({left=2, right=2});
-    obj.edit26:setField("atributos.energia.habilidade");
-    obj.edit26:setName("edit26");
-
-    obj.dataLink20 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink20:setParent(obj.layout10);
-    obj.dataLink20:setField("atributos.energia.habilidade");
-    obj.dataLink20:setName("dataLink20");
+    obj.dataLink16 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink16:setParent(obj.layout10);
+    obj.dataLink16:setField("atributos.carisma.habilidade");
+    obj.dataLink16:setName("dataLink16");
 
     obj.label20 = gui.fromHandle(_obj_newObject("label"));
     obj.label20:setParent(obj.layout10);
@@ -764,40 +705,85 @@ function newfrmFichaDoPersonagem()
     obj.label21:setAlign("left");
     obj.label21:setHorzTextAlign("center");
     obj.label21:setWidth(30);
-    obj.label21:setField("atributos.energia.total");
+    obj.label21:setField("atributos.carisma.total");
     obj.label21:setName("label21");
 
     obj.layout11 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout11:setParent(obj.layout5);
-    obj.layout11:setTop(190);
+    obj.layout11:setParent(obj.layout6);
+    obj.layout11:setTop(160);
     obj.layout11:setHeight(25);
     obj.layout11:setWidth(450);
     obj.layout11:setMargins({left=4,right=4});
     obj.layout11:setName("layout11");
 
-    obj.button6 = gui.fromHandle(_obj_newObject("button"));
-    obj.button6:setParent(obj.layout11);
-    obj.button6:setAlign("left");
-    obj.button6:setWidth(30);
-    obj.button6:setMargins({right=4});
-    obj.button6:setHint("Rolagem de Teste de Atributo");
-    obj.button6:setName("button6");
+    obj.button5 = gui.fromHandle(_obj_newObject("button"));
+    obj.button5:setParent(obj.layout11);
+    obj.button5:setAlign("left");
+    obj.button5:setWidth(30);
+    obj.button5:setMargins({right=4});
+    obj.button5:setHint("Rolagem de Teste de Atributo");
+    obj.button5:setName("button5");
 
-    obj.image7 = gui.fromHandle(_obj_newObject("image"));
-    obj.image7:setParent(obj.button6);
-    obj.image7:setAlign("left");
-    obj.image7:setWidth(30);
-    obj.image7:setSRC("/src/assets/dice-six-faces.png");
-    obj.image7:setName("image7");
+    obj.image6 = gui.fromHandle(_obj_newObject("image"));
+    obj.image6:setParent(obj.button5);
+    obj.image6:setAlign("left");
+    obj.image6:setWidth(30);
+    obj.image6:setSRC("/src/assets/dice-six-faces.png");
+    obj.image6:setName("image6");
 
     obj.label22 = gui.fromHandle(_obj_newObject("label"));
     obj.label22:setParent(obj.layout11);
     obj.label22:setAlign("left");
     obj.label22:setHorzTextAlign("center");
-    obj.label22:setText("Corpo");
+    obj.label22:setText("Energia");
     obj.label22:setWidth(85);
     obj.label22:setAutoSize(true);
     obj.label22:setName("label22");
+
+    obj.edit24 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit24:setParent(obj.layout11);
+    obj.edit24:setType("number");
+    obj.edit24:setAlign("left");
+    obj.edit24:setHorzTextAlign("center");
+    obj.edit24:setWidth(30);
+    obj.edit24:setMargins({left=2, right=2});
+    obj.edit24:setField("atributos.energia.base");
+    obj.edit24:setName("edit24");
+
+    obj.dataLink17 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink17:setParent(obj.layout11);
+    obj.dataLink17:setField("atributos.energia.base");
+    obj.dataLink17:setName("dataLink17");
+
+    obj.edit25 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit25:setParent(obj.layout11);
+    obj.edit25:setType("number");
+    obj.edit25:setAlign("left");
+    obj.edit25:setHorzTextAlign("center");
+    obj.edit25:setWidth(30);
+    obj.edit25:setMargins({left=2, right=2});
+    obj.edit25:setField("atributos.energia.racaClasse");
+    obj.edit25:setName("edit25");
+
+    obj.dataLink18 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink18:setParent(obj.layout11);
+    obj.dataLink18:setField("atributos.energia.racaClasse");
+    obj.dataLink18:setName("dataLink18");
+
+    obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit26:setParent(obj.layout11);
+    obj.edit26:setType("number");
+    obj.edit26:setAlign("left");
+    obj.edit26:setHorzTextAlign("center");
+    obj.edit26:setWidth(30);
+    obj.edit26:setMargins({left=2, right=2});
+    obj.edit26:setField("atributos.energia.treinamento");
+    obj.edit26:setName("edit26");
+
+    obj.dataLink19 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink19:setParent(obj.layout11);
+    obj.dataLink19:setField("atributos.energia.treinamento");
+    obj.dataLink19:setName("dataLink19");
 
     obj.edit27 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit27:setParent(obj.layout11);
@@ -806,58 +792,13 @@ function newfrmFichaDoPersonagem()
     obj.edit27:setHorzTextAlign("center");
     obj.edit27:setWidth(30);
     obj.edit27:setMargins({left=2, right=2});
-    obj.edit27:setField("atributos.corpo.base");
+    obj.edit27:setField("atributos.energia.habilidade");
     obj.edit27:setName("edit27");
 
-    obj.dataLink21 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink21:setParent(obj.layout11);
-    obj.dataLink21:setField("atributos.corpo.base");
-    obj.dataLink21:setName("dataLink21");
-
-    obj.edit28 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit28:setParent(obj.layout11);
-    obj.edit28:setType("number");
-    obj.edit28:setAlign("left");
-    obj.edit28:setHorzTextAlign("center");
-    obj.edit28:setWidth(30);
-    obj.edit28:setMargins({left=2, right=2});
-    obj.edit28:setField("atributos.corpo.racaClasse");
-    obj.edit28:setName("edit28");
-
-    obj.dataLink22 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink22:setParent(obj.layout11);
-    obj.dataLink22:setField("atributos.corpo.racaClasse");
-    obj.dataLink22:setName("dataLink22");
-
-    obj.edit29 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit29:setParent(obj.layout11);
-    obj.edit29:setType("number");
-    obj.edit29:setAlign("left");
-    obj.edit29:setHorzTextAlign("center");
-    obj.edit29:setWidth(30);
-    obj.edit29:setMargins({left=2, right=2});
-    obj.edit29:setField("atributos.corpo.treinamento");
-    obj.edit29:setName("edit29");
-
-    obj.dataLink23 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink23:setParent(obj.layout11);
-    obj.dataLink23:setField("atributos.corpo.treinamento");
-    obj.dataLink23:setName("dataLink23");
-
-    obj.edit30 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit30:setParent(obj.layout11);
-    obj.edit30:setType("number");
-    obj.edit30:setAlign("left");
-    obj.edit30:setHorzTextAlign("center");
-    obj.edit30:setWidth(30);
-    obj.edit30:setMargins({left=2, right=2});
-    obj.edit30:setField("atributos.corpo.habilidade");
-    obj.edit30:setName("edit30");
-
-    obj.dataLink24 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink24:setParent(obj.layout11);
-    obj.dataLink24:setField("atributos.corpo.habilidade");
-    obj.dataLink24:setName("dataLink24");
+    obj.dataLink20 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink20:setParent(obj.layout11);
+    obj.dataLink20:setField("atributos.energia.habilidade");
+    obj.dataLink20:setName("dataLink20");
 
     obj.label23 = gui.fromHandle(_obj_newObject("label"));
     obj.label23:setParent(obj.layout11);
@@ -872,26 +813,134 @@ function newfrmFichaDoPersonagem()
     obj.label24:setAlign("left");
     obj.label24:setHorzTextAlign("center");
     obj.label24:setWidth(30);
-    obj.label24:setField("atributos.corpo.total");
+    obj.label24:setField("atributos.energia.total");
     obj.label24:setName("label24");
 
     obj.layout12 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout12:setParent(obj.tab2);
-    obj.layout12:setLeft(320);
-    obj.layout12:setWidth(300);
-    obj.layout12:setHeight(400);
+    obj.layout12:setParent(obj.layout6);
+    obj.layout12:setTop(190);
+    obj.layout12:setHeight(25);
+    obj.layout12:setWidth(450);
+    obj.layout12:setMargins({left=4,right=4});
     obj.layout12:setName("layout12");
 
+    obj.button6 = gui.fromHandle(_obj_newObject("button"));
+    obj.button6:setParent(obj.layout12);
+    obj.button6:setAlign("left");
+    obj.button6:setWidth(30);
+    obj.button6:setMargins({right=4});
+    obj.button6:setHint("Rolagem de Teste de Atributo");
+    obj.button6:setName("button6");
+
+    obj.image7 = gui.fromHandle(_obj_newObject("image"));
+    obj.image7:setParent(obj.button6);
+    obj.image7:setAlign("left");
+    obj.image7:setWidth(30);
+    obj.image7:setSRC("/src/assets/dice-six-faces.png");
+    obj.image7:setName("image7");
+
+    obj.label25 = gui.fromHandle(_obj_newObject("label"));
+    obj.label25:setParent(obj.layout12);
+    obj.label25:setAlign("left");
+    obj.label25:setHorzTextAlign("center");
+    obj.label25:setText("Corpo");
+    obj.label25:setWidth(85);
+    obj.label25:setAutoSize(true);
+    obj.label25:setName("label25");
+
+    obj.edit28 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit28:setParent(obj.layout12);
+    obj.edit28:setType("number");
+    obj.edit28:setAlign("left");
+    obj.edit28:setHorzTextAlign("center");
+    obj.edit28:setWidth(30);
+    obj.edit28:setMargins({left=2, right=2});
+    obj.edit28:setField("atributos.corpo.base");
+    obj.edit28:setName("edit28");
+
+    obj.dataLink21 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink21:setParent(obj.layout12);
+    obj.dataLink21:setField("atributos.corpo.base");
+    obj.dataLink21:setName("dataLink21");
+
+    obj.edit29 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit29:setParent(obj.layout12);
+    obj.edit29:setType("number");
+    obj.edit29:setAlign("left");
+    obj.edit29:setHorzTextAlign("center");
+    obj.edit29:setWidth(30);
+    obj.edit29:setMargins({left=2, right=2});
+    obj.edit29:setField("atributos.corpo.racaClasse");
+    obj.edit29:setName("edit29");
+
+    obj.dataLink22 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink22:setParent(obj.layout12);
+    obj.dataLink22:setField("atributos.corpo.racaClasse");
+    obj.dataLink22:setName("dataLink22");
+
+    obj.edit30 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit30:setParent(obj.layout12);
+    obj.edit30:setType("number");
+    obj.edit30:setAlign("left");
+    obj.edit30:setHorzTextAlign("center");
+    obj.edit30:setWidth(30);
+    obj.edit30:setMargins({left=2, right=2});
+    obj.edit30:setField("atributos.corpo.treinamento");
+    obj.edit30:setName("edit30");
+
+    obj.dataLink23 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink23:setParent(obj.layout12);
+    obj.dataLink23:setField("atributos.corpo.treinamento");
+    obj.dataLink23:setName("dataLink23");
+
+    obj.edit31 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit31:setParent(obj.layout12);
+    obj.edit31:setType("number");
+    obj.edit31:setAlign("left");
+    obj.edit31:setHorzTextAlign("center");
+    obj.edit31:setWidth(30);
+    obj.edit31:setMargins({left=2, right=2});
+    obj.edit31:setField("atributos.corpo.habilidade");
+    obj.edit31:setName("edit31");
+
+    obj.dataLink24 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink24:setParent(obj.layout12);
+    obj.dataLink24:setField("atributos.corpo.habilidade");
+    obj.dataLink24:setName("dataLink24");
+
+    obj.label26 = gui.fromHandle(_obj_newObject("label"));
+    obj.label26:setParent(obj.layout12);
+    obj.label26:setAlign("left");
+    obj.label26:setText("=");
+    obj.label26:setWidth(10);
+    obj.label26:setMargins({left=4,right=4});
+    obj.label26:setName("label26");
+
+    obj.label27 = gui.fromHandle(_obj_newObject("label"));
+    obj.label27:setParent(obj.layout12);
+    obj.label27:setAlign("left");
+    obj.label27:setHorzTextAlign("center");
+    obj.label27:setWidth(30);
+    obj.label27:setField("atributos.corpo.total");
+    obj.label27:setName("label27");
+
     obj.layout13 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout13:setParent(obj.layout12);
-    obj.layout13:setTop(40);
-    obj.layout13:setHeight(25);
-    obj.layout13:setWidth(450);
-    obj.layout13:setMargins({left=4,right=4});
+    obj.layout13:setParent(obj.tab2);
+    obj.layout13:setLeft(320);
+    obj.layout13:setWidth(300);
+    obj.layout13:setHeight(400);
     obj.layout13:setName("layout13");
 
+    obj.layout14 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout14:setParent(obj.layout13);
+    obj.layout14:setTop(40);
+    obj.layout14:setHeight(25);
+    obj.layout14:setWidth(450);
+    obj.layout14:setMargins({left=4,right=4});
+    obj.layout14:setName("layout14");
+
     obj.button7 = gui.fromHandle(_obj_newObject("button"));
-    obj.button7:setParent(obj.layout13);
+    obj.button7:setParent(obj.layout14);
     obj.button7:setAlign("left");
     obj.button7:setWidth(30);
     obj.button7:setMargins({right=4});
@@ -905,122 +954,59 @@ function newfrmFichaDoPersonagem()
     obj.image8:setSRC("/src/assets/dice-six-faces.png");
     obj.image8:setName("image8");
 
-    obj.label25 = gui.fromHandle(_obj_newObject("label"));
-    obj.label25:setParent(obj.layout13);
-    obj.label25:setAlign("left");
-    obj.label25:setHorzTextAlign("center");
-    obj.label25:setText("Resistência");
-    obj.label25:setWidth(85);
-    obj.label25:setAutoSize(true);
-    obj.label25:setName("label25");
-
-    obj.edit31 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit31:setParent(obj.layout13);
-    obj.edit31:setType("number");
-    obj.edit31:setAlign("left");
-    obj.edit31:setHorzTextAlign("center");
-    obj.edit31:setWidth(30);
-    obj.edit31:setMargins({left=2, right=2});
-    obj.edit31:setField("atributos.resistencia.base");
-    obj.edit31:setName("edit31");
-
-    obj.dataLink25 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink25:setParent(obj.layout13);
-    obj.dataLink25:setField("atributos.resistencia.base");
-    obj.dataLink25:setName("dataLink25");
+    obj.label28 = gui.fromHandle(_obj_newObject("label"));
+    obj.label28:setParent(obj.layout14);
+    obj.label28:setAlign("left");
+    obj.label28:setHorzTextAlign("center");
+    obj.label28:setText("Resistência");
+    obj.label28:setWidth(85);
+    obj.label28:setAutoSize(true);
+    obj.label28:setName("label28");
 
     obj.edit32 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit32:setParent(obj.layout13);
+    obj.edit32:setParent(obj.layout14);
     obj.edit32:setType("number");
     obj.edit32:setAlign("left");
     obj.edit32:setHorzTextAlign("center");
     obj.edit32:setWidth(30);
     obj.edit32:setMargins({left=2, right=2});
-    obj.edit32:setField("atributos.resistencia.racaClasse");
+    obj.edit32:setField("atributos.resistencia.base");
     obj.edit32:setName("edit32");
 
-    obj.dataLink26 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink26:setParent(obj.layout13);
-    obj.dataLink26:setField("atributos.resistencia.racaClasse");
-    obj.dataLink26:setName("dataLink26");
+    obj.dataLink25 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink25:setParent(obj.layout14);
+    obj.dataLink25:setField("atributos.resistencia.base");
+    obj.dataLink25:setName("dataLink25");
 
     obj.edit33 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit33:setParent(obj.layout13);
+    obj.edit33:setParent(obj.layout14);
     obj.edit33:setType("number");
     obj.edit33:setAlign("left");
     obj.edit33:setHorzTextAlign("center");
     obj.edit33:setWidth(30);
     obj.edit33:setMargins({left=2, right=2});
-    obj.edit33:setField("atributos.resistencia.treinamento");
+    obj.edit33:setField("atributos.resistencia.racaClasse");
     obj.edit33:setName("edit33");
 
-    obj.dataLink27 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink27:setParent(obj.layout13);
-    obj.dataLink27:setField("atributos.resistencia.treinamento");
-    obj.dataLink27:setName("dataLink27");
+    obj.dataLink26 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink26:setParent(obj.layout14);
+    obj.dataLink26:setField("atributos.resistencia.racaClasse");
+    obj.dataLink26:setName("dataLink26");
 
     obj.edit34 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit34:setParent(obj.layout13);
+    obj.edit34:setParent(obj.layout14);
     obj.edit34:setType("number");
     obj.edit34:setAlign("left");
     obj.edit34:setHorzTextAlign("center");
     obj.edit34:setWidth(30);
     obj.edit34:setMargins({left=2, right=2});
-    obj.edit34:setField("atributos.resistencia.habilidade");
+    obj.edit34:setField("atributos.resistencia.treinamento");
     obj.edit34:setName("edit34");
 
-    obj.dataLink28 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink28:setParent(obj.layout13);
-    obj.dataLink28:setField("atributos.resistencia.habilidade");
-    obj.dataLink28:setName("dataLink28");
-
-    obj.label26 = gui.fromHandle(_obj_newObject("label"));
-    obj.label26:setParent(obj.layout13);
-    obj.label26:setAlign("left");
-    obj.label26:setText("=");
-    obj.label26:setWidth(10);
-    obj.label26:setMargins({left=4,right=4});
-    obj.label26:setName("label26");
-
-    obj.label27 = gui.fromHandle(_obj_newObject("label"));
-    obj.label27:setParent(obj.layout13);
-    obj.label27:setAlign("left");
-    obj.label27:setHorzTextAlign("center");
-    obj.label27:setWidth(30);
-    obj.label27:setField("atributos.resistencia.total");
-    obj.label27:setName("label27");
-
-    obj.layout14 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout14:setParent(obj.layout12);
-    obj.layout14:setTop(70);
-    obj.layout14:setHeight(25);
-    obj.layout14:setWidth(450);
-    obj.layout14:setMargins({left=4,right=4});
-    obj.layout14:setName("layout14");
-
-    obj.button8 = gui.fromHandle(_obj_newObject("button"));
-    obj.button8:setParent(obj.layout14);
-    obj.button8:setAlign("left");
-    obj.button8:setWidth(30);
-    obj.button8:setMargins({right=4});
-    obj.button8:setHint("Rolagem de Teste de Atributo");
-    obj.button8:setName("button8");
-
-    obj.image9 = gui.fromHandle(_obj_newObject("image"));
-    obj.image9:setParent(obj.button8);
-    obj.image9:setAlign("left");
-    obj.image9:setWidth(30);
-    obj.image9:setSRC("/src/assets/dice-six-faces.png");
-    obj.image9:setName("image9");
-
-    obj.label28 = gui.fromHandle(_obj_newObject("label"));
-    obj.label28:setParent(obj.layout14);
-    obj.label28:setAlign("left");
-    obj.label28:setHorzTextAlign("center");
-    obj.label28:setText("Velocidade");
-    obj.label28:setWidth(85);
-    obj.label28:setAutoSize(true);
-    obj.label28:setName("label28");
+    obj.dataLink27 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink27:setParent(obj.layout14);
+    obj.dataLink27:setField("atributos.resistencia.treinamento");
+    obj.dataLink27:setName("dataLink27");
 
     obj.edit35 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit35:setParent(obj.layout14);
@@ -1029,58 +1015,13 @@ function newfrmFichaDoPersonagem()
     obj.edit35:setHorzTextAlign("center");
     obj.edit35:setWidth(30);
     obj.edit35:setMargins({left=2, right=2});
-    obj.edit35:setField("atributos.velocidade.base");
+    obj.edit35:setField("atributos.resistencia.habilidade");
     obj.edit35:setName("edit35");
 
-    obj.dataLink29 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink29:setParent(obj.layout14);
-    obj.dataLink29:setField("atributos.velocidade.base");
-    obj.dataLink29:setName("dataLink29");
-
-    obj.edit36 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit36:setParent(obj.layout14);
-    obj.edit36:setType("number");
-    obj.edit36:setAlign("left");
-    obj.edit36:setHorzTextAlign("center");
-    obj.edit36:setWidth(30);
-    obj.edit36:setMargins({left=2, right=2});
-    obj.edit36:setField("atributos.velocidade.racaClasse");
-    obj.edit36:setName("edit36");
-
-    obj.dataLink30 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink30:setParent(obj.layout14);
-    obj.dataLink30:setField("atributos.velocidade.racaClasse");
-    obj.dataLink30:setName("dataLink30");
-
-    obj.edit37 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit37:setParent(obj.layout14);
-    obj.edit37:setType("number");
-    obj.edit37:setAlign("left");
-    obj.edit37:setHorzTextAlign("center");
-    obj.edit37:setWidth(30);
-    obj.edit37:setMargins({left=2, right=2});
-    obj.edit37:setField("atributos.velocidade.treinamento");
-    obj.edit37:setName("edit37");
-
-    obj.dataLink31 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink31:setParent(obj.layout14);
-    obj.dataLink31:setField("atributos.velocidade.treinamento");
-    obj.dataLink31:setName("dataLink31");
-
-    obj.edit38 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit38:setParent(obj.layout14);
-    obj.edit38:setType("number");
-    obj.edit38:setAlign("left");
-    obj.edit38:setHorzTextAlign("center");
-    obj.edit38:setWidth(30);
-    obj.edit38:setMargins({left=2, right=2});
-    obj.edit38:setField("atributos.velocidade.habilidade");
-    obj.edit38:setName("edit38");
-
-    obj.dataLink32 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink32:setParent(obj.layout14);
-    obj.dataLink32:setField("atributos.velocidade.habilidade");
-    obj.dataLink32:setName("dataLink32");
+    obj.dataLink28 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink28:setParent(obj.layout14);
+    obj.dataLink28:setField("atributos.resistencia.habilidade");
+    obj.dataLink28:setName("dataLink28");
 
     obj.label29 = gui.fromHandle(_obj_newObject("label"));
     obj.label29:setParent(obj.layout14);
@@ -1095,40 +1036,85 @@ function newfrmFichaDoPersonagem()
     obj.label30:setAlign("left");
     obj.label30:setHorzTextAlign("center");
     obj.label30:setWidth(30);
-    obj.label30:setField("atributos.velocidade.total");
+    obj.label30:setField("atributos.resistencia.total");
     obj.label30:setName("label30");
 
     obj.layout15 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout15:setParent(obj.layout12);
-    obj.layout15:setTop(100);
+    obj.layout15:setParent(obj.layout13);
+    obj.layout15:setTop(70);
     obj.layout15:setHeight(25);
     obj.layout15:setWidth(450);
     obj.layout15:setMargins({left=4,right=4});
     obj.layout15:setName("layout15");
 
-    obj.button9 = gui.fromHandle(_obj_newObject("button"));
-    obj.button9:setParent(obj.layout15);
-    obj.button9:setAlign("left");
-    obj.button9:setWidth(30);
-    obj.button9:setMargins({right=4});
-    obj.button9:setHint("Rolagem de Teste de Atributo");
-    obj.button9:setName("button9");
+    obj.button8 = gui.fromHandle(_obj_newObject("button"));
+    obj.button8:setParent(obj.layout15);
+    obj.button8:setAlign("left");
+    obj.button8:setWidth(30);
+    obj.button8:setMargins({right=4});
+    obj.button8:setHint("Rolagem de Teste de Atributo");
+    obj.button8:setName("button8");
 
-    obj.image10 = gui.fromHandle(_obj_newObject("image"));
-    obj.image10:setParent(obj.button9);
-    obj.image10:setAlign("left");
-    obj.image10:setWidth(30);
-    obj.image10:setSRC("/src/assets/dice-six-faces.png");
-    obj.image10:setName("image10");
+    obj.image9 = gui.fromHandle(_obj_newObject("image"));
+    obj.image9:setParent(obj.button8);
+    obj.image9:setAlign("left");
+    obj.image9:setWidth(30);
+    obj.image9:setSRC("/src/assets/dice-six-faces.png");
+    obj.image9:setName("image9");
 
     obj.label31 = gui.fromHandle(_obj_newObject("label"));
     obj.label31:setParent(obj.layout15);
     obj.label31:setAlign("left");
     obj.label31:setHorzTextAlign("center");
-    obj.label31:setText("Agilidade");
+    obj.label31:setText("Velocidade");
     obj.label31:setWidth(85);
     obj.label31:setAutoSize(true);
     obj.label31:setName("label31");
+
+    obj.edit36 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit36:setParent(obj.layout15);
+    obj.edit36:setType("number");
+    obj.edit36:setAlign("left");
+    obj.edit36:setHorzTextAlign("center");
+    obj.edit36:setWidth(30);
+    obj.edit36:setMargins({left=2, right=2});
+    obj.edit36:setField("atributos.velocidade.base");
+    obj.edit36:setName("edit36");
+
+    obj.dataLink29 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink29:setParent(obj.layout15);
+    obj.dataLink29:setField("atributos.velocidade.base");
+    obj.dataLink29:setName("dataLink29");
+
+    obj.edit37 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit37:setParent(obj.layout15);
+    obj.edit37:setType("number");
+    obj.edit37:setAlign("left");
+    obj.edit37:setHorzTextAlign("center");
+    obj.edit37:setWidth(30);
+    obj.edit37:setMargins({left=2, right=2});
+    obj.edit37:setField("atributos.velocidade.racaClasse");
+    obj.edit37:setName("edit37");
+
+    obj.dataLink30 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink30:setParent(obj.layout15);
+    obj.dataLink30:setField("atributos.velocidade.racaClasse");
+    obj.dataLink30:setName("dataLink30");
+
+    obj.edit38 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit38:setParent(obj.layout15);
+    obj.edit38:setType("number");
+    obj.edit38:setAlign("left");
+    obj.edit38:setHorzTextAlign("center");
+    obj.edit38:setWidth(30);
+    obj.edit38:setMargins({left=2, right=2});
+    obj.edit38:setField("atributos.velocidade.treinamento");
+    obj.edit38:setName("edit38");
+
+    obj.dataLink31 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink31:setParent(obj.layout15);
+    obj.dataLink31:setField("atributos.velocidade.treinamento");
+    obj.dataLink31:setName("dataLink31");
 
     obj.edit39 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit39:setParent(obj.layout15);
@@ -1137,58 +1123,13 @@ function newfrmFichaDoPersonagem()
     obj.edit39:setHorzTextAlign("center");
     obj.edit39:setWidth(30);
     obj.edit39:setMargins({left=2, right=2});
-    obj.edit39:setField("atributos.agilidade.base");
+    obj.edit39:setField("atributos.velocidade.habilidade");
     obj.edit39:setName("edit39");
 
-    obj.dataLink33 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink33:setParent(obj.layout15);
-    obj.dataLink33:setField("atributos.agilidade.base");
-    obj.dataLink33:setName("dataLink33");
-
-    obj.edit40 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit40:setParent(obj.layout15);
-    obj.edit40:setType("number");
-    obj.edit40:setAlign("left");
-    obj.edit40:setHorzTextAlign("center");
-    obj.edit40:setWidth(30);
-    obj.edit40:setMargins({left=2, right=2});
-    obj.edit40:setField("atributos.agilidade.racaClasse");
-    obj.edit40:setName("edit40");
-
-    obj.dataLink34 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink34:setParent(obj.layout15);
-    obj.dataLink34:setField("atributos.agilidade.racaClasse");
-    obj.dataLink34:setName("dataLink34");
-
-    obj.edit41 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit41:setParent(obj.layout15);
-    obj.edit41:setType("number");
-    obj.edit41:setAlign("left");
-    obj.edit41:setHorzTextAlign("center");
-    obj.edit41:setWidth(30);
-    obj.edit41:setMargins({left=2, right=2});
-    obj.edit41:setField("atributos.agilidade.treinamento");
-    obj.edit41:setName("edit41");
-
-    obj.dataLink35 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink35:setParent(obj.layout15);
-    obj.dataLink35:setField("atributos.agilidade.treinamento");
-    obj.dataLink35:setName("dataLink35");
-
-    obj.edit42 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit42:setParent(obj.layout15);
-    obj.edit42:setType("number");
-    obj.edit42:setAlign("left");
-    obj.edit42:setHorzTextAlign("center");
-    obj.edit42:setWidth(30);
-    obj.edit42:setMargins({left=2, right=2});
-    obj.edit42:setField("atributos.agilidade.habilidade");
-    obj.edit42:setName("edit42");
-
-    obj.dataLink36 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink36:setParent(obj.layout15);
-    obj.dataLink36:setField("atributos.agilidade.habilidade");
-    obj.dataLink36:setName("dataLink36");
+    obj.dataLink32 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink32:setParent(obj.layout15);
+    obj.dataLink32:setField("atributos.velocidade.habilidade");
+    obj.dataLink32:setName("dataLink32");
 
     obj.label32 = gui.fromHandle(_obj_newObject("label"));
     obj.label32:setParent(obj.layout15);
@@ -1203,40 +1144,85 @@ function newfrmFichaDoPersonagem()
     obj.label33:setAlign("left");
     obj.label33:setHorzTextAlign("center");
     obj.label33:setWidth(30);
-    obj.label33:setField("atributos.agilidade.total");
+    obj.label33:setField("atributos.velocidade.total");
     obj.label33:setName("label33");
 
     obj.layout16 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout16:setParent(obj.layout12);
-    obj.layout16:setTop(130);
+    obj.layout16:setParent(obj.layout13);
+    obj.layout16:setTop(100);
     obj.layout16:setHeight(25);
     obj.layout16:setWidth(450);
     obj.layout16:setMargins({left=4,right=4});
     obj.layout16:setName("layout16");
 
-    obj.button10 = gui.fromHandle(_obj_newObject("button"));
-    obj.button10:setParent(obj.layout16);
-    obj.button10:setAlign("left");
-    obj.button10:setWidth(30);
-    obj.button10:setMargins({right=4});
-    obj.button10:setHint("Rolagem de Teste de Atributo");
-    obj.button10:setName("button10");
+    obj.button9 = gui.fromHandle(_obj_newObject("button"));
+    obj.button9:setParent(obj.layout16);
+    obj.button9:setAlign("left");
+    obj.button9:setWidth(30);
+    obj.button9:setMargins({right=4});
+    obj.button9:setHint("Rolagem de Teste de Atributo");
+    obj.button9:setName("button9");
 
-    obj.image11 = gui.fromHandle(_obj_newObject("image"));
-    obj.image11:setParent(obj.button10);
-    obj.image11:setAlign("left");
-    obj.image11:setWidth(30);
-    obj.image11:setSRC("/src/assets/dice-six-faces.png");
-    obj.image11:setName("image11");
+    obj.image10 = gui.fromHandle(_obj_newObject("image"));
+    obj.image10:setParent(obj.button9);
+    obj.image10:setAlign("left");
+    obj.image10:setWidth(30);
+    obj.image10:setSRC("/src/assets/dice-six-faces.png");
+    obj.image10:setName("image10");
 
     obj.label34 = gui.fromHandle(_obj_newObject("label"));
     obj.label34:setParent(obj.layout16);
     obj.label34:setAlign("left");
     obj.label34:setHorzTextAlign("center");
-    obj.label34:setText("Destreza");
+    obj.label34:setText("Agilidade");
     obj.label34:setWidth(85);
     obj.label34:setAutoSize(true);
     obj.label34:setName("label34");
+
+    obj.edit40 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit40:setParent(obj.layout16);
+    obj.edit40:setType("number");
+    obj.edit40:setAlign("left");
+    obj.edit40:setHorzTextAlign("center");
+    obj.edit40:setWidth(30);
+    obj.edit40:setMargins({left=2, right=2});
+    obj.edit40:setField("atributos.agilidade.base");
+    obj.edit40:setName("edit40");
+
+    obj.dataLink33 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink33:setParent(obj.layout16);
+    obj.dataLink33:setField("atributos.agilidade.base");
+    obj.dataLink33:setName("dataLink33");
+
+    obj.edit41 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit41:setParent(obj.layout16);
+    obj.edit41:setType("number");
+    obj.edit41:setAlign("left");
+    obj.edit41:setHorzTextAlign("center");
+    obj.edit41:setWidth(30);
+    obj.edit41:setMargins({left=2, right=2});
+    obj.edit41:setField("atributos.agilidade.racaClasse");
+    obj.edit41:setName("edit41");
+
+    obj.dataLink34 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink34:setParent(obj.layout16);
+    obj.dataLink34:setField("atributos.agilidade.racaClasse");
+    obj.dataLink34:setName("dataLink34");
+
+    obj.edit42 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit42:setParent(obj.layout16);
+    obj.edit42:setType("number");
+    obj.edit42:setAlign("left");
+    obj.edit42:setHorzTextAlign("center");
+    obj.edit42:setWidth(30);
+    obj.edit42:setMargins({left=2, right=2});
+    obj.edit42:setField("atributos.agilidade.treinamento");
+    obj.edit42:setName("edit42");
+
+    obj.dataLink35 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink35:setParent(obj.layout16);
+    obj.dataLink35:setField("atributos.agilidade.treinamento");
+    obj.dataLink35:setName("dataLink35");
 
     obj.edit43 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit43:setParent(obj.layout16);
@@ -1245,58 +1231,13 @@ function newfrmFichaDoPersonagem()
     obj.edit43:setHorzTextAlign("center");
     obj.edit43:setWidth(30);
     obj.edit43:setMargins({left=2, right=2});
-    obj.edit43:setField("atributos.destreza.base");
+    obj.edit43:setField("atributos.agilidade.habilidade");
     obj.edit43:setName("edit43");
 
-    obj.dataLink37 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink37:setParent(obj.layout16);
-    obj.dataLink37:setField("atributos.destreza.base");
-    obj.dataLink37:setName("dataLink37");
-
-    obj.edit44 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit44:setParent(obj.layout16);
-    obj.edit44:setType("number");
-    obj.edit44:setAlign("left");
-    obj.edit44:setHorzTextAlign("center");
-    obj.edit44:setWidth(30);
-    obj.edit44:setMargins({left=2, right=2});
-    obj.edit44:setField("atributos.destreza.racaClasse");
-    obj.edit44:setName("edit44");
-
-    obj.dataLink38 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink38:setParent(obj.layout16);
-    obj.dataLink38:setField("atributos.destreza.racaClasse");
-    obj.dataLink38:setName("dataLink38");
-
-    obj.edit45 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit45:setParent(obj.layout16);
-    obj.edit45:setType("number");
-    obj.edit45:setAlign("left");
-    obj.edit45:setHorzTextAlign("center");
-    obj.edit45:setWidth(30);
-    obj.edit45:setMargins({left=2, right=2});
-    obj.edit45:setField("atributos.destreza.treinamento");
-    obj.edit45:setName("edit45");
-
-    obj.dataLink39 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink39:setParent(obj.layout16);
-    obj.dataLink39:setField("atributos.destreza.treinamento");
-    obj.dataLink39:setName("dataLink39");
-
-    obj.edit46 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit46:setParent(obj.layout16);
-    obj.edit46:setType("number");
-    obj.edit46:setAlign("left");
-    obj.edit46:setHorzTextAlign("center");
-    obj.edit46:setWidth(30);
-    obj.edit46:setMargins({left=2, right=2});
-    obj.edit46:setField("atributos.destreza.habilidade");
-    obj.edit46:setName("edit46");
-
-    obj.dataLink40 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink40:setParent(obj.layout16);
-    obj.dataLink40:setField("atributos.destreza.habilidade");
-    obj.dataLink40:setName("dataLink40");
+    obj.dataLink36 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink36:setParent(obj.layout16);
+    obj.dataLink36:setField("atributos.agilidade.habilidade");
+    obj.dataLink36:setName("dataLink36");
 
     obj.label35 = gui.fromHandle(_obj_newObject("label"));
     obj.label35:setParent(obj.layout16);
@@ -1311,40 +1252,85 @@ function newfrmFichaDoPersonagem()
     obj.label36:setAlign("left");
     obj.label36:setHorzTextAlign("center");
     obj.label36:setWidth(30);
-    obj.label36:setField("atributos.destreza.total");
+    obj.label36:setField("atributos.agilidade.total");
     obj.label36:setName("label36");
 
     obj.layout17 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout17:setParent(obj.layout12);
-    obj.layout17:setTop(160);
+    obj.layout17:setParent(obj.layout13);
+    obj.layout17:setTop(130);
     obj.layout17:setHeight(25);
     obj.layout17:setWidth(450);
     obj.layout17:setMargins({left=4,right=4});
     obj.layout17:setName("layout17");
 
-    obj.button11 = gui.fromHandle(_obj_newObject("button"));
-    obj.button11:setParent(obj.layout17);
-    obj.button11:setAlign("left");
-    obj.button11:setWidth(30);
-    obj.button11:setMargins({right=4});
-    obj.button11:setHint("Rolagem de Teste de Atributo");
-    obj.button11:setName("button11");
+    obj.button10 = gui.fromHandle(_obj_newObject("button"));
+    obj.button10:setParent(obj.layout17);
+    obj.button10:setAlign("left");
+    obj.button10:setWidth(30);
+    obj.button10:setMargins({right=4});
+    obj.button10:setHint("Rolagem de Teste de Atributo");
+    obj.button10:setName("button10");
 
-    obj.image12 = gui.fromHandle(_obj_newObject("image"));
-    obj.image12:setParent(obj.button11);
-    obj.image12:setAlign("left");
-    obj.image12:setWidth(30);
-    obj.image12:setSRC("/src/assets/dice-six-faces.png");
-    obj.image12:setName("image12");
+    obj.image11 = gui.fromHandle(_obj_newObject("image"));
+    obj.image11:setParent(obj.button10);
+    obj.image11:setAlign("left");
+    obj.image11:setWidth(30);
+    obj.image11:setSRC("/src/assets/dice-six-faces.png");
+    obj.image11:setName("image11");
 
     obj.label37 = gui.fromHandle(_obj_newObject("label"));
     obj.label37:setParent(obj.layout17);
     obj.label37:setAlign("left");
     obj.label37:setHorzTextAlign("center");
-    obj.label37:setText("Força");
+    obj.label37:setText("Destreza");
     obj.label37:setWidth(85);
     obj.label37:setAutoSize(true);
     obj.label37:setName("label37");
+
+    obj.edit44 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit44:setParent(obj.layout17);
+    obj.edit44:setType("number");
+    obj.edit44:setAlign("left");
+    obj.edit44:setHorzTextAlign("center");
+    obj.edit44:setWidth(30);
+    obj.edit44:setMargins({left=2, right=2});
+    obj.edit44:setField("atributos.destreza.base");
+    obj.edit44:setName("edit44");
+
+    obj.dataLink37 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink37:setParent(obj.layout17);
+    obj.dataLink37:setField("atributos.destreza.base");
+    obj.dataLink37:setName("dataLink37");
+
+    obj.edit45 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit45:setParent(obj.layout17);
+    obj.edit45:setType("number");
+    obj.edit45:setAlign("left");
+    obj.edit45:setHorzTextAlign("center");
+    obj.edit45:setWidth(30);
+    obj.edit45:setMargins({left=2, right=2});
+    obj.edit45:setField("atributos.destreza.racaClasse");
+    obj.edit45:setName("edit45");
+
+    obj.dataLink38 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink38:setParent(obj.layout17);
+    obj.dataLink38:setField("atributos.destreza.racaClasse");
+    obj.dataLink38:setName("dataLink38");
+
+    obj.edit46 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit46:setParent(obj.layout17);
+    obj.edit46:setType("number");
+    obj.edit46:setAlign("left");
+    obj.edit46:setHorzTextAlign("center");
+    obj.edit46:setWidth(30);
+    obj.edit46:setMargins({left=2, right=2});
+    obj.edit46:setField("atributos.destreza.treinamento");
+    obj.edit46:setName("edit46");
+
+    obj.dataLink39 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink39:setParent(obj.layout17);
+    obj.dataLink39:setField("atributos.destreza.treinamento");
+    obj.dataLink39:setName("dataLink39");
 
     obj.edit47 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit47:setParent(obj.layout17);
@@ -1353,58 +1339,13 @@ function newfrmFichaDoPersonagem()
     obj.edit47:setHorzTextAlign("center");
     obj.edit47:setWidth(30);
     obj.edit47:setMargins({left=2, right=2});
-    obj.edit47:setField("atributos.forca.base");
+    obj.edit47:setField("atributos.destreza.habilidade");
     obj.edit47:setName("edit47");
 
-    obj.dataLink41 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink41:setParent(obj.layout17);
-    obj.dataLink41:setField("atributos.forca.base");
-    obj.dataLink41:setName("dataLink41");
-
-    obj.edit48 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit48:setParent(obj.layout17);
-    obj.edit48:setType("number");
-    obj.edit48:setAlign("left");
-    obj.edit48:setHorzTextAlign("center");
-    obj.edit48:setWidth(30);
-    obj.edit48:setMargins({left=2, right=2});
-    obj.edit48:setField("atributos.forca.racaClasse");
-    obj.edit48:setName("edit48");
-
-    obj.dataLink42 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink42:setParent(obj.layout17);
-    obj.dataLink42:setField("atributos.forca.racaClasse");
-    obj.dataLink42:setName("dataLink42");
-
-    obj.edit49 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit49:setParent(obj.layout17);
-    obj.edit49:setType("number");
-    obj.edit49:setAlign("left");
-    obj.edit49:setHorzTextAlign("center");
-    obj.edit49:setWidth(30);
-    obj.edit49:setMargins({left=2, right=2});
-    obj.edit49:setField("atributos.forca.treinamento");
-    obj.edit49:setName("edit49");
-
-    obj.dataLink43 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink43:setParent(obj.layout17);
-    obj.dataLink43:setField("atributos.forca.treinamento");
-    obj.dataLink43:setName("dataLink43");
-
-    obj.edit50 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit50:setParent(obj.layout17);
-    obj.edit50:setType("number");
-    obj.edit50:setAlign("left");
-    obj.edit50:setHorzTextAlign("center");
-    obj.edit50:setWidth(30);
-    obj.edit50:setMargins({left=2, right=2});
-    obj.edit50:setField("atributos.forca.habilidade");
-    obj.edit50:setName("edit50");
-
-    obj.dataLink44 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink44:setParent(obj.layout17);
-    obj.dataLink44:setField("atributos.forca.habilidade");
-    obj.dataLink44:setName("dataLink44");
+    obj.dataLink40 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink40:setParent(obj.layout17);
+    obj.dataLink40:setField("atributos.destreza.habilidade");
+    obj.dataLink40:setName("dataLink40");
 
     obj.label38 = gui.fromHandle(_obj_newObject("label"));
     obj.label38:setParent(obj.layout17);
@@ -1419,40 +1360,85 @@ function newfrmFichaDoPersonagem()
     obj.label39:setAlign("left");
     obj.label39:setHorzTextAlign("center");
     obj.label39:setWidth(30);
-    obj.label39:setField("atributos.forca.total");
+    obj.label39:setField("atributos.destreza.total");
     obj.label39:setName("label39");
 
     obj.layout18 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout18:setParent(obj.layout12);
-    obj.layout18:setTop(190);
+    obj.layout18:setParent(obj.layout13);
+    obj.layout18:setTop(160);
     obj.layout18:setHeight(25);
     obj.layout18:setWidth(450);
     obj.layout18:setMargins({left=4,right=4});
     obj.layout18:setName("layout18");
 
-    obj.button12 = gui.fromHandle(_obj_newObject("button"));
-    obj.button12:setParent(obj.layout18);
-    obj.button12:setAlign("left");
-    obj.button12:setWidth(30);
-    obj.button12:setMargins({right=4});
-    obj.button12:setHint("Rolagem de Teste de Atributo");
-    obj.button12:setName("button12");
+    obj.button11 = gui.fromHandle(_obj_newObject("button"));
+    obj.button11:setParent(obj.layout18);
+    obj.button11:setAlign("left");
+    obj.button11:setWidth(30);
+    obj.button11:setMargins({right=4});
+    obj.button11:setHint("Rolagem de Teste de Atributo");
+    obj.button11:setName("button11");
 
-    obj.image13 = gui.fromHandle(_obj_newObject("image"));
-    obj.image13:setParent(obj.button12);
-    obj.image13:setAlign("left");
-    obj.image13:setWidth(30);
-    obj.image13:setSRC("/src/assets/dice-six-faces.png");
-    obj.image13:setName("image13");
+    obj.image12 = gui.fromHandle(_obj_newObject("image"));
+    obj.image12:setParent(obj.button11);
+    obj.image12:setAlign("left");
+    obj.image12:setWidth(30);
+    obj.image12:setSRC("/src/assets/dice-six-faces.png");
+    obj.image12:setName("image12");
 
     obj.label40 = gui.fromHandle(_obj_newObject("label"));
     obj.label40:setParent(obj.layout18);
     obj.label40:setAlign("left");
     obj.label40:setHorzTextAlign("center");
-    obj.label40:setText("Vigor");
+    obj.label40:setText("Força");
     obj.label40:setWidth(85);
     obj.label40:setAutoSize(true);
     obj.label40:setName("label40");
+
+    obj.edit48 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit48:setParent(obj.layout18);
+    obj.edit48:setType("number");
+    obj.edit48:setAlign("left");
+    obj.edit48:setHorzTextAlign("center");
+    obj.edit48:setWidth(30);
+    obj.edit48:setMargins({left=2, right=2});
+    obj.edit48:setField("atributos.forca.base");
+    obj.edit48:setName("edit48");
+
+    obj.dataLink41 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink41:setParent(obj.layout18);
+    obj.dataLink41:setField("atributos.forca.base");
+    obj.dataLink41:setName("dataLink41");
+
+    obj.edit49 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit49:setParent(obj.layout18);
+    obj.edit49:setType("number");
+    obj.edit49:setAlign("left");
+    obj.edit49:setHorzTextAlign("center");
+    obj.edit49:setWidth(30);
+    obj.edit49:setMargins({left=2, right=2});
+    obj.edit49:setField("atributos.forca.racaClasse");
+    obj.edit49:setName("edit49");
+
+    obj.dataLink42 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink42:setParent(obj.layout18);
+    obj.dataLink42:setField("atributos.forca.racaClasse");
+    obj.dataLink42:setName("dataLink42");
+
+    obj.edit50 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit50:setParent(obj.layout18);
+    obj.edit50:setType("number");
+    obj.edit50:setAlign("left");
+    obj.edit50:setHorzTextAlign("center");
+    obj.edit50:setWidth(30);
+    obj.edit50:setMargins({left=2, right=2});
+    obj.edit50:setField("atributos.forca.treinamento");
+    obj.edit50:setName("edit50");
+
+    obj.dataLink43 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink43:setParent(obj.layout18);
+    obj.dataLink43:setField("atributos.forca.treinamento");
+    obj.dataLink43:setName("dataLink43");
 
     obj.edit51 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit51:setParent(obj.layout18);
@@ -1461,58 +1447,13 @@ function newfrmFichaDoPersonagem()
     obj.edit51:setHorzTextAlign("center");
     obj.edit51:setWidth(30);
     obj.edit51:setMargins({left=2, right=2});
-    obj.edit51:setField("atributos.vigor.base");
+    obj.edit51:setField("atributos.forca.habilidade");
     obj.edit51:setName("edit51");
 
-    obj.dataLink45 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink45:setParent(obj.layout18);
-    obj.dataLink45:setField("atributos.vigor.base");
-    obj.dataLink45:setName("dataLink45");
-
-    obj.edit52 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit52:setParent(obj.layout18);
-    obj.edit52:setType("number");
-    obj.edit52:setAlign("left");
-    obj.edit52:setHorzTextAlign("center");
-    obj.edit52:setWidth(30);
-    obj.edit52:setMargins({left=2, right=2});
-    obj.edit52:setField("atributos.vigor.racaClasse");
-    obj.edit52:setName("edit52");
-
-    obj.dataLink46 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink46:setParent(obj.layout18);
-    obj.dataLink46:setField("atributos.vigor.racaClasse");
-    obj.dataLink46:setName("dataLink46");
-
-    obj.edit53 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit53:setParent(obj.layout18);
-    obj.edit53:setType("number");
-    obj.edit53:setAlign("left");
-    obj.edit53:setHorzTextAlign("center");
-    obj.edit53:setWidth(30);
-    obj.edit53:setMargins({left=2, right=2});
-    obj.edit53:setField("atributos.vigor.treinamento");
-    obj.edit53:setName("edit53");
-
-    obj.dataLink47 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink47:setParent(obj.layout18);
-    obj.dataLink47:setField("atributos.vigor.treinamento");
-    obj.dataLink47:setName("dataLink47");
-
-    obj.edit54 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit54:setParent(obj.layout18);
-    obj.edit54:setType("number");
-    obj.edit54:setAlign("left");
-    obj.edit54:setHorzTextAlign("center");
-    obj.edit54:setWidth(30);
-    obj.edit54:setMargins({left=2, right=2});
-    obj.edit54:setField("atributos.vigor.habilidade");
-    obj.edit54:setName("edit54");
-
-    obj.dataLink48 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink48:setParent(obj.layout18);
-    obj.dataLink48:setField("atributos.vigor.habilidade");
-    obj.dataLink48:setName("dataLink48");
+    obj.dataLink44 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink44:setParent(obj.layout18);
+    obj.dataLink44:setField("atributos.forca.habilidade");
+    obj.dataLink44:setName("dataLink44");
 
     obj.label41 = gui.fromHandle(_obj_newObject("label"));
     obj.label41:setParent(obj.layout18);
@@ -1527,8 +1468,116 @@ function newfrmFichaDoPersonagem()
     obj.label42:setAlign("left");
     obj.label42:setHorzTextAlign("center");
     obj.label42:setWidth(30);
-    obj.label42:setField("atributos.vigor.total");
+    obj.label42:setField("atributos.forca.total");
     obj.label42:setName("label42");
+
+    obj.layout19 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout19:setParent(obj.layout13);
+    obj.layout19:setTop(190);
+    obj.layout19:setHeight(25);
+    obj.layout19:setWidth(450);
+    obj.layout19:setMargins({left=4,right=4});
+    obj.layout19:setName("layout19");
+
+    obj.button12 = gui.fromHandle(_obj_newObject("button"));
+    obj.button12:setParent(obj.layout19);
+    obj.button12:setAlign("left");
+    obj.button12:setWidth(30);
+    obj.button12:setMargins({right=4});
+    obj.button12:setHint("Rolagem de Teste de Atributo");
+    obj.button12:setName("button12");
+
+    obj.image13 = gui.fromHandle(_obj_newObject("image"));
+    obj.image13:setParent(obj.button12);
+    obj.image13:setAlign("left");
+    obj.image13:setWidth(30);
+    obj.image13:setSRC("/src/assets/dice-six-faces.png");
+    obj.image13:setName("image13");
+
+    obj.label43 = gui.fromHandle(_obj_newObject("label"));
+    obj.label43:setParent(obj.layout19);
+    obj.label43:setAlign("left");
+    obj.label43:setHorzTextAlign("center");
+    obj.label43:setText("Vigor");
+    obj.label43:setWidth(85);
+    obj.label43:setAutoSize(true);
+    obj.label43:setName("label43");
+
+    obj.edit52 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit52:setParent(obj.layout19);
+    obj.edit52:setType("number");
+    obj.edit52:setAlign("left");
+    obj.edit52:setHorzTextAlign("center");
+    obj.edit52:setWidth(30);
+    obj.edit52:setMargins({left=2, right=2});
+    obj.edit52:setField("atributos.vigor.base");
+    obj.edit52:setName("edit52");
+
+    obj.dataLink45 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink45:setParent(obj.layout19);
+    obj.dataLink45:setField("atributos.vigor.base");
+    obj.dataLink45:setName("dataLink45");
+
+    obj.edit53 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit53:setParent(obj.layout19);
+    obj.edit53:setType("number");
+    obj.edit53:setAlign("left");
+    obj.edit53:setHorzTextAlign("center");
+    obj.edit53:setWidth(30);
+    obj.edit53:setMargins({left=2, right=2});
+    obj.edit53:setField("atributos.vigor.racaClasse");
+    obj.edit53:setName("edit53");
+
+    obj.dataLink46 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink46:setParent(obj.layout19);
+    obj.dataLink46:setField("atributos.vigor.racaClasse");
+    obj.dataLink46:setName("dataLink46");
+
+    obj.edit54 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit54:setParent(obj.layout19);
+    obj.edit54:setType("number");
+    obj.edit54:setAlign("left");
+    obj.edit54:setHorzTextAlign("center");
+    obj.edit54:setWidth(30);
+    obj.edit54:setMargins({left=2, right=2});
+    obj.edit54:setField("atributos.vigor.treinamento");
+    obj.edit54:setName("edit54");
+
+    obj.dataLink47 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink47:setParent(obj.layout19);
+    obj.dataLink47:setField("atributos.vigor.treinamento");
+    obj.dataLink47:setName("dataLink47");
+
+    obj.edit55 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit55:setParent(obj.layout19);
+    obj.edit55:setType("number");
+    obj.edit55:setAlign("left");
+    obj.edit55:setHorzTextAlign("center");
+    obj.edit55:setWidth(30);
+    obj.edit55:setMargins({left=2, right=2});
+    obj.edit55:setField("atributos.vigor.habilidade");
+    obj.edit55:setName("edit55");
+
+    obj.dataLink48 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink48:setParent(obj.layout19);
+    obj.dataLink48:setField("atributos.vigor.habilidade");
+    obj.dataLink48:setName("dataLink48");
+
+    obj.label44 = gui.fromHandle(_obj_newObject("label"));
+    obj.label44:setParent(obj.layout19);
+    obj.label44:setAlign("left");
+    obj.label44:setText("=");
+    obj.label44:setWidth(10);
+    obj.label44:setMargins({left=4,right=4});
+    obj.label44:setName("label44");
+
+    obj.label45 = gui.fromHandle(_obj_newObject("label"));
+    obj.label45:setParent(obj.layout19);
+    obj.label45:setAlign("left");
+    obj.label45:setHorzTextAlign("center");
+    obj.label45:setWidth(30);
+    obj.label45:setField("atributos.vigor.total");
+    obj.label45:setName("label45");
 
     obj.tab3 = gui.fromHandle(_obj_newObject("tab"));
     obj.tab3:setParent(obj.tabControl1);
@@ -1543,23 +1592,23 @@ function newfrmFichaDoPersonagem()
     obj.textTotalSentidos:setText("PONTOS: (CORPO * 3) = 0");
     obj.textTotalSentidos:setWidth(180);
 
-    obj.layout19 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout19:setParent(obj.tab3);
-    obj.layout19:setLeft(20);
-    obj.layout19:setWidth(300);
-    obj.layout19:setHeight(400);
-    obj.layout19:setName("layout19");
-
     obj.layout20 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout20:setParent(obj.layout19);
-    obj.layout20:setTop(40);
-    obj.layout20:setHeight(25);
-    obj.layout20:setWidth(450);
-    obj.layout20:setMargins({left=4,right=4});
+    obj.layout20:setParent(obj.tab3);
+    obj.layout20:setLeft(20);
+    obj.layout20:setWidth(300);
+    obj.layout20:setHeight(400);
     obj.layout20:setName("layout20");
 
+    obj.layout21 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout21:setParent(obj.layout20);
+    obj.layout21:setTop(40);
+    obj.layout21:setHeight(25);
+    obj.layout21:setWidth(450);
+    obj.layout21:setMargins({left=4,right=4});
+    obj.layout21:setName("layout21");
+
     obj.button13 = gui.fromHandle(_obj_newObject("button"));
-    obj.button13:setParent(obj.layout20);
+    obj.button13:setParent(obj.layout21);
     obj.button13:setAlign("left");
     obj.button13:setWidth(30);
     obj.button13:setMargins({right=4});
@@ -1573,122 +1622,59 @@ function newfrmFichaDoPersonagem()
     obj.image14:setSRC("/src/assets/dice-six-faces.png");
     obj.image14:setName("image14");
 
-    obj.label43 = gui.fromHandle(_obj_newObject("label"));
-    obj.label43:setParent(obj.layout20);
-    obj.label43:setAlign("left");
-    obj.label43:setHorzTextAlign("center");
-    obj.label43:setText("Sexto Sentido");
-    obj.label43:setWidth(85);
-    obj.label43:setAutoSize(true);
-    obj.label43:setName("label43");
-
-    obj.edit55 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit55:setParent(obj.layout20);
-    obj.edit55:setType("number");
-    obj.edit55:setAlign("left");
-    obj.edit55:setHorzTextAlign("center");
-    obj.edit55:setWidth(30);
-    obj.edit55:setMargins({left=2, right=2});
-    obj.edit55:setField("sentidos.sextoSentido.base");
-    obj.edit55:setName("edit55");
-
-    obj.dataLink49 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink49:setParent(obj.layout20);
-    obj.dataLink49:setField("sentidos.sextoSentido.base");
-    obj.dataLink49:setName("dataLink49");
+    obj.label46 = gui.fromHandle(_obj_newObject("label"));
+    obj.label46:setParent(obj.layout21);
+    obj.label46:setAlign("left");
+    obj.label46:setHorzTextAlign("center");
+    obj.label46:setText("Sexto Sentido");
+    obj.label46:setWidth(85);
+    obj.label46:setAutoSize(true);
+    obj.label46:setName("label46");
 
     obj.edit56 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit56:setParent(obj.layout20);
+    obj.edit56:setParent(obj.layout21);
     obj.edit56:setType("number");
     obj.edit56:setAlign("left");
     obj.edit56:setHorzTextAlign("center");
     obj.edit56:setWidth(30);
     obj.edit56:setMargins({left=2, right=2});
-    obj.edit56:setField("sentidos.sextoSentido.racaClasse");
+    obj.edit56:setField("sentidos.sextoSentido.base");
     obj.edit56:setName("edit56");
 
-    obj.dataLink50 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink50:setParent(obj.layout20);
-    obj.dataLink50:setField("sentidos.sextoSentido.racaClasse");
-    obj.dataLink50:setName("dataLink50");
+    obj.dataLink49 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink49:setParent(obj.layout21);
+    obj.dataLink49:setField("sentidos.sextoSentido.base");
+    obj.dataLink49:setName("dataLink49");
 
     obj.edit57 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit57:setParent(obj.layout20);
+    obj.edit57:setParent(obj.layout21);
     obj.edit57:setType("number");
     obj.edit57:setAlign("left");
     obj.edit57:setHorzTextAlign("center");
     obj.edit57:setWidth(30);
     obj.edit57:setMargins({left=2, right=2});
-    obj.edit57:setField("sentidos.sextoSentido.treinamento");
+    obj.edit57:setField("sentidos.sextoSentido.racaClasse");
     obj.edit57:setName("edit57");
 
-    obj.dataLink51 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink51:setParent(obj.layout20);
-    obj.dataLink51:setField("sentidos.sextoSentido.treinamento");
-    obj.dataLink51:setName("dataLink51");
+    obj.dataLink50 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink50:setParent(obj.layout21);
+    obj.dataLink50:setField("sentidos.sextoSentido.racaClasse");
+    obj.dataLink50:setName("dataLink50");
 
     obj.edit58 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit58:setParent(obj.layout20);
+    obj.edit58:setParent(obj.layout21);
     obj.edit58:setType("number");
     obj.edit58:setAlign("left");
     obj.edit58:setHorzTextAlign("center");
     obj.edit58:setWidth(30);
     obj.edit58:setMargins({left=2, right=2});
-    obj.edit58:setField("sentidos.sextoSentido.habilidade");
+    obj.edit58:setField("sentidos.sextoSentido.treinamento");
     obj.edit58:setName("edit58");
 
-    obj.dataLink52 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink52:setParent(obj.layout20);
-    obj.dataLink52:setField("sentidos.sextoSentido.habilidade");
-    obj.dataLink52:setName("dataLink52");
-
-    obj.label44 = gui.fromHandle(_obj_newObject("label"));
-    obj.label44:setParent(obj.layout20);
-    obj.label44:setAlign("left");
-    obj.label44:setText("=");
-    obj.label44:setWidth(10);
-    obj.label44:setMargins({left=4,right=4});
-    obj.label44:setName("label44");
-
-    obj.label45 = gui.fromHandle(_obj_newObject("label"));
-    obj.label45:setParent(obj.layout20);
-    obj.label45:setAlign("left");
-    obj.label45:setHorzTextAlign("center");
-    obj.label45:setWidth(30);
-    obj.label45:setField("sentidos.sextoSentido.total");
-    obj.label45:setName("label45");
-
-    obj.layout21 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout21:setParent(obj.layout19);
-    obj.layout21:setTop(70);
-    obj.layout21:setHeight(25);
-    obj.layout21:setWidth(450);
-    obj.layout21:setMargins({left=4,right=4});
-    obj.layout21:setName("layout21");
-
-    obj.button14 = gui.fromHandle(_obj_newObject("button"));
-    obj.button14:setParent(obj.layout21);
-    obj.button14:setAlign("left");
-    obj.button14:setWidth(30);
-    obj.button14:setMargins({right=4});
-    obj.button14:setHint("Rolagem de Teste de Sentido");
-    obj.button14:setName("button14");
-
-    obj.image15 = gui.fromHandle(_obj_newObject("image"));
-    obj.image15:setParent(obj.button14);
-    obj.image15:setAlign("left");
-    obj.image15:setWidth(30);
-    obj.image15:setSRC("/src/assets/dice-six-faces.png");
-    obj.image15:setName("image15");
-
-    obj.label46 = gui.fromHandle(_obj_newObject("label"));
-    obj.label46:setParent(obj.layout21);
-    obj.label46:setAlign("left");
-    obj.label46:setHorzTextAlign("center");
-    obj.label46:setText("Audição");
-    obj.label46:setWidth(85);
-    obj.label46:setAutoSize(true);
-    obj.label46:setName("label46");
+    obj.dataLink51 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink51:setParent(obj.layout21);
+    obj.dataLink51:setField("sentidos.sextoSentido.treinamento");
+    obj.dataLink51:setName("dataLink51");
 
     obj.edit59 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit59:setParent(obj.layout21);
@@ -1697,58 +1683,13 @@ function newfrmFichaDoPersonagem()
     obj.edit59:setHorzTextAlign("center");
     obj.edit59:setWidth(30);
     obj.edit59:setMargins({left=2, right=2});
-    obj.edit59:setField("sentidos.audicao.base");
+    obj.edit59:setField("sentidos.sextoSentido.habilidade");
     obj.edit59:setName("edit59");
 
-    obj.dataLink53 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink53:setParent(obj.layout21);
-    obj.dataLink53:setField("sentidos.audicao.base");
-    obj.dataLink53:setName("dataLink53");
-
-    obj.edit60 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit60:setParent(obj.layout21);
-    obj.edit60:setType("number");
-    obj.edit60:setAlign("left");
-    obj.edit60:setHorzTextAlign("center");
-    obj.edit60:setWidth(30);
-    obj.edit60:setMargins({left=2, right=2});
-    obj.edit60:setField("sentidos.audicao.racaClasse");
-    obj.edit60:setName("edit60");
-
-    obj.dataLink54 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink54:setParent(obj.layout21);
-    obj.dataLink54:setField("sentidos.audicao.racaClasse");
-    obj.dataLink54:setName("dataLink54");
-
-    obj.edit61 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit61:setParent(obj.layout21);
-    obj.edit61:setType("number");
-    obj.edit61:setAlign("left");
-    obj.edit61:setHorzTextAlign("center");
-    obj.edit61:setWidth(30);
-    obj.edit61:setMargins({left=2, right=2});
-    obj.edit61:setField("sentidos.audicao.treinamento");
-    obj.edit61:setName("edit61");
-
-    obj.dataLink55 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink55:setParent(obj.layout21);
-    obj.dataLink55:setField("sentidos.audicao.treinamento");
-    obj.dataLink55:setName("dataLink55");
-
-    obj.edit62 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit62:setParent(obj.layout21);
-    obj.edit62:setType("number");
-    obj.edit62:setAlign("left");
-    obj.edit62:setHorzTextAlign("center");
-    obj.edit62:setWidth(30);
-    obj.edit62:setMargins({left=2, right=2});
-    obj.edit62:setField("sentidos.audicao.habilidade");
-    obj.edit62:setName("edit62");
-
-    obj.dataLink56 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink56:setParent(obj.layout21);
-    obj.dataLink56:setField("sentidos.audicao.habilidade");
-    obj.dataLink56:setName("dataLink56");
+    obj.dataLink52 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink52:setParent(obj.layout21);
+    obj.dataLink52:setField("sentidos.sextoSentido.habilidade");
+    obj.dataLink52:setName("dataLink52");
 
     obj.label47 = gui.fromHandle(_obj_newObject("label"));
     obj.label47:setParent(obj.layout21);
@@ -1763,40 +1704,85 @@ function newfrmFichaDoPersonagem()
     obj.label48:setAlign("left");
     obj.label48:setHorzTextAlign("center");
     obj.label48:setWidth(30);
-    obj.label48:setField("sentidos.audicao.total");
+    obj.label48:setField("sentidos.sextoSentido.total");
     obj.label48:setName("label48");
 
     obj.layout22 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout22:setParent(obj.layout19);
-    obj.layout22:setTop(100);
+    obj.layout22:setParent(obj.layout20);
+    obj.layout22:setTop(70);
     obj.layout22:setHeight(25);
     obj.layout22:setWidth(450);
     obj.layout22:setMargins({left=4,right=4});
     obj.layout22:setName("layout22");
 
-    obj.button15 = gui.fromHandle(_obj_newObject("button"));
-    obj.button15:setParent(obj.layout22);
-    obj.button15:setAlign("left");
-    obj.button15:setWidth(30);
-    obj.button15:setMargins({right=4});
-    obj.button15:setHint("Rolagem de Teste de Sentido");
-    obj.button15:setName("button15");
+    obj.button14 = gui.fromHandle(_obj_newObject("button"));
+    obj.button14:setParent(obj.layout22);
+    obj.button14:setAlign("left");
+    obj.button14:setWidth(30);
+    obj.button14:setMargins({right=4});
+    obj.button14:setHint("Rolagem de Teste de Sentido");
+    obj.button14:setName("button14");
 
-    obj.image16 = gui.fromHandle(_obj_newObject("image"));
-    obj.image16:setParent(obj.button15);
-    obj.image16:setAlign("left");
-    obj.image16:setWidth(30);
-    obj.image16:setSRC("/src/assets/dice-six-faces.png");
-    obj.image16:setName("image16");
+    obj.image15 = gui.fromHandle(_obj_newObject("image"));
+    obj.image15:setParent(obj.button14);
+    obj.image15:setAlign("left");
+    obj.image15:setWidth(30);
+    obj.image15:setSRC("/src/assets/dice-six-faces.png");
+    obj.image15:setName("image15");
 
     obj.label49 = gui.fromHandle(_obj_newObject("label"));
     obj.label49:setParent(obj.layout22);
     obj.label49:setAlign("left");
     obj.label49:setHorzTextAlign("center");
-    obj.label49:setText("Paladar");
+    obj.label49:setText("Audição");
     obj.label49:setWidth(85);
     obj.label49:setAutoSize(true);
     obj.label49:setName("label49");
+
+    obj.edit60 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit60:setParent(obj.layout22);
+    obj.edit60:setType("number");
+    obj.edit60:setAlign("left");
+    obj.edit60:setHorzTextAlign("center");
+    obj.edit60:setWidth(30);
+    obj.edit60:setMargins({left=2, right=2});
+    obj.edit60:setField("sentidos.audicao.base");
+    obj.edit60:setName("edit60");
+
+    obj.dataLink53 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink53:setParent(obj.layout22);
+    obj.dataLink53:setField("sentidos.audicao.base");
+    obj.dataLink53:setName("dataLink53");
+
+    obj.edit61 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit61:setParent(obj.layout22);
+    obj.edit61:setType("number");
+    obj.edit61:setAlign("left");
+    obj.edit61:setHorzTextAlign("center");
+    obj.edit61:setWidth(30);
+    obj.edit61:setMargins({left=2, right=2});
+    obj.edit61:setField("sentidos.audicao.racaClasse");
+    obj.edit61:setName("edit61");
+
+    obj.dataLink54 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink54:setParent(obj.layout22);
+    obj.dataLink54:setField("sentidos.audicao.racaClasse");
+    obj.dataLink54:setName("dataLink54");
+
+    obj.edit62 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit62:setParent(obj.layout22);
+    obj.edit62:setType("number");
+    obj.edit62:setAlign("left");
+    obj.edit62:setHorzTextAlign("center");
+    obj.edit62:setWidth(30);
+    obj.edit62:setMargins({left=2, right=2});
+    obj.edit62:setField("sentidos.audicao.treinamento");
+    obj.edit62:setName("edit62");
+
+    obj.dataLink55 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink55:setParent(obj.layout22);
+    obj.dataLink55:setField("sentidos.audicao.treinamento");
+    obj.dataLink55:setName("dataLink55");
 
     obj.edit63 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit63:setParent(obj.layout22);
@@ -1805,58 +1791,13 @@ function newfrmFichaDoPersonagem()
     obj.edit63:setHorzTextAlign("center");
     obj.edit63:setWidth(30);
     obj.edit63:setMargins({left=2, right=2});
-    obj.edit63:setField("sentidos.paladar.base");
+    obj.edit63:setField("sentidos.audicao.habilidade");
     obj.edit63:setName("edit63");
 
-    obj.dataLink57 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink57:setParent(obj.layout22);
-    obj.dataLink57:setField("sentidos.paladar.base");
-    obj.dataLink57:setName("dataLink57");
-
-    obj.edit64 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit64:setParent(obj.layout22);
-    obj.edit64:setType("number");
-    obj.edit64:setAlign("left");
-    obj.edit64:setHorzTextAlign("center");
-    obj.edit64:setWidth(30);
-    obj.edit64:setMargins({left=2, right=2});
-    obj.edit64:setField("sentidos.paladar.racaClasse");
-    obj.edit64:setName("edit64");
-
-    obj.dataLink58 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink58:setParent(obj.layout22);
-    obj.dataLink58:setField("sentidos.paladar.racaClasse");
-    obj.dataLink58:setName("dataLink58");
-
-    obj.edit65 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit65:setParent(obj.layout22);
-    obj.edit65:setType("number");
-    obj.edit65:setAlign("left");
-    obj.edit65:setHorzTextAlign("center");
-    obj.edit65:setWidth(30);
-    obj.edit65:setMargins({left=2, right=2});
-    obj.edit65:setField("sentidos.paladar.treinamento");
-    obj.edit65:setName("edit65");
-
-    obj.dataLink59 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink59:setParent(obj.layout22);
-    obj.dataLink59:setField("sentidos.paladar.treinamento");
-    obj.dataLink59:setName("dataLink59");
-
-    obj.edit66 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit66:setParent(obj.layout22);
-    obj.edit66:setType("number");
-    obj.edit66:setAlign("left");
-    obj.edit66:setHorzTextAlign("center");
-    obj.edit66:setWidth(30);
-    obj.edit66:setMargins({left=2, right=2});
-    obj.edit66:setField("sentidos.paladar.habilidade");
-    obj.edit66:setName("edit66");
-
-    obj.dataLink60 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink60:setParent(obj.layout22);
-    obj.dataLink60:setField("sentidos.paladar.habilidade");
-    obj.dataLink60:setName("dataLink60");
+    obj.dataLink56 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink56:setParent(obj.layout22);
+    obj.dataLink56:setField("sentidos.audicao.habilidade");
+    obj.dataLink56:setName("dataLink56");
 
     obj.label50 = gui.fromHandle(_obj_newObject("label"));
     obj.label50:setParent(obj.layout22);
@@ -1871,26 +1812,134 @@ function newfrmFichaDoPersonagem()
     obj.label51:setAlign("left");
     obj.label51:setHorzTextAlign("center");
     obj.label51:setWidth(30);
-    obj.label51:setField("sentidos.paladar.total");
+    obj.label51:setField("sentidos.audicao.total");
     obj.label51:setName("label51");
 
     obj.layout23 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout23:setParent(obj.tab3);
-    obj.layout23:setLeft(320);
-    obj.layout23:setWidth(300);
-    obj.layout23:setHeight(400);
+    obj.layout23:setParent(obj.layout20);
+    obj.layout23:setTop(100);
+    obj.layout23:setHeight(25);
+    obj.layout23:setWidth(450);
+    obj.layout23:setMargins({left=4,right=4});
     obj.layout23:setName("layout23");
 
+    obj.button15 = gui.fromHandle(_obj_newObject("button"));
+    obj.button15:setParent(obj.layout23);
+    obj.button15:setAlign("left");
+    obj.button15:setWidth(30);
+    obj.button15:setMargins({right=4});
+    obj.button15:setHint("Rolagem de Teste de Sentido");
+    obj.button15:setName("button15");
+
+    obj.image16 = gui.fromHandle(_obj_newObject("image"));
+    obj.image16:setParent(obj.button15);
+    obj.image16:setAlign("left");
+    obj.image16:setWidth(30);
+    obj.image16:setSRC("/src/assets/dice-six-faces.png");
+    obj.image16:setName("image16");
+
+    obj.label52 = gui.fromHandle(_obj_newObject("label"));
+    obj.label52:setParent(obj.layout23);
+    obj.label52:setAlign("left");
+    obj.label52:setHorzTextAlign("center");
+    obj.label52:setText("Paladar");
+    obj.label52:setWidth(85);
+    obj.label52:setAutoSize(true);
+    obj.label52:setName("label52");
+
+    obj.edit64 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit64:setParent(obj.layout23);
+    obj.edit64:setType("number");
+    obj.edit64:setAlign("left");
+    obj.edit64:setHorzTextAlign("center");
+    obj.edit64:setWidth(30);
+    obj.edit64:setMargins({left=2, right=2});
+    obj.edit64:setField("sentidos.paladar.base");
+    obj.edit64:setName("edit64");
+
+    obj.dataLink57 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink57:setParent(obj.layout23);
+    obj.dataLink57:setField("sentidos.paladar.base");
+    obj.dataLink57:setName("dataLink57");
+
+    obj.edit65 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit65:setParent(obj.layout23);
+    obj.edit65:setType("number");
+    obj.edit65:setAlign("left");
+    obj.edit65:setHorzTextAlign("center");
+    obj.edit65:setWidth(30);
+    obj.edit65:setMargins({left=2, right=2});
+    obj.edit65:setField("sentidos.paladar.racaClasse");
+    obj.edit65:setName("edit65");
+
+    obj.dataLink58 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink58:setParent(obj.layout23);
+    obj.dataLink58:setField("sentidos.paladar.racaClasse");
+    obj.dataLink58:setName("dataLink58");
+
+    obj.edit66 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit66:setParent(obj.layout23);
+    obj.edit66:setType("number");
+    obj.edit66:setAlign("left");
+    obj.edit66:setHorzTextAlign("center");
+    obj.edit66:setWidth(30);
+    obj.edit66:setMargins({left=2, right=2});
+    obj.edit66:setField("sentidos.paladar.treinamento");
+    obj.edit66:setName("edit66");
+
+    obj.dataLink59 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink59:setParent(obj.layout23);
+    obj.dataLink59:setField("sentidos.paladar.treinamento");
+    obj.dataLink59:setName("dataLink59");
+
+    obj.edit67 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit67:setParent(obj.layout23);
+    obj.edit67:setType("number");
+    obj.edit67:setAlign("left");
+    obj.edit67:setHorzTextAlign("center");
+    obj.edit67:setWidth(30);
+    obj.edit67:setMargins({left=2, right=2});
+    obj.edit67:setField("sentidos.paladar.habilidade");
+    obj.edit67:setName("edit67");
+
+    obj.dataLink60 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink60:setParent(obj.layout23);
+    obj.dataLink60:setField("sentidos.paladar.habilidade");
+    obj.dataLink60:setName("dataLink60");
+
+    obj.label53 = gui.fromHandle(_obj_newObject("label"));
+    obj.label53:setParent(obj.layout23);
+    obj.label53:setAlign("left");
+    obj.label53:setText("=");
+    obj.label53:setWidth(10);
+    obj.label53:setMargins({left=4,right=4});
+    obj.label53:setName("label53");
+
+    obj.label54 = gui.fromHandle(_obj_newObject("label"));
+    obj.label54:setParent(obj.layout23);
+    obj.label54:setAlign("left");
+    obj.label54:setHorzTextAlign("center");
+    obj.label54:setWidth(30);
+    obj.label54:setField("sentidos.paladar.total");
+    obj.label54:setName("label54");
+
     obj.layout24 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout24:setParent(obj.layout23);
-    obj.layout24:setTop(40);
-    obj.layout24:setHeight(25);
-    obj.layout24:setWidth(450);
-    obj.layout24:setMargins({left=4,right=4});
+    obj.layout24:setParent(obj.tab3);
+    obj.layout24:setLeft(320);
+    obj.layout24:setWidth(300);
+    obj.layout24:setHeight(400);
     obj.layout24:setName("layout24");
 
+    obj.layout25 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout25:setParent(obj.layout24);
+    obj.layout25:setTop(40);
+    obj.layout25:setHeight(25);
+    obj.layout25:setWidth(450);
+    obj.layout25:setMargins({left=4,right=4});
+    obj.layout25:setName("layout25");
+
     obj.button16 = gui.fromHandle(_obj_newObject("button"));
-    obj.button16:setParent(obj.layout24);
+    obj.button16:setParent(obj.layout25);
     obj.button16:setAlign("left");
     obj.button16:setWidth(30);
     obj.button16:setMargins({right=4});
@@ -1904,122 +1953,59 @@ function newfrmFichaDoPersonagem()
     obj.image17:setSRC("/src/assets/dice-six-faces.png");
     obj.image17:setName("image17");
 
-    obj.label52 = gui.fromHandle(_obj_newObject("label"));
-    obj.label52:setParent(obj.layout24);
-    obj.label52:setAlign("left");
-    obj.label52:setHorzTextAlign("center");
-    obj.label52:setText("Olfato");
-    obj.label52:setWidth(85);
-    obj.label52:setAutoSize(true);
-    obj.label52:setName("label52");
-
-    obj.edit67 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit67:setParent(obj.layout24);
-    obj.edit67:setType("number");
-    obj.edit67:setAlign("left");
-    obj.edit67:setHorzTextAlign("center");
-    obj.edit67:setWidth(30);
-    obj.edit67:setMargins({left=2, right=2});
-    obj.edit67:setField("sentidos.olfato.base");
-    obj.edit67:setName("edit67");
-
-    obj.dataLink61 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink61:setParent(obj.layout24);
-    obj.dataLink61:setField("sentidos.olfato.base");
-    obj.dataLink61:setName("dataLink61");
+    obj.label55 = gui.fromHandle(_obj_newObject("label"));
+    obj.label55:setParent(obj.layout25);
+    obj.label55:setAlign("left");
+    obj.label55:setHorzTextAlign("center");
+    obj.label55:setText("Olfato");
+    obj.label55:setWidth(85);
+    obj.label55:setAutoSize(true);
+    obj.label55:setName("label55");
 
     obj.edit68 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit68:setParent(obj.layout24);
+    obj.edit68:setParent(obj.layout25);
     obj.edit68:setType("number");
     obj.edit68:setAlign("left");
     obj.edit68:setHorzTextAlign("center");
     obj.edit68:setWidth(30);
     obj.edit68:setMargins({left=2, right=2});
-    obj.edit68:setField("sentidos.olfato.racaClasse");
+    obj.edit68:setField("sentidos.olfato.base");
     obj.edit68:setName("edit68");
 
-    obj.dataLink62 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink62:setParent(obj.layout24);
-    obj.dataLink62:setField("sentidos.olfato.racaClasse");
-    obj.dataLink62:setName("dataLink62");
+    obj.dataLink61 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink61:setParent(obj.layout25);
+    obj.dataLink61:setField("sentidos.olfato.base");
+    obj.dataLink61:setName("dataLink61");
 
     obj.edit69 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit69:setParent(obj.layout24);
+    obj.edit69:setParent(obj.layout25);
     obj.edit69:setType("number");
     obj.edit69:setAlign("left");
     obj.edit69:setHorzTextAlign("center");
     obj.edit69:setWidth(30);
     obj.edit69:setMargins({left=2, right=2});
-    obj.edit69:setField("sentidos.olfato.treinamento");
+    obj.edit69:setField("sentidos.olfato.racaClasse");
     obj.edit69:setName("edit69");
 
-    obj.dataLink63 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink63:setParent(obj.layout24);
-    obj.dataLink63:setField("sentidos.olfato.treinamento");
-    obj.dataLink63:setName("dataLink63");
+    obj.dataLink62 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink62:setParent(obj.layout25);
+    obj.dataLink62:setField("sentidos.olfato.racaClasse");
+    obj.dataLink62:setName("dataLink62");
 
     obj.edit70 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit70:setParent(obj.layout24);
+    obj.edit70:setParent(obj.layout25);
     obj.edit70:setType("number");
     obj.edit70:setAlign("left");
     obj.edit70:setHorzTextAlign("center");
     obj.edit70:setWidth(30);
     obj.edit70:setMargins({left=2, right=2});
-    obj.edit70:setField("sentidos.olfato.habilidade");
+    obj.edit70:setField("sentidos.olfato.treinamento");
     obj.edit70:setName("edit70");
 
-    obj.dataLink64 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink64:setParent(obj.layout24);
-    obj.dataLink64:setField("sentidos.olfato.habilidade");
-    obj.dataLink64:setName("dataLink64");
-
-    obj.label53 = gui.fromHandle(_obj_newObject("label"));
-    obj.label53:setParent(obj.layout24);
-    obj.label53:setAlign("left");
-    obj.label53:setText("=");
-    obj.label53:setWidth(10);
-    obj.label53:setMargins({left=4,right=4});
-    obj.label53:setName("label53");
-
-    obj.label54 = gui.fromHandle(_obj_newObject("label"));
-    obj.label54:setParent(obj.layout24);
-    obj.label54:setAlign("left");
-    obj.label54:setHorzTextAlign("center");
-    obj.label54:setWidth(30);
-    obj.label54:setField("sentidos.olfato.total");
-    obj.label54:setName("label54");
-
-    obj.layout25 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout25:setParent(obj.layout23);
-    obj.layout25:setTop(70);
-    obj.layout25:setHeight(25);
-    obj.layout25:setWidth(450);
-    obj.layout25:setMargins({left=4,right=4});
-    obj.layout25:setName("layout25");
-
-    obj.button17 = gui.fromHandle(_obj_newObject("button"));
-    obj.button17:setParent(obj.layout25);
-    obj.button17:setAlign("left");
-    obj.button17:setWidth(30);
-    obj.button17:setMargins({right=4});
-    obj.button17:setHint("Rolagem de Teste de Sentido");
-    obj.button17:setName("button17");
-
-    obj.image18 = gui.fromHandle(_obj_newObject("image"));
-    obj.image18:setParent(obj.button17);
-    obj.image18:setAlign("left");
-    obj.image18:setWidth(30);
-    obj.image18:setSRC("/src/assets/dice-six-faces.png");
-    obj.image18:setName("image18");
-
-    obj.label55 = gui.fromHandle(_obj_newObject("label"));
-    obj.label55:setParent(obj.layout25);
-    obj.label55:setAlign("left");
-    obj.label55:setHorzTextAlign("center");
-    obj.label55:setText("Visão");
-    obj.label55:setWidth(85);
-    obj.label55:setAutoSize(true);
-    obj.label55:setName("label55");
+    obj.dataLink63 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink63:setParent(obj.layout25);
+    obj.dataLink63:setField("sentidos.olfato.treinamento");
+    obj.dataLink63:setName("dataLink63");
 
     obj.edit71 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit71:setParent(obj.layout25);
@@ -2028,58 +2014,13 @@ function newfrmFichaDoPersonagem()
     obj.edit71:setHorzTextAlign("center");
     obj.edit71:setWidth(30);
     obj.edit71:setMargins({left=2, right=2});
-    obj.edit71:setField("sentidos.visao.base");
+    obj.edit71:setField("sentidos.olfato.habilidade");
     obj.edit71:setName("edit71");
 
-    obj.dataLink65 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink65:setParent(obj.layout25);
-    obj.dataLink65:setField("sentidos.visao.base");
-    obj.dataLink65:setName("dataLink65");
-
-    obj.edit72 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit72:setParent(obj.layout25);
-    obj.edit72:setType("number");
-    obj.edit72:setAlign("left");
-    obj.edit72:setHorzTextAlign("center");
-    obj.edit72:setWidth(30);
-    obj.edit72:setMargins({left=2, right=2});
-    obj.edit72:setField("sentidos.visao.racaClasse");
-    obj.edit72:setName("edit72");
-
-    obj.dataLink66 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink66:setParent(obj.layout25);
-    obj.dataLink66:setField("sentidos.visao.racaClasse");
-    obj.dataLink66:setName("dataLink66");
-
-    obj.edit73 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit73:setParent(obj.layout25);
-    obj.edit73:setType("number");
-    obj.edit73:setAlign("left");
-    obj.edit73:setHorzTextAlign("center");
-    obj.edit73:setWidth(30);
-    obj.edit73:setMargins({left=2, right=2});
-    obj.edit73:setField("sentidos.visao.treinamento");
-    obj.edit73:setName("edit73");
-
-    obj.dataLink67 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink67:setParent(obj.layout25);
-    obj.dataLink67:setField("sentidos.visao.treinamento");
-    obj.dataLink67:setName("dataLink67");
-
-    obj.edit74 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit74:setParent(obj.layout25);
-    obj.edit74:setType("number");
-    obj.edit74:setAlign("left");
-    obj.edit74:setHorzTextAlign("center");
-    obj.edit74:setWidth(30);
-    obj.edit74:setMargins({left=2, right=2});
-    obj.edit74:setField("sentidos.visao.habilidade");
-    obj.edit74:setName("edit74");
-
-    obj.dataLink68 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink68:setParent(obj.layout25);
-    obj.dataLink68:setField("sentidos.visao.habilidade");
-    obj.dataLink68:setName("dataLink68");
+    obj.dataLink64 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink64:setParent(obj.layout25);
+    obj.dataLink64:setField("sentidos.olfato.habilidade");
+    obj.dataLink64:setName("dataLink64");
 
     obj.label56 = gui.fromHandle(_obj_newObject("label"));
     obj.label56:setParent(obj.layout25);
@@ -2094,40 +2035,85 @@ function newfrmFichaDoPersonagem()
     obj.label57:setAlign("left");
     obj.label57:setHorzTextAlign("center");
     obj.label57:setWidth(30);
-    obj.label57:setField("sentidos.visao.total");
+    obj.label57:setField("sentidos.olfato.total");
     obj.label57:setName("label57");
 
     obj.layout26 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout26:setParent(obj.layout23);
-    obj.layout26:setTop(100);
+    obj.layout26:setParent(obj.layout24);
+    obj.layout26:setTop(70);
     obj.layout26:setHeight(25);
     obj.layout26:setWidth(450);
     obj.layout26:setMargins({left=4,right=4});
     obj.layout26:setName("layout26");
 
-    obj.button18 = gui.fromHandle(_obj_newObject("button"));
-    obj.button18:setParent(obj.layout26);
-    obj.button18:setAlign("left");
-    obj.button18:setWidth(30);
-    obj.button18:setMargins({right=4});
-    obj.button18:setHint("Rolagem de Teste de Sentido");
-    obj.button18:setName("button18");
+    obj.button17 = gui.fromHandle(_obj_newObject("button"));
+    obj.button17:setParent(obj.layout26);
+    obj.button17:setAlign("left");
+    obj.button17:setWidth(30);
+    obj.button17:setMargins({right=4});
+    obj.button17:setHint("Rolagem de Teste de Sentido");
+    obj.button17:setName("button17");
 
-    obj.image19 = gui.fromHandle(_obj_newObject("image"));
-    obj.image19:setParent(obj.button18);
-    obj.image19:setAlign("left");
-    obj.image19:setWidth(30);
-    obj.image19:setSRC("/src/assets/dice-six-faces.png");
-    obj.image19:setName("image19");
+    obj.image18 = gui.fromHandle(_obj_newObject("image"));
+    obj.image18:setParent(obj.button17);
+    obj.image18:setAlign("left");
+    obj.image18:setWidth(30);
+    obj.image18:setSRC("/src/assets/dice-six-faces.png");
+    obj.image18:setName("image18");
 
     obj.label58 = gui.fromHandle(_obj_newObject("label"));
     obj.label58:setParent(obj.layout26);
     obj.label58:setAlign("left");
     obj.label58:setHorzTextAlign("center");
-    obj.label58:setText("Tato");
+    obj.label58:setText("Visão");
     obj.label58:setWidth(85);
     obj.label58:setAutoSize(true);
     obj.label58:setName("label58");
+
+    obj.edit72 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit72:setParent(obj.layout26);
+    obj.edit72:setType("number");
+    obj.edit72:setAlign("left");
+    obj.edit72:setHorzTextAlign("center");
+    obj.edit72:setWidth(30);
+    obj.edit72:setMargins({left=2, right=2});
+    obj.edit72:setField("sentidos.visao.base");
+    obj.edit72:setName("edit72");
+
+    obj.dataLink65 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink65:setParent(obj.layout26);
+    obj.dataLink65:setField("sentidos.visao.base");
+    obj.dataLink65:setName("dataLink65");
+
+    obj.edit73 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit73:setParent(obj.layout26);
+    obj.edit73:setType("number");
+    obj.edit73:setAlign("left");
+    obj.edit73:setHorzTextAlign("center");
+    obj.edit73:setWidth(30);
+    obj.edit73:setMargins({left=2, right=2});
+    obj.edit73:setField("sentidos.visao.racaClasse");
+    obj.edit73:setName("edit73");
+
+    obj.dataLink66 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink66:setParent(obj.layout26);
+    obj.dataLink66:setField("sentidos.visao.racaClasse");
+    obj.dataLink66:setName("dataLink66");
+
+    obj.edit74 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit74:setParent(obj.layout26);
+    obj.edit74:setType("number");
+    obj.edit74:setAlign("left");
+    obj.edit74:setHorzTextAlign("center");
+    obj.edit74:setWidth(30);
+    obj.edit74:setMargins({left=2, right=2});
+    obj.edit74:setField("sentidos.visao.treinamento");
+    obj.edit74:setName("edit74");
+
+    obj.dataLink67 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink67:setParent(obj.layout26);
+    obj.dataLink67:setField("sentidos.visao.treinamento");
+    obj.dataLink67:setName("dataLink67");
 
     obj.edit75 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit75:setParent(obj.layout26);
@@ -2136,58 +2122,13 @@ function newfrmFichaDoPersonagem()
     obj.edit75:setHorzTextAlign("center");
     obj.edit75:setWidth(30);
     obj.edit75:setMargins({left=2, right=2});
-    obj.edit75:setField("sentidos.tato.base");
+    obj.edit75:setField("sentidos.visao.habilidade");
     obj.edit75:setName("edit75");
 
-    obj.dataLink69 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink69:setParent(obj.layout26);
-    obj.dataLink69:setField("sentidos.tato.base");
-    obj.dataLink69:setName("dataLink69");
-
-    obj.edit76 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit76:setParent(obj.layout26);
-    obj.edit76:setType("number");
-    obj.edit76:setAlign("left");
-    obj.edit76:setHorzTextAlign("center");
-    obj.edit76:setWidth(30);
-    obj.edit76:setMargins({left=2, right=2});
-    obj.edit76:setField("sentidos.tato.racaClasse");
-    obj.edit76:setName("edit76");
-
-    obj.dataLink70 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink70:setParent(obj.layout26);
-    obj.dataLink70:setField("sentidos.tato.racaClasse");
-    obj.dataLink70:setName("dataLink70");
-
-    obj.edit77 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit77:setParent(obj.layout26);
-    obj.edit77:setType("number");
-    obj.edit77:setAlign("left");
-    obj.edit77:setHorzTextAlign("center");
-    obj.edit77:setWidth(30);
-    obj.edit77:setMargins({left=2, right=2});
-    obj.edit77:setField("sentidos.tato.treinamento");
-    obj.edit77:setName("edit77");
-
-    obj.dataLink71 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink71:setParent(obj.layout26);
-    obj.dataLink71:setField("sentidos.tato.treinamento");
-    obj.dataLink71:setName("dataLink71");
-
-    obj.edit78 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit78:setParent(obj.layout26);
-    obj.edit78:setType("number");
-    obj.edit78:setAlign("left");
-    obj.edit78:setHorzTextAlign("center");
-    obj.edit78:setWidth(30);
-    obj.edit78:setMargins({left=2, right=2});
-    obj.edit78:setField("sentidos.tato.habilidade");
-    obj.edit78:setName("edit78");
-
-    obj.dataLink72 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink72:setParent(obj.layout26);
-    obj.dataLink72:setField("sentidos.tato.habilidade");
-    obj.dataLink72:setName("dataLink72");
+    obj.dataLink68 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink68:setParent(obj.layout26);
+    obj.dataLink68:setField("sentidos.visao.habilidade");
+    obj.dataLink68:setName("dataLink68");
 
     obj.label59 = gui.fromHandle(_obj_newObject("label"));
     obj.label59:setParent(obj.layout26);
@@ -2202,8 +2143,116 @@ function newfrmFichaDoPersonagem()
     obj.label60:setAlign("left");
     obj.label60:setHorzTextAlign("center");
     obj.label60:setWidth(30);
-    obj.label60:setField("sentidos.tato.total");
+    obj.label60:setField("sentidos.visao.total");
     obj.label60:setName("label60");
+
+    obj.layout27 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout27:setParent(obj.layout24);
+    obj.layout27:setTop(100);
+    obj.layout27:setHeight(25);
+    obj.layout27:setWidth(450);
+    obj.layout27:setMargins({left=4,right=4});
+    obj.layout27:setName("layout27");
+
+    obj.button18 = gui.fromHandle(_obj_newObject("button"));
+    obj.button18:setParent(obj.layout27);
+    obj.button18:setAlign("left");
+    obj.button18:setWidth(30);
+    obj.button18:setMargins({right=4});
+    obj.button18:setHint("Rolagem de Teste de Sentido");
+    obj.button18:setName("button18");
+
+    obj.image19 = gui.fromHandle(_obj_newObject("image"));
+    obj.image19:setParent(obj.button18);
+    obj.image19:setAlign("left");
+    obj.image19:setWidth(30);
+    obj.image19:setSRC("/src/assets/dice-six-faces.png");
+    obj.image19:setName("image19");
+
+    obj.label61 = gui.fromHandle(_obj_newObject("label"));
+    obj.label61:setParent(obj.layout27);
+    obj.label61:setAlign("left");
+    obj.label61:setHorzTextAlign("center");
+    obj.label61:setText("Tato");
+    obj.label61:setWidth(85);
+    obj.label61:setAutoSize(true);
+    obj.label61:setName("label61");
+
+    obj.edit76 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit76:setParent(obj.layout27);
+    obj.edit76:setType("number");
+    obj.edit76:setAlign("left");
+    obj.edit76:setHorzTextAlign("center");
+    obj.edit76:setWidth(30);
+    obj.edit76:setMargins({left=2, right=2});
+    obj.edit76:setField("sentidos.tato.base");
+    obj.edit76:setName("edit76");
+
+    obj.dataLink69 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink69:setParent(obj.layout27);
+    obj.dataLink69:setField("sentidos.tato.base");
+    obj.dataLink69:setName("dataLink69");
+
+    obj.edit77 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit77:setParent(obj.layout27);
+    obj.edit77:setType("number");
+    obj.edit77:setAlign("left");
+    obj.edit77:setHorzTextAlign("center");
+    obj.edit77:setWidth(30);
+    obj.edit77:setMargins({left=2, right=2});
+    obj.edit77:setField("sentidos.tato.racaClasse");
+    obj.edit77:setName("edit77");
+
+    obj.dataLink70 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink70:setParent(obj.layout27);
+    obj.dataLink70:setField("sentidos.tato.racaClasse");
+    obj.dataLink70:setName("dataLink70");
+
+    obj.edit78 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit78:setParent(obj.layout27);
+    obj.edit78:setType("number");
+    obj.edit78:setAlign("left");
+    obj.edit78:setHorzTextAlign("center");
+    obj.edit78:setWidth(30);
+    obj.edit78:setMargins({left=2, right=2});
+    obj.edit78:setField("sentidos.tato.treinamento");
+    obj.edit78:setName("edit78");
+
+    obj.dataLink71 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink71:setParent(obj.layout27);
+    obj.dataLink71:setField("sentidos.tato.treinamento");
+    obj.dataLink71:setName("dataLink71");
+
+    obj.edit79 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit79:setParent(obj.layout27);
+    obj.edit79:setType("number");
+    obj.edit79:setAlign("left");
+    obj.edit79:setHorzTextAlign("center");
+    obj.edit79:setWidth(30);
+    obj.edit79:setMargins({left=2, right=2});
+    obj.edit79:setField("sentidos.tato.habilidade");
+    obj.edit79:setName("edit79");
+
+    obj.dataLink72 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink72:setParent(obj.layout27);
+    obj.dataLink72:setField("sentidos.tato.habilidade");
+    obj.dataLink72:setName("dataLink72");
+
+    obj.label62 = gui.fromHandle(_obj_newObject("label"));
+    obj.label62:setParent(obj.layout27);
+    obj.label62:setAlign("left");
+    obj.label62:setText("=");
+    obj.label62:setWidth(10);
+    obj.label62:setMargins({left=4,right=4});
+    obj.label62:setName("label62");
+
+    obj.label63 = gui.fromHandle(_obj_newObject("label"));
+    obj.label63:setParent(obj.layout27);
+    obj.label63:setAlign("left");
+    obj.label63:setHorzTextAlign("center");
+    obj.label63:setWidth(30);
+    obj.label63:setField("sentidos.tato.total");
+    obj.label63:setName("label63");
 
     obj.tab4 = gui.fromHandle(_obj_newObject("tab"));
     obj.tab4:setParent(obj.tabControl1);
@@ -2232,58 +2281,58 @@ function newfrmFichaDoPersonagem()
     obj.button19:setWidth(100);
     obj.button19:setName("button19");
 
-    obj.layout27 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout27:setParent(obj.scrollBox2);
-    obj.layout27:setLeft(55);
-    obj.layout27:setTop(65);
-    obj.layout27:setWidth(350);
-    obj.layout27:setMargins({top=5,bottom=15});
-    obj.layout27:setName("layout27");
-
-    obj.label61 = gui.fromHandle(_obj_newObject("label"));
-    obj.label61:setParent(obj.layout27);
-    obj.label61:setAlign("left");
-    obj.label61:setHorzTextAlign("center");
-    obj.label61:setWidth(100);
-    obj.label61:setMargins({left=2,right=2});
-    obj.label61:setText("GRUPO");
-    obj.label61:setName("label61");
-
-    obj.label62 = gui.fromHandle(_obj_newObject("label"));
-    obj.label62:setParent(obj.layout27);
-    obj.label62:setAlign("left");
-    obj.label62:setHorzTextAlign("center");
-    obj.label62:setWidth(100);
-    obj.label62:setMargins({left=2,right=2});
-    obj.label62:setText("NOME");
-    obj.label62:setName("label62");
-
-    obj.label63 = gui.fromHandle(_obj_newObject("label"));
-    obj.label63:setParent(obj.layout27);
-    obj.label63:setAlign("left");
-    obj.label63:setHorzTextAlign("center");
-    obj.label63:setWidth(30);
-    obj.label63:setMargins({left=2,right=2});
-    obj.label63:setText("B");
-    obj.label63:setName("label63");
+    obj.layout28 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout28:setParent(obj.scrollBox2);
+    obj.layout28:setLeft(55);
+    obj.layout28:setTop(65);
+    obj.layout28:setWidth(350);
+    obj.layout28:setMargins({top=5,bottom=15});
+    obj.layout28:setName("layout28");
 
     obj.label64 = gui.fromHandle(_obj_newObject("label"));
-    obj.label64:setParent(obj.layout27);
+    obj.label64:setParent(obj.layout28);
     obj.label64:setAlign("left");
     obj.label64:setHorzTextAlign("center");
-    obj.label64:setWidth(30);
+    obj.label64:setWidth(100);
     obj.label64:setMargins({left=2,right=2});
-    obj.label64:setText("R/C");
+    obj.label64:setText("GRUPO");
     obj.label64:setName("label64");
 
     obj.label65 = gui.fromHandle(_obj_newObject("label"));
-    obj.label65:setParent(obj.layout27);
+    obj.label65:setParent(obj.layout28);
     obj.label65:setAlign("left");
     obj.label65:setHorzTextAlign("center");
-    obj.label65:setWidth(30);
+    obj.label65:setWidth(100);
     obj.label65:setMargins({left=2,right=2});
-    obj.label65:setText("H");
+    obj.label65:setText("NOME");
     obj.label65:setName("label65");
+
+    obj.label66 = gui.fromHandle(_obj_newObject("label"));
+    obj.label66:setParent(obj.layout28);
+    obj.label66:setAlign("left");
+    obj.label66:setHorzTextAlign("center");
+    obj.label66:setWidth(30);
+    obj.label66:setMargins({left=2,right=2});
+    obj.label66:setText("B");
+    obj.label66:setName("label66");
+
+    obj.label67 = gui.fromHandle(_obj_newObject("label"));
+    obj.label67:setParent(obj.layout28);
+    obj.label67:setAlign("left");
+    obj.label67:setHorzTextAlign("center");
+    obj.label67:setWidth(30);
+    obj.label67:setMargins({left=2,right=2});
+    obj.label67:setText("R/C");
+    obj.label67:setName("label67");
+
+    obj.label68 = gui.fromHandle(_obj_newObject("label"));
+    obj.label68:setParent(obj.layout28);
+    obj.label68:setAlign("left");
+    obj.label68:setHorzTextAlign("center");
+    obj.label68:setWidth(30);
+    obj.label68:setMargins({left=2,right=2});
+    obj.label68:setText("H");
+    obj.label68:setName("label68");
 
     obj.rclPericias = gui.fromHandle(_obj_newObject("recordList"));
     obj.rclPericias:setParent(obj.scrollBox2);
@@ -2377,13 +2426,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.inteligencia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "inteligencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.inteligencia.total * 3)
@@ -2401,13 +2457,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.inteligencia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "inteligencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.inteligencia.total * 3)
@@ -2425,13 +2488,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.inteligencia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "inteligencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.inteligencia.total * 3)
@@ -2449,13 +2519,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.inteligencia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "inteligencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.inteligencia.total * 3)
@@ -2484,13 +2561,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.sabedoria.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "sabedoria" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.sabedoria.total * 3)
@@ -2508,13 +2592,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.sabedoria.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "sabedoria" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.sabedoria.total * 3)
@@ -2532,13 +2623,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.sabedoria.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "sabedoria" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.sabedoria.total * 3)
@@ -2556,13 +2654,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.sabedoria.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "sabedoria" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.sabedoria.total * 3)
@@ -2591,13 +2696,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vontade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "vontade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vontade.total * 3)
@@ -2615,13 +2727,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vontade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "vontade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vontade.total * 3)
@@ -2639,13 +2758,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vontade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "vontade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vontade.total * 3)
@@ -2663,13 +2789,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vontade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "vontade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vontade.total * 3)
@@ -2698,13 +2831,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.carisma.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "carisma" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.carisma.total * 3)
@@ -2722,13 +2862,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.carisma.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "carisma" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.carisma.total * 3)
@@ -2746,13 +2893,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.carisma.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "carisma" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.carisma.total * 3)
@@ -2770,13 +2924,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.carisma.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "carisma" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.carisma.total * 3)
@@ -2805,13 +2966,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.energia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "energia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.energia.total * 3)
@@ -2829,13 +2997,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.energia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "energia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.energia.total * 3)
@@ -2853,13 +3028,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.energia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "energia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.energia.total * 3)
@@ -2877,13 +3059,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.energia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "energia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.energia.total * 3)
@@ -2912,13 +3101,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.corpo.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "corpo" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.corpo.total * 3)
@@ -2936,13 +3132,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.corpo.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "corpo" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.corpo.total * 3)
@@ -2960,13 +3163,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.corpo.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "corpo" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.corpo.total * 3)
@@ -2984,13 +3194,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.corpo.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "corpo" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.corpo.total * 3)
@@ -3019,13 +3236,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.resistencia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "resistencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.resistencia.total * 3)
@@ -3043,13 +3267,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.resistencia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "resistencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.resistencia.total * 3)
@@ -3067,13 +3298,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.resistencia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "resistencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.resistencia.total * 3)
@@ -3091,13 +3329,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.resistencia.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "resistencia" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.resistencia.total * 3)
@@ -3126,13 +3371,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.velocidade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "velocidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.velocidade.total * 3)
@@ -3150,13 +3402,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.velocidade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "velocidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.velocidade.total * 3)
@@ -3174,13 +3433,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.velocidade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "velocidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.velocidade.total * 3)
@@ -3198,13 +3464,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.velocidade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "velocidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.velocidade.total * 3)
@@ -3233,13 +3506,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.agilidade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "agilidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.agilidade.total * 3)
@@ -3257,13 +3537,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.agilidade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "agilidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.agilidade.total * 3)
@@ -3281,13 +3568,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.agilidade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "agilidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.agilidade.total * 3)
@@ -3305,13 +3599,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.agilidade.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "agilidade" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.agilidade.total * 3)
@@ -3340,13 +3641,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.destreza.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "destreza" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.destreza.total * 3)
@@ -3364,13 +3672,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.destreza.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "destreza" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.destreza.total * 3)
@@ -3388,13 +3703,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.destreza.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "destreza" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.destreza.total * 3)
@@ -3412,13 +3734,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.destreza.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "destreza" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.destreza.total * 3)
@@ -3447,13 +3776,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.forca.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "forca" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.forca.total * 3)
@@ -3471,13 +3807,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.forca.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "forca" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.forca.total * 3)
@@ -3495,13 +3838,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.forca.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "forca" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.forca.total * 3)
@@ -3519,13 +3869,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.forca.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "forca" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.forca.total * 3)
@@ -3554,13 +3911,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vigor.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "vigor" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vigor.total * 3)
@@ -3578,13 +3942,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vigor.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "vigor" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vigor.total * 3)
@@ -3602,13 +3973,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vigor.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "vigor" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vigor.total * 3)
@@ -3626,13 +4004,20 @@ function newfrmFichaDoPersonagem()
                       (sheet.atributos.vigor.habilidade or 0)
                     )
             
-                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'})
+                    local totalBase = _.sumBy(_.values(sheet.atributos), {'base'}) or 0
             
-                    if not (totalBase > 24) then
-                      totalBase = 24
+                    if not (totalBase > 75) then
+                      totalBase = 75
                     end
             
-                    self.textAtributosPdesGastos.text = "PDEs: " .. ((totalBase - 24) * 5) .. " PONTOS"
+                    local pdesGastos = (totalBase - 75) * 5
+            
+                    sheet.pdes = sheet.pdes or {}
+                    sheet.pdes.gastos = sheet.pdes.gastos or {}
+                    sheet.pdes.gastos.atributos = pdesGastos
+                    sheet.pdes.gastos.total = (sheet.pdes.gastos.atributos or 0) + (sheet.pdes.gastos.pericias or 0)
+            
+                    self.textAtributosPdesGastos.text = "PDEs: " .. pdesGastos .. " PONTOS"
             
                     if "vigor" == "corpo" then
                       self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.vigor.total * 3)
@@ -4117,10 +4502,10 @@ function newfrmFichaDoPersonagem()
         if self.dataLink33 ~= nil then self.dataLink33:destroy(); self.dataLink33 = nil; end;
         if self.edit36 ~= nil then self.edit36:destroy(); self.edit36 = nil; end;
         if self.edit9 ~= nil then self.edit9:destroy(); self.edit9 = nil; end;
-        if self.dataLink42 ~= nil then self.dataLink42:destroy(); self.dataLink42 = nil; end;
+        if self.label40 ~= nil then self.label40:destroy(); self.label40 = nil; end;
         if self.edit33 ~= nil then self.edit33:destroy(); self.edit33 = nil; end;
         if self.dataLink4 ~= nil then self.dataLink4:destroy(); self.dataLink4 = nil; end;
-        if self.label40 ~= nil then self.label40:destroy(); self.label40 = nil; end;
+        if self.dataLink42 ~= nil then self.dataLink42:destroy(); self.dataLink42 = nil; end;
         if self.image5 ~= nil then self.image5:destroy(); self.image5 = nil; end;
         if self.edit29 ~= nil then self.edit29:destroy(); self.edit29 = nil; end;
         if self.label43 ~= nil then self.label43:destroy(); self.label43 = nil; end;
@@ -4133,8 +4518,8 @@ function newfrmFichaDoPersonagem()
         if self.button16 ~= nil then self.button16:destroy(); self.button16 = nil; end;
         if self.label63 ~= nil then self.label63:destroy(); self.label63 = nil; end;
         if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
-        if self.dataLink18 ~= nil then self.dataLink18:destroy(); self.dataLink18 = nil; end;
         if self.label22 ~= nil then self.label22:destroy(); self.label22 = nil; end;
+        if self.dataLink18 ~= nil then self.dataLink18:destroy(); self.dataLink18 = nil; end;
         if self.dataLink21 ~= nil then self.dataLink21:destroy(); self.dataLink21 = nil; end;
         if self.layout13 ~= nil then self.layout13:destroy(); self.layout13 = nil; end;
         if self.label35 ~= nil then self.label35:destroy(); self.label35 = nil; end;
@@ -4145,8 +4530,10 @@ function newfrmFichaDoPersonagem()
         if self.label27 ~= nil then self.label27:destroy(); self.label27 = nil; end;
         if self.label59 ~= nil then self.label59:destroy(); self.label59 = nil; end;
         if self.layout23 ~= nil then self.layout23:destroy(); self.layout23 = nil; end;
+        if self.label68 ~= nil then self.label68:destroy(); self.label68 = nil; end;
         if self.edit47 ~= nil then self.edit47:destroy(); self.edit47 = nil; end;
         if self.dataLink23 ~= nil then self.dataLink23:destroy(); self.dataLink23 = nil; end;
+        if self.label67 ~= nil then self.label67:destroy(); self.label67 = nil; end;
         if self.dataLink68 ~= nil then self.dataLink68:destroy(); self.dataLink68 = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         if self.label8 ~= nil then self.label8:destroy(); self.label8 = nil; end;
@@ -4162,8 +4549,8 @@ function newfrmFichaDoPersonagem()
         if self.label34 ~= nil then self.label34:destroy(); self.label34 = nil; end;
         if self.edit5 ~= nil then self.edit5:destroy(); self.edit5 = nil; end;
         if self.tab8 ~= nil then self.tab8:destroy(); self.tab8 = nil; end;
-        if self.dataLink9 ~= nil then self.dataLink9:destroy(); self.dataLink9 = nil; end;
         if self.label15 ~= nil then self.label15:destroy(); self.label15 = nil; end;
+        if self.dataLink9 ~= nil then self.dataLink9:destroy(); self.dataLink9 = nil; end;
         if self.label41 ~= nil then self.label41:destroy(); self.label41 = nil; end;
         if self.label49 ~= nil then self.label49:destroy(); self.label49 = nil; end;
         if self.scrollBox2 ~= nil then self.scrollBox2:destroy(); self.scrollBox2 = nil; end;
@@ -4182,6 +4569,7 @@ function newfrmFichaDoPersonagem()
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
         if self.label48 ~= nil then self.label48:destroy(); self.label48 = nil; end;
         if self.dataLink63 ~= nil then self.dataLink63:destroy(); self.dataLink63 = nil; end;
+        if self.edit79 ~= nil then self.edit79:destroy(); self.edit79 = nil; end;
         if self.edit77 ~= nil then self.edit77:destroy(); self.edit77 = nil; end;
         if self.button4 ~= nil then self.button4:destroy(); self.button4 = nil; end;
         if self.dataLink16 ~= nil then self.dataLink16:destroy(); self.dataLink16 = nil; end;
@@ -4235,8 +4623,8 @@ function newfrmFichaDoPersonagem()
         if self.label2 ~= nil then self.label2:destroy(); self.label2 = nil; end;
         if self.edit3 ~= nil then self.edit3:destroy(); self.edit3 = nil; end;
         if self.dataLink56 ~= nil then self.dataLink56:destroy(); self.dataLink56 = nil; end;
-        if self.edit49 ~= nil then self.edit49:destroy(); self.edit49 = nil; end;
         if self.label38 ~= nil then self.label38:destroy(); self.label38 = nil; end;
+        if self.edit49 ~= nil then self.edit49:destroy(); self.edit49 = nil; end;
         if self.label62 ~= nil then self.label62:destroy(); self.label62 = nil; end;
         if self.edit27 ~= nil then self.edit27:destroy(); self.edit27 = nil; end;
         if self.layout14 ~= nil then self.layout14:destroy(); self.layout14 = nil; end;
@@ -4257,8 +4645,8 @@ function newfrmFichaDoPersonagem()
         if self.tab6 ~= nil then self.tab6:destroy(); self.tab6 = nil; end;
         if self.dataLink31 ~= nil then self.dataLink31:destroy(); self.dataLink31 = nil; end;
         if self.image19 ~= nil then self.image19:destroy(); self.image19 = nil; end;
-        if self.tab3 ~= nil then self.tab3:destroy(); self.tab3 = nil; end;
         if self.label44 ~= nil then self.label44:destroy(); self.label44 = nil; end;
+        if self.tab3 ~= nil then self.tab3:destroy(); self.tab3 = nil; end;
         if self.edit46 ~= nil then self.edit46:destroy(); self.edit46 = nil; end;
         if self.dataLink40 ~= nil then self.dataLink40:destroy(); self.dataLink40 = nil; end;
         if self.dataLink55 ~= nil then self.dataLink55:destroy(); self.dataLink55 = nil; end;
@@ -4267,6 +4655,7 @@ function newfrmFichaDoPersonagem()
         if self.edit7 ~= nil then self.edit7:destroy(); self.edit7 = nil; end;
         if self.label55 ~= nil then self.label55:destroy(); self.label55 = nil; end;
         if self.edit12 ~= nil then self.edit12:destroy(); self.edit12 = nil; end;
+        if self.label66 ~= nil then self.label66:destroy(); self.label66 = nil; end;
         if self.edit35 ~= nil then self.edit35:destroy(); self.edit35 = nil; end;
         if self.label26 ~= nil then self.label26:destroy(); self.label26 = nil; end;
         if self.image14 ~= nil then self.image14:destroy(); self.image14 = nil; end;
@@ -4319,6 +4708,7 @@ function newfrmFichaDoPersonagem()
         if self.dataLink36 ~= nil then self.dataLink36:destroy(); self.dataLink36 = nil; end;
         if self.dataLink60 ~= nil then self.dataLink60:destroy(); self.dataLink60 = nil; end;
         if self.edit53 ~= nil then self.edit53:destroy(); self.edit53 = nil; end;
+        if self.layout28 ~= nil then self.layout28:destroy(); self.layout28 = nil; end;
         if self.dataLink17 ~= nil then self.dataLink17:destroy(); self.dataLink17 = nil; end;
         if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
         if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
@@ -4382,8 +4772,8 @@ function newfrmFichaDoPersonagem()
         if self.label25 ~= nil then self.label25:destroy(); self.label25 = nil; end;
         if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;
         if self.button8 ~= nil then self.button8:destroy(); self.button8 = nil; end;
-        if self.dataLink57 ~= nil then self.dataLink57:destroy(); self.dataLink57 = nil; end;
         if self.label50 ~= nil then self.label50:destroy(); self.label50 = nil; end;
+        if self.dataLink57 ~= nil then self.dataLink57:destroy(); self.dataLink57 = nil; end;
         if self.edit70 ~= nil then self.edit70:destroy(); self.edit70 = nil; end;
         if self.edit42 ~= nil then self.edit42:destroy(); self.edit42 = nil; end;
         if self.edit22 ~= nil then self.edit22:destroy(); self.edit22 = nil; end;
@@ -4393,6 +4783,7 @@ function newfrmFichaDoPersonagem()
         if self.label5 ~= nil then self.label5:destroy(); self.label5 = nil; end;
         if self.layout6 ~= nil then self.layout6:destroy(); self.layout6 = nil; end;
         if self.richEdit5 ~= nil then self.richEdit5:destroy(); self.richEdit5 = nil; end;
+        if self.rectangle4 ~= nil then self.rectangle4:destroy(); self.rectangle4 = nil; end;
         if self.dataLink11 ~= nil then self.dataLink11:destroy(); self.dataLink11 = nil; end;
         if self.dataLink46 ~= nil then self.dataLink46:destroy(); self.dataLink46 = nil; end;
         if self.layout22 ~= nil then self.layout22:destroy(); self.layout22 = nil; end;
@@ -4423,7 +4814,7 @@ local _frmFichaDoPersonagem = {
     dataType = "gtk.fichaDoPersonagem", 
     formType = "sheetTemplate", 
     formComponentName = "form", 
-    title = "Ficha do Personagem - GTK (v0.5.8)", 
+    title = "Ficha do Personagem - GTK (v0.6.0)", 
     description=""};
 
 frmFichaDoPersonagem = _frmFichaDoPersonagem;

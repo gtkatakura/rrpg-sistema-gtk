@@ -173,13 +173,20 @@ function newfrmPericias()
                     )
             
                     local pericias = ndb.getChildNodes(ficha.pericias)
-                    local totalBase = _.sumBy(pericias, {'pontos', 'base'})
+                    local totalBase = _.sumBy(pericias, {'pontos', 'base'}) or 0
             
                     if not (totalBase > 30) then
                       totalBase = 30
                     end
             
-                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. ((totalBase - 30) * 2) .. " PONTOS"
+                    local pdesGastos = (totalBase - 30) * 2
+            
+                    ficha.pdes = ficha.pdes or {}
+                    ficha.pdes.gastos = ficha.pdes.gastos or {}
+                    ficha.pdes.gastos.pericias = pdesGastos
+                    ficha.pdes.gastos.total = (ficha.pdes.gastos.atributos or 0) + (ficha.pdes.gastos.pericias or 0)
+            
+                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. pdesGastos .. " PONTOS"
         end, obj);
 
     obj._e_event2 = obj.dataLink2:addEventListener("onChange",
@@ -195,13 +202,20 @@ function newfrmPericias()
                     )
             
                     local pericias = ndb.getChildNodes(ficha.pericias)
-                    local totalBase = _.sumBy(pericias, {'pontos', 'base'})
+                    local totalBase = _.sumBy(pericias, {'pontos', 'base'}) or 0
             
                     if not (totalBase > 30) then
                       totalBase = 30
                     end
             
-                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. ((totalBase - 30) * 2) .. " PONTOS"
+                    local pdesGastos = (totalBase - 30) * 2
+            
+                    ficha.pdes = ficha.pdes or {}
+                    ficha.pdes.gastos = ficha.pdes.gastos or {}
+                    ficha.pdes.gastos.pericias = pdesGastos
+                    ficha.pdes.gastos.total = (ficha.pdes.gastos.atributos or 0) + (ficha.pdes.gastos.pericias or 0)
+            
+                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. pdesGastos .. " PONTOS"
         end, obj);
 
     obj._e_event3 = obj.dataLink3:addEventListener("onChange",
@@ -217,13 +231,20 @@ function newfrmPericias()
                     )
             
                     local pericias = ndb.getChildNodes(ficha.pericias)
-                    local totalBase = _.sumBy(pericias, {'pontos', 'base'})
+                    local totalBase = _.sumBy(pericias, {'pontos', 'base'}) or 0
             
                     if not (totalBase > 30) then
                       totalBase = 30
                     end
             
-                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. ((totalBase - 30) * 2) .. " PONTOS"
+                    local pdesGastos = (totalBase - 30) * 2
+            
+                    ficha.pdes = ficha.pdes or {}
+                    ficha.pdes.gastos = ficha.pdes.gastos or {}
+                    ficha.pdes.gastos.pericias = pdesGastos
+                    ficha.pdes.gastos.total = (ficha.pdes.gastos.atributos or 0) + (ficha.pdes.gastos.pericias or 0)
+            
+                    self:findControlByName('textPericiasPdesGastos').text = "PDEs: " .. pdesGastos .. " PONTOS"
         end, obj);
 
     obj._e_event4 = obj.button2:addEventListener("onClick",
