@@ -41,6 +41,17 @@
         if "$(atributo)" == "corpo" then
           self.textTotalSentidos.text = "PONTOS: (CORPO * 3) = " .. (sheet.atributos.$(atributo).total * 3)
         end
+
+        local mesa = rrpg.getMesaDe(sheet)
+        local HP_ID = 1
+
+        if "$(atributo)" == "vigor" and sheet.codigoInterno == mesa.meuJogador.personagemPrincipal then
+          showMessage(mesa.personagemPrincipal)
+          local valorAtual, valorTotalAtual = mesa.meuJogador:getBarValue(HP_ID)
+          local valorTotal = sheet.atributos.$(atributo).total * 3 + 10
+
+
+        end
       </event>
     </dataLink>
   </template>
